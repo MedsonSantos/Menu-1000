@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio1000</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="theme-toggle-container" id="theme-toggle-container">
+            <i class="fas fa-sun" id="theme-toggle-icon"></i>
+        </div>
+        <div class="info-toggle-container" id="info-toggle-container">
+            <i class="fas fa-info-circle" id="info-toggle-icon"></i>
+        </div>
+        <div class="logo-container">
+            <img src="logonova.png" alt="Logo Jantinha Nota 1000" class="header-logo">
+        </div>
+        <p>Experimente a melhor jantinha da cidade!</p>
+    </header>
+
+    <nav class="category-navigation" id="category-navigation">
+        </nav>
+
+    <main>
+        <section id="menu-sections">
+            </section>
+    </main>
+
+    <div class="cart-icon-container" id="cart-icon-container">
+        <i class="fas fa-shopping-cart cart-icon"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+   <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-modal="cart">×</span>
+            <h2>Seu Carrinho</h2>
+            <div id="cart-items-modal">
+                </div>
+            <div class="cart-summary-modal">
+                <p>Total: <span id="cart-total-modal">R$ 0,00</span></p>
+
+                <div class="order-options">
+                    <h3>Detalhes do Pedido</h3>
+                    
+                    <div class="input-group">
+                        <label for="order-type">Tipo de Pedido:</label>
+                        <select id="order-type" class="order-input">
+                            <option value="delivery" selected>Entrega</option>
+                            <option value="pickup">Retirada no Local</option>
+                        </select>
+                    </div>
+
+                    <div id="delivery-options">
+                        <div class="input-group">
+                            <label for="delivery-address">Endereço de Entrega:</label>
+                            <input type="text" id="delivery-address" class="order-input" placeholder="Ex: Rua Exemplo, 123, Bairro - Apto/Casa">
+                        </div>
+                        <p class="delivery-fee-info" id="delivery-fee-info">
+                            <strong>Atenção:</strong> Taxa de entrega não inclusa no total e será calculada de acordo com o endereço.
+                        </p>
+                    </div>
+
+                    <div id="pickup-options" style="display: none;">
+                        <div class="input-group">
+                            <label for="pickup-name">Nome para Retirada:</label>
+                            <input type="text" id="pickup-name" class="order-input" placeholder="Seu nome">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="notes">Observações (Opcional):</label>
+                        <textarea id="notes" class="order-input" rows="3" placeholder="Ex: Sem cebola, pimenta à parte, etc."></textarea>
+                    </div>
+                </div>
+                
+                <button id="checkout-whatsapp-modal"><i class="fab fa-whatsapp"></i> Pedir via WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="info-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-modal="info">&times;</span>
+            <h2>Informações e Contato</h2>
+            <div class="info-section">
+                <h3><i class="fas fa-motorcycle"></i> Informações de Entrega</h3>
+                <p>🏙️ Entrega disponível para a região de Goiânia e Aparecida de Goiânia.</p>
+                <p>🗺️ Cobrimos uma área de alcance de até 8KM de distância.</p>
+                <p>🫰Taxa de entrega pode variar de dependendo da sua localização sendo a mínima de 4,00 R$.</p>
+                <p>💵 Pagamentos via PIX, Cartão (débito/crédito) e Dinheiro.</p>
+                <p>🕧 Horários das entregas:<br>
+                    &nbsp; &nbsp; Terça a Sexta das 19:40 até 23:30<br>
+                    &nbsp; &nbsp; Sábado e Domingo das 19:00 até 23:45 .</p>
+            </div>
+            <div class="info-section">
+                <h3><i class="fas fa-clock"></i>Horário de Funcionamento Local</h3>
+                <ul>
+                    <li><strong>🕰️ Terça a Domingo:</strong> 18:30h - 00:00h</li>
+                    <li><strong>🏝️ Feriados:</strong> Consulte-nos!</li>
+                </ul>
+            </div>
+            <div class="info-section">
+                <h3><i class="fas fa-map-marker-alt"></i> Localização</h3>
+                <p>🏪 Av da paz Qd 159 Lt 17 Setor Garavelo Moto Livre ( Próximo ao Tático do Garavelo), Aparecida de Goiânia 74930580</p>
+                <p>
+                    <a href="https://maps.app.goo.gl/zoV6bZ6LjkFXQHsu8" target="_blank" class="maps-link">
+                        <i class="fas fa-map"></i> Como Chegar
+                    </a>
+                </p>
+            </div>
+            <div class="info-section contact-info">
+                <h3><i class="fas fa-phone"></i> Contato</h3>
+                <p class="fa-brands fa-whatsapp"> WhatsApp: <a href="https://wa.me/5562992020331" target="_blank">(62) 99202-0331</a></p>
+                <p class="fa-brands fa-instagram"> Instagram: <a href="https://www.instagram.com/jantinhanota1000/" target="_blank">jantinhanota1000</a></p>
+                <p class="fa-brands fa-facebook"> Facebook: <a href="https://www.facebook.com/profile.php?id=100054308119111" target="_blank">jantinha Nota 1000</a></p>
+            </div>
+        </div>
+    </div>
+    <div id="photos-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-modal="photos">&times;</span>
+            <h2>Nossas Fotos</h2>
+            <div class="photos-grid" id="modal-photos-grid">
+                </div>
+    </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Jantinha Nota 1000. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
