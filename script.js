@@ -1,6 +1,6 @@
 // script.js
 
-// Dados dos produtos (mantidos os mesmos)
+// Dados dos produtos
 const products = [
     {
         id: 'pp-1',
@@ -8,31 +8,40 @@ const products = [
         name: 'Jantinha Completa',
         description: 'Arroz branco, feijão tropeiro ou de caldo, mandioca, vinagrete e 1 espeto a escolha',
         price: 22.00,
-        imageUrl: 'https://i.imgur.com/6hoWcyi.png' 
+        imageUrl: 'https://imgur.com/j8KuBRF.png'
     },
     {
         id: 'pp-2',
         category: 'Pratos',
-        name: 'Jantinha de Frango Grelhado',
-        description: 'Suculento filé de frango grelhado com arroz, feijão e salada.',
-        price: 22.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg' 
+        name: 'Jantinha Nota 1000',
+        description: 'Arroz branco, feijão tropeiro ou de caldo, mandioca, estrogonofe de frango, batata palha, vinagrete e 1 espeto a escolha',
+        price: 25.00,
+        imageUrl: 'https://imgur.com/j8KuBRF.png'
     },
     {
         id: 'pp-3',
         category: 'Pratos',
-        name: 'Jantinha de Linguiça Caseira',
-        description: 'Linguiça artesanal na chapa, acompanhada de arroz, tutu e vinagrete.',
-        price: 23.50,
-        imageUrl: 'https://i.imgur.com/ExemploLinguica.jpg' 
+        name: 'Jantinha sem Espeto',
+        description: 'Arroz branco, feijão tropeiro ou de caldo, mandioca, vinagrete sem espeto',
+        price: 19.00,
+        imageUrl: 'https://imgur.com/j8KuBRF.png'
     },
+    {
+        id: 'pp-4',
+        category: 'Pratos',
+        name: 'Jantinha de Estrogonofe', // Corrigido para "Estrogonofe"
+        description: 'Estrogonofe de frango, batata palha e Arroz branco',
+        price: 22.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+
     {
         id: 'cev-1',
         category: 'Cervejas',
         name: 'Cerveja Skol Lata 350ml',
         description: 'A cerveja que desce redondo!',
         price: 5.00,
-        imageUrl: 'https://i.imgur.com/ExemploSkol.jpg' 
+        imageUrl: 'https://i.imgur.com/ExemploSkol.jpg'
     },
     {
         id: 'cev-2',
@@ -40,7 +49,7 @@ const products = [
         name: 'Cerveja Brahma Duplo Malte Long Neck',
         description: 'Sabor marcante com o equilíbrio perfeito.',
         price: 7.50,
-        imageUrl: 'https://i.imgur.com/ExemploBrahma.jpg' 
+        imageUrl: 'https://i.imgur.com/ExemploBrahma.jpg'
     },
     {
         id: 'cald-1',
@@ -48,7 +57,7 @@ const products = [
         name: 'Caldo de Feijão com Bacon',
         description: 'Cremoso caldo de feijão com pedacinhos de bacon crocante.',
         price: 15.00,
-        imageUrl: 'https://i.imgur.com/ExemploCaldoFeijao.jpg' 
+        imageUrl: 'https://i.imgur.com/ExemploCaldoFeijao.jpg'
     },
     {
         id: 'cald-2',
@@ -56,7 +65,7 @@ const products = [
         name: 'Caldo Verde',
         description: 'Tradicional caldo verde com couve, batata e linguiça defumada.',
         price: 16.50,
-        imageUrl: 'https://i.imgur.com/ExemploCaldoVerde.jpg' 
+        imageUrl: 'https://i.imgur.com/ExemploCaldoVerde.jpg'
     },
     {
         id: 'guar-1',
@@ -64,7 +73,7 @@ const products = [
         name: 'Porção de Arroz Branco',
         description: 'Arroz soltinho e fresquinho.',
         price: 8.00,
-        imageUrl: 'https://i.imgur.com/ExemploArroz.jpg' 
+        imageUrl: 'https://i.imgur.com/ExemploArroz.jpg'
     },
     {
         id: 'guar-2',
@@ -72,7 +81,7 @@ const products = [
         name: 'Porção de Mandioca Cozida',
         description: 'Mandioca cozida no ponto certo, macia por dentro.',
         price: 10.00,
-        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg' 
+        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
     }
 ];
 
@@ -80,25 +89,25 @@ const products = [
 const categoriesData = [
     {
         name: 'Pratos',
-        imageUrl: 'https://thumbs2.imgbox.com/a5/41/fTXQM9Hn_t.gif', 
+        imageUrl: 'https://thumbs2.imgbox.com/a5/41/fTXQM9Hn_t.gif',
         lottieJsonUrl: 'iconsJSON/cookingsafe.json',
         type: 'category'
     },
     {
         name: 'Cervejas',
-        imageUrl: 'https://i.imgur.com/BannerCervejas.jpg', 
+        imageUrl: 'https://i.imgur.com/BannerCervejas.jpg',
         lottieJsonUrl: 'iconsJSON/cervejaLata.json',
         type: 'category'
     },
     {
         name: 'Caldos',
-        imageUrl: 'https://i.imgur.com/BannerCaldos.jpg', 
+        imageUrl: 'https://i.imgur.com/BannerCaldos.jpg',
         lottieJsonUrl: 'iconsJSON/caldos.json',
         type: 'category'
     },
     {
         name: 'Guarnições',
-        imageUrl: 'https://i.imgur.com/BannerGuarnicoes.jpg', 
+        imageUrl: 'https://i.imgur.com/BannerGuarnicoes.jpg',
         lottieJsonUrl: 'iconsJSON/seila.json',
         type: 'category'
     },
@@ -121,7 +130,7 @@ const categoriesData = [
         imageUrl: 'https://i.imgur.com/ExemploMaps.png',
         lottieJsonUrl: 'iconsJSON/localizacao.json',
         type: 'link',
-        url: 'https://maps.app.goo.gl/zoV6bZ6LjkFXQHsu8' 
+        url: 'https://maps.app.goo.gl/zoV6bZ6LjkFXQHsu8'
     },
     {
         name: 'Fotos',
@@ -141,10 +150,12 @@ const photos = [
 
 const DEFAULT_PLACEHOLDER_IMAGE = 'https://via.placeholder.com/180x180?text=Jantinha+Nota+1000';
 const DEFAULT_CATEGORY_IMAGE = 'https://via.placeholder.com/600x200?text=Categoria';
-const DEFAULT_LOTTIE_JSON = 'iconsJSON/KnifeForkie.json'; 
+const DEFAULT_LOTTIE_JSON = 'iconsJSON/KnifeForkie.json';
 
 // Carrinho de compras. Cada item pode ser:
 // - Jantinha Completa: { id: 'pp-1', espeto: 'Carne', feijao: 'Tropeiro', quantity: 1 }
+// - Jantinha Nota 1000: { id: 'pp-2', espeto: 'Carne', feijao: 'Tropeiro', quantity: 1 }
+// - Jantinha sem Espeto: { id: 'pp-3', feijao: 'Tropeiro', quantity: 1 }
 // - Outros produtos: { id: 'produto_id', quantity: X }
 let cart = [];
 
@@ -153,7 +164,7 @@ const menuSections = document.getElementById('menu-sections');
 
 // Elementos do Modal do Carrinho
 const cartModal = document.getElementById('cart-modal');
-const closeCartModalBtn = cartModal.querySelector('.close-button'); 
+const closeCartModalBtn = cartModal.querySelector('.close-button');
 const cartItemsModalContainer = document.getElementById('cart-items-modal');
 const cartTotalModalSpan = document.getElementById('cart-total-modal');
 const checkoutWhatsappModalBtn = document.getElementById('checkout-whatsapp-modal');
@@ -170,7 +181,7 @@ const notesTextarea = document.getElementById('notes');
 
 // Elementos do Modal de Informações
 const infoModal = document.getElementById('info-modal');
-const closeInfoModalBtn = infoModal.querySelector('.close-button'); 
+const closeInfoModalBtn = infoModal.querySelector('.close-button');
 const infoToggleContainer = document.getElementById('info-toggle-container');
 
 // Elementos do Modal de Fotos
@@ -199,12 +210,12 @@ function setTheme(theme) {
     if (theme === 'light') {
         document.body.classList.add('light-theme');
         themeToggleIcon.classList.remove('fa-sun');
-        themeToggleIcon.classList.add('fa-moon'); 
+        themeToggleIcon.classList.add('fa-moon');
         localStorage.setItem('theme', 'light');
-    } else { 
+    } else {
         document.body.classList.remove('light-theme');
         themeToggleIcon.classList.remove('fa-moon');
-        themeToggleIcon.classList.add('fa-sun'); 
+        themeToggleIcon.classList.add('fa-sun');
         localStorage.setItem('theme', 'dark');
     }
 }
@@ -229,7 +240,7 @@ function initializeTheme() {
         setTheme('light');
     } else {
         // Padrão para escuro se não houver preferência salva ou for 'dark'
-        setTheme('dark'); 
+        setTheme('dark');
     }
 }
 // --- Fim Funções de Manipulação do Tema ---
@@ -297,7 +308,7 @@ function renderMenu() {
 
         const categoryButton = document.createElement('button');
         categoryButton.classList.add('category-button');
-        
+
         // Define o target (ID da seção, URL ou ID do modal)
         if (item.type === 'category') {
             categoryButton.dataset.targetId = `category-${normalizedId}`;
@@ -305,13 +316,13 @@ function renderMenu() {
         } else if (item.type === 'link') {
             categoryButton.dataset.url = item.url;
             categoryButton.dataset.type = 'link';
-        } else if (item.type === 'modal') { 
+        } else if (item.type === 'modal') {
             categoryButton.dataset.targetModalId = item.targetModalId;
             categoryButton.dataset.type = 'modal';
         }
 
         const lottieContainer = document.createElement('div');
-        lottieContainer.classList.add('lottie-icon-container'); 
+        lottieContainer.classList.add('lottie-icon-container');
         categoryButton.appendChild(lottieContainer);
 
         // Define a URL Lottie ou imagem de fallback
@@ -321,13 +332,13 @@ function renderMenu() {
         // Tenta carregar Lottie, se não, usa imagem de fallback
         if (lottieJsonUrlToUse && typeof lottie !== 'undefined') {
             lottie.loadAnimation({
-                container: lottieContainer, 
-                renderer: 'svg', 
-                loop: true, 
-                autoplay: true, 
-                path: lottieJsonUrlToUse, 
+                container: lottieContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: lottieJsonUrlToUse,
                 rendererSettings: {
-                    className: 'lottie-svg' 
+                    className: 'lottie-svg'
                 }
             });
         } else {
@@ -341,11 +352,11 @@ function renderMenu() {
         buttonText.classList.add('button-text');
         buttonText.textContent = item.name;
         categoryButton.appendChild(buttonText);
-        
+
         categoryButton.addEventListener('click', (event) => {
             const targetType = event.currentTarget.dataset.type;
             if (targetType === 'category') {
-                const targetId = event.currentTarget.dataset.targetId; 
+                const targetId = event.currentTarget.dataset.targetId;
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -353,7 +364,7 @@ function renderMenu() {
             } else if (targetType === 'link') {
                 const url = event.currentTarget.dataset.url;
                 window.open(url, '_blank'); // Abre em nova aba
-            } else if (targetType === 'modal') { 
+            } else if (targetType === 'modal') {
                 const targetModalId = event.currentTarget.dataset.targetModalId;
                 const targetModal = document.getElementById(targetModalId);
                 if (targetModal) {
@@ -371,11 +382,11 @@ function renderMenu() {
     // Renderiza as seções de produtos (apenas para as categorias 'type: category')
     for (const categoryName in categories) {
         const normalizedId = normalizeCategoryName(categoryName);
-        
+
         const categoryDiv = document.createElement('div');
         categoryDiv.classList.add('category');
-        categoryDiv.id = `category-${normalizedId}`; 
-        
+        categoryDiv.id = `category-${normalizedId}`;
+
         const categoryTitle = document.createElement('h2');
         categoryTitle.textContent = categoryName;
         categoryDiv.appendChild(categoryTitle);
@@ -389,8 +400,8 @@ function renderMenu() {
             productCard.dataset.id = product.id;
 
             const imageUrlToUse = (product.imageUrl && !product.imageUrl.includes('link_da_sua_imagem_'))
-                                 ? product.imageUrl
-                                 : DEFAULT_PLACEHOLDER_IMAGE;
+                ? product.imageUrl
+                : DEFAULT_PLACEHOLDER_IMAGE;
 
             productCard.innerHTML = `
                 <img src="${imageUrlToUse}" alt="${product.name}">
@@ -402,16 +413,16 @@ function renderMenu() {
             productsGrid.appendChild(productCard);
         });
         categoryDiv.appendChild(productsGrid);
-        menuSections.appendChild(categoryDiv); 
+        menuSections.appendChild(categoryDiv);
     }
 
     // Adiciona event listeners aos botões "Adicionar" dos produtos
     document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', (event) => {
             const productId = event.target.dataset.id;
-            // Jantinha Completa é tratada como um item individual para personalização
-            if (productId === 'pp-1') { 
-                addJantinhaCompletaToCart(productId);
+            // Verifica se o produto é uma jantinha que precisa de personalização
+            if (['pp-1', 'pp-2', 'pp-3'].includes(productId)) {
+                addCustomizableJantinhaToCart(productId);
             } else {
                 addToCart(productId); // Outros itens são agrupados
             }
@@ -435,13 +446,13 @@ function renderPhotosInModal() {
 }
 
 /**
- * Adiciona um item genérico (não-Jantinha Completa) ao carrinho,
+ * Adiciona um item genérico (não-jantinha personalizável) ao carrinho,
  * agrupando se o item já existir.
  * @param {string} productId - O ID do produto a ser adicionado.
  */
 function addToCart(productId) {
-    // Procura por um item existente no carrinho que tenha o mesmo ID E não seja uma jantinha personalizada
-    const existingItemIndex = cart.findIndex(item => item.id === productId && item.espeto === undefined); 
+    // Procura por um item existente no carrinho que tenha o mesmo ID E não seja uma jantinha personalizável
+    const existingItemIndex = cart.findIndex(item => item.id === productId && !['pp-1', 'pp-2', 'pp-3'].includes(item.id));
 
     if (existingItemIndex > -1) {
         cart[existingItemIndex].quantity += 1;
@@ -453,20 +464,29 @@ function addToCart(productId) {
 }
 
 /**
- * Adiciona uma nova instância de "Jantinha Completa" ao carrinho.
- * Cada Jantinha Completa é um item separado no carrinho para permitir personalização individual.
- * @param {string} productId - O ID do produto "Jantinha Completa".
+ * Adiciona uma nova instância de uma jantinha personalizável (pp-1, pp-2, pp-3) ao carrinho.
+ * Cada jantinha é um item separado no carrinho para permitir personalização individual.
+ * @param {string} productId - O ID do produto da jantinha.
  */
-function addJantinhaCompletaToCart(productId) {
-    // Adiciona uma nova Jantinha Completa com opções padrão/vazias
-    cart.push({ id: productId, espeto: '', feijao: '', quantity: 1 }); // quantity será sempre 1 para essas jantinhas personalizadas
+function addCustomizableJantinhaToCart(productId) {
+    const newItem = { id: productId, quantity: 1 }; // quantity será sempre 1 para essas jantinhas personalizadas
+
+    // Adiciona as opções de personalização baseadas no ID do produto
+    if (productId === 'pp-1' || productId === 'pp-2') { // Jantinha Completa e Jantinha Nota 1000
+        newItem.espeto = '';
+        newItem.feijao = '';
+    } else if (productId === 'pp-3') { // Jantinha sem Espeto
+        newItem.feijao = '';
+    }
+
+    cart.push(newItem);
     updateCartDisplay();
     flashCartIcon();
 }
 
 /**
  * Atualiza a quantidade de um item no carrinho com base no seu índice no array 'cart'.
- * Para Jantinha Completa, remove ou adiciona instâncias.
+ * Para jantinhas personalizáveis, remove ou adiciona instâncias.
  * Para outros itens, apenas ajusta a quantidade.
  * @param {number} cartIndex - O índice do item no array `cart`.
  * @param {number} change - O valor da mudança (+1 para aumentar, -1 para diminuir).
@@ -478,18 +498,18 @@ function updateCartItemQuantity(cartIndex, change) {
         return;
     }
 
-    // Para Jantinha Completa (id: 'pp-1'), cada item do carrinho é uma única jantinha personalizável.
-    // Portanto, ao diminuir a quantidade, removemos o item. Ao aumentar, adicionamos um novo.
-    if (cart[cartIndex].id === 'pp-1') {
+    const item = cart[cartIndex];
+    // Verifica se é uma jantinha personalizável
+    if (['pp-1', 'pp-2', 'pp-3'].includes(item.id)) {
         if (change < 0) { // Tentando diminuir
             cart.splice(cartIndex, 1); // Remove esta instância de jantinha
         } else { // Tentando aumentar (adicionar outra jantinha)
-            addJantinhaCompletaToCart('pp-1'); // Adiciona uma nova Jantinha Completa
+            addCustomizableJantinhaToCart(item.id); // Adiciona uma nova instância do mesmo tipo de jantinha
         }
     } else {
         // Para outros produtos, ajusta a quantidade do item existente
-        cart[cartIndex].quantity += change;
-        if (cart[cartIndex].quantity <= 0) {
+        item.quantity += change;
+        if (item.quantity <= 0) {
             cart.splice(cartIndex, 1);
         }
     }
@@ -518,7 +538,7 @@ function updateCartDisplay() {
     if (cart.length === 0) {
         cartItemsModalContainer.innerHTML = '<p>Nenhum item no carrinho.</p>';
     } else {
-        // Objeto para agrupar produtos não-Jantinha Completa para exibição
+        // Objeto para agrupar produtos não-jantinhas personalizáveis para exibição
         const groupedOtherItems = {};
 
         cart.forEach((cartItem, index) => {
@@ -528,7 +548,8 @@ function updateCartDisplay() {
                 return; // Pula para o próximo item se o produto não for encontrado
             }
 
-            if (product.id === 'pp-1') { // É uma Jantinha Completa
+            // Verifica se é uma jantinha personalizável
+            if (['pp-1', 'pp-2', 'pp-3'].includes(product.id)) {
                 const itemTotal = product.price; // O preço da jantinha é para 1 unidade
                 total += itemTotal;
                 itemCount += 1; // Cada jantinha é contada como 1 item para o total de itens
@@ -536,29 +557,43 @@ function updateCartDisplay() {
                 const cartItemDiv = document.createElement('div');
                 cartItemDiv.classList.add('cart-item');
                 // Usamos o 'index' do array `cart` para identificar essa jantinha única
+                let optionsHtml = '';
+
+                if (product.id === 'pp-1' || product.id === 'pp-2') { // Jantinha Completa e Jantinha Nota 1000
+                    optionsHtml += `
+                        <div class="input-group-inline">
+                            <label for="espeto-${index}">Espeto:</label>
+                            <select id="espeto-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="espeto">
+                                <option value="" disabled ${cartItem.espeto === '' ? 'selected' : ''}>Selecione</option>
+                                <option value="Carne" ${cartItem.espeto === 'Carne' ? 'selected' : ''}>Carne</option>
+                                <option value="Frango" ${cartItem.espeto === 'Frango' ? 'selected' : ''}>Frango</option>
+                                <option value="Linguiça" ${cartItem.espeto === 'Linguiça' ? 'selected' : ''}>Linguiça</option>
+                                <option value="Queijo" ${cartItem.espeto === 'Queijo' ? 'selected' : ''}>Queijo</option>
+                            </select>
+                        </div>
+                    `;
+                }
+
+                if (product.id === 'pp-1' || product.id === 'pp-2' || product.id === 'pp-3') { // Todas as jantinhas precisam de feijão
+                    optionsHtml += `
+                        <div class="input-group-inline">
+                            <label for="feijao-${index}">Feijão:</label>
+                            <select id="feijao-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="feijao">
+                                <option value="" disabled ${cartItem.feijao === '' ? 'selected' : ''}>Selecione</option>
+                                <option value="Tropeiro" ${cartItem.feijao === 'Tropeiro' ? 'selected' : ''}>Tropeiro</option>
+                                <option value="Caldo" ${cartItem.feijao === 'Caldo' ? 'selected' : ''}>Caldo</option>
+                            </select>
+                        </div>
+                    `;
+                }
+
+
                 cartItemDiv.innerHTML = `
                     <div class="cart-item-info">
                         <span class="item-name">${product.name}</span>
                         <span class="item-price">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
                         <div class="jantinha-options-individual">
-                            <div class="input-group-inline">
-                                <label for="espeto-${index}">Espeto:</label>
-                                <select id="espeto-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="espeto">
-                                    <option value="" disabled ${cartItem.espeto === '' ? 'selected' : ''}>Selecione</option>
-                                    <option value="Carne" ${cartItem.espeto === 'Carne' ? 'selected' : ''}>Carne</option>
-                                    <option value="Frango" ${cartItem.espeto === 'Frango' ? 'selected' : ''}>Frango</option>
-                                    <option value="Linguiça" ${cartItem.espeto === 'Linguiça' ? 'selected' : ''}>Linguiça</option>
-                                    <option value="Queijo" ${cartItem.espeto === 'Queijo' ? 'selected' : ''}>Queijo</option>
-                                </select>
-                            </div>
-                            <div class="input-group-inline">
-                                <label for="feijao-${index}">Feijão:</label>
-                                <select id="feijao-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="feijao">
-                                    <option value="" disabled ${cartItem.feijao === '' ? 'selected' : ''}>Selecione</option>
-                                    <option value="Tropeiro" ${cartItem.feijao === 'Tropeiro' ? 'selected' : ''}>Tropeiro</option>
-                                    <option value="Caldo" ${cartItem.feijao === 'Caldo' ? 'selected' : ''}>Caldo</option>
-                                </select>
-                            </div>
+                            ${optionsHtml}
                         </div>
                     </div>
                     <div class="cart-item-quantity">
@@ -575,13 +610,10 @@ function updateCartDisplay() {
                     groupedOtherItems[product.id] = { product: product, quantity: 0, cartIndices: [] };
                 }
                 groupedOtherItems[product.id].quantity += cartItem.quantity;
-                // Armazenamos os índices originais para poder manipular quantity diretamente em addToCart/updateCartItemQuantity
-                // IMPORTANTE: Para itens agrupados, não vamos usar o cartIndex direto para buttons +/-
-                // A lógica de updateCartItemQuantity já lida com encontrar o item "genérico"
             }
         });
 
-        // Adiciona os itens agrupados (não-Jantinha Completa)
+        // Adiciona os itens agrupados (não-jantinhas personalizáveis)
         for (const productId in groupedOtherItems) {
             const item = groupedOtherItems[productId];
             const product = item.product;
@@ -616,15 +648,15 @@ function updateCartDisplay() {
         button.addEventListener('click', (event) => {
             const action = event.target.dataset.action;
 
-            if (action.includes('grouped')) { // Para itens agrupados (não Jantinha Completa)
+            if (action.includes('grouped')) { // Para itens agrupados (não jantinhas personalizáveis)
                 const productId = event.target.dataset.productId;
                 const change = action === 'increase-grouped' ? 1 : -1;
                 // Encontre o índice do PRIMEIRO item não-jantinha desse tipo no carrinho
-                const itemIndex = cart.findIndex(item => item.id === productId && item.espeto === undefined); 
+                const itemIndex = cart.findIndex(item => item.id === productId && !['pp-1', 'pp-2', 'pp-3'].includes(item.id));
                 if (itemIndex !== -1) {
                     updateCartItemQuantity(itemIndex, change);
                 }
-            } else { // Para Jantinha Completa (individual)
+            } else { // Para jantinhas personalizáveis (individual)
                 const cartIndex = parseInt(event.target.dataset.cartIndex);
                 const change = action === 'increase' ? 1 : -1;
                 updateCartItemQuantity(cartIndex, change);
@@ -640,7 +672,7 @@ function updateCartDisplay() {
             const value = event.target.value;
 
             // Atualiza a propriedade do item correspondente no array `cart`
-            if (cart[cartIndex] && cart[cartIndex].id === 'pp-1') {
+            if (cart[cartIndex]) {
                 cart[cartIndex][optionType] = value;
             }
             // Não precisa de updateCartDisplay() completo, só armazena o valor
@@ -703,31 +735,41 @@ function sendOrderToWhatsapp() {
 
     let validationFailed = false; // Flag para controlar a validação das jantinhas
 
-    // Processa primeiro as Jantinhas Completas
+    // Processa os itens do carrinho
     cart.forEach((cartItem, index) => {
         const product = products.find(p => p.id === cartItem.id);
         if (!product) {
             console.warn(`Produto com ID ${cartItem.id} não encontrado ao gerar mensagem.`);
-            // Decidir se isso deve impedir o pedido. Por enquanto, continua, mas alerta no console.
-            return; 
+            return;
         }
 
-        if (product.id === 'pp-1') { // É uma Jantinha Completa
-            const espeto = cartItem.espeto || 'Não selecionado';
-            const feijao = cartItem.feijao || 'Não selecionado';
+        // Se for uma jantinha personalizável
+        if (['pp-1', 'pp-2', 'pp-3'].includes(product.id)) {
+            const itemPrice = product.price;
+            total += itemPrice;
 
-            // Validação para Jantinha Completa
-            if (espeto === 'Não selecionado' || feijao === 'Não selecionado') {
-                alert(`Por favor, selecione o espeto e o tipo de feijão para a Jantinha Completa (Item #${index + 1} no carrinho).`);
-                validationFailed = true;
-                return; // Pula para o próximo item, mas a flag impede o envio
+            let itemDetails = `1x ${product.name}:\n`;
+
+            if (product.id === 'pp-1' || product.id === 'pp-2') { // Jantinha Completa e Jantinha Nota 1000
+                const espeto = cartItem.espeto || 'Não selecionado';
+                if (espeto === 'Não selecionado') {
+                    alert(`Por favor, selecione o espeto para a "${product.name}" (Item #${index + 1} no carrinho).`);
+                    validationFailed = true;
+                    return;
+                }
+                itemDetails += `  - Espeto: ${espeto}\n`;
             }
 
-            message += `1x Jantinha Completa:\n`;
-            message += `  - Espeto: ${espeto}\n`;
-            message += `  - Feijão: ${feijao}\n`;
-            message += `  - Preço: R$ ${product.price.toFixed(2).replace('.', ',')}\n`;
-            total += product.price;
+            const feijao = cartItem.feijao || 'Não selecionado';
+            if (feijao === 'Não selecionado') {
+                alert(`Por favor, selecione o tipo de feijão para a "${product.name}" (Item #${index + 1} no carrinho).`);
+                validationFailed = true;
+                return;
+            }
+            itemDetails += `  - Feijão: ${feijao}\n`;
+            itemDetails += `  - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n`;
+
+            message += itemDetails;
 
         } else { // Outros produtos (agrupáveis)
             const itemKey = product.id;
@@ -747,7 +789,7 @@ function sendOrderToWhatsapp() {
         return;
     }
 
-    // Adiciona os itens agrupados (não-Jantinha Completa) à mensagem
+    // Adiciona os itens agrupados (não-jantinhas personalizáveis) à mensagem
     for (const key in otherItemsSummary) {
         const item = otherItemsSummary[key];
         const itemTotal = item.price * item.quantity;
@@ -766,7 +808,7 @@ function sendOrderToWhatsapp() {
     if (notes) {
         message += `\n*Observações:*\n${notes}\n`;
     }
-    
+
     message += `\n*Total dos Produtos: R$ ${total.toFixed(2).replace('.', ',')}*\n`;
 
     // Adiciona o aviso de taxa de entrega apenas se for entrega
@@ -776,7 +818,7 @@ function sendOrderToWhatsapp() {
 
     message += `\nObrigado por pedir no Jantinha Nota 1000!`;
 
-    const whatsappNumber = '5562992020331'; 
+    const whatsappNumber = '5562992020331';
 
     const encodedMessage = encodeURIComponent(message);
 
@@ -818,8 +860,8 @@ orderTypeSelect.addEventListener('change', handleOrderTypeChange);
 
 // Inicializa a aplicação quando o DOM estiver completamente carregado
 document.addEventListener('DOMContentLoaded', () => {
-    initializeTheme(); 
-    renderMenu(); 
+    initializeTheme();
+    renderMenu();
     updateCartDisplay(); // Garante que o contador do carrinho esteja correto ao carregar a página
     handleOrderTypeChange(); // Chama ao carregar para definir o estado inicial (Entrega)
 });

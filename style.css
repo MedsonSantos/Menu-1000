@@ -820,14 +820,15 @@ footer {
     }
 
     .cart-icon {
-        font-size: 1.1em;
+        font-size: 0.9em;
+        position: absolute;
     }
 
     .cart-count {
         top: -8px;
         right: -8px;
-        font-size: 0.6em; /* Ajuste para melhor visualização em telas pequenas */
-        padding: 0.2em 0.4em;
+        font-size: 0.4em; /* Ajuste para melhor visualização em telas pequenas */
+        padding: 0.3em 0.4em;
     }
 
     .category h2 {
