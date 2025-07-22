@@ -1,6 +1,7 @@
 // script.js
 
 // Dados dos produtos
+//--------------------------------------PRATOS-------------------------------------//
 const products = [
     {
         id: 'pp-1',
@@ -29,48 +30,199 @@ const products = [
     {
         id: 'pp-4',
         category: 'Pratos',
-        name: 'Jantinha de Estrogonofe', // Corrigido para "Estrogonofe"
+        name: 'Jantinha de Estrogonofe',
         description: 'Estrogonofe de frango, batata palha e Arroz branco',
         price: 22.00,
         imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
     },
+    {
+        id: 'pp-5',
+        category: 'Pratos',
+        name: 'Jantinha Kids',
+        description: '(somente consumo no local) um pouco de arroz, um pouco de estrogonofe e batata palha',
+        price: 22.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
 
+    //--------------------------------------ESPETOS-------------------------------------//
+    {
+        id: 'esp-1',
+        category: 'Espetos',
+        name: 'Frango com Bacon',
+        description: '',
+        price: 11.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+    {
+        id: 'esp-2',
+        category: 'Espetos',
+        name: 'Frango sem Bacon',
+        description: '',
+        price: 11.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+    {
+        id: 'esp-3',
+        category: 'Espetos',
+        name: 'Contra Filé',
+        description: '',
+        price: 11.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+
+    {
+        id: 'esp-4',
+        category: 'Espetos',
+        name: 'Picanha Montada',
+        description: '',
+        price: 11.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+    {
+        id: 'esp-5',
+        category: 'Espetos',
+        name: 'Asinha',
+        description: 'Tulipa',
+        price: 11.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+
+     {
+        id: 'esp-6',
+        category: 'Espetos',
+        name: 'Cupim',
+        description: 'Grill',
+        price: 11.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+    {
+        id: 'esp-7',
+        category: 'Espetos',
+        name: 'Coração',
+        description: '',
+        price: 11.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+    {
+        id: 'esp-8',
+        category: 'Espetos',
+        name: 'Coxinha da Asa',
+        description: 'Drumette',
+        price: 11.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+    {
+        id: 'esp-9',
+        category: 'Espetos',
+        name: 'Linguiça Caipira',
+        description: 'Linguiça Suína da fazenda sem pimenta',
+        price: 11.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+    {
+        id: 'esp-10',
+        category: 'Espetos',
+        name: 'Linguiça Caipira Apimentada',
+        description: 'Linguiça Suína com um toque de pimenta',
+        price: 11.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+
+    {
+        id: 'esp-11',
+        category: 'Espetos',
+        name: 'Cafta',
+        description: 'Carne bovina recheada com queijo',
+        price: 12.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+    {
+        id: 'esp-12',
+        category: 'Espetos',
+        name: 'Cafta 1000',
+        description: 'Carne bovina envolta em bacon, recheada com queijo',
+        price: 14.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+    {
+        id: 'esp-13',
+        category: 'Espetos',
+        name: 'Provolone',
+        description: 'Queijo provolone bola defumado no espeto',
+        price: 12.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+      {
+        id: 'esp-14',
+        category: 'Espetos',
+        name: 'Coalho',
+        description: 'Queijo Coalho no espeto',
+        price: 12.00,
+        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+    },
+//--------------------------------------CERVEJAS-------------------------------------//
     {
         id: 'cev-1',
         category: 'Cervejas',
-        name: 'Cerveja Skol Lata 350ml',
-        description: 'A cerveja que desce redondo!',
-        price: 5.00,
+        name: 'Amstel Lata',
+        description: '350ml',
+        price: 6.00,
         imageUrl: 'https://i.imgur.com/ExemploSkol.jpg'
     },
     {
         id: 'cev-2',
         category: 'Cervejas',
-        name: 'Cerveja Brahma Duplo Malte Long Neck',
-        description: 'Sabor marcante com o equilíbrio perfeito.',
-        price: 7.50,
+        name: 'Brahma Duplo Malte Lata',
+        description: '350ml',
+        price: 6.00,
         imageUrl: 'https://i.imgur.com/ExemploBrahma.jpg'
     },
     {
+        id: 'cev-3',
+        category: 'Cervejas',
+        name: 'Antartica Lata',
+        description: '350ml',
+        price: 6.00,
+        imageUrl: 'https://i.imgur.com/ExemploBrahma.jpg'
+    },
+    {
+        id: 'cev-4',
+        category: 'Cervejas',
+        name: 'Império lata',
+        description: '350ml',
+        price: 6.00,
+        imageUrl: 'https://i.imgur.com/ExemploBrahma.jpg'
+    },
+    //--------------------------------------CALDOS-------------------------------------//
+    {
         id: 'cald-1',
         category: 'Caldos',
-        name: 'Caldo de Feijão com Bacon',
-        description: 'Cremoso caldo de feijão com pedacinhos de bacon crocante.',
-        price: 15.00,
+        name: 'Caldo de Feijão',
+        description: '500ml',
+        price: 18.00,
         imageUrl: 'https://i.imgur.com/ExemploCaldoFeijao.jpg'
     },
     {
         id: 'cald-2',
         category: 'Caldos',
-        name: 'Caldo Verde',
-        description: 'Tradicional caldo verde com couve, batata e linguiça defumada.',
-        price: 16.50,
+        name: 'Caldo de Frango',
+        description: '500ml',
+        price: 18.00,
         imageUrl: 'https://i.imgur.com/ExemploCaldoVerde.jpg'
     },
     {
+        id: 'cald-3',
+        category: 'Caldos',
+        name: 'Caldo de Costela',
+        description: '500ml, com pedaços de costela e mandioca',
+        price: 18.00,
+        imageUrl: 'https://i.imgur.com/ExemploCaldoVerde.jpg'
+    },
+    //--------------------------------------GUARNIÇÕES-------------------------------------//
+    {
         id: 'guar-1',
         category: 'Guarnições',
-        name: 'Porção de Arroz Branco',
+        name: 'Arroz Branco',
         description: 'Arroz soltinho e fresquinho.',
         price: 8.00,
         imageUrl: 'https://i.imgur.com/ExemploArroz.jpg'
@@ -78,14 +230,63 @@ const products = [
     {
         id: 'guar-2',
         category: 'Guarnições',
-        name: 'Porção de Mandioca Cozida',
+        name: 'Mandioca',
         description: 'Mandioca cozida no ponto certo, macia por dentro.',
+        price: 7.00,
+        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+    },
+    {
+        id: 'guar-3',
+        category: 'Guarnições',
+        name: 'Vinagrete',
+        description: 'Tomates selecionados fresquinho.',
+        price: 7.00,
+        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+    },
+    {
+        id: 'guar-4',
+        category: 'Guarnições',
+        name: 'feijão Tropeiro (P)',
+        description: 'Porção de feijão tropeiro pequena, mas grande no sabor!',
         price: 10.00,
         imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
-    }
+    },
+     {
+        id: 'guar-5',
+        category: 'Guarnições',
+        name: 'feijão Tropeiro (G)',
+        description: 'Porção de feijão tropeiro grande, para quem quer dividir!',
+        price: 15.00,
+        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+    },
+    //--------------------------------------LANCHES-------------------------------------//
+    {
+        id: 'lan-1',
+        category: 'Lanches',
+        name: 'Pastel Frango com Queijo',
+        description: '',
+        price: 13.00,
+        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+    },
+     {
+        id: 'lan-2',
+        category: 'Lanches',
+        name: 'Pastel Presunto e Queijo',
+        description: '',
+        price: 13.00,
+        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+    },
+     {
+        id: 'lan-3',
+        category: 'Lanches',
+        name: 'Pastel Carne com Queijo',
+        description: '',
+        price: 13.00,
+        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+    },
 ];
 
-// Definição de categorias com suas imagens e URLs Lottie (mantidas as mesmas)
+// Definição de categorias com suas imagens e URLs LottieD
 const categoriesData = [
     {
         name: 'Pratos',
@@ -93,10 +294,18 @@ const categoriesData = [
         lottieJsonUrl: 'iconsJSON/cookingsafe.json',
         type: 'category'
     },
+
+    {
+        name: 'Espetos',
+        imageUrl: 'https://thumbs2.imgbox.com/a5/41/fTXQM9Hn_t.gif',
+        lottieJsonUrl: 'iconsJSON/espetos.json',
+        type: 'category'
+    },
+
     {
         name: 'Cervejas',
         imageUrl: 'https://i.imgur.com/BannerCervejas.jpg',
-        lottieJsonUrl: 'iconsJSON/cervejaLata.json',
+        lottieJsonUrl: 'iconsJSON/cerveja.json',
         type: 'category'
     },
     {
@@ -108,7 +317,25 @@ const categoriesData = [
     {
         name: 'Guarnições',
         imageUrl: 'https://i.imgur.com/BannerGuarnicoes.jpg',
-        lottieJsonUrl: 'iconsJSON/seila.json',
+        lottieJsonUrl: 'iconsJSON/guarnicao.json',
+        type: 'category'
+    },
+    {
+        name: 'Bebidas',
+        imageUrl: 'https://i.imgur.com/BannerGuarnicoes.jpg',
+        lottieJsonUrl: 'iconsJSON/bebidas sucos.json',
+        type: 'category'
+    },
+    {
+        name: 'Porções',
+        imageUrl: 'https://i.imgur.com/BannerGuarnicoes.jpg',
+        lottieJsonUrl: 'iconsJSON/porcoes.json',
+        type: 'category'
+    },
+    {
+        name: 'Lanches',
+        imageUrl: 'https://i.imgur.com/BannerGuarnicoes.jpg',
+        lottieJsonUrl: 'iconsJSON/lanches.json',
         type: 'category'
     },
     {
@@ -276,7 +503,34 @@ window.addEventListener('click', (event) => {
     }
 });
 // --- Fim Funções de Manipulação de Modais ---
+// Script para o botão "Voltar ao Topo"
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
+    // Mostra ou esconde o botão baseado na posição de rolagem
+    window.onscroll = function() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = "flex"; // Mostra o botão
+            scrollToTopBtn.style.opacity = "1"; // Torna visível
+        } else {
+            scrollToTopBtn.style.opacity = "0"; // Torna invisível
+            // Usa um pequeno atraso para esconder completamente após a transição de opacidade
+            setTimeout(() => {
+                if (scrollToTopBtn.style.opacity === "0") {
+                    scrollToTopBtn.style.display = "none";
+                }
+            }, 300); // Deve ser igual ao tempo de transition no CSS
+        }
+    };
+
+    // Quando o usuário clica no botão, rola para o topo da página
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Adiciona rolagem suave
+        });
+    });
+});
 /**
  * Função auxiliar para normalizar nomes de categoria para IDs HTML.
  * @param {string} name - O nome da categoria.

@@ -7,6 +7,7 @@
     --text-primary: #e0e0e0;      /* Cor de texto principal */
     --text-secondary: #b0b0b0;    /* Cor de texto secundária/descrições */
     --accent-color: #ff6347;      /* Cor de destaque (laranja/vermelho) */
+    --category-color:#403d3d;
     --button-bg-success: #4CAF50; /* Cor de fundo de botão de sucesso (adicionar) */
     --button-bg-success-hover: #45a049; /* Hover do botão de sucesso */
     --button-bg-warning: #25d366; /* Cor de fundo de botão de aviso (whatsapp) */
@@ -181,7 +182,7 @@ header p {
     flex-direction: column; 
     align-items: center; 
     justify-content: center; 
-    background-color: var(--accent-color);
+    background-color: var(--category-color);
     color: white;
     border: none;
     padding: 0.8em 0.5em; 
@@ -203,7 +204,37 @@ header p {
     background-color: var(--button-bg-success-hover);
     transform: translateY(-2px);
 }
+/* Botão Voltar ao Topo */
+#scrollToTopBtn {
+    display: none; /* Esconde o botão por padrão */
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 100px; /* Posição acima do botão do carrinho */
+    right: 10px;
+    z-index: 998; /* Um pouco abaixo do carrinho (999) */
+    background-color: var(--accent-color); /* Cor de destaque definida nas variáveis */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Torna o botão redondo */
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 2px 5px var(--shadow-color); /* Sombra para destaque */
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+    display: flex; /* Para centralizar o ícone */
+    justify-content: center;
+    align-items: center;
+}
 
+#scrollToTopBtn:hover {
+    background-color: var(--button-bg-success-hover); /* Altera a cor no hover */
+    transform: translateY(-3px); /* Pequeno efeito de elevação */
+}
+
+/* Para o ícone do Font Awesome */
+#scrollToTopBtn .fas {
+    line-height: 1; /* Garante que o ícone fique centralizado verticalmente */
+}
 /* Estilo para o contêiner da animação Lottie/imagem fallback dentro do botão */
 .lottie-icon-container {
     width: 60px; 
