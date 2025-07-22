@@ -20,19 +20,21 @@
 
 /* Variáveis para o Tema Claro */
 body.light-theme {
-    --bg-primary: #f4f4f4;
-    --bg-secondary: #ffffff;
-    --text-primary: #333;
+    --bg-primary: #f1f1f1;
+    --bg-secondary: #FFFAFA;
+    --text-primary: #242222;
+    --texto-categoria: #242222;
     --text-secondary: #666;
-    --accent-color: #ff6347;
+    --accent-color: #812617;
     --button-bg-success: #4CAF50;
     --button-bg-success-hover: #45a049;
     --button-bg-warning: #25d366;
     --button-bg-warning-hover: #1da851;
     --border-color: #eee;
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --header-bg: #ff6347; /* Cor do logo para o tema claro */
+    --header-bg: #d2d2ce; /* Cor do logo para o tema claro */
     --footer-bg: #333;    /* Cor do rodapé para o tema claro */
+    --category-color:#eeeee9;
 }
 
 
@@ -111,15 +113,15 @@ header p {
 /* Estilos para o ícone do carrinho */
 .cart-icon-container {
     position: fixed;
-    bottom: 20px;
+    top: 72px;
     right: 20px;
-    font-size: 2.2em;
+    font-size: 2.0em;
     cursor: pointer;
-    color: white;
-    background-color: var(--accent-color); 
+    color: var(--category-color);
+    background-color: var(--text-secondary); 
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,11 +131,11 @@ header p {
 }
 
 .cart-icon {
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 .cart-count {
-    background-color: var(--button-bg-success); /* Usa variável */
+    background-color: var(--accent-color); /* Usa variável */
     color: white;
     border-radius: 50%;
     padding: 0.2em 0.5em;
@@ -153,7 +155,7 @@ header p {
 
 /* Animação de flash para o ícone do carrinho */
 .cart-icon-container.flash {
-    animation: cartFlash 0.5s ease-out;
+    animation: cartFlash 0.8s ease-out;
 }
 
 @keyframes cartFlash {
@@ -175,6 +177,7 @@ header p {
     max-width: 1200px; 
     border-radius: 8px; 
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    
 }
 
 .category-button {
@@ -183,12 +186,12 @@ header p {
     align-items: center; 
     justify-content: center; 
     background-color: var(--category-color);
-    color: white;
-    border: none;
+    color: var(--texto-categoria);
+    border: var(--texto-categoria);
     padding: 0.8em 0.5em; 
-    border-radius: 20px;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: 600;
     transition: background-color 0.2s ease, transform 0.1s ease;
     width: 120px; 
@@ -208,16 +211,16 @@ header p {
 #scrollToTopBtn {
     display: none; /* Esconde o botão por padrão */
     position: fixed; /* Fixa o botão na tela */
-    bottom: 100px; /* Posição acima do botão do carrinho */
-    right: 10px;
-    z-index: 998; /* Um pouco abaixo do carrinho (999) */
+    bottom: 20px; /* Posição abaixo do botão do chat */
+    right: 355px;
+    z-index: 998; /* Mesmo z-index do botão do chat */
     background-color: var(--accent-color); /* Cor de destaque definida nas variáveis */
     color: white;
     border: none;
     border-radius: 50%; /* Torna o botão redondo */
-    width: 30px;
-    height: 30px;
-    font-size: 1.2em;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
     cursor: pointer;
     box-shadow: 0 2px 5px var(--shadow-color); /* Sombra para destaque */
     transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
@@ -447,7 +450,7 @@ main {
     transition: color 0.3s ease;
 }
 
-.close-button:hover,
+
 .close-button:focus {
     color: var(--text-primary); 
     text-decoration: none;
@@ -784,7 +787,7 @@ footer {
     }
 
     .header-logo {
-        max-width: 100px;
+        max-width: 150px;
     }
 
     .theme-toggle-container {
@@ -802,7 +805,7 @@ footer {
     .cart-icon-container {
         bottom: 30px;
         right: 30px;
-        font-size: 2.5em;
+        font-size: 1.8em;
         width: 70px;
         height: 70px;
     }
@@ -814,6 +817,42 @@ footer {
     #menu-sections {
         order: 1;
     }
+    #scrollToTopBtn{
+        bottom: 30px;
+        right: 30px;
+    }
+    .category h2 {
+        font-size: 2.5em;
+    }
+      .category-button {
+        width: 180px; 
+        height: 120px;
+        font-size: 1em;
+        border-radius: 25px;
+    }
+    .chat-toggle-btn {
+        position: fixed;
+        bottom: 90px; /* Ajuste para que não conflite com o "Voltar ao Topo" */
+        right: 20px;
+        z-index: 998; /* Mantém o mesmo z-index que o "Voltar ao Topo" */
+        background-color: var(--button-bg-warning); /* Cor de aviso (verde) */
+        color: white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+        cursor: pointer;
+        box-shadow: 0 2px 5px var(--shadow-color);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        display: flex; /* Garante que ele seja visível por padrão */
+        justify-content: center;
+        align-items: center;
+}
+
+.chat-toggle-btn:hover {
+    background-color: var(--button-bg-warning-hover);
+    transform: translateY(-3px);
+}
 }
 
 /* Responsividade para telas muito pequenas */
@@ -946,4 +985,85 @@ footer {
     .input-group label {
         font-size: 0.85em;
     }
+    /* Botão flutuante do Chatbot */
+/* Botão flutuante do Chatbot */
+/* Botão flutuante do Chatbot */
+.chat-toggle-btn {
+    position: fixed;
+    bottom: 90px; /* Ajuste para que não conflite com o "Voltar ao Topo" */
+    right: 20px;
+    z-index: 998; /* Mantém o mesmo z-index que o "Voltar ao Topo" */
+    background-color: var(--button-bg-warning); /* Cor de aviso (verde) */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex; /* Garante que ele seja visível por padrão */
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-toggle-btn:hover {
+    background-color: var(--button-bg-warning-hover);
+    transform: translateY(-3px);
+}
+}
+
+/* Estilos específicos para o Modal do Chatbot */
+.chat-modal-content {
+    max-width: 400px; /* Largura um pouco menor para o chat */
+}
+
+.chatbox {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px;
+    height: 300px; /* Altura fixa para a caixa de chat */
+    overflow-y: auto; /* Rolagem quando o conteúdo exceder */
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: var(--bg-primary); /* Fundo da caixa de mensagens */
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word; /* Quebra palavras longas */
+}
+
+.user-message {
+    align-self: flex-end; /* Alinha mensagens do usuário à direita */
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.bot-message {
+    align-self: flex-start; /* Alinha mensagens do bot à esquerda */
+    background-color: var(--category-color); /* Uma cor neutra para o bot */
+    color: var(--text-primary);
+}
+
+.button-chat {
+    background-color: var(--button-bg-success);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.button-chat:hover {
+    background-color: var(--button-bg-success-hover);
 }
