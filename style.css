@@ -926,7 +926,7 @@ footer {
     .products-grid {
         display: grid;
         gap: 20px; /* Espaçamento entre os itens */
-        grid-template-columns: repeat(2, 1fr); /* AGORA 2 COLUNAS PARA TELAS MENORES QUE 480PX */
+        grid-template-columns: repeat(1, 1fr); /* AGORA 2 COLUNAS PARA TELAS MENORES QUE 480PX */
     }
 
     header p {
