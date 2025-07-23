@@ -336,8 +336,7 @@ main {
 }
 
 .product-card img {
-    width: 100%;
-    height: 180px;
+    width: 100%;  
     object-fit: cover;
     border-bottom: 1px solid var(--border-color); 
 }
