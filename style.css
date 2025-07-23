@@ -35,7 +35,7 @@ body.light-theme {
     --shadow-color: rgba(0, 0, 0, 0.1);
     --header-bg: #d2d2ce; /* Cor do logo para o tema claro */
     --footer-bg: #333;    /* Cor do rodapé para o tema claro */
-    --category-color: #242222; /* Cor de fundo da categoria para tema claro (preto) */
+    --category-color: #bebdbd; /* Cor de fundo da categoria para tema claro (preto) */
 }
 
 

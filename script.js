@@ -311,10 +311,16 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <label for="espeto-${index}">Espeto:</label>
                                 <select id="espeto-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="espeto">
                                     <option value="" disabled ${cartItem.espeto === '' ? 'selected' : ''}>Selecione</option>
-                                    <option value="Carne" ${cartItem.espeto === 'Carne' ? 'selected' : ''}>Carne</option>
-                                    <option value="Frango" ${cartItem.espeto === 'Frango' ? 'selected' : ''}>Frango</option>
-                                    <option value="Linguiça" ${cartItem.espeto === 'Linguiça' ? 'selected' : ''}>Linguiça</option>
-                                    <option value="Queijo" ${cartItem.espeto === 'Queijo' ? 'selected' : ''}>Queijo</option>
+                                    <option value="ASINHA (TULIPA)" ${cartItem.espeto === 'ASINHA (TULIPA)' ? 'selected' : ''}>ASINHA (TULIPA)</option>
+                                    <option value="COXINHA DA ASA" ${cartItem.espeto === 'COXINHA DA ASA' ? 'selected' : ''}>COXINHA DA ASA</option>
+                                    <option value="CORAÇÃO" ${cartItem.espeto === 'CORAÇÃO' ? 'selected' : ''}>CORAÇÃO</option>
+                                    <option value="CONTRA FILÉ" ${cartItem.espeto === 'CONTRA FILÉ' ? 'selected' : ''}>CONTRA FILÉ</option>
+                                    <option value="CUPIM GRILL" ${cartItem.espeto === 'CUPIM GRILL' ? 'selected' : ''}>CUPIM GRILL</option>
+                                    <option value="PICANHA MONTADA" ${cartItem.espeto === 'PICANHA MONTADA' ? 'selected' : ''}>PICANHA MONTADA</option>
+                                    <option value="FRANGO COM BACON" ${cartItem.espeto === 'FRANGO COM BACON' ? 'selected' : ''}>FRANGO COM BACON</option>
+                                    <option value="FRANGO SEM BACON" ${cartItem.espeto === 'FRANGO SEM BACON' ? 'selected' : ''}>FRANGO SEM BACON</option>
+                                    <option value="LINGUIÇA CAIPIRA" ${cartItem.espeto === 'LINGUIÇA CAIPIRA' ? 'selected' : ''}>LINGUIÇA CAIPIRA</option>
+                                    <option value="LINGUIÇA C. APIMENTADA" ${cartItem.espeto === 'LINGUIÇA C. APIMENTADA' ? 'selected' : ''}>LINGUIÇA C. APIMENTADA</option>
                                 </select>
                             </div>
                         `;

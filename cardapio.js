@@ -51,7 +51,7 @@ const products = [
         name: 'Frango com Bacon',
         description: '',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/LFRKjj0.png'
     },
     {
         id: 'esp-2',
@@ -59,7 +59,7 @@ const products = [
         name: 'Frango sem Bacon',
         description: '',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/pt0WHsW.png'
     },
     {
         id: 'esp-3',
@@ -67,7 +67,7 @@ const products = [
         name: 'Contra Filé',
         description: '',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/YFvNxNd.png'
     },
     {
         id: 'esp-4',
@@ -99,7 +99,7 @@ const products = [
         name: 'Coração',
         description: '',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/RaVZjrn.png'
     },
     {
         id: 'esp-8',
@@ -107,7 +107,7 @@ const products = [
         name: 'Coxinha da Asa',
         description: 'Drumette',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/Cb17Q5F.png'
     },
     {
         id: 'esp-9',
@@ -131,7 +131,7 @@ const products = [
         name: 'Cafta',
         description: 'Carne bovina recheada com queijo',
         price: 12.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/j8KuBRF.png'
     },
     {
         id: 'esp-12',
@@ -252,6 +252,38 @@ const products = [
         description: '',
         price: 13.00,
         imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+    },
+    {
+        id: 'lan-4',
+        category: 'LANCHES',
+        name: 'Creme de Cupuaçu',
+        description: 'Copo de 500ml',
+        price: 13.00,
+        imageUrl: 'https://i.imgur.com/kFgB7bd.png'
+    },
+    {
+        id: 'lan-5',
+        category: 'LANCHES',
+        name: 'Creme de Moracujá',
+        description: 'Copo de 500ml',
+        price: 13.00,
+        imageUrl: 'https://i.imgur.com/wrEZygt.png'
+    },
+    {
+        id: 'lan-6',
+        category: 'LANCHES',
+        name: 'Creme de Morango',
+        description: 'Copo de 500ml',
+        price: 13.00,
+        imageUrl: ''
+    },
+    {
+        id: 'lan-7',
+        category: 'LANCHES',
+        name: 'Creme de Tamarindo',
+        description: 'Copo de 500ml',
+        price: 13.00,
+        imageUrl: ''
     },
 
     //--------------------------------------CERVEJAS-------------------------------------//
@@ -562,7 +594,15 @@ const products = [
         name: 'Batata 1000 500g',
         description: 'Porção de batata frita com cheddar e bacon, 500g',
         price: 33.99,
-        imageUrl: 'https://i.imgur.com/zJpJ2gq.png/zJpJ2gq.png',
+        imageUrl: 'https://i.imgur.com/8Bqcm96.png',
+    },
+     {
+        id: 'por-5',
+        category: 'PORÇÕES',
+        name: 'Costelinha 1000',
+        description: 'Porção de Costelinha Suína grande, acompanha mandioca',
+        price: 22.00,
+        imageUrl: 'https://i.imgur.com/GvqqqWD.png',
     },
 ];
     
