@@ -5,6 +5,7 @@
     --bg-primary: #1a1a1a;        /* Fundo principal (body) */
     --bg-secondary: #2c2c2c;      /* Fundos de cards/seções */
     --text-primary: #e0e0e0;      /* Cor de texto principal */
+    --texto-categoria: #e0e0e0; /* ADICIONADO: Cor do texto da categoria para o tema escuro */
     --text-secondary: #b0b0b0;    /* Cor de texto secundária/descrições */
     --accent-color: #ff6347;      /* Cor de destaque (laranja/vermelho) */
     --category-color:#403d3d;
@@ -30,7 +31,7 @@ body.light-theme {
     --button-bg-success-hover: #45a049;
     --button-bg-warning: #25d366;
     --button-bg-warning-hover: #1da851;
-    --border-color: #eee;
+    --border-color: #545454;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --header-bg: #d2d2ce; /* Cor do logo para o tema claro */
     --footer-bg: #333;    /* Cor do rodapé para o tema claro */
@@ -139,7 +140,7 @@ header p {
     color: white;
     border-radius: 50%;
     padding: 0.2em 0.5em;
-    font-size: 0.4em;
+    font-size: 0.5em;
     font-weight: bold;
     min-width: 1.5em;
     text-align: center;
@@ -166,7 +167,7 @@ header p {
 
 /* Estilos para a barra de navegação de categorias */
 .category-navigation {
-    display: flex;
+    display:flex;
     justify-content: center;
     flex-wrap: wrap; 
     gap: 10px; 
@@ -312,8 +313,9 @@ main {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5em;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    
 }
 
 .product-card {
@@ -339,21 +341,26 @@ main {
     object-fit: cover;
     border-bottom: 1px solid var(--border-color); 
 }
-
-.product-card::before {
+/* Marca d'água só aparece se NÃO houver imagem no card */
+.product-card:not(:has(img))::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 180px;
-    background-image: url('logonova.png'); 
+    background-image: url('logonova.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.5;
     pointer-events: none;
     z-index: 1;
+}
+
+/* Remove a marca d'água padrão */
+.product-card::before {
+    content: none;
 }
 
 .product-card h3 {
@@ -775,11 +782,19 @@ footer {
 
 /* Responsividade para telas maiores (desktop) */
 @media (min-width: 768px) {
-    header {
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-        position: relative;
+    .products-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .category-navigation {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    header, footer, nav.category-navigation {
+        max-width:95%; /* Mesma largura do main para alinhamento */
+        margin: 0 auto; /* Centraliza */
+        padding-left: 0;
+        padding-right: 0;
     }
     #cart-modal .modal-content{
         max-width: 50%;
@@ -820,9 +835,11 @@ footer {
         height: 70px;
     }
 
-    main {
-        flex-direction: row;
-      
+    main{
+        max-width: 95%; /* Altere este valor para a largura máxima desejada */
+        margin: 0 auto; /* Centraliza o conteúdo na tela */
+        padding-left: 0; /* Remove padding lateral se a intenção é esticar ao máximo */
+        padding-right: 0; /* Remove padding lateral se a intenção é esticar ao máximo */
     }
 
     #menu-sections {
@@ -859,7 +876,7 @@ footer {
         justify-content: center;
         align-items: center;
 }
-
+}
 .chat-toggle-btn:hover {
     background-color: var(--button-bg-warning-hover);
     transform: translateY(-3px);
@@ -870,23 +887,36 @@ footer {
     object-fit: cover;
     border-radius: 15px;
     box-shadow: 0 2px 10px var(--shadow-color);
-    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
-  
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease; 
 }
+.category-button{
+    gap: 2px;
+    max-width: 100%;
+    width: fit-content;
+    background-color: transparent;
+
+   
+   
 }
 
-/* Responsividade para telas muito pequenas */
+/* Responsividade para telas muito pequenas -------------------------------------------------------------------*/
 @media (max-width: 480px) {
     header h1 {
         font-size: 1.8em;
     }
-    
+    .products-grid {
+        display: grid;
+        gap: 20px; /* Espaçamento entre os itens */
+        grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    }
+
     header p {
         font-size: 1em;
     }
 
     .header-logo {
-        max-width: 120px;
+        max-width: 70px;
+     
     }
 
     .theme-toggle-container {
@@ -902,22 +932,22 @@ footer {
     }
 
     .cart-icon-container {
-        font-size: 2em;
-        width: 55px;
-        height: 55px;
-        bottom: 15px;
+        font-size: 1.4em;
+        width: 45px;
+        height: 45px;
         right: 15px;
+        top: 55px;
     }
 
     .cart-icon {
-        font-size: 0.9em;
+        font-size: 1.4em;
         position: absolute;
     }
 
     .cart-count {
         top: -8px;
         right: -8px;
-        font-size: 0.4em; /* Ajuste para melhor visualização em telas pequenas */
+        font-size: 0.4em;
         padding: 0.3em 0.4em;
     }
 
@@ -930,11 +960,11 @@ footer {
     }
 
     .product-card img {
-        height: 150px;
+        height: 100px;
     }
 
     .product-card::before {
-        height: 150px;
+        height: 100px;
     }
 
     .category-navigation {
@@ -948,22 +978,23 @@ footer {
         width: 80px; 
         height: 75px;
         padding: 0.5em 0.2em;
-        font-size: 0.75em;
-        border-radius: 15px;
+        font-size: 0.8em;
+        border-radius: 5px;
+        gap: 1px; /* Espaçamento entre o ícone e o texto */
     }
     .lottie-icon-container {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         margin-bottom: 3px;
     }
     .category-button span.button-text {
-        font-size: 0.7em;
+        font-size: 0.9em;
     }
 
     /* Modal de Informações em telas pequenas */
     #info-modal .modal-content {
-        padding: 15px;
-        width: 95%;
+        padding: 5px;
+        width: 80%;
     }
     .info-section h3 {
         font-size: 1.2em;
@@ -990,27 +1021,29 @@ footer {
 
     /* NOVOS ESTILOS PARA OS CAMPOS DO CARRINHO EM TELAS PEQUENAS */
     .modal-content {
-        max-width: 95%; /* Ajusta a largura máxima para o modal em telas pequenas */
+        max-width: 80%; /* Ajusta a largura máxima para o modal em telas pequenas */
     }
 
     #cart-items-modal {
         max-height: 25vh; /* Pode precisar de mais ajustes em telas muito pequenas */
+        padding-right: 0; /* Remove o padding direito para evitar rolagem desnecessária */
+        overflow-y: auto; /* Garante que a rolagem funcione corretamente */
     }
 
     .order-input {
         font-size: 0.9em;
         padding: 8px;
+       
     }
 
     .input-group label {
-        font-size: 0.85em;
+        font-size: 0.8em;
     }
-    /* Botão flutuante do Chatbot */
-/* Botão flutuante do Chatbot */
+   
 /* Botão flutuante do Chatbot */
 .chat-toggle-btn {
     position: fixed;
-    bottom: 90px; /* Ajuste para que não conflite com o "Voltar ao Topo" */
+    bottom: 20px; /* Ajuste para que não conflite com o "Voltar ao Topo" */
     right: 20px;
     z-index: 998; /* Mantém o mesmo z-index que o "Voltar ao Topo" */
     background-color: var(--button-bg-warning); /* Cor de aviso (verde) */
@@ -1036,20 +1069,22 @@ footer {
 
 /* Estilos específicos para o Modal do Chatbot */
 .chat-modal-content {
-    max-width: 400px; /* Largura um pouco menor para o chat */
+    max-width: 300px; /* Largura um pouco menor para o chat */
 }
 
 .chatbox {
-    border: 1px solid var(--border-color);
+    
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
     height: 300px; /* Altura fixa para a caixa de chat */
     overflow-y: auto; /* Rolagem quando o conteúdo exceder */
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 15px;
     background-color: var(--bg-primary); /* Fundo da caixa de mensagens */
+    font-size: 13px;
+    
 }
 
 .message {

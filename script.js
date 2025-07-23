@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let itemCount = 0;
 
         if (cart.length === 0) {
-            cartItemsModalContainer.innerHTML = '<p>Nenhum item no carrinho.</p>';
+            cartItemsModalContainer.innerHTML = '<p> ❌Nenhum item no carrinho.</p>';
         } else {
             // Objeto para agrupar produtos não-jantinhas personalizáveis para exibição
             const groupedOtherItems = {};
