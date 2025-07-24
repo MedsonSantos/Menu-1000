@@ -873,7 +873,7 @@ footer {
     }
     #scrollToTopBtn{
         bottom: 30px;
-        right: 30px;
+        right: 35px;
     }
     .category h2 {
         font-size: 2.1em;
@@ -926,7 +926,7 @@ footer {
     .products-grid {
         display: grid;
         gap: 20px; /* Espaçamento entre os itens */
-        grid-template-columns: repeat(1, 1fr); /* AGORA 2 COLUNAS PARA TELAS MENORES QUE 480PX */
+        grid-template-columns: repeat(1, 1fr);
     }
 
     header p {
@@ -1089,9 +1089,9 @@ footer {
 /* Botão flutuante do Chatbot */
 .chat-toggle-btn {
     position: fixed;
-    bottom: 20px; /* Ajuste para que não conflite com o "Voltar ao Topo" */
+    bottom: 20px; 
     right: 20px;
-    z-index: 998; /* Mantém o mesmo z-index que o "Voltar ao Topo" */
+    z-index: 998; 
     background-color: var(--button-bg-warning); /* Cor de aviso (verde) */
     color: white;
     border: none;
