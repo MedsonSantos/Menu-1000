@@ -1168,3 +1168,12 @@ footer {
 .button-chat:hover {
     background-color: var(--button-bg-success-hover);
 }
+
+/* Responsividade para telas muito pequenas 375px-------------------------------------------------------------------*/
+@media (max-width: 375px) {
+
+#scrollToTopBtn{
+    bottom: 30px;
+    right: 20px;
+    }
+}
