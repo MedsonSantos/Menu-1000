@@ -92,7 +92,9 @@
                   "- Queijo Coalho\n" +
                   "- Queijo Provolone\n" +
                   "- Romeu e Julieta (Queijo, Goiabada com Bacon)\n\n" +
-                  "Para mais opções, como porções e outros, confira nosso cardápio completo! 😊",             
+                  "Para mais opções, como porções e outros, confira nosso cardápio completo! 😊",
+    "Queijo":" 🧀 temos o queojo Coalho e o Provolone um melhor que o outro",
+    "Queijos":" 🧀 temos o queojo Coalho e o Provolone um melhor que o outro",              
                   
     // --- Produtos e Preços do Cardápio ---
     // ESPETOS
@@ -109,8 +111,12 @@
     "linguica caipira": "🍢 A Linguiça Caipira custa R$ 11,00. Um toque do interior!",
     "linguica apimentada": "🌶️ A Linguiça C. Apimentada custa R$ 11,00. Para quem gosta de um toque a mais!",
     "queijo coalho": "🧀 O espeto de Queijo Coalho custa R$ 12,00. Derrete na boca!",
+    "coalho": "🧀 O espeto de Queijo Coalho custa R$ 12,00. Derrete na boca!",
     "queijo provolone": "🧀 O espeto de Queijo Provolone custa R$ 12,00. Uma opção deliciosa!",
+    "provolone": "🧀 O espeto de Queijo Provolone custa R$ 12,00. Uma opção deliciosa!",
     "romeu e julieta": "🍓 O Romeu e Julieta (Queijo, Goiabada com Bacon) custa R$ 13,00. Uma sobremesa incrível no espeto!",
+    "romeu:": "🍓 O Romeu e Julieta (Queijo, Goiabada com Bacon) custa R$ 13,00. Uma sobremesa incrível no espeto!",
+    "julieta": "🍓 O Romeu e Julieta (Queijo, Goiabada com Bacon) custa R$ 13,00. Uma sobremesa incrível no espeto!",
 
     // JANTINHAS
     "jantinha sem espeto": "🍚 A Jantinha Sem Espeto (Arroz, Feijão Tropeiro ou de Caldo, Vinagrete e Mandioca) custa R$ 19,00.",
@@ -122,7 +128,7 @@
     "caldo de costela": "🥣 O Caldo de Costela 500ml custa R$ 18,00. Aquece o coração!",
     "caldo de frango": "🥣 O Caldo de Frango 500ml custa R$ 18,00. Leve e saboroso!",
     "caldo de feijao": "🥣 O Caldo de Feijão 500ml custa R$ 18,00. Um clássico!",
-
+    
     // GUARNIÇÕES
     "arroz": "🍚 Uma porção de Arroz custa R$ 8,00.",
     "feijao tropeiro pequeno": "🍛 O Feijão Tropeiro Pequeno custa R$ 10,00.",
