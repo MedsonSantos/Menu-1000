@@ -25,7 +25,7 @@ const products = [
         name: 'Jantinha sem Espeto',
         description: 'Arroz branco, feijão tropeiro ou de caldo, mandioca, vinagrete sem espeto',
         price: 19.00,
-        imageUrl: 'https://i.imgur.com/6hoWcyi.png'
+        imageUrl: 'https://i.imgur.com/a/zKDyJOe.png'
     },
     {
         id: 'pp-4',
