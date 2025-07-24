@@ -264,7 +264,7 @@ const products = [
     {
         id: 'lan-5',
         category: 'LANCHES',
-        name: 'Creme de Moracujá',
+        name: 'Creme de Maracujá',
         description: 'Copo de 500ml',
         price: 13.00,
         imageUrl: 'https://i.imgur.com/wrEZygt.png'
