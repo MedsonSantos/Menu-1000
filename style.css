@@ -1173,7 +1173,8 @@ footer {
 @media (max-width: 375px) {
 
     #scrollToTopBtn{
-        bottom: 30px;
-        left: 35px;
+        display: none;
+        bottom: 50px;
+        left: 5px;
         }
 }
