@@ -119,6 +119,8 @@
     "julieta": "🍓 O Romeu e Julieta (Queijo, Goiabada com Bacon) custa R$ 13,00. Uma sobremesa incrível no espeto!",
 
     // JANTINHAS
+    "jantinha": "🍽️Temos várias opções de jantinhas: Jantinha Kids👶, Jantinha completa🍲, Jantinha Nota 1000 🥘 e Jantinha de Estrogonofe. Se quiser saber mais sobre cada uma só me dizer escrevendo o tipo exemplo (Jantinha de Estrogonofe)",
+    "pratos": "🍽️Temos várias opções de jantinhas: Jantinha Kids👶, Jantinha completa🍲, Jantinha Nota 1000 🥘 e Jantinha de Estrogonofe. Se quiser saber mais sobre cada uma só me dizer escrevendo o tipo exemplo (Jantinha de Estrogonofe)",
     "jantinha sem espeto": "🍚 A Jantinha Sem Espeto (Arroz, Feijão Tropeiro ou de Caldo, Vinagrete e Mandioca) custa R$ 19,00.",
     "jantinha completa": "🍛 A Jantinha Completa (Arroz, Feijão Tropeiro ou de Caldo, Vinagrete e Mandioca com 1 Espeto) custa R$ 22,00.",
     "jantinha estrogonofe": "🍲 A Jantinha Estrogonofe (Arroz, Estrogonofe de Frango, Batata Palha, Vinagrete Opcional, Sem Espeto) custa R$ 22,00.",
