@@ -919,7 +919,7 @@ footer {
 
 
 /* Responsividade para telas muito pequenas -------------------------------------------------------------------*/
-@media (max-width: 450px) {
+@media (max-width: 480px) {
     header h1 {
         font-size: 1.8em;
     }
