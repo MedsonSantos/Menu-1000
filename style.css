@@ -1172,8 +1172,8 @@ footer {
 /* Responsividade para telas muito pequenas 375px-------------------------------------------------------------------*/
 @media (max-width: 375px) {
 
-#scrollToTopBtn{
-    bottom: 30px;
-    right: 20px;
-    }
+    #scrollToTopBtn{
+        bottom: 30px;
+        left: 35px;
+        }
 }
