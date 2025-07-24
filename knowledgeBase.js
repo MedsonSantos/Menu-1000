@@ -93,8 +93,8 @@
                   "- Queijo Provolone\n" +
                   "- Romeu e Julieta (Queijo, Goiabada com Bacon)\n\n" +
                   "Para mais opções, como porções e outros, confira nosso cardápio completo! 😊",
-    "Queijo":" 🧀 temos o queojo Coalho e o Provolone um melhor que o outro",
-    "Queijos":" 🧀 temos o queojo Coalho e o Provolone um melhor que o outro",              
+    "Queijo": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",
+    "Queijos": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",              
                   
     // --- Produtos e Preços do Cardápio ---
     // ESPETOS
