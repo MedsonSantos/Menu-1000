@@ -24,6 +24,8 @@
     "cartão": "💰 Aceitamos Pix, cartão de crédito/débito e dinheiro. Facilitamos para você! 👍",
     "dinheiro": "💰 Aceitamos Pix, cartão de crédito/débito e dinheiro. Facilitamos para você! 👍",
     "boa noite": "🌃 Boa noite! Como posso ajudar você hoje? Pergunte sobre nosso menu 📓, entrega 🛵, horários ⏰, ou qualquer dúvida sobre nossos produtos. ✨",
+    "queijo": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",
+    "queijos": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",  
     "tem jantinha": "🍛 Temos diversas opções de Jantinhas deliciosas para você! Confira:\n\n" +
                    "- **Jantinha Kids:** Uma pequena porção de arroz e estrogonofe de frango (somente consumo no local). [cite_start]Por R$ 17,00. [cite: 15]\n" +
                    "- **Jantinha S/ Espeto:** Arroz, feijão tropeiro ou de caldo, vinagrete e mandioca (sem espeto). [cite_start]Por R$ 19,00. [cite: 15]\n" +
@@ -97,9 +99,7 @@
           
                   
     // --- Produtos e Preços do Cardápio ---
-    // ESPETOS
-    "queijo": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",
-    "queijos": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",    
+    // ESPETOS  
     "asinha": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
     "tulipa": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
     "coxinha da asa": "🍗 O espeto de Coxinha da Asa custa R$ 11,00. Experimente!",
