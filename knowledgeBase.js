@@ -93,11 +93,12 @@
                   "- Queijo Provolone\n" +
                   "- Romeu e Julieta (Queijo, Goiabada com Bacon)\n\n" +
                   "Para mais opções, como porções e outros, confira nosso cardápio completo! 😊",
-    "Queijo": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",
-    "Queijos": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",              
+          
                   
     // --- Produtos e Preços do Cardápio ---
     // ESPETOS
+    "queijo": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",
+    "queijos": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",    
     "asinha": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
     "tulipa": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
     "coxinha da asa": "🍗 O espeto de Coxinha da Asa custa R$ 11,00. Experimente!",
