@@ -1169,8 +1169,8 @@ footer {
     background-color: var(--button-bg-success-hover);
 }
 
-/* Responsividade para telas muito pequenas 375px-------------------------------------------------------------------*/
-@media (max-width: 375px) {
+/* Responsividade para telas muito pequenas 378px-------------------------------------------------------------------*/
+@media (max-width: 378px) {
 
     #scrollToTopBtn{
         display: none;
