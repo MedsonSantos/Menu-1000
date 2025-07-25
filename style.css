@@ -487,11 +487,12 @@
         }
 
         .product-card .price {
-            font-size: 1.4em;
+            font-size: 1.5em;
             color: var(--accent-color);
-            font-weight: 700;
+            font-weight: 750;
             margin: 0.2em 0 0.em;
             transition: color 0.3s ease;
+            font-family: 'pricedown', sans-serif;
         }
 
         .product-card button.add-to-cart {
@@ -521,13 +522,14 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(11, 124, 165, 0.609);
             justify-content: center;
             align-items: center;
         }
+        
 
         .modal-content {
-            background-color: var(--bg-secondary);
+            background-color: #242626;
             margin: auto;
             padding: 20px;
             border-radius: 8px;
@@ -941,6 +943,7 @@
                 max-width: 100%;
                 width: 800px;
                 max-height: 90vh;
+                
             }
 
             .logo-container {
@@ -1277,6 +1280,7 @@
         /* Estilos específicos para o Modal do Chatbot */
         .chat-modal-content {
             max-width: 300px;
+            padding: 20px;
             /* Largura um pouco menor para o chat */
         }
 
@@ -1288,8 +1292,8 @@
         .chatbox {
 
             border-radius: 5px;
-            padding: 5px;
-            height: 300px;
+            padding: 10px;
+            height: 400px;
             /* Altura fixa para a caixa de chat */
             overflow-y: auto;
             /* Rolagem quando o conteúdo exceder */
@@ -1297,9 +1301,10 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            background-color: var(--bg-primary);
+            background-color: var();
             /* Fundo da caixa de mensagens */
             font-size: 13px;
+            font-style: var(--accent-color);
 
         }
 
@@ -1394,6 +1399,7 @@
             #info-modal .modal-content {
                 padding: 5px;
                 width: 80%;
+                background-color: var(--bg-secondary);
             }
 
             .info-section h3 {
