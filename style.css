@@ -2,21 +2,36 @@
 
         /* Definição de variáveis CSS para cores - Tema Escuro Padrão */
         :root {
-            --bg-primary: #1a1a1a;        /* Fundo principal (body) */
-            --bg-secondary: #2c2c2c;      /* Fundos de cards/seções */
-            --text-primary: #e0e0e0;      /* Cor de texto principal */
-            --texto-categoria: #e0e0e0;   /* Cor do texto da categoria */
-            --text-secondary: #b0b0b0;    /* Cor de texto secundária/descrições */
-            --accent-color: #ff6347;      /* Cor de destaque (laranja/vermelho) */
-            --category-color: #403d3d;    /* Cor de fundo da categoria para tema escuro */
-            --button-bg-success: #4CAF50; /* Cor de fundo de botão de sucesso (adicionar) */
-            --button-bg-success-hover: #45a049; /* Hover do botão de sucesso */
-            --button-bg-warning: #25d366; /* Cor de fundo de botão de aviso (whatsapp) */
-            --button-bg-warning-hover: #1da851; /* Hover do botão de aviso */
-            --border-color: #444;         /* Cor das bordas finas */
-            --shadow-color: rgba(0, 0, 0, 0.4); /* Cor da sombra */
-            --header-bg: #333;            /* Fundo do cabeçalho */
-            --footer-bg: #111;            /* Fundo do rodapé */
+            --bg-primary: #1a1a1a;
+            /* Fundo principal (body) */
+            --bg-secondary: #2c2c2c;
+            /* Fundos de cards/seções */
+            --text-primary: #e0e0e0;
+            /* Cor de texto principal */
+            --texto-categoria: #e0e0e0;
+            /* Cor do texto da categoria */
+            --text-secondary: #b0b0b0;
+            /* Cor de texto secundária/descrições */
+            --accent-color: #ff6347;
+            /* Cor de destaque (laranja/vermelho) */
+            --category-color: #403d3d;
+            /* Cor de fundo da categoria para tema escuro */
+            --button-bg-success: #4CAF50;
+            /* Cor de fundo de botão de sucesso (adicionar) */
+            --button-bg-success-hover: #45a049;
+            /* Hover do botão de sucesso */
+            --button-bg-warning: #25d366;
+            /* Cor de fundo de botão de aviso (whatsapp) */
+            --button-bg-warning-hover: #1da851;
+            /* Hover do botão de aviso */
+            --border-color: #444;
+            /* Cor das bordas finas */
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            /* Cor da sombra */
+            --header-bg: #333;
+            /* Fundo do cabeçalho */
+            --footer-bg: #111;
+            /* Fundo do rodapé */
         }
 
         /* Variáveis para o Tema Claro */
@@ -24,7 +39,8 @@
             --bg-primary: #f1f1f1;
             --bg-secondary: #FFFAFA;
             --text-primary: #242222;
-            --texto-categoria: #242222; /* Texto da categoria escuro para tema claro */
+            --texto-categoria: #242222;
+            /* Texto da categoria escuro para tema claro */
             --text-secondary: #666;
             --accent-color: #812617;
             --button-bg-success: #4CAF50;
@@ -33,40 +49,43 @@
             --button-bg-warning-hover: #1da851;
             --border-color: #545454;
             --shadow-color: rgba(0, 0, 0, 0.1);
-            --header-bg: #d2d2ce; /* Cor do logo para o tema claro */
-            --footer-bg: #333;    /* Cor do rodapé para o tema claro */
-            --category-color: #bebdbd; /* Cor de fundo da categoria para tema claro (preto) */
+            --header-bg: #d2d2ce;
+            /* Cor do logo para o tema claro */
+            --footer-bg: #333;
+            /* Cor do rodapé para o tema claro */
+            --category-color: #bebdbd;
+            /* Cor de fundo da categoria para tema claro (preto) */
         }
 
 
         /* Reset básico e fontes */
         html {
-            scroll-behavior: smooth; 
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-primary); 
-            color: var(--text-primary); 
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease; 
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         /* Cabeçalho */
         header {
-            background-color: var(--header-bg); 
-            color: var(--text-primary); 
+            background-color: var(--header-bg);
+            color: var(--text-primary);
             padding: 1em;
             text-align: center;
-            box-shadow: 0 2px 4px var(--shadow-color); 
+            box-shadow: 0 2px 4px var(--shadow-color);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
-            transition: background-color 0.3s ease; 
+            transition: background-color 0.3s ease;
         }
 
         .logo-container {
@@ -77,7 +96,7 @@
             max-width: 150px;
             height: auto;
             border-radius: 50%;
-            border: 3px solid white; 
+            border: 3px solid white;
         }
 
         header p {
@@ -90,24 +109,24 @@
         .theme-toggle-container {
             position: absolute;
             top: 15px;
-            left: 15px; 
+            left: 15px;
             font-size: 1.8em;
             cursor: pointer;
-            color: var(--text-primary); 
-            transition: color 0.3s ease; 
-            z-index: 100; 
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+            z-index: 100;
         }
 
         /* Estilos para o ícone de informações */
         .info-toggle-container {
             position: absolute;
             top: 15px;
-            right: 15px; 
+            right: 15px;
             font-size: 1.8em;
             cursor: pointer;
-            color: var(--text-primary); 
-            transition: color 0.3s ease; 
-            z-index: 100; 
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+            z-index: 100;
         }
 
 
@@ -118,17 +137,19 @@
             right: 20px;
             font-size: 2.0em;
             cursor: pointer;
-            color: var(--category-color); /* Usando category-color para o ícone, que é escuro no tema claro */
-            background-color: var(--text-secondary); /* Pode ser ajustado se esta cor não ficar boa para o fundo do ícone */
+            color: var(--category-color);
+            /* Usando category-color para o ícone, que é escuro no tema claro */
+            background-color: var(--text-secondary);
+            /* Pode ser ajustado se esta cor não ficar boa para o fundo do ícone */
             border-radius: 50%;
             width: 30px;
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 8px var(--shadow-color); 
+            box-shadow: 0 4px 8px var(--shadow-color);
             z-index: 999;
-            transition: transform 0.1s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; 
+            transition: transform 0.1s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .cart-icon {
@@ -136,7 +157,8 @@
         }
 
         .cart-count {
-            background-color: var(--accent-color); /* Usa variável */
+            background-color: var(--accent-color);
+            /* Usa variável */
             color: white;
             border-radius: 50%;
             padding: 0.2em 0.5em;
@@ -150,7 +172,8 @@
             position: absolute;
             top: -5px;
             right: -5px;
-            transition: background-color 0.3s ease; /* Transição para a cor de fundo */
+            transition: background-color 0.3s ease;
+            /* Transição para a cor de fundo */
         }
 
 
@@ -160,99 +183,129 @@
         }
 
         @keyframes cartFlash {
-            0% { transform: scale(1); background-color: var(--accent-color); }
-            50% { transform: scale(1.15); background-color: var(--button-bg-success); }
-            100% { transform: scale(1); background-color: var(--accent-color); }
+            0% {
+                transform: scale(1);
+                background-color: var(--accent-color);
+            }
+
+            50% {
+                transform: scale(1.15);
+                background-color: var(--button-bg-success);
+            }
+
+            100% {
+                transform: scale(1);
+                background-color: var(--accent-color);
+            }
         }
 
         /* Estilos para a barra de navegação de categorias */
         .category-navigation {
-            display:flex;
+            display: flex;
             justify-content: center;
-            flex-wrap: wrap; 
-            gap: 10px; 
+            flex-wrap: wrap;
+            gap: 10px;
             padding: 1em;
-            background-color: var(--bg-secondary); 
+            background-color: var(--bg-secondary);
             box-shadow: 0 2px 4px var(--shadow-color);
-            margin: 0.5em auto; 
-            max-width: 1200px; 
-            border-radius: 8px; 
+            margin: 0.5em auto;
+            max-width: 1200px;
+            border-radius: 8px;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            
+
         }
 
         .category-button {
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            background-color: var(--category-color); /* Agora usa a variável --category-color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--category-color);
+            /* Agora usa a variável --category-color */
             color: var(--texto-categoria);
-            border: 1px solid var(--texto-categoria); /* Borda com a cor do texto da categoria */
-            padding: 0.8em 0.5em; 
+            border: 1px solid var(--texto-categoria);
+            /* Borda com a cor do texto da categoria */
+            padding: 0.8em 0.5em;
             border-radius: 25px;
             cursor: pointer;
             font-size: 1em;
             font-weight: 600;
-            transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.3s ease; /* Adicionada transição para border-color */
-            width: 120px; 
-            height: 100px; 
+            transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.3s ease;
+            /* Adicionada transição para border-color */
+            width: 120px;
+            height: 100px;
             text-align: center;
-            overflow: hidden; 
-            text-overflow: ellipsis; 
-            white-space: normal; 
-            line-height: 1.2; 
-            gap: 2px; /* Espaçamento entre o ícone e o texto */
-            max-width: 100%; /* Ajustado para melhor responsividade em certas situações */
-            width: fit-content; /* Permite que a largura se ajuste ao conteúdo quando apropriado */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            line-height: 1.2;
+            gap: 2px;
+            /* Espaçamento entre o ícone e o texto */
+            max-width: 100%;
+            /* Ajustado para melhor responsividade em certas situações */
+            width: fit-content;
+            /* Permite que a largura se ajuste ao conteúdo quando apropriado */
         }
 
         .category-button:hover {
             background-color: var(--button-bg-success-hover);
             transform: translateY(-2px);
         }
+
         /* Botão Voltar ao Topo */
         #scrollToTopBtn {
-            display: none; /* Esconde o botão por padrão */
-            position: fixed; /* Fixa o botão na tela */
-            bottom: 20px; /* Posição abaixo do botão do chat */
+            display: none;
+            /* Esconde o botão por padrão */
+            position: fixed;
+            /* Fixa o botão na tela */
+            bottom: 20px;
+            /* Posição abaixo do botão do chat */
             right: 355px;
-            z-index: 998; /* Mesmo z-index do botão do chat */
-            background-color: var(--accent-color); /* Cor de destaque definida nas variáveis */
+            z-index: 998;
+            /* Mesmo z-index do botão do chat */
+            background-color: var(--accent-color);
+            /* Cor de destaque definida nas variáveis */
             color: white;
             border: none;
-            border-radius: 50%; /* Torna o botão redondo */
+            border-radius: 50%;
+            /* Torna o botão redondo */
             width: 35px;
             height: 35px;
             font-size: 1.1em;
             cursor: pointer;
-            box-shadow: 0 2px 5px var(--shadow-color); /* Sombra para destaque */
+            box-shadow: 0 2px 5px var(--shadow-color);
+            /* Sombra para destaque */
             transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
-            display: flex; /* Para centralizar o ícone */
+            display: flex;
+            /* Para centralizar o ícone */
             justify-content: center;
             align-items: center;
         }
 
         #scrollToTopBtn:hover {
-            background-color: var(--button-bg-success-hover); /* Altera a cor no hover */
-            transform: translateY(-3px); /* Pequeno efeito de elevação */
+            background-color: var(--button-bg-success-hover);
+            /* Altera a cor no hover */
+            transform: translateY(-3px);
+            /* Pequeno efeito de elevação */
         }
 
         /* Para o ícone do Font Awesome */
         #scrollToTopBtn .fas {
-            line-height: 1; /* Garante que o ícone fique centralizado verticalmente */
+            line-height: 1;
+            /* Garante que o ícone fique centralizado verticalmente */
         }
+
         /* Estilo para o contêiner da animação Lottie/imagem fallback dentro do botão */
         .lottie-icon-container {
-            width: 60px; 
+            width: 60px;
             height: 60px;
-            margin-bottom: 5px; 
-            display: flex; 
+            margin-bottom: 5px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden; 
-            border-radius: 50%; 
-            border: 2px solid rgba(255, 255, 255, 0.7); 
+            overflow: hidden;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.7);
         }
 
         /* Estilos para o SVG gerado pelo Lottie (se Lottie.js usar SVG) */
@@ -265,17 +318,17 @@
         .lottie-icon-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; 
-            border-radius: 50%; 
+            object-fit: cover;
+            border-radius: 50%;
         }
 
 
         .category-button span.button-text {
-            font-size: 0.85em; 
-            max-height: 2.4em; 
-            overflow: hidden; 
-            text-overflow: ellipsis; 
-            white-space: normal; 
+            font-size: 0.85em;
+            max-height: 2.4em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
             line-height: 1.2;
         }
 
@@ -293,11 +346,11 @@
         /* Seções do cardápio */
         #menu-sections {
             flex: 3;
-            background-color: var(--bg-secondary); 
+            background-color: var(--bg-secondary);
             padding: 1.5em;
             border-radius: 8px;
-            box-shadow: 0 2px 8px var(--shadow-color); 
-            transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 0 2px 8px var(--shadow-color);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .category {
@@ -305,35 +358,37 @@
         }
 
         .category h2 {
-            color: var(--accent-color); 
-            border-bottom: 2px solid var(--border-color); 
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 0.5em;
             margin-bottom: 1.5em;
             font-size: 1.8em;
             font-weight: 600;
             transition: color 0.3s ease, border-color 0.3s ease;
-            font-family: 'Poppins', sans-serif; /* Mantém a fonte consistente */
-        
+            font-family: 'Poppins', sans-serif;
+            /* Mantém a fonte consistente */
+
         }
 
         .products-grid {
             display: grid;
             gap: 20px;
             /* Padrão para mobile (1 coluna) ou telas maiores que 480px e menores que 768px (2 colunas) */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Será sobrescrito pelas media queries */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            /* Será sobrescrito pelas media queries */
         }
 
         .product-card {
-            background-color: var(--bg-secondary); 
-            border: 1px solid var(--border-color); 
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 5px var(--shadow-color); 
+            box-shadow: 0 2px 5px var(--shadow-color);
             display: flex;
             flex-direction: column;
             text-align: center;
             padding: 0.2em;
-            transition: transform 0.2s ease-in-out, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; 
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
 
@@ -343,30 +398,45 @@
 
         /* NOVO: Contêiner da imagem - Garante uma proporção fixa para evitar o corte indesejado */
         .product-card .product-image-container {
-            width: 100%; /* Ocupa a largura total disponível no card */
-            padding-top: 75%; /* Proporção 4:3 (75% da largura) - Ideal para a maioria das fotos de produtos.
+            width: 100%;
+            /* Ocupa a largura total disponível no card */
+            padding-top: 75%;
+            /* Proporção 4:3 (75% da largura) - Ideal para a maioria das fotos de produtos.
                                 Experimente 100% para quadrado, ou 65% para mais horizontal, se necessário. */
-            position: relative; /* Necessário para posicionar a imagem absoluta dentro */
-            overflow: hidden;   /* Esconde partes da imagem que transbordam */
-            border-bottom: 1px solid var(--border-color); /* Borda entre imagem e conteúdo do card */
-            border-radius: 8px 8px 0 0; /* Cantos arredondados apenas em cima */
-            margin: 0 auto; /* Centraliza o contêiner de imagem dentro do card */
-            display: flex; /* Adiciona flexbox para ajudar no alinhamento caso a imagem não preencha 100% */
-            justify-content: center; /* Centraliza horizontalmente o conteúdo */
-            align-items: center; /* Centraliza verticalmente o conteúdo */
+            position: relative;
+            /* Necessário para posicionar a imagem absoluta dentro */
+            overflow: hidden;
+            /* Esconde partes da imagem que transbordam */
+            border-bottom: 1px solid var(--border-color);
+            /* Borda entre imagem e conteúdo do card */
+            border-radius: 8px 8px 0 0;
+            /* Cantos arredondados apenas em cima */
+            margin: 0 auto;
+            /* Centraliza o contêiner de imagem dentro do card */
+            display: flex;
+            /* Adiciona flexbox para ajudar no alinhamento caso a imagem não preencha 100% */
+            justify-content: center;
+            /* Centraliza horizontalmente o conteúdo */
+            align-items: center;
+            /* Centraliza verticalmente o conteúdo */
         }
 
         /* A Imagem em si - Preenche o contêiner e se ajusta/centraliza */
         .product-card .product-image-container img {
-            max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
-            position: absolute; /* Posiciona a imagem para preencher o contêiner */
-            top: 0;
-            left: 0;
-            overflow: hidden; /* Esconde partes da imagem que transbordam */
-            width: 100%;  /* Garante que a imagem preencha a largura do contêiner */
-            height: 100%; /* Garante que a imagem preencha a altura do contêiner */
-            object-fit: cover; /* ESSENCIAL: Faz a imagem cobrir o contêiner, cortando se necessário */
-            object-position: center; /* ESSENCIAL: Centraliza o foco da imagem cortada */
+            max-width: 50%;
+            /* Garante que a imagem não ultrapasse a largura do contêiner */
+            position: absolute;
+            /* Posiciona a imagem para preencher o contêiner */
+            overflow: hidden;
+            /* Esconde partes da imagem que transbordam */
+            width: 100%;
+            /* Garante que a imagem preencha a largura do contêiner */
+            height: 100%;
+            /* Garante que a imagem preencha a altura do contêiner */
+            object-fit: cover;
+            /* ESSENCIAL: Faz a imagem cobrir o contêiner, cortando se necessário */
+            object-position: center;
+            /* ESSENCIAL: Centraliza o foco da imagem cortada */
         }
 
         /* REMOVIDO: .product-card img antigo - substituído pelas regras acima */
@@ -378,13 +448,15 @@
         } */
 
         /* Marca d'água só aparece se NÃO houver imagem no card */
-        .product-card:not(:has(.product-image-container img))::before { /* Ajustado o seletor para verificar o contêiner */
+        .product-card:not(:has(.product-image-container img))::before {
+            /* Ajustado o seletor para verificar o contêiner */
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 180px; /* Pode precisar de ajuste com o novo contêiner */
+            height: 180px;
+            /* Pode precisar de ajuste com o novo contêiner */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -400,33 +472,33 @@
 
         .product-card h3 {
             font-size: 1.3em;
-            margin: 0.8em 0.5em 0.3em;
-            color: var(--text-primary); 
+            margin: 0.4em 0.3em 0.1em;
+            color: var(--text-primary);
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .product-card p {
             font-size: 0.9em;
-            color: var(--text-secondary); 
-            padding: 0 1em;
+            color: var(--text-secondary);
+            padding: 0.1em 0.5em 0.3em;
             flex-grow: 1;
             transition: color 0.3s ease;
         }
 
         .product-card .price {
             font-size: 1.4em;
-            color: var(--accent-color); 
+            color: var(--accent-color);
             font-weight: 700;
-            margin: 0.5em 0 1em;
+            margin: 0.2em 0 0.em;
             transition: color 0.3s ease;
         }
 
         .product-card button.add-to-cart {
-            background-color: var(--button-bg-success); 
+            background-color: var(--button-bg-success);
             color: white;
             border: none;
-            padding: 0.8em 1.5em;
+            padding: 0.9em 1.5em;
             font-size: 1em;
             cursor: pointer;
             border-radius: 0 0 8px 8px;
@@ -435,7 +507,7 @@
         }
 
         .product-card button.add-to-cart:hover {
-            background-color: var(--button-bg-success-hover); 
+            background-color: var(--button-bg-success-hover);
         }
 
 
@@ -449,26 +521,27 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0, 0, 0, 0.6);
             justify-content: center;
             align-items: center;
         }
 
         .modal-content {
-            background-color: var(--bg-secondary); 
+            background-color: var(--bg-secondary);
             margin: auto;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px var(--shadow-color); 
+            box-shadow: 0 4px 10px var(--shadow-color);
             width: 90%;
-            max-width: 450px; /* Largura padrão para carrinho/info */
+            max-width: 450px;
+            /* Largura padrão para carrinho/info */
             position: relative;
             animation: fadeIn 0.3s ease-out;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .modal-content h2 {
-            color: var(--accent-color); 
+            color: var(--accent-color);
             transition: color 0.3s ease;
             margin-top: 0;
             margin-bottom: 1em;
@@ -477,12 +550,19 @@
 
         /* Animação de entrada do modal */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .close-button {
-            color: var(--text-secondary); 
+            color: var(--text-secondary);
             float: right;
             font-size: 28px;
             font-weight: bold;
@@ -495,7 +575,7 @@
 
         .close-button:hover,
         .close-button:focus {
-            color: var(--text-primary); 
+            color: var(--text-primary);
             text-decoration: none;
             cursor: pointer;
         }
@@ -503,7 +583,8 @@
         #cart-items-modal {
             min-height: 80px;
             margin-bottom: 1.5em;
-            max-height: 30vh; /* Reduz a altura máxima para dar espaço aos novos campos */
+            max-height: 30vh;
+            /* Reduz a altura máxima para dar espaço aos novos campos */
             overflow-y: auto;
             padding-right: 5px;
         }
@@ -513,7 +594,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 0.8em;
-            border-bottom: 1px dashed var(--border-color); 
+            border-bottom: 1px dashed var(--border-color);
             padding-bottom: 0.5em;
             transition: border-color 0.3s ease;
         }
@@ -530,13 +611,13 @@
 
         .cart-item-info .item-name {
             font-weight: 600;
-            color: var(--text-primary); 
+            color: var(--text-primary);
             transition: color 0.3s ease;
         }
 
         .cart-item-info .item-price {
             font-size: 0.9em;
-            color: var(--text-secondary); 
+            color: var(--text-secondary);
             transition: color 0.3s ease;
         }
 
@@ -547,7 +628,7 @@
         }
 
         .cart-item-quantity button {
-            background-color: var(--accent-color); 
+            background-color: var(--accent-color);
             color: white;
             border: none;
             border-radius: 4px;
@@ -563,18 +644,18 @@
         }
 
         .cart-item-quantity button:hover {
-            background-color: var(--button-bg-success-hover); 
+            background-color: var(--button-bg-success-hover);
         }
 
         .cart-item-quantity span {
             font-weight: 600;
-            color: var(--text-primary); 
+            color: var(--text-primary);
             transition: color 0.3s ease;
         }
 
 
         .cart-summary-modal {
-            border-top: 2px solid var(--border-color); 
+            border-top: 2px solid var(--border-color);
             padding-top: 1em;
             text-align: right;
             transition: border-color 0.3s ease;
@@ -583,10 +664,11 @@
         #cart-total-modal {
             font-size: 1.8em;
             font-weight: 700;
-            color: var(--accent-color); 
+            color: var(--accent-color);
             display: block;
             margin-top: 0.5em;
             transition: color 0.3s ease;
+            padding: 0.2em;
         }
 
         /* NOVOS ESTILOS PARA OS CAMPOS DO CARRINHO */
@@ -594,7 +676,8 @@
             margin-top: 1.5em;
             padding-top: 1.5em;
             border-top: 1px solid var(--border-color);
-            text-align: left; /* Alinha o texto dentro desta seção à esquerda */
+            text-align: left;
+            /* Alinha o texto dentro desta seção à esquerda */
         }
 
         .order-options h3 {
@@ -602,7 +685,8 @@
             margin-top: 0;
             margin-bottom: 1em;
             font-size: 1.4em;
-            text-align: center; /* Centraliza o título "Detalhes do Pedido" */
+            text-align: center;
+            /* Centraliza o título "Detalhes do Pedido" */
         }
 
         .input-group {
@@ -618,15 +702,18 @@
         }
 
         .order-input {
-            width: calc(100% - 22px); /* Ajusta para padding e borda */
+            width: calc(100% - 22px);
+            /* Ajusta para padding e borda */
             padding: 10px;
             border: 1px solid var(--border-color);
             border-radius: 5px;
-            background-color: var(--bg-primary); /* Fundo um pouco mais escuro */
+            background-color: var(--bg-primary);
+            /* Fundo um pouco mais escuro */
             color: var(--text-primary);
             font-size: 1em;
             transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-            -webkit-appearance: none; /* Remove estilo padrão de selects/inputs em alguns browsers */
+            -webkit-appearance: none;
+            /* Remove estilo padrão de selects/inputs em alguns browsers */
             -moz-appearance: none;
             appearance: none;
         }
@@ -649,7 +736,8 @@
             background-repeat: no-repeat;
             background-position: right 10px center;
             background-size: 12px;
-            padding-right: 30px; /* Espaço para o ícone da seta */
+            padding-right: 30px;
+            /* Espaço para o ícone da seta */
         }
 
         /* Estilo para opções de select (alguns navegadores não estilizam bem) */
@@ -657,19 +745,25 @@
             background-color: var(--bg-secondary);
             color: var(--text-primary);
         }
+
         #jantinha-options {
             /* Por padrão, começa oculto no HTML, mas o JS o controla */
             /* Garante que o block seja efetivo quando o JS o define */
-            display: block; /* Este valor será sobrescrito pelo JS */ 
+            display: block;
+            /* Este valor será sobrescrito pelo JS */
             /* Adicione transições se quiser um efeito mais suave ao aparecer/desaparecer */
-            transition: all 0.3s ease-in-out; 
-            overflow: hidden; /* Garante que o conteúdo não vaze durante a transição */
-            max-height: 0; /* Começa com altura 0 para transição suave */
-            opacity: 0; /* Começa com opacidade 0 para transição suave */
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+            /* Garante que o conteúdo não vaze durante a transição */
+            max-height: 0;
+            /* Começa com altura 0 para transição suave */
+            opacity: 0;
+            /* Começa com opacidade 0 para transição suave */
         }
 
         #jantinha-options[style*="display: block"] {
-            max-height: 200px; /* Altura suficiente para mostrar os campos */
+            max-height: 200px;
+            /* Altura suficiente para mostrar os campos */
             opacity: 1;
         }
 
@@ -690,7 +784,7 @@
 
 
         #checkout-whatsapp-modal {
-            background-color: var(--button-bg-warning); 
+            background-color: var(--button-bg-warning);
             color: white;
             border: none;
             padding: 1em 1.5em;
@@ -701,19 +795,19 @@
             margin-top: 1em;
             transition: background-color 0.2s ease;
             font-weight: 600;
-            display: flex; 
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px; 
+            gap: 8px;
         }
 
         #checkout-whatsapp-modal:hover {
-            background-color: var(--button-bg-warning-hover); 
+            background-color: var(--button-bg-warning-hover);
         }
 
         /* Estilos para o Modal de Informações */
         #info-modal .modal-content {
-            max-width: 550px; 
+            max-width: 550px;
         }
 
         .info-section {
@@ -721,7 +815,7 @@
             padding: 1em;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            background-color: var(--bg-secondary); 
+            background-color: var(--bg-secondary);
             box-shadow: 0 1px 3px var(--shadow-color);
             transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
@@ -734,12 +828,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 1px solid var(--border-color); 
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 0.5em;
         }
 
         .info-section ul {
-            list-style: none; 
+            list-style: none;
             padding: 0;
             margin: 0;
         }
@@ -750,7 +844,7 @@
         }
 
         .info-section a {
-            color: var(--accent-color); 
+            color: var(--accent-color);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.2s ease;
@@ -758,17 +852,17 @@
 
         .info-section a:hover {
             text-decoration: underline;
-            color: var(--button-bg-success-hover); 
+            color: var(--button-bg-success-hover);
         }
 
         .info-section .maps-link {
-            display: inline-flex; 
+            display: inline-flex;
             align-items: center;
             gap: 5px;
         }
 
         .contact-info {
-            text-align: center; 
+            text-align: center;
         }
 
         /* Modal de Fotos */
@@ -787,10 +881,13 @@
 
         #modal-photos-grid img {
             width: 100%;
-            height: 150px; /* Será sobrescrito pela media query para desktop */
+            height: 150px;
+            /* Será sobrescrito pela media query para desktop */
             object-fit: cover;
-            border-radius: 8px; /* Será sobrescrito pela media query para desktop */
-            box-shadow: 0 2px 5px var(--shadow-color); /* Será sobrescrito pela media query para desktop */
+            border-radius: 8px;
+            /* Será sobrescrito pela media query para desktop */
+            box-shadow: 0 2px 5px var(--shadow-color);
+            /* Será sobrescrito pela media query para desktop */
             transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
         }
 
@@ -804,8 +901,8 @@
         footer {
             text-align: center;
             padding: 1.5em;
-            background-color: var(--footer-bg); 
-            color: var(--text-secondary); 
+            background-color: var(--footer-bg);
+            color: var(--text-secondary);
             font-size: 0.9em;
             margin-top: 2em;
             transition: background-color 0.3s ease, color 0.3s ease;
@@ -814,24 +911,32 @@
         /* Responsividade para telas maiores (desktop) */
         @media (min-width: 768px) {
             .products-grid {
-                grid-template-columns: repeat(5, 1fr); /* 5 colunas para desktop */
+                grid-template-columns: repeat(5, 1fr);
+                /* 5 colunas para desktop */
             }
+
             .category-navigation {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             }
 
-            header, footer, nav.category-navigation {
-                max-width:95%; /* Mesma largura do main para alinhamento */
-                margin: 0 auto; /* Centraliza */
+            header,
+            footer,
+            nav.category-navigation {
+                max-width: 95%;
+                /* Mesma largura do main para alinhamento */
+                margin: 0 auto;
+                /* Centraliza */
                 padding-left: 0;
                 padding-right: 0;
             }
-            #cart-modal .modal-content{
+
+            #cart-modal .modal-content {
                 max-width: 50%;
-                width:90%;
+                width: 90%;
 
             }
+
             #chatModal .modal-content {
                 max-width: 100%;
                 width: 800px;
@@ -849,13 +954,13 @@
             .theme-toggle-container {
                 top: 20px;
                 left: 20px;
-                font-size: 2em; 
+                font-size: 2em;
             }
 
             .info-toggle-container {
                 top: 20px;
                 right: 20px;
-                font-size: 2em; 
+                font-size: 2em;
             }
 
             .cart-icon-container {
@@ -866,39 +971,51 @@
                 height: 70px;
             }
 
-            main{
-                max-width: 95%; /* Altere este valor para a largura máxima desejada */
-                margin: 0 auto; /* Centraliza o conteúdo na tela */
-                padding-left: 0; /* Remove padding lateral se a intenção é esticar ao máximo */
-                padding-right: 0; /* Remove padding lateral se a intenção é esticar ao máximo */
+            main {
+                max-width: 95%;
+                /* Altere este valor para a largura máxima desejada */
+                margin: 0 auto;
+                /* Centraliza o conteúdo na tela */
+                padding-left: 0;
+                /* Remove padding lateral se a intenção é esticar ao máximo */
+                padding-right: 0;
+                /* Remove padding lateral se a intenção é esticar ao máximo */
             }
 
             #menu-sections {
                 order: 1;
             }
-            #scrollToTopBtn{
+
+            #scrollToTopBtn {
                 bottom: 30px;
                 right: 35px;
             }
+
             .category h2 {
                 text-indent: 1em;
                 margin-bottom: 1em;
                 font-size: 2.1em;
                 text-align: center;
-                line-height: 0.2; /* Ajusta o espaçamento entre linhas */
+                line-height: 0.2;
+                /* Ajusta o espaçamento entre linhas */
             }
+
             .category-button {
-                width: 180px; 
+                width: 180px;
                 height: 120px;
                 font-size: 1em;
                 border-radius: 25px;
             }
+
             .chat-toggle-btn {
                 position: fixed;
-                bottom: 90px; /* Ajuste para que não conflite com o "Voltar ao Topo" */
+                bottom: 90px;
+                /* Ajuste para que não conflite com o "Voltar ao Topo" */
                 right: 20px;
-                z-index: 998; /* Mantém o mesmo z-index que o "Voltar ao Topo" */
-                background-color: var(--button-bg-warning); /* Cor de aviso (verde) */
+                z-index: 998;
+                /* Mantém o mesmo z-index que o "Voltar ao Topo" */
+                background-color: var(--button-bg-warning);
+                /* Cor de aviso (verde) */
                 color: white;
                 border-radius: 50%;
                 width: 50px;
@@ -907,22 +1024,25 @@
                 cursor: pointer;
                 box-shadow: 0 2px 5px var(--shadow-color);
                 transition: background-color 0.3s ease, transform 0.2s ease;
-                display: flex; /* Garante que ele seja visível por padrão */
+                display: flex;
+                /* Garante que ele seja visível por padrão */
                 justify-content: center;
                 align-items: center;
             }
         }
+
         .chat-toggle-btn:hover {
             background-color: var(--button-bg-warning-hover);
             transform: translateY(-3px);
         }
+
         #modal-photos-grid img {
             width: 100%;
-            height:200px;
+            height: 200px;
             object-fit: cover;
             border-radius: 15px;
             box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.3s ease; 
+            transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
         }
 
 
@@ -932,14 +1052,19 @@
             header h1 {
                 font-size: 1.8em;
             }
-            .products-grid { /* Ajusta a grade de produtos para telas pequenas NOS ITENS PRUDUTOS */
+
+            .products-grid {
+                /* Ajusta a grade de produtos para telas pequenas NOS ITENS PRUDUTOS */
                 display: grid;
-                gap: 5px; /* Espaçamento entre os itens */
+                gap: 5px;
+                /* Espaçamento entre os itens */
                 grid-template-columns: repeat(2, 1fr);
                 font-size: 15px;
                 text-indent: 0.5em;
-                font-family: pacifico, sans-serif; /* Mantém a fonte consistente */
-                font-weight: 600; /* Mantém o peso da fonte consistente */
+                font-family: pacifico, sans-serif;
+                /* Mantém a fonte consistente */
+                font-weight: 600;
+                /* Mantém o peso da fonte consistente */
 
             }
 
@@ -984,36 +1109,54 @@
             }
 
             .category h2 {
-                text-indent: 1em; /* Indenta o título da categoria */
+                text-indent: 1em;
+                /* Indenta o título da categoria */
                 text-align: center;
                 margin-bottom: 0.5em;
                 font-size: 1.2em;
-                line-height: 0.5; /* Ajusta o espaçamento entre linhas */
-                
+                line-height: 0.5;
+                /* Ajusta o espaçamento entre linhas */
+
             }
+
             /* Contêiner da imagem - Garante uma proporção fixa - MANTER AQUI PARA REGRAS ESPECÍFICAS DE TELAS MUITO PEQUENAS */
             .product-card .product-image-container {
-                width: 100%; /* Ocupa a largura total disponível no card */
-                padding-top: 75%; /* OU 65% OU 85% - Experimente! Esta é a proporção chave. */
-                                /* 100% = quadrado (pode cortar mais) */
-                                /* 75% = 4:3 (mais comum para fotos de comida) */
-                                /* 65% = um pouco mais horizontal (pode ser bom para alguns produtos) */
-                position: relative; /* Necessário para posicionar a imagem absoluta dentro */
-                overflow: hidden;   /* Esconde partes da imagem que transbordam */
-                border-radius: 8px; /* Cantos arredondados, se desejar */
-                margin: 0 auto 10px auto; /* Centraliza o contêiner de imagem dentro do card */
-                display: flex; /* Adiciona flexbox para ajudar no alinhamento caso a imagem não preencha 100% */
-                justify-content: center; /* Centraliza horizontalmente o conteúdo */
-                align-items: center; /* Centraliza verticalmente o conteúdo */
+                width: 100%;
+                /* Ocupa a largura total disponível no card */
+                padding-top: 75%;
+                /* OU 65% OU 85% - Experimente! Esta é a proporção chave. */
+                /* 100% = quadrado (pode cortar mais) */
+                /* 75% = 4:3 (mais comum para fotos de comida) */
+                /* 65% = um pouco mais horizontal (pode ser bom para alguns produtos) */
+                position: relative;
+                /* Necessário para posicionar a imagem absoluta dentro */
+                overflow: hidden;
+                /* Esconde partes da imagem que transbordam */
+                border-radius: 8px;
+                /* Cantos arredondados, se desejar */
+                margin: 0 auto 10px auto;
+                /* Centraliza o contêiner de imagem dentro do card */
+                display: flex;
+                /* Adiciona flexbox para ajudar no alinhamento caso a imagem não preencha 100% */
+                justify-content: center;
+                /* Centraliza horizontalmente o conteúdo */
+                align-items: center;
+                /* Centraliza verticalmente o conteúdo */
             }
+
             .product-card .product-image-container img {
-                position: absolute; /* Posiciona a imagem para preencher o contêiner */
+                position: absolute;
+                /* Posiciona a imagem para preencher o contêiner */
                 top: 0;
                 left: 0;
-                width: 50%;  /* Garante que a imagem preencha a largura do contêiner */
-                height: 50%; /* Garante que a imagem preencha a altura do contêiner */
-                object-fit: cover; /* ESSENCIAL: Faz a imagem cobrir o contêiner, cortando se necessário */
-                object-position: center; /* ESSENCIAL: Centraliza o foco da imagem cortada */
+                width: 50%;
+                /* Garante que a imagem preencha a largura do contêiner */
+                height: 50%;
+                /* Garante que a imagem preencha a altura do contêiner */
+                object-fit: cover;
+                /* ESSENCIAL: Faz a imagem cobrir o contêiner, cortando se necessário */
+                object-position: center;
+                /* ESSENCIAL: Centraliza o foco da imagem cortada */
             }
 
             .product-card::before {
@@ -1021,25 +1164,28 @@
             }
 
             .category-navigation {
-                flex-direction: row; 
-                justify-content: space-around; 
+                flex-direction: row;
+                justify-content: space-around;
                 padding: 0.5em;
-                gap: 5px; 
+                gap: 5px;
             }
 
             .category-button {
-                width: 80px; 
+                width: 80px;
                 height: 75px;
                 padding: 0.5em 0.2em;
                 font-size: 0.8em;
                 border-radius: 5px;
-                gap: 1px; /* Espaçamento entre o ícone e o texto */
+                gap: 1px;
+                /* Espaçamento entre o ícone e o texto */
             }
+
             .lottie-icon-container {
                 width: 50px;
                 height: 50px;
                 margin-bottom: 3px;
             }
+
             .category-button span.button-text {
                 font-size: 0.9em;
             }
@@ -1049,17 +1195,20 @@
                 padding: 5px;
                 width: 80%;
             }
+
             .info-section h3 {
                 font-size: 1.2em;
                 gap: 8px;
             }
-            .info-section p, .info-section li {
+
+            .info-section p,
+            .info-section li {
                 font-size: 0.9em;
             }
 
             /* Modal de Fotos em telas pequenas */
             #photos-modal .modal-content {
-                max-width: 95%; 
+                max-width: 95%;
                 max-height: 90vh;
             }
 
@@ -1074,87 +1223,106 @@
 
             /* NOVOS ESTILOS PARA OS CAMPOS DO CARRINHO EM TELAS PEQUENAS */
             .modal-content {
-                max-width: 80%; /* Ajusta a largura máxima para o modal em telas pequenas */
+                max-width: 80%;
+                /* Ajusta a largura máxima para o modal em telas pequenas */
             }
 
             #cart-items-modal {
-                max-height: 25vh; /* Pode precisar de mais ajustes em telas muito pequenas */
-                padding-right: 0; /* Remove o padding direito para evitar rolagem desnecessária */
-                overflow-y: auto; /* Garante que a rolagem funcione corretamente */
+                max-height: 25vh;
+                /* Pode precisar de mais ajustes em telas muito pequenas */
+                padding-right: 0;
+                /* Remove o padding direito para evitar rolagem desnecessária */
+                overflow-y: auto;
+                /* Garante que a rolagem funcione corretamente */
             }
 
             .order-input {
                 font-size: 0.9em;
                 padding: 8px;
             }
-            
+
             .input-group label {
                 font-size: 0.8em;
             }
-            
-        /* Botão flutuante do Chatbot */
-        .chat-toggle-btn {
-            position: fixed;
-            bottom: 20px; 
-            right: 20px;
-            z-index: 998; 
-            background-color: var(--button-bg-warning); /* Cor de aviso (verde) */
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5em;
-            cursor: pointer;
-            box-shadow: 0 2px 5px var(--shadow-color);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: flex; /* Garante que ele seja visível por padrão */
-            justify-content: center;
-            align-items: center;
-        }
 
-        .chat-toggle-btn:hover {
-            background-color: var(--button-bg-warning-hover);
-            transform: translateY(-3px);
-        }
+            /* Botão flutuante do Chatbot */
+            .chat-toggle-btn {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 998;
+                background-color: var(--button-bg-warning);
+                /* Cor de aviso (verde) */
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+                cursor: pointer;
+                box-shadow: 0 2px 5px var(--shadow-color);
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                display: flex;
+                /* Garante que ele seja visível por padrão */
+                justify-content: center;
+                align-items: center;
+            }
+
+            .chat-toggle-btn:hover {
+                background-color: var(--button-bg-warning-hover);
+                transform: translateY(-3px);
+            }
         }
 
         /* Estilos específicos para o Modal do Chatbot */
         .chat-modal-content {
-            max-width: 300px; /* Largura um pouco menor para o chat */
+            max-width: 300px;
+            /* Largura um pouco menor para o chat */
+        }
+
+        .image-card {
+            height: 250px;
+            object-fit: contain;
         }
 
         .chatbox {
-            
+
             border-radius: 5px;
             padding: 5px;
-            height: 300px; /* Altura fixa para a caixa de chat */
-            overflow-y: auto; /* Rolagem quando o conteúdo exceder */
+            height: 300px;
+            /* Altura fixa para a caixa de chat */
+            overflow-y: auto;
+            /* Rolagem quando o conteúdo exceder */
             margin-bottom: 30px;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            background-color: var(--bg-primary); /* Fundo da caixa de mensagens */
+            background-color: var(--bg-primary);
+            /* Fundo da caixa de mensagens */
             font-size: 13px;
-            
+
         }
 
         .message {
             padding: 8px 12px;
             border-radius: 15px;
             max-width: 80%;
-            word-wrap: break-word; /* Quebra palavras longas */
+            word-wrap: break-word;
+            /* Quebra palavras longas */
         }
 
         .user-message {
-            align-self: flex-end; /* Alinha mensagens do usuário à direita */
+            align-self: flex-end;
+            /* Alinha mensagens do usuário à direita */
             background-color: var(--accent-color);
             color: white;
         }
 
         .bot-message {
-            align-self: flex-start; /* Alinha mensagens do bot à esquerda */
-            background-color: var(--category-color); /* Uma cor neutra para o bot */
+            align-self: flex-start;
+            /* Alinha mensagens do bot à esquerda */
+            background-color: var(--category-color);
+            /* Uma cor neutra para o bot */
             color: var(--text-primary);
         }
 
@@ -1175,48 +1343,75 @@
             background-color: var(--button-bg-success-hover);
         }
 
+        .product-card button.add-to-cart {
+            padding: 0.5em 1em;
+            /* Ajusta o padding para telas pequenas */
+            font-size: 0.9em;
+            /* Reduz o tamanho da fonte */
+        }
+
         /* Responsividade para telas muito pequenas 378px-------------------------------------------------------------------*/
         @media (max-width: 378px) {
 
-            #scrollToTopBtn{
+            #scrollToTopBtn {
                 display: none;
                 bottom: 30px;
                 left: 15px;
-                }
+            }
+
             #info-modal .modal-content {
                 padding: 5px;
                 width: 80%;
             }
+
             .info-section h3 {
                 font-size: 1.2em;
                 gap: 8px;
             }
-            .info-section p, .info-section li {
-                font-size: 0.8em; /* Alterado de 0.9em para 0.8em */
+
+            .info-section p,
+            .info-section li {
+                font-size: 0.8em;
+                /* Alterado de 0.9em para 0.8em */
             }
+
             /* Garante que cada categoria se ajuste à coluna */
             .menu-category {
-                width: 0%; /* Ocupa a largura total da coluna da grade */
+                width: 0%;
+                /* Ocupa a largura total da coluna da grade */
             }
 
         }
+
         @media (max-width: 390px) {
 
-            #scrollToTopBtn{
+            #scrollToTopBtn {
                 display: none;
                 bottom: 30px;
                 left: 15px;
-                }
+            }
+
             #info-modal .modal-content {
                 padding: 5px;
                 width: 80%;
             }
+
             .info-section h3 {
                 font-size: 1.2em;
                 gap: 8px;
             }
-            .info-section p, .info-section li {
-                font-size: 0.8em; /* Alterado de 0.9em para 0.8em */
+
+            .info-section p,
+            .info-section li {
+                font-size: 0.8em;
+                /* Alterado de 0.9em para 0.8em */
+            }
+
+            .product-card button.add-to-cart {
+                padding: 0.5em 1em;
+                /* Ajusta o padding para telas pequenas */
+                font-size: 0.7em;
+                /* Reduz o tamanho da fonte */
             }
 
         }

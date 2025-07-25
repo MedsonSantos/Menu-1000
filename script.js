@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function sendOrderToWhatsapp() {
         if (cart.length === 0) {
-            alert('Seu carrinho está vazio! Adicione itens antes de fazer o pedido.');
+            alert('❌ Seu carrinho está vazio! Adicione itens antes de fazer o pedido.');
             return;
         }
 
@@ -481,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        let message = `*Jantinha Nota 1000 - Novo Pedido*\n\n`;
+        let message = `*Boa noite!! Novo Pedido*\n\n`;
         let total = 0;
 
         // Objeto para agrupar outros itens para a mensagem final de forma legível
@@ -716,7 +716,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     : DEFAULT_PLACEHOLDER_IMAGE;
 
                 productCard.innerHTML = `
-                    <img src="${imageUrlToUse}" alt="${product.name}">
+                    <img src="${imageUrlToUse}" class="image-card" alt="${product.name}">
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>
                     <span class="price">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
