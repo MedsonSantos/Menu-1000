@@ -30,8 +30,9 @@
             /* Cor da sombra */
             --header-bg: #333;
             /* Fundo do cabeçalho */
-            --footer-bg: #111;
+            --footer-bg: #e8e1e1;
             /* Fundo do rodapé */
+            --titulo-carrinho: #197be3;
         }
 
         /* Variáveis para o Tema Claro */
@@ -51,7 +52,7 @@
             --shadow-color: rgba(0, 0, 0, 0.1);
             --header-bg: #d2d2ce;
             /* Cor do logo para o tema claro */
-            --footer-bg: #333;
+            --footer-bg: #0a0a0a;
             /* Cor do rodapé para o tema claro */
             --category-color: #bebdbd;
             /* Cor de fundo da categoria para tema claro (preto) */
@@ -72,12 +73,15 @@
             line-height: 1.6;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-
+        .p{
+            font-style: var(--text-primary);
+            background-color: var(--text-primary);
+        }
         /* Cabeçalho */
         header {
             background-color: var(--header-bg);
             color: var(--text-primary);
-            padding: 1em;
+            padding: 1.1em;
             text-align: center;
             box-shadow: 0 2px 4px var(--shadow-color);
             display: flex;
@@ -529,11 +533,11 @@
         
 
         .modal-content {
-            background-color: #242626;
+            background-color: var(--bg-secondary);
             margin: auto;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px var(--shadow-color);
+            box-shadow: 0 4px 10px var(--button-bg-success-hover);
             width: 90%;
             max-width: 450px;
             /* Largura padrão para carrinho/info */
@@ -543,11 +547,12 @@
         }
 
         .modal-content h2 {
-            color: var(--accent-color);
+            color: var(--titulo-carrinho);
             transition: color 0.3s ease;
             margin-top: 0;
             margin-bottom: 1em;
             text-align: center;
+           
         }
 
         /* Animação de entrada do modal */
@@ -599,6 +604,7 @@
             border-bottom: 1px dashed var(--border-color);
             padding-bottom: 0.5em;
             transition: border-color 0.3s ease;
+           
         }
 
         .cart-item:last-child {
@@ -613,13 +619,13 @@
 
         .cart-item-info .item-name {
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--footer-bg);
             transition: color 0.3s ease;
         }
 
         .cart-item-info .item-price {
             font-size: 0.9em;
-            color: var(--text-secondary);
+            color: white;
             transition: color 0.3s ease;
         }
 
@@ -627,6 +633,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            width: 80px;
+
         }
 
         .cart-item-quantity button {
@@ -651,7 +659,7 @@
 
         .cart-item-quantity span {
             font-weight: 600;
-            color: var(--text-primary);
+            color: white;
             transition: color 0.3s ease;
         }
 
@@ -666,7 +674,7 @@
         #cart-total-modal {
             font-size: 1.8em;
             font-weight: 700;
-            color: var(--accent-color);
+            color: rgb(162, 173, 11);
             display: block;
             margin-top: 0.5em;
             transition: color 0.3s ease;
@@ -679,11 +687,12 @@
             padding-top: 1.5em;
             border-top: 1px solid var(--border-color);
             text-align: left;
+            color: var(--text-secondary);
             /* Alinha o texto dentro desta seção à esquerda */
         }
 
         .order-options h3 {
-            color: var(--accent-color);
+            color: var(--button-bg-success-hover);
             margin-top: 0;
             margin-bottom: 1em;
             font-size: 1.4em;
@@ -770,7 +779,7 @@
         }
 
         .delivery-fee-info {
-            font-size: 0.9em;
+            font-size: 0.9em var(--text-primary);
             color: var(--text-secondary);
             margin-top: 1.5em;
             text-align: center;
@@ -934,8 +943,10 @@
             }
 
             #cart-modal .modal-content {
-                max-width: 50%;
-                width: 90%;
+                max-width: 600px;
+                color: var(--text-secondary);
+                
+            }
 
             }
 
@@ -1032,7 +1043,7 @@
                 justify-content: center;
                 align-items: center;
             }
-        }
+        
 
         .chat-toggle-btn:hover {
             background-color: var(--button-bg-warning-hover);
