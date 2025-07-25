@@ -318,7 +318,6 @@ const products = [
         name: 'Império lata',
         description: '350ml',
         price: 6.00,
-        imageUrl: 'https://i.imgur.com/ExemploBrahma.jpg'
     },
 
     {
@@ -327,7 +326,6 @@ const products = [
         name: 'Budweiser Long Neck',
         description: 'Long Neck 330ml',
         price: 9.50,
-        imageUrl: 'URL_DA_IMAGEM_BUDWEISER_LN' 
     },
     {
         id: 'cev-7',
@@ -335,7 +333,6 @@ const products = [
         name: 'Heineken Long Neck',
         description: 'Long Neck 330ml',
         price: 10.00,
-        imageUrl: 'URL_DA_IMAGEM_HEINEKEN_LN' 
     },
     {
         id: 'cev-8',
@@ -343,7 +340,6 @@ const products = [
         name: 'Heineken 600ml',
         description: 'Garrafa 600ml',
         price: 14.00,
-        imageUrl: 'URL_DA_IMAGEM_HEINEKEN_600' 
     },
     {
         id: 'cev-9',
@@ -351,7 +347,6 @@ const products = [
         name: 'Antartica 600ml',
         description: 'Garrafa 600ml',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_ANTARTICA_600' 
     },
     {
         id: 'cev-10',
@@ -359,7 +354,6 @@ const products = [
         name: 'Amstel 600ml',
         description: 'Garrafa 600ml',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_AMSTEL_600'
     },
 
     // -------------------------------------------REFRIGERANTES ------------------------------------------//
@@ -369,7 +363,6 @@ const products = [
         name: 'Coca Cola Lata',
         description: 'Lata 350ml',
         price: 6.00,
-        imageUrl: 'URL_DA_IMAGEM_COCA_LATA'
     },
     {
         id: 'ref-2',
@@ -377,7 +370,6 @@ const products = [
         name: 'Coca Cola Lata Zero',
         description: 'Lata 350ml',
         price: 6.50,
-        imageUrl: 'URL_DA_IMAGEM_COCA_ZERO_LATA' 
     },
     {
         id: 'ref-3',
@@ -385,7 +377,6 @@ const products = [
         name: 'Fanta Lata',
         description: 'Lata 350ml',
         price: 6.00,
-        imageUrl: 'URL_DA_IMAGEM_FANTA_LATA' 
     },
     {
         id: 'ref-4',
@@ -393,7 +384,6 @@ const products = [
         name: 'Guaraná Antártica Lata',
         description: 'Lata 350ml',
         price: 6.00,
-        imageUrl: 'URL_DA_IMAGEM_GUARANA_LATA' 
     },
     {
         id: 'ref-5',
@@ -401,7 +391,6 @@ const products = [
         name: 'Sprite ou Soda Lata',
         description: 'Lata 350ml',
         price: 6.00,
-        imageUrl: 'URL_DA_IMAGEM_SPRITE_SODA_LATA' 
     },
     {
         id: 'ref-6',
@@ -409,7 +398,6 @@ const products = [
         name: 'Coca Cola 600ml',
         description: 'Garrafa 600ml',
         price: 7.50,
-        imageUrl: 'URL_DA_IMAGEM_COCA_600' 
     },
     {
         id: 'ref-7',
@@ -417,7 +405,6 @@ const products = [
         name: 'Fanta 600ml',
         description: 'Garrafa 600ml',
         price: 7.50,
-        imageUrl: 'URL_DA_IMAGEM_FANTA_600' 
     },
     {
         id: 'ref-8',
@@ -425,7 +412,6 @@ const products = [
         name: 'Guaraná Antártica 600ml',
         description: 'Garrafa 600ml',
         price: 7.50,
-        imageUrl: 'URL_DA_IMAGEM_GUARANA_600' 
     },
     {
         id: 'ref-9',
@@ -433,7 +419,6 @@ const products = [
         name: 'Coca Cola 1L',
         description: 'Garrafa 1 Litro',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_COCA_1L' 
     },
     {
         id: 'ref-10',
@@ -441,7 +426,6 @@ const products = [
         name: 'Fanta 1L',
         description: 'Garrafa 1 Litro',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_FANTA_1L' 
     },
     {
         id: 'ref-11',
@@ -449,7 +433,6 @@ const products = [
         name: 'Guaraná Antártica 1L',
         description: 'Garrafa 1 Litro',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_GUARANA_1L' 
     },
     {
         id: 'ref-12',
@@ -457,7 +440,6 @@ const products = [
         name: 'Coca Cola 2L',
         description: 'Garrafa 2 Litros',
         price: 14.00,
-        imageUrl: 'URL_DA_IMAGEM_COCA_2L' 
     },
     {
         id: 'ref-13',
@@ -465,7 +447,6 @@ const products = [
         name: 'Coca Cola 2L Zero',
         description: 'Garrafa 2 Litros',
         price: 14.50,
-        imageUrl: 'URL_DA_IMAGEM_COCA_ZERO_2L' 
     },
     {
         id: 'ref-14',
@@ -473,7 +454,6 @@ const products = [
         name: 'Fanta 2L',
         description: 'Garrafa 2 Litros',
         price: 12.00,
-        imageUrl: 'URL_DA_IMAGEM_FANTA_2L' 
     },
     {
         id: 'ref-15',
@@ -481,7 +461,6 @@ const products = [
         name: 'Guaraná Antártica 2L',
         description: 'Garrafa 2 Litros',
         price: 13.00,
-        imageUrl: 'URL_DA_IMAGEM_GUARANA_2L' 
     },
     {
         id: 'ref-16',
@@ -489,7 +468,6 @@ const products = [
         name: 'Mineiro 2L',
         description: 'Garrafa 2 Litros',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_MINEIRO_2L' 
     },
 
     // -------------------------------SUCOS E DIVERSOS----------------------------------------------//
@@ -499,7 +477,7 @@ const products = [
         name: 'Láfruit 1L Sabores',
         description: '1 Litro',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_LAFRUIT_1L' 
+        imageUrl: 'imagens/sucocaixa1l.png'
     },
     {
         id: 'sud-2',
@@ -507,7 +485,7 @@ const products = [
         name: 'Suco 200ml Sabores',
         description: '200ml',
         price: 4.00,
-        imageUrl: 'URL_DA_IMAGEM_SUCO_200ML' 
+        imageUrl: 'imagens/sucocaixinha200.png'
     },
     {
         id: 'sud-3',
