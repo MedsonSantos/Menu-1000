@@ -16,7 +16,7 @@ const products = [
         category: 'PRATOS',
         name: 'Jantinha Nota 1000',
         description: 'Arroz branco, feijão tropeiro ou de caldo, mandioca, estrogonofe de frango, batata palha, vinagrete e 1 espeto a escolha',
-        price: 25.00,
+        price: 27.00,
         imageUrl: 'https://i.imgur.com/a/6LCXLYF.png'
     },
     {
