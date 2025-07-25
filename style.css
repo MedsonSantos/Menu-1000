@@ -933,11 +933,13 @@
             }
             .products-grid { /* Ajusta a grade de produtos para telas pequenas NOS ITENS PRUDUTOS */
                 display: grid;
-                gap: 10px; /* Espaçamento entre os itens */
+                gap: 5px; /* Espaçamento entre os itens */
                 grid-template-columns: repeat(2, 1fr);
-                font-size: 70%;
+                font-size: 75%;
                 text-indent: 0.5em;
-                
+                font-family: pacifico, sans-serif; /* Mantém a fonte consistente */
+                font-weight: 600; /* Mantém o peso da fonte consistente */
+
             
             }
 

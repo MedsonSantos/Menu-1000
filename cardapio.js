@@ -7,7 +7,7 @@ const products = [
         id: 'pp-1',
         category: 'PRATOS',
         name: 'Jantinha Completa',
-        description: 'Arroz branco, feijão tropeiro ou de caldo, mandioca, vinagrete e 1 espeto a escolha',
+        description: 'Arroz, feijão tropeiro ou de caldo, mandioca, vinagrete e 1 espeto a escolha',
         price: 22.00,
         imageUrl: 'https://i.imgur.com/7dMcMKA.png'
     },
@@ -15,7 +15,7 @@ const products = [
         id: 'pp-2',
         category: 'PRATOS',
         name: 'Jantinha Nota 1000',
-        description: 'Arroz branco, feijão tropeiro ou de caldo, mandioca, estrogonofe de frango, batata palha, vinagrete e 1 espeto a escolha',
+        description: 'Arroz, feijão tropeiro ou de caldo, mandioca, estrogonofe, batata palha, vinagrete e 1 espeto a escolha',
         price: 27.00,
         imageUrl: 'https://i.imgur.com/a/6LCXLYF.png'
     },
@@ -75,7 +75,7 @@ const products = [
         name: 'Picanha Montada',
         description: '',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/qnGt8F2.png'
     },
     {
         id: 'esp-5',
@@ -83,7 +83,7 @@ const products = [
         name: 'Asinha',
         description: 'Tulipa',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/yKRuyzc.png'
     },
     {
         id: 'esp-6',
@@ -139,7 +139,8 @@ const products = [
         name: 'Cafta 1000',
         description: 'Carne bovina envolta em bacon, recheada com queijo',
         price: 14.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        /*imageUrl: 'https://i.imgur.com/j8KuBRF.png'*/
+
     },
     {
         id: 'esp-13',
@@ -165,7 +166,7 @@ const products = [
         name: 'Caldo de Feijão',
         description: '500ml',
         price: 18.00,
-        imageUrl: 'https://i.imgur.com/ExemploCaldoFeijao.jpg'
+        imageUrl: 'https://i.imgur.com/ueGncaB.png'
     },
     {
         id: 'cald-2',
@@ -173,7 +174,7 @@ const products = [
         name: 'Caldo de Frango',
         description: '500ml',
         price: 18.00,
-        imageUrl: 'https://i.imgur.com/ExemploCaldoVerde.jpg'
+        imageUrl: 'https://i.imgur.com/D5oGs1U.png'
     },
     {
         id: 'cald-3',
@@ -181,7 +182,7 @@ const products = [
         name: 'Caldo de Costela',
         description: '500ml, com pedaços de costela e mandioca',
         price: 18.00,
-        imageUrl: 'https://i.imgur.com/ExemploCaldoVerde.jpg'
+        imageUrl: 'https://i.imgur.com/zwjIPpl.png'
     },
 
     //--------------------------------------GUARNIÇÕES-------------------------------------//
@@ -259,7 +260,7 @@ const products = [
         name: 'Creme de Cupuaçu',
         description: 'Copo de 500ml',
         price: 13.00,
-        imageUrl: 'https://i.imgur.com/wrEZygt.png'
+        imageUrl: 'https://i.imgur.com/kFgB7bd.png'
     },
     {
         id: 'lan-5',
@@ -603,6 +604,14 @@ const products = [
         description: 'Porção de Costelinha Suína grande, acompanha mandioca',
         price: 22.00,
         imageUrl: 'https://i.imgur.com/GvqqqWD.png',
+    },
+     {
+        id: 'por-6',
+        category: 'PORÇÕES',
+        name: 'Medalhão 1000',
+        description: 'Medalhão de frango e bacon recheado com queijo',
+        price: 22.00,
+        imageUrl: 'https://i.imgur.com/on6ZaeR.png',
     },
 ];
     
