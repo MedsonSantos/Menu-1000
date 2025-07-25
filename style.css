@@ -935,12 +935,11 @@
                 display: grid;
                 gap: 5px; /* Espaçamento entre os itens */
                 grid-template-columns: repeat(2, 1fr);
-                font-size: 75%;
+                font-size: 15px;
                 text-indent: 0.5em;
                 font-family: pacifico, sans-serif; /* Mantém a fonte consistente */
                 font-weight: 600; /* Mantém o peso da fonte consistente */
 
-            
             }
 
             header p {
