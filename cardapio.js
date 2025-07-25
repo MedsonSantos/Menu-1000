@@ -115,7 +115,7 @@ const products = [
         name: 'Linguiça Caipira',
         description: 'Linguiça Suína da fazenda sem pimenta',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/WAMPEvZ.png'
     },
     {
         id: 'esp-10',
@@ -147,7 +147,7 @@ const products = [
         name: 'Provolone',
         description: 'Queijo provolone bola defumado no espeto',
         price: 12.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/8oS73mV.png'
     },
     {
         id: 'esp-14',
@@ -259,7 +259,7 @@ const products = [
         name: 'Creme de Cupuaçu',
         description: 'Copo de 500ml',
         price: 13.00,
-        imageUrl: 'https://i.imgur.com/kFgB7bd.png'
+        imageUrl: 'https://i.imgur.com/wrEZygt.png'
     },
     {
         id: 'lan-5',
@@ -326,7 +326,7 @@ const products = [
         name: 'Budweiser Long Neck',
         description: 'Long Neck 330ml',
         price: 9.50,
-        imageUrl: 'URL_DA_IMAGEM_BUDWEISER_LN' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_BUDWEISER_LN' 
     },
     {
         id: 'cev-7',
@@ -334,7 +334,7 @@ const products = [
         name: 'Heineken Long Neck',
         description: 'Long Neck 330ml',
         price: 10.00,
-        imageUrl: 'URL_DA_IMAGEM_HEINEKEN_LN' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_HEINEKEN_LN' 
     },
     {
         id: 'cev-8',
@@ -342,7 +342,7 @@ const products = [
         name: 'Heineken 600ml',
         description: 'Garrafa 600ml',
         price: 14.00,
-        imageUrl: 'URL_DA_IMAGEM_HEINEKEN_600' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_HEINEKEN_600' 
     },
     {
         id: 'cev-9',
@@ -350,7 +350,7 @@ const products = [
         name: 'Antartica 600ml',
         description: 'Garrafa 600ml',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_ANTARTICA_600' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_ANTARTICA_600' 
     },
     {
         id: 'cev-10',
@@ -358,7 +358,7 @@ const products = [
         name: 'Amstel 600ml',
         description: 'Garrafa 600ml',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_AMSTEL_600' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_AMSTEL_600'
     },
 
     // -------------------------------------------REFRIGERANTES ------------------------------------------//
@@ -368,7 +368,7 @@ const products = [
         name: 'Coca Cola Lata',
         description: 'Lata 350ml',
         price: 6.00,
-        imageUrl: 'URL_DA_IMAGEM_COCA_LATA' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_COCA_LATA'
     },
     {
         id: 'ref-2',
@@ -376,7 +376,7 @@ const products = [
         name: 'Coca Cola Lata Zero',
         description: 'Lata 350ml',
         price: 6.50,
-        imageUrl: 'URL_DA_IMAGEM_COCA_ZERO_LATA' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_COCA_ZERO_LATA' 
     },
     {
         id: 'ref-3',
@@ -384,7 +384,7 @@ const products = [
         name: 'Fanta Lata',
         description: 'Lata 350ml',
         price: 6.00,
-        imageUrl: 'URL_DA_IMAGEM_FANTA_LATA' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_FANTA_LATA' 
     },
     {
         id: 'ref-4',
@@ -392,7 +392,7 @@ const products = [
         name: 'Guaraná Antártica Lata',
         description: 'Lata 350ml',
         price: 6.00,
-        imageUrl: 'URL_DA_IMAGEM_GUARANA_LATA' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_GUARANA_LATA' 
     },
     {
         id: 'ref-5',
@@ -400,7 +400,7 @@ const products = [
         name: 'Sprite ou Soda Lata',
         description: 'Lata 350ml',
         price: 6.00,
-        imageUrl: 'URL_DA_IMAGEM_SPRITE_SODA_LATA' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_SPRITE_SODA_LATA' 
     },
     {
         id: 'ref-6',
@@ -408,7 +408,7 @@ const products = [
         name: 'Coca Cola 600ml',
         description: 'Garrafa 600ml',
         price: 7.50,
-        imageUrl: 'URL_DA_IMAGEM_COCA_600' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_COCA_600' 
     },
     {
         id: 'ref-7',
@@ -416,7 +416,7 @@ const products = [
         name: 'Fanta 600ml',
         description: 'Garrafa 600ml',
         price: 7.50,
-        imageUrl: 'URL_DA_IMAGEM_FANTA_600' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_FANTA_600' 
     },
     {
         id: 'ref-8',
@@ -424,7 +424,7 @@ const products = [
         name: 'Guaraná Antártica 600ml',
         description: 'Garrafa 600ml',
         price: 7.50,
-        imageUrl: 'URL_DA_IMAGEM_GUARANA_600' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_GUARANA_600' 
     },
     {
         id: 'ref-9',
@@ -432,7 +432,7 @@ const products = [
         name: 'Coca Cola 1L',
         description: 'Garrafa 1 Litro',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_COCA_1L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_COCA_1L' 
     },
     {
         id: 'ref-10',
@@ -440,7 +440,7 @@ const products = [
         name: 'Fanta 1L',
         description: 'Garrafa 1 Litro',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_FANTA_1L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_FANTA_1L' 
     },
     {
         id: 'ref-11',
@@ -448,7 +448,7 @@ const products = [
         name: 'Guaraná Antártica 1L',
         description: 'Garrafa 1 Litro',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_GUARANA_1L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_GUARANA_1L' 
     },
     {
         id: 'ref-12',
@@ -456,7 +456,7 @@ const products = [
         name: 'Coca Cola 2L',
         description: 'Garrafa 2 Litros',
         price: 14.00,
-        imageUrl: 'URL_DA_IMAGEM_COCA_2L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_COCA_2L' 
     },
     {
         id: 'ref-13',
@@ -464,7 +464,7 @@ const products = [
         name: 'Coca Cola 2L Zero',
         description: 'Garrafa 2 Litros',
         price: 14.50,
-        imageUrl: 'URL_DA_IMAGEM_COCA_ZERO_2L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_COCA_ZERO_2L' 
     },
     {
         id: 'ref-14',
@@ -472,7 +472,7 @@ const products = [
         name: 'Fanta 2L',
         description: 'Garrafa 2 Litros',
         price: 12.00,
-        imageUrl: 'URL_DA_IMAGEM_FANTA_2L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_FANTA_2L' 
     },
     {
         id: 'ref-15',
@@ -480,7 +480,7 @@ const products = [
         name: 'Guaraná Antártica 2L',
         description: 'Garrafa 2 Litros',
         price: 13.00,
-        imageUrl: 'URL_DA_IMAGEM_GUARANA_2L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_GUARANA_2L' 
     },
     {
         id: 'ref-16',
@@ -488,7 +488,7 @@ const products = [
         name: 'Mineiro 2L',
         description: 'Garrafa 2 Litros',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_MINEIRO_2L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_MINEIRO_2L' 
     },
 
     // -------------------------------SUCOS E DIVERSOS----------------------------------------------//
@@ -498,7 +498,7 @@ const products = [
         name: 'Láfruit 1L Sabores',
         description: '1 Litro',
         price: 11.00,
-        imageUrl: 'URL_DA_IMAGEM_LAFRUIT_1L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_LAFRUIT_1L' 
     },
     {
         id: 'sud-2',
@@ -506,7 +506,7 @@ const products = [
         name: 'Suco 200ml Sabores',
         description: '200ml',
         price: 4.00,
-        imageUrl: 'URL_DA_IMAGEM_SUCO_200ML' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_SUCO_200ML' 
     },
     {
         id: 'sud-3',
@@ -514,7 +514,7 @@ const products = [
         name: 'Suco de Laranja 500ml',
         description: '500ml',
         price: 12.00,
-        imageUrl: 'URL_DA_IMAGEM_SUCO_LARANJA_500ML' // Substitua pela URL real
+        imageUrl: 'https://i.imgur.com/yDVmqcB.png' 
     },
     {
         id: 'sud-4',
@@ -522,7 +522,7 @@ const products = [
         name: 'Suco de Laranja 1L',
         description: '1 Litro',
         price: 22.00,
-        imageUrl: 'URL_DA_IMAGEM_SUCO_LARANJA_1L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_SUCO_LARANJA_1L' 
     },
     {
         id: 'sud-5',
@@ -530,15 +530,15 @@ const products = [
         name: 'Suco Polpa Sabores 1L',
         description: '1 Litro',
         price: 20.00,
-        imageUrl: 'URL_DA_IMAGEM_SUCO_POLPA_1L' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_SUCO_POLPA_1L' 
     },
     {
         id: 'sud-6',
-        category: 'BEBIDAS', // Crie uma nova categoria se houver mais bebidas diversas
+        category: 'BEBIDAS', 
         name: 'Água Sem Gás 500ml',
         description: '500ml',
         price: 3.00,
-        imageUrl: 'URL_DA_IMAGEM_AGUA_SEM_GAS' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_AGUA_SEM_GAS' 
     },
     {
         id: 'sud-7',
@@ -546,7 +546,7 @@ const products = [
         name: 'Água Com Gás 500ml',
         description: '500ml',
         price: 4.00,
-        imageUrl: 'URL_DA_IMAGEM_AGUA_COM_GAS' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_AGUA_COM_GAS' 
     },
     {
         id: 'sud-8',
@@ -554,7 +554,7 @@ const products = [
         name: 'H2O Limoneto 500ml',
         description: '500ml',
         price: 7.00,
-        imageUrl: 'URL_DA_IMAGEM_H2O_LIMONETO' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_H2O_LIMONETO' 
     },
     {
         id: 'sud-9',
@@ -562,7 +562,7 @@ const products = [
         name: 'Energético Lata 473ml',
         description: 'Lata 473ml (Monster/Crystal Energy)',
         price: 13.00,
-        imageUrl: 'URL_DA_IMAGEM_ENERGETICO' // Substitua pela URL real
+        imageUrl: 'URL_DA_IMAGEM_ENERGETICO' 
     },
     {
         id: 'por-1',
