@@ -222,9 +222,9 @@
             color: white;
             border: none;
             border-radius: 50%; /* Torna o botão redondo */
-            width: 50px;
-            height: 50px;
-            font-size: 1.5em;
+            width: 35px;
+            height: 35px;
+            font-size: 1.1em;
             cursor: pointer;
             box-shadow: 0 2px 5px var(--shadow-color); /* Sombra para destaque */
             transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
@@ -392,7 +392,7 @@
             z-index: 1;
         }
 
-        /* Remove a marca d'água padrão (ajustado para o novo seletor) */
+        /* Remove a marca d'água padrão (ajustado para o novo seletor) PRODUTOS DO MODAL DENTRO CARRINHO */
         .product-card::before {
             content: none;
         }
@@ -931,11 +931,14 @@
             header h1 {
                 font-size: 1.8em;
             }
-            .products-grid {
+            .products-grid { /* Ajusta a grade de produtos para telas pequenas NOS ITENS PRUDUTOS */
                 display: grid;
-                gap: 20px; /* Espaçamento entre os itens */
+                gap: 10px; /* Espaçamento entre os itens */
                 grid-template-columns: repeat(2, 1fr);
-                font-size: 60%;
+                font-size: 70%;
+                text-indent: 0.5em;
+                
+            
             }
 
             header p {
@@ -984,6 +987,7 @@
                 margin-bottom: 0.5em;
                 font-size: 1.2em;
                 line-height: 0.5; /* Ajusta o espaçamento entre linhas */
+                
             }
             /* Contêiner da imagem - Garante uma proporção fixa - MANTER AQUI PARA REGRAS ESPECÍFICAS DE TELAS MUITO PEQUENAS */
             .product-card .product-image-container {
@@ -1191,12 +1195,6 @@
             /* Garante que cada categoria se ajuste à coluna */
             .menu-category {
                 width: 0%; /* Ocupa a largura total da coluna da grade */
-                /* Para o "enquadrando tudo na responsividade 2x2 na tela antes de rolar", */
-                /* você pode querer limitar a altura das seções ou garantir que o conteúdo */
-                /* dentro delas seja compacto. Isso dependerá muito do conteúdo exato de cada seção. */
-                /* Exemplo (use com cautela, pode cortar conteúdo): */
-                /* max-height: 250px; */
-                /* overflow-y: auto; */
             }
 
         }
