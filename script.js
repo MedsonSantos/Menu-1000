@@ -460,126 +460,126 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Envia o pedido para o WhatsApp com todos os detalhes.
      */
-    function sendOrderToWhatsapp() {
-        if (cart.length === 0) {
-            alert('❌ Seu carrinho está vazio! Adicione itens antes de fazer o pedido.');
+ async function sendOrderToWhatsapp() { // Adicionado 'async' pois usaremos await
+    if (cart.length === 0) {
+        alert('❌ Seu carrinho está vazio! Adicione itens antes de fazer o pedido.');
+        return;
+    }
+
+    const orderType = orderTypeSelect.value;
+    const deliveryAddress = deliveryAddressInput.value.trim();
+    const pickupName = pickupNameInput.value.trim();
+    const notes = notesTextarea.value.trim();
+
+    // Validação de campos obrigatórios
+    if (orderType === 'delivery' && !deliveryAddress) {
+        alert('Por favor, digite o endereço de entrega para prosseguir.');
+        return;
+    }
+    if (orderType === 'pickup' && !pickupName) {
+        alert('Por favor, digite o nome para retirada para prosseguir.');
+        return;
+    }
+
+    let message = `*Boa noite!! Novo Pedido*\n\n`;
+    let total = 0;
+
+    let validationFailed = false; // Flag para controlar a validação das jantinhas
+
+    // Processa os itens do carrinho
+    cart.forEach((cartItem, index) => {
+        const product = products.find(p => p.id === cartItem.id);
+        if (!product) {
+            console.warn(`Produto com ID ${cartItem.id} não encontrado ao gerar mensagem.`);
             return;
         }
 
-        const orderType = orderTypeSelect.value;
-        const deliveryAddress = deliveryAddressInput.value.trim();
-        const pickupName = pickupNameInput.value.trim();
-        const notes = notesTextarea.value.trim();
+        // Se for uma jantinha personalizável
+        if (['pp-1', 'pp-2', 'pp-3'].includes(product.id)) {
+            const itemPrice = product.price;
+            total += itemPrice;
 
-        // Validação de campos obrigatórios
-        if (orderType === 'delivery' && !deliveryAddress) {
-            alert('Por favor, digite o endereço de entrega para prosseguir.');
-            return;
-        }
-        if (orderType === 'pickup' && !pickupName) {
-            alert('Por favor, digite o nome para retirada para prosseguir.');
-            return;
-        }
+            let itemDetails = `1x ${product.name}:\n`;
 
-        let message = `*Boa noite!! Novo Pedido*\n\n`;
-        let total = 0;
-
-        // Objeto para agrupar outros itens para a mensagem final de forma legível
-        const otherItemsSummary = {};
-
-        let validationFailed = false; // Flag para controlar a validação das jantinhas
-
-        // Processa os itens do carrinho
-        cart.forEach((cartItem, index) => {
-            const product = products.find(p => p.id === cartItem.id);
-            if (!product) {
-                console.warn(`Produto com ID ${cartItem.id} não encontrado ao gerar mensagem.`);
-                return;
-            }
-
-            // Se for uma jantinha personalizável
-            if (['pp-1', 'pp-2', 'pp-3'].includes(product.id)) {
-                const itemPrice = product.price;
-                total += itemPrice;
-
-                let itemDetails = `1x ${product.name}:\n`;
-
-                if (product.id === 'pp-1' || product.id === 'pp-2') { // Jantinha Completa e Jantinha Nota 1000
-                    const espeto = cartItem.espeto || 'Não selecionado';
-                    if (espeto === 'Não selecionado') {
-                        alert(`Por favor, selecione o espeto para a "${product.name}" (Item #${index + 1} no carrinho).`);
-                        validationFailed = true;
-                        return;
-                    }
-                    itemDetails += `  - Espeto: ${espeto}\n`;
-                }
-
-                const feijao = cartItem.feijao || 'Não selecionado';
-                if (feijao === 'Não selecionado') {
-                    alert(`Por favor, selecione o tipo de feijão para a "${product.name}" (Item #${index + 1} no carrinho).`);
+            if (product.id === 'pp-1' || product.id === 'pp-2') { // Jantinha Completa e Jantinha Nota 1000
+                const espeto = cartItem.espeto || 'Não selecionado';
+                if (espeto === 'Não selecionado') {
+                    alert(`Por favor, selecione o espeto para a "${product.name}" (Item #${index + 1} no carrinho).`);
                     validationFailed = true;
                     return;
                 }
-                itemDetails += `  - Feijão: ${feijao}\n`;
-                itemDetails += `  - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n`;
-
-                message += itemDetails;
-
-            } else { // Outros produtos (agrupáveis)
-                const itemKey = product.id;
-                if (!otherItemsSummary[itemKey]) {
-                    otherItemsSummary[itemKey] = {
-                        name: product.name,
-                        price: product.price,
-                        quantity: 0
-                    };
-                }
-                otherItemsSummary[itemKey].quantity += cartItem.quantity;
+                itemDetails += `  - Espeto: ${espeto}\n`;
             }
-        });
 
-        // Se alguma validação de Jantinha falhou, interrompe o processo
-        if (validationFailed) {
-            return;
+            const feijao = cartItem.feijao || 'Não selecionado';
+            if (feijao === 'Não selecionado') {
+                alert(`Por favor, selecione o tipo de feijão para a "${product.name}" (Item #${index + 1} no carrinho).`);
+                validationFailed = true;
+                return;
+            }
+            itemDetails += `  - Feijão: ${feijao}\n`;
+            itemDetails += `  - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`; // Adicionado \n\n para quebra de linha após cada jantinha
+
+            message += itemDetails;
+
+        } else { // Outros produtos (agrupáveis no display do carrinho, mas individuais na mensagem do WhatsApp)
+            // Para cada item "não-jantinha" no carrinho, adicione-o à mensagem com sua quantidade
+            const itemPrice = product.price * cartItem.quantity; // O preço total para esta quantidade de item
+            total += itemPrice;
+            message += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`; // Adicionado \n\n para quebra de linha após cada item
+
         }
+    });
 
-        // Adiciona os itens agrupados (não-jantinhas personalizáveis) à mensagem
-        for (const key in otherItemsSummary) {
-            const item = otherItemsSummary[key];
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-            message += `${item.quantity}x ${item.name} (R$ ${item.price.toFixed(2).replace('.', ',')} cada) - Total: R$ ${itemTotal.toFixed(2).replace('.', ',')}\n`;
-        }
-
-        message += `\n*Tipo de Pedido:* ${orderType === 'delivery' ? 'Entrega' : 'Retirada no Local'}\n`;
-
-        if (orderType === 'delivery') {
-            message += `*Endereço de Entrega:*\n${deliveryAddress}\n`;
-        } else { // 'pickup'
-            message += `*Nome para Retirada:*\n${pickupName}\n`;
-        }
-
-        if (notes) {
-            message += `\n*Observações:*\n${notes}\n`;
-        }
-
-        message += `\n*Total dos Produtos: R$ ${total.toFixed(2).replace('.', ',')}*\n`;
-
-        // Adiciona o aviso de taxa de entrega apenas se for entrega
-        if (orderType === 'delivery') {
-            message += `_Atenção: Taxa de entrega será calculada conforme o endereço._\n`;
-        }
-
-        message += `\nObrigado por pedir no Jantinha Nota 1000!`;
-
-        const whatsappNumber = '5562992020331';
-
-        const encodedMessage = encodeURIComponent(message);
-
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
-
-        window.open(whatsappUrl, '_blank');
+    // Se alguma validação de Jantinha falhou, interrompe o processo
+    if (validationFailed) {
+        return;
     }
+
+    message += `*Tipo de Pedido:* ${orderType === 'delivery' ? 'Entrega' : 'Retirada no Local'}\n`;
+
+    if (orderType === 'delivery') {
+        message += `***Endereço de Entrega:***\n${deliveryAddress}\n`;
+
+        // NOVO: Tenta obter o link do Google Maps para o endereço de entrega
+        try {
+            const directions = await maps_navigation.find_directions(destination=deliveryAddress);
+            if (directions && directions.routes && directions.routes.length > 0) {
+                const mapLink = directions.routes[0].url;
+                message += `[Ver no Mapa](${mapLink})\n`; // Adiciona o link do mapa
+            } else {
+                message += `(Não foi possível gerar link para o mapa)\n`;
+            }
+        } catch (error) {
+            console.error('Erro ao gerar link do mapa:', error);
+            message += `(Erro ao gerar link para o mapa. Por favor envie a localização pelo WhatsApp)\n`;
+        }
+
+    } else { // 'pickup'
+        message += `***Nome para Retirada:***\n${pickupName}\n`;
+    }
+
+    if (notes) {
+        message += `\n*Observações:*\n${notes}\n`;
+    }
+
+    message += `\n*Total dos Produtos: R$ ${total.toFixed(2).replace('.', ',')}*\n`;
+
+    // Adiciona o aviso de taxa de entrega apenas se for entrega
+    if (orderType === 'delivery') {
+        message += `_Atenção: Taxa de entrega será calculada conforme o endereço._\n`;
+    }
+
+    message += `\nObrigado por pedir no Jantinha Nota 1000!`;
+
+    const whatsappNumber = '5562992020331';
+
+    const encodedMessage = encodeURIComponent(message);
+
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+}
 
 
     // --- Funções de Renderização do Menu e Fotos ---
