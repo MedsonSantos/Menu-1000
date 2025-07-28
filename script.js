@@ -463,7 +463,10 @@ document.addEventListener('DOMContentLoaded', function() {
 /**
  * Envia o pedido para o WhatsApp com todos os detalhes.
  */
-function sendOrderToWhatsapp() { // Removido 'async'
+/**
+ * Envia o pedido para o WhatsApp com todos os detalhes.
+ */
+function sendOrderToWhatsapp() {
     if (cart.length === 0) {
         alert('❌ Seu carrinho está vazio! Adicione itens antes de fazer o pedido.');
         return;
@@ -487,7 +490,7 @@ function sendOrderToWhatsapp() { // Removido 'async'
     let message = `*Boa noite!! Novo Pedido*\n\n`;
     let total = 0;
 
-    let validationFailed = false; // Flag para controlar a validação das jantinhas
+    let validationFailed = false;
 
     // Processa os itens do carrinho
     cart.forEach((cartItem, index) => {
@@ -504,7 +507,7 @@ function sendOrderToWhatsapp() { // Removido 'async'
 
             let itemDetails = `1x ${product.name}:\n`;
 
-            if (product.id === 'pp-1' || product.id === 'pp-2') { // Jantinha Completa e Jantinha Nota 1000
+            if (product.id === 'pp-1' || product.id === 'pp-2') {
                 const espeto = cartItem.espeto || 'Não selecionado';
                 if (espeto === 'Não selecionado') {
                     alert(`Por favor, selecione o espeto para a "${product.name}" (Item #${index + 1} no carrinho).`);
@@ -525,7 +528,7 @@ function sendOrderToWhatsapp() { // Removido 'async'
 
             message += itemDetails;
 
-        } else { // Outros produtos (agrupáveis no display do carrinho, mas individuais na mensagem do WhatsApp)
+        } else {
             const itemPrice = product.price * cartItem.quantity;
             total += itemPrice;
             message += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
@@ -542,20 +545,19 @@ function sendOrderToWhatsapp() { // Removido 'async'
     if (orderType === 'delivery') {
         message += `***Endereço de Entrega:***\n${deliveryAddress}\n`;
 
-        // CORREÇÃO: Gerar o link do Google Maps diretamente no JavaScript
-        // Codifica o endereço para ser usado na URL
+      // Codifica o endereço para ser usado na URL
         const encodedDeliveryAddress = encodeURIComponent(deliveryAddress);
-        // Cria a URL do Google Maps para o endereço
+        // Cria a URL do Google Maps para o endereço (modo de busca)
         const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedDeliveryAddress}`;
         
-        message += `[Ver no Mapa](${googleMapsUrl})\n`; // Adiciona o link do mapa
+        // Mantém apenas o link mascarado com "Ver no Mapa"
+        message += `[Ver no Mapa](${googleMapsUrl})\n`; // Esta é a única linha para o link agora
         
-        console.log('Link do Google Maps gerado:', googleMapsUrl); // Para depuração
+        console.log('Link do Google Maps gerado (mascarado):', googleMapsUrl);
         
     } else { // 'pickup'
         message += `***Nome para Retirada:***\n${pickupName}\n`;
     }
-
     if (notes) {
         message += `\n*Observações:*\n${notes}\n`;
     }
