@@ -460,7 +460,10 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Envia o pedido para o WhatsApp com todos os detalhes.
      */
- async function sendOrderToWhatsapp() { // Adicionado 'async' pois usaremos await
+/**
+ * Envia o pedido para o WhatsApp com todos os detalhes.
+ */
+function sendOrderToWhatsapp() { // Removido 'async'
     if (cart.length === 0) {
         alert('❌ Seu carrinho está vazio! Adicione itens antes de fazer o pedido.');
         return;
@@ -518,16 +521,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             itemDetails += `  - Feijão: ${feijao}\n`;
-            itemDetails += `  - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`; // Adicionado \n\n para quebra de linha após cada jantinha
+            itemDetails += `  - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
 
             message += itemDetails;
 
         } else { // Outros produtos (agrupáveis no display do carrinho, mas individuais na mensagem do WhatsApp)
-            // Para cada item "não-jantinha" no carrinho, adicione-o à mensagem com sua quantidade
-            const itemPrice = product.price * cartItem.quantity; // O preço total para esta quantidade de item
+            const itemPrice = product.price * cartItem.quantity;
             total += itemPrice;
-            message += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`; // Adicionado \n\n para quebra de linha após cada item
-
+            message += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
         }
     });
 
@@ -541,20 +542,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (orderType === 'delivery') {
         message += `***Endereço de Entrega:***\n${deliveryAddress}\n`;
 
-        // NOVO: Tenta obter o link do Google Maps para o endereço de entrega
-        try {
-            const directions = await maps_navigation.find_directions(destination=deliveryAddress);
-            if (directions && directions.routes && directions.routes.length > 0) {
-                const mapLink = directions.routes[0].url;
-                message += `[Ver no Mapa](${mapLink})\n`; // Adiciona o link do mapa
-            } else {
-                message += `(Não foi possível gerar link para o mapa)\n`;
-            }
-        } catch (error) {
-            console.error('Erro ao gerar link do mapa:', error);
-            message += `(Erro ao gerar link para o mapa. Por favor envie a localização pelo WhatsApp)\n`;
-        }
-
+        // CORREÇÃO: Gerar o link do Google Maps diretamente no JavaScript
+        // Codifica o endereço para ser usado na URL
+        const encodedDeliveryAddress = encodeURIComponent(deliveryAddress);
+        // Cria a URL do Google Maps para o endereço
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedDeliveryAddress}`;
+        
+        message += `[Ver no Mapa](${googleMapsUrl})\n`; // Adiciona o link do mapa
+        
+        console.log('Link do Google Maps gerado:', googleMapsUrl); // Para depuração
+        
     } else { // 'pickup'
         message += `***Nome para Retirada:***\n${pickupName}\n`;
     }
@@ -565,7 +562,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     message += `\n*Total dos Produtos: R$ ${total.toFixed(2).replace('.', ',')}*\n`;
 
-    // Adiciona o aviso de taxa de entrega apenas se for entrega
     if (orderType === 'delivery') {
         message += `_Atenção: Taxa de entrega será calculada conforme o endereço._\n`;
     }
@@ -578,6 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
 
+    console.log('Mensagem final do WhatsApp:', decodeURIComponent(encodedMessage));
     window.open(whatsappUrl, '_blank');
 }
 
