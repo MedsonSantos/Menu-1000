@@ -400,61 +400,35 @@
             transform: translateY(-5px);
         }
 
-        /* NOVO: Contêiner da imagem - Garante uma proporção fixa para evitar o corte indesejado */
+        /* Contêiner da imagem/item- Garante uma proporção fixa para evitar o corte indesejado */
         .product-card .product-image-container {
             width: 100%;
-            /* Ocupa a largura total disponível no card */
             padding-top: 75%;
-            /* Proporção 4:3 (75% da largura) - Ideal para a maioria das fotos de produtos.
-                                Experimente 100% para quadrado, ou 65% para mais horizontal, se necessário. */
             position: relative;
-            /* Necessário para posicionar a imagem absoluta dentro */
             overflow: hidden;
-            /* Esconde partes da imagem que transbordam */
             border-bottom: 1px solid var(--border-color);
-            /* Borda entre imagem e conteúdo do card */
             border-radius: 8px 8px 0 0;
-            /* Cantos arredondados apenas em cima */
             margin: 0 auto;
-            /* Centraliza o contêiner de imagem dentro do card */
             display: flex;
-            /* Adiciona flexbox para ajudar no alinhamento caso a imagem não preencha 100% */
             justify-content: center;
-            /* Centraliza horizontalmente o conteúdo */
             align-items: center;
-            /* Centraliza verticalmente o conteúdo */
         }
 
         /* A Imagem em si - Preenche o contêiner e se ajusta/centraliza */
         .product-card .product-image-container img {
-            max-width: 50%;
-            /* Garante que a imagem não ultrapasse a largura do contêiner */
             position: absolute;
-            /* Posiciona a imagem para preencher o contêiner */
-            overflow: hidden;
-            /* Esconde partes da imagem que transbordam */
-            width: 100%;
-            /* Garante que a imagem preencha a largura do contêiner */
-            height: 100%;
-            /* Garante que a imagem preencha a altura do contêiner */
+            top:30%;
+            left: 30%;
+            width: 40%;
+            height: 60%;
             object-fit: cover;
-            /* ESSENCIAL: Faz a imagem cobrir o contêiner, cortando se necessário */
             object-position: center;
-            /* ESSENCIAL: Centraliza o foco da imagem cortada */
         }
 
-        /* REMOVIDO: .product-card img antigo - substituído pelas regras acima */
-        /* .product-card img {
-            width: 50%;
-            height: 50%;
-            object-fit: cover;
-            border-bottom: 1px solid var(--border-color); 
-        } */
-
-        /* Marca d'água só aparece se NÃO houver imagem no card */
+     
         .product-card:not(:has(.product-image-container img))::before {
             /* Ajustado o seletor para verificar o contêiner */
-            content: '';
+            content: 'SEM IMAGEM';
             position: absolute;
             top: 0;
             left: 0;
@@ -491,12 +465,14 @@
         }
 
         .product-card .price {
-            font-size: 1.5em;
+            font-size: 1.6em;
             color: var(--accent-color);
-            font-weight: 750;
+            font-weight: 780;
             margin: 0.2em 0 0.em;
             transition: color 0.3s ease;
             font-family: 'pricedown', sans-serif;
+        
+        
         }
 
         .product-card button.add-to-cart {
@@ -906,8 +882,63 @@
             transform: scale(1.05);
             box-shadow: 0 4px 10px var(--shadow-color);
         }
+/*----------------------------------------------fotos dos itens-----------------------------------------------------------*/
+#image-modal {
+    display: none; /* Inicia oculto */
+    position: fixed;
+    z-index: 1001; /* Z-index um pouco maior que os outros modais */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evita rolagem da tela principal */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro semi-transparente */
+    display: flex; /* Para centralizar o conteúdo */
+    justify-content: center;
+    align-items: center;
+}
 
+#image-modal .modal-content {
+    background-color: transparent; /* Fundo transparente para o modal da imagem */
+    box-shadow: none; /* Sem sombra para o modal da imagem */
+    padding: 0;
+    max-width: 95%; /* Limita a largura para a imagem */
+    max-height: 95%; /* Limita a altura para a imagem */
+    display: flex; /* Para centralizar a imagem dentro do modal-content */
+    justify-content: center;
+    align-items: center;
+}
 
+#image-modal img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
+    display: block; /* Remove espaço extra abaixo da imagem */
+}
+
+#image-modal .close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    z-index: 1002; /* Acima da imagem */
+}
+
+#image-modal .close-button:hover {
+    background-color: var(--accent-color);
+}
+
+/*-------------------------------------fim do bloco das fotos dos itens-----------------------------------------------------------*/
         /* Rodapé */
         footer {
             text-align: center;
@@ -924,6 +955,13 @@
             .products-grid {
                 grid-template-columns: repeat(5, 1fr);
                 /* 5 colunas para desktop */
+            }
+             #image-modal .close-button {
+                top: 20px;
+                right: 20px;
+                font-size: 40px;
+                width: 50px;
+                height: 50px;
             }
 
             .category-navigation {
@@ -1066,6 +1104,13 @@
             header h1 {
                 font-size: 1.8em;
             }
+             #image-modal .close-button {
+                top: 10px;
+                right: 10px;
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+            }
 
             .products-grid {
                 /* Ajusta a grade de produtos para telas pequenas NOS ITENS PRUDUTOS */
@@ -1135,42 +1180,26 @@
 
             /* Contêiner da imagem - Garante uma proporção fixa - MANTER AQUI PARA REGRAS ESPECÍFICAS DE TELAS MUITO PEQUENAS */
             .product-card .product-image-container {
-                width: 100%;
-                /* Ocupa a largura total disponível no card */
+                width: 90%;
                 padding-top: 75%;
-                /* OU 65% OU 85% - Experimente! Esta é a proporção chave. */
-                /* 100% = quadrado (pode cortar mais) */
-                /* 75% = 4:3 (mais comum para fotos de comida) */
-                /* 65% = um pouco mais horizontal (pode ser bom para alguns produtos) */
                 position: relative;
-                /* Necessário para posicionar a imagem absoluta dentro */
                 overflow: hidden;
-                /* Esconde partes da imagem que transbordam */
                 border-radius: 8px;
-                /* Cantos arredondados, se desejar */
                 margin: 0 auto 10px auto;
-                /* Centraliza o contêiner de imagem dentro do card */
                 display: flex;
-                /* Adiciona flexbox para ajudar no alinhamento caso a imagem não preencha 100% */
                 justify-content: center;
-                /* Centraliza horizontalmente o conteúdo */
                 align-items: center;
-                /* Centraliza verticalmente o conteúdo */
             }
 
             .product-card .product-image-container img {
                 position: absolute;
                 /* Posiciona a imagem para preencher o contêiner */
-                top: 0;
-                left: 0;
-                width: 50%;
-                /* Garante que a imagem preencha a largura do contêiner */
-                height: 50%;
-                /* Garante que a imagem preencha a altura do contêiner */
+                top: 20%;
+                left: 25%;
+                width: 55%;
+                height: 70%;
                 object-fit: cover;
-                /* ESSENCIAL: Faz a imagem cobrir o contêiner, cortando se necessário */
                 object-position: center;
-                /* ESSENCIAL: Centraliza o foco da imagem cortada */
             }
 
             .product-card::before {
@@ -1366,13 +1395,21 @@
             /* Reduz o tamanho da fonte */
         }
 
-        /* Responsividade para telas muito pequenas 378px-------------------------------------------------------------------*/
+        /* -------------------------Responsividade para telas muito pequenas 378px--------------------------------------------------------*/
         @media (max-width: 378px) {
 
             #scrollToTopBtn {
                 display: none;
                 bottom: 30px;
                 left: 15px;
+            }
+                    
+            #image-modal .close-button {
+                top: 10px;
+                right: 10px;
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
             }
 
             #info-modal .modal-content {

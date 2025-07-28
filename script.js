@@ -34,10 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeInfoModalBtn = infoModal.querySelector('.close-button');
     const infoToggleContainer = document.getElementById('info-toggle-container');
 
-    // Elementos do Modal de Fotos
+    // Elementos do Modal de Fotos (em grade, como "Em Breve")
     const photosModal = document.getElementById('photos-modal');
     const closePhotosModalBtn = photosModal.querySelector('.close-button');
     const modalPhotosGrid = document.getElementById('modal-photos-grid');
+
+    // NOVO: Elementos do Modal de Imagem Única (para clique em fotos de produtos)
+    const imageModal = document.getElementById('image-modal'); // Seu modal existente para imagem
+    const fullImage = document.getElementById('full-image'); // A <img> dentro dele
+    const closeImageModalButton = document.getElementById('close-image-modal'); // Botão fechar do modal de imagem
+    // const captionText = document.getElementById("caption"); // Removi pois não há elemento com id="caption" no seu HTML e não é necessário para esta função
 
     // Elementos do Ícone do Carrinho no Header
     const cartIconContainer = document.getElementById('cart-icon-container');
@@ -112,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {HTMLElement} modalElement - O elemento DOM do modal a ser aberto.
      */
     function openModal(modalElement) {
-        modalElement.style.display = 'flex';
+        modalElement.style.display = 'flex'; // Usando 'flex' para centralização CSS
         document.body.style.overflow = 'hidden'; // Impede o scroll do body
     }
 
@@ -125,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'auto'; // Restaura o scroll do body
     }
 
-    // Fechar modal ao clicar fora dele
+    // Fechar modal ao clicar fora dele (AJUSTADO PARA INCLUIR imageModal)
     window.addEventListener('click', (event) => {
         if (event.target === cartModal) {
             closeModal(cartModal);
@@ -137,6 +143,8 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal(chatModal);
             chatbox.innerHTML = ''; // Limpa o chatbox ao fechar
             delete chatbox.dataset.initialMessageShown; // Permite que a mensagem inicial apareça novamente
+        } else if (event.target === imageModal) { // NOVO: Para o modal de imagem única
+            closeModal(imageModal);
         }
     });
 
@@ -395,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cartTotalModalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
         cartCountSpan.textContent = itemCount;
 
-        // Adiciona event listeners para os botões de quantidade
+        // Adiciona event listeners para os botões de quantidade (AJUSTADO PARA SER CHAMADO AQUI)
         cartItemsModalContainer.querySelectorAll('.cart-item-quantity button').forEach(button => {
             button.addEventListener('click', (event) => {
                 const action = event.target.dataset.action;
@@ -416,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Event listeners para os selects de espeto e feijão das jantinhas individuais
+        // Event listeners para os selects de espeto e feijão das jantinhas individuais (AJUSTADO PARA SER CHAMADO AQUI)
         cartItemsModalContainer.querySelectorAll('.jantinha-options-individual select').forEach(select => {
             select.addEventListener('change', (event) => {
                 const cartIndex = parseInt(event.target.dataset.cartIndex);
@@ -460,125 +468,116 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Envia o pedido para o WhatsApp com todos os detalhes.
      */
-/**
- * Envia o pedido para o WhatsApp com todos os detalhes.
- */
-/**
- * Envia o pedido para o WhatsApp com todos os detalhes.
- */
-function sendOrderToWhatsapp() {
-    if (cart.length === 0) {
-        alert('❌ Seu carrinho está vazio! Adicione itens antes de fazer o pedido.');
-        return;
-    }
-
-    const orderType = orderTypeSelect.value;
-    const deliveryAddress = deliveryAddressInput.value.trim();
-    const pickupName = pickupNameInput.value.trim();
-    const notes = notesTextarea.value.trim();
-
-    // Validação de campos obrigatórios
-    if (orderType === 'delivery' && !deliveryAddress) {
-        alert('Por favor, digite o endereço de entrega para prosseguir.');
-        return;
-    }
-    if (orderType === 'pickup' && !pickupName) {
-        alert('Por favor, digite o nome para retirada para prosseguir.');
-        return;
-    }
-
-    let message = `*Boa noite!! Novo Pedido*\n\n`;
-    let total = 0;
-
-    let validationFailed = false;
-
-    // Processa os itens do carrinho
-    cart.forEach((cartItem, index) => {
-        const product = products.find(p => p.id === cartItem.id);
-        if (!product) {
-            console.warn(`Produto com ID ${cartItem.id} não encontrado ao gerar mensagem.`);
+    function sendOrderToWhatsapp() {
+        if (cart.length === 0) {
+            alert('❌ Seu carrinho está vazio! Adicione itens antes de fazer o pedido.');
             return;
         }
 
-        // Se for uma jantinha personalizável
-        if (['pp-1', 'pp-2', 'pp-3'].includes(product.id)) {
-            const itemPrice = product.price;
-            total += itemPrice;
+        const orderType = orderTypeSelect.value;
+        const deliveryAddress = deliveryAddressInput.value.trim();
+        const pickupName = pickupNameInput.value.trim();
+        const notes = notesTextarea.value.trim();
 
-            let itemDetails = `1x ${product.name}:\n`;
+        // Validação de campos obrigatórios
+        if (orderType === 'delivery' && !deliveryAddress) {
+            alert('Por favor, digite o endereço de entrega para prosseguir.');
+            return;
+        }
+        if (orderType === 'pickup' && !pickupName) {
+            alert('Por favor, digite o nome para retirada para prosseguir.');
+            return;
+        }
 
-            if (product.id === 'pp-1' || product.id === 'pp-2') {
-                const espeto = cartItem.espeto || 'Não selecionado';
-                if (espeto === 'Não selecionado') {
-                    alert(`Por favor, selecione o espeto para a "${product.name}" (Item #${index + 1} no carrinho).`);
+        let message = `*Boa noite!! Novo Pedido*\n\n`;
+        let total = 0;
+
+        let validationFailed = false;
+
+        // Processa os itens do carrinho
+        cart.forEach((cartItem, index) => {
+            const product = products.find(p => p.id === cartItem.id);
+            if (!product) {
+                console.warn(`Produto com ID ${cartItem.id} não encontrado ao gerar mensagem.`);
+                return;
+            }
+
+            // Se for uma jantinha personalizável
+            if (['pp-1', 'pp-2', 'pp-3'].includes(product.id)) {
+                const itemPrice = product.price;
+                total += itemPrice;
+
+                let itemDetails = `1x ${product.name}:\n`;
+
+                if (product.id === 'pp-1' || product.id === 'pp-2') {
+                    const espeto = cartItem.espeto || 'Não selecionado';
+                    if (espeto === 'Não selecionado') {
+                        alert(`Por favor, selecione o espeto para a "${product.name}" (Item #${index + 1} no carrinho).`);
+                        validationFailed = true;
+                        return;
+                    }
+                    itemDetails += `   - Espeto: ${espeto}\n`;
+                }
+
+                const feijao = cartItem.feijao || 'Não selecionado';
+                if (feijao === 'Não selecionado') {
+                    alert(`Por favor, selecione o tipo de feijão para a "${product.name}" (Item #${index + 1} no carrinho).`);
                     validationFailed = true;
                     return;
                 }
-                itemDetails += `  - Espeto: ${espeto}\n`;
+                itemDetails += `   - Feijão: ${feijao}\n`;
+                itemDetails += `   - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
+
+                message += itemDetails;
+
+            } else {
+                const itemPrice = product.price * cartItem.quantity;
+                total += itemPrice;
+                message += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
             }
+        });
 
-            const feijao = cartItem.feijao || 'Não selecionado';
-            if (feijao === 'Não selecionado') {
-                alert(`Por favor, selecione o tipo de feijão para a "${product.name}" (Item #${index + 1} no carrinho).`);
-                validationFailed = true;
-                return;
-            }
-            itemDetails += `  - Feijão: ${feijao}\n`;
-            itemDetails += `  - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
-
-            message += itemDetails;
-
-        } else {
-            const itemPrice = product.price * cartItem.quantity;
-            total += itemPrice;
-            message += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
+        // Se alguma validação de Jantinha falhou, interrompe o processo
+        if (validationFailed) {
+            return;
         }
-    });
 
-    // Se alguma validação de Jantinha falhou, interrompe o processo
-    if (validationFailed) {
-        return;
+        message += `*Tipo de Pedido:* ${orderType === 'delivery' ? 'Entrega' : 'Retirada no Local'}\n`;
+
+        if (orderType === 'delivery') {
+            message += `***Endereço de Entrega:***\n${deliveryAddress}\n`;
+
+            // Codifica o endereço para ser usado na URL
+            const encodedDeliveryAddress = encodeURIComponent(deliveryAddress);
+            // AJUSTE: Corrigido o link do Google Maps para ser funcional
+            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedDeliveryAddress}`;
+
+            // Mantém apenas o link mascarado com "Ver no Mapa"
+            message += `[Ver no Mapa](${googleMapsUrl})\n`;
+        } else { // 'pickup'
+            message += `***Nome para Retirada:***\n${pickupName}\n`;
+        }
+        if (notes) {
+            message += `\n*Observações:*\n${notes}\n`;
+        }
+
+        message += `\n*Total dos Produtos: R$ ${total.toFixed(2).replace('.', ',')}*\n`;
+
+        if (orderType === 'delivery') {
+            message += `_Atenção: Taxa de entrega será calculada conforme o endereço._\n`;
+        }
+
+        message += `\nObrigado por pedir no Jantinha Nota 1000!`;
+
+        const whatsappNumber = '5562992020331';
+
+        const encodedMessage = encodeURIComponent(message);
+
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+
+        console.log('Mensagem final do WhatsApp:', decodeURIComponent(encodedMessage));
+        window.open(whatsappUrl, '_blank');
     }
-
-    message += `*Tipo de Pedido:* ${orderType === 'delivery' ? 'Entrega' : 'Retirada no Local'}\n`;
-
-    if (orderType === 'delivery') {
-        message += `***Endereço de Entrega:***\n${deliveryAddress}\n`;
-
-      // Codifica o endereço para ser usado na URL
-        const encodedDeliveryAddress = encodeURIComponent(deliveryAddress);
-        // Cria a URL do Google Maps para o endereço (modo de busca)
-        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedDeliveryAddress}`;
-        
-        // Mantém apenas o link mascarado com "Ver no Mapa"
-        message += `[Ver no Mapa](${googleMapsUrl})\n`; // Esta é a única linha para o link agora
-        
-        console.log('Link do Google Maps gerado (mascarado):', googleMapsUrl);
-        
-    } else { // 'pickup'
-        message += `***Nome para Retirada:***\n${pickupName}\n`;
-    }
-    if (notes) {
-        message += `\n*Observações:*\n${notes}\n`;
-    }
-
-    message += `\n*Total dos Produtos: R$ ${total.toFixed(2).replace('.', ',')}*\n`;
-
-    if (orderType === 'delivery') {
-        message += `_Atenção: Taxa de entrega será calculada conforme o endereço._\n`;
-    }
-
-    message += `\nObrigado por pedir no Jantinha Nota 1000!`;
-
-    const whatsappNumber = '5562992020331';
-
-    const encodedMessage = encodeURIComponent(message);
-
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
-
-    console.log('Mensagem final do WhatsApp:', decodeURIComponent(encodedMessage));
-    window.open(whatsappUrl, '_blank');
-}
 
 
     // --- Funções de Renderização do Menu e Fotos ---
@@ -714,8 +713,11 @@ function sendOrderToWhatsapp() {
                     ? product.imageUrl
                     : DEFAULT_PLACEHOLDER_IMAGE;
 
+                // AJUSTE: Adicionado um container para a imagem para melhor controle de clique
                 productCard.innerHTML = `
-                    <img src="${imageUrlToUse}" class="image-card" alt="${product.name}">
+                    <div class="product-image-container">
+                        <img src="${imageUrlToUse}" class="product-image-small" alt="${product.name}">
+                    </div>
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>
                     <span class="price">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
@@ -729,6 +731,8 @@ function sendOrderToWhatsapp() {
 
         // Adiciona event listeners aos botões "Adicionar" dos produtos
         setupProductEventListeners();
+        // NOVO: Chama a função para configurar os listeners das imagens após o menu ser renderizado
+        setupImageModalEventListeners();
     }
 
     /**
@@ -766,10 +770,81 @@ function sendOrderToWhatsapp() {
                 const img = document.createElement('img');
                 img.src = photoUrl;
                 img.alt = 'Foto da Jantinha Nota 1000';
+                img.classList.add('modal-grid-image'); // Adiciona uma classe para o listener
                 modalPhotosGrid.appendChild(img);
             });
+            // NOVO: Adiciona listeners para as imagens do grid de fotos também
+            setupImageModalEventListeners();
         }
     }
+
+    // --- Funções e Lógica para o Modal de Imagem Única ---
+    // Funções openImageModal e closeImageModal agora são mais genéricas
+    // e reutilizam as funções openModal/closeModal já existentes para
+    // padronizar o comportamento de scroll do body.
+
+    /**
+     * Abre o modal de imagem única com a imagem fornecida.
+     * @param {string} imgSrc - A URL da imagem a ser exibida.
+     */
+      function openSingleImageModal(imgSrc) {
+        // Verifique se a imagem de fato existe antes de tentar carregar
+        if (!imgSrc || imgSrc.includes(DEFAULT_PLACEHOLDER_IMAGE)) {
+            alert('Item sem imagem disponível para visualização.');
+            return;
+        }
+        fullImage.src = imgSrc; // Define a fonte da imagem no modal
+        openModal(imageModal); // Usa a função genérica para abrir o modal
+    }
+
+    /**
+     * Fecha o modal de imagem única.
+     */
+    function closeSingleImageModal() {
+        closeModal(imageModal); // Usa a função genérica para fechar o modal
+    }
+
+    // AJUSTE: Handler para o clique no botão de fechar do modal de imagem
+    if (closeImageModalButton) {
+        closeImageModalButton.addEventListener('click', closeSingleImageModal);
+    }
+
+    // Adiciona o evento de clique a todas as imagens pequenas após a renderização do menu
+    // Esta função DEVE ser chamada após renderMenu() ter adicionado os produtos ao DOM
+    function setupImageModalEventListeners() {
+        // Seleciona todas as imagens pequenas de produtos
+        document.querySelectorAll('.product-image-small').forEach(img => {
+            // Remove qualquer listener anterior para evitar duplicação se renderMenu for chamado várias vezes
+            img.removeEventListener('click', handleProductImageClick);
+            // Adiciona o novo listener
+            img.addEventListener('click', handleProductImageClick);
+        });
+
+        // NOVO: Adiciona listeners para as imagens dentro do modal de "Nossas Fotos" também
+        document.querySelectorAll('.modal-grid-image').forEach(img => {
+            img.removeEventListener('click', handleProductImageClick);
+            img.addEventListener('click', handleProductImageClick);
+        });
+    }
+/**
+ * Handler para o clique em imagens de produtos ou do grid de fotos.
+ * @param {Event} event - O evento de clique.
+ */
+function handleProductImageClick(event) {
+    // Obtém a URL da imagem clicada
+    const imageUrl = event.target.src; // Usa o src atual da imagem
+
+    // Verifica se a URL da imagem é a imagem de placeholder padrão
+    // Certifique-se de que DEFAULT_PLACEHOLDER_IMAGE esteja definido no seu código
+    if (imageUrl.includes(DEFAULT_PLACEHOLDER_IMAGE)) {
+        alert('Item sem imagem disponível para visualização.'); // Exibe a mensagem de aviso
+        return; // Impede que o modal seja aberto
+    }
+
+    // Se a imagem não for o placeholder, abre o modal normalmente
+    openSingleImageModal(imageUrl);
+}
+
 
     // --- Event Listeners Globais ---
 
@@ -805,12 +880,10 @@ function sendOrderToWhatsapp() {
         });
     }
 
-    // Adiciona event listeners para todos os botões de fechar modal
+    // Adiciona event listeners para todos os botões de fechar modal (AJUSTADO: remove a busca pelo data-modal, usa closest)
     document.querySelectorAll('.close-button').forEach(button => {
         button.addEventListener('click', (event) => {
-            // Verifica o atributo 'data-modal' para identificar qual modal fechar
-            const modalId = button.closest('.modal').id; // Encontra o ID do modal pai do botão
-            const modalElement = document.getElementById(modalId);
+            const modalElement = button.closest('.modal'); // Encontra o modal pai do botão
             if (modalElement) {
                 closeModal(modalElement);
             }
@@ -894,7 +967,7 @@ function sendOrderToWhatsapp() {
 
     // --- Inicializações ao carregar o DOM ---
     initializeTheme(); // Aplica o tema salvo ao carregar a página
-    renderMenu(); // Renderiza o cardápio inicial
+    renderMenu(); // Renderiza o cardápio inicial (e chama setupImageModalEventListeners() dentro dela)
     updateCartDisplay(); // Garante que o contador do carrinho e o display estejam corretos ao carregar a página
     handleOrderTypeChange(); // Chama ao carregar para definir o estado inicial (Entrega) ou Retirada.
 });

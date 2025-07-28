@@ -17,7 +17,7 @@ const products = [
         name: 'Jantinha Nota 1000',
         description: 'Arroz, feijão tropeiro ou de caldo, mandioca, estrogonofe, batata palha, vinagrete e 1 espeto a escolha',
         price: 27.00,
-        imageUrl: 'https://i.imgur.com/a/6LCXLYF.png'
+        imageUrl: 'https://i.imgur.com/dkCQj5R.png'
     },
     {
         id: 'pp-3',
@@ -25,7 +25,7 @@ const products = [
         name: 'Jantinha sem Espeto',
         description: 'Arroz branco, feijão tropeiro ou de caldo, mandioca, vinagrete sem espeto',
         price: 19.00,
-        imageUrl: 'https://i.imgur.com/a/zKDyJOe.png'
+        imageUrl: 'https://i.imgur.com/7fGgNoP.png'
     },
     {
         id: 'pp-4',
@@ -41,7 +41,7 @@ const products = [
         name: 'Jantinha Kids',
         description: '(somente consumo no local) um pouco de arroz, um pouco de estrogonofe e batata palha',
         price: 22.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/mqHpsX0.png'
     },
 
     //--------------------------------------ESPETOS-------------------------------------//
