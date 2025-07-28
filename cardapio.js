@@ -573,7 +573,7 @@ const products = [
         name: 'Batata 1000 500g',
         description: 'Porção de batata frita com cheddar e bacon, 500g',
         price: 33.99,
-        imageUrl: 'https://i.imgur.com/8Bqcm96.png',
+        imageUrl: 'https://i.imgur.com/GfH9sCb.png',
     },
      {
         id: 'por-5',
