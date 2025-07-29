@@ -675,10 +675,11 @@ const categoriesData = [
 ];
 
 const photos = [
-    'https://via.placeholder.com/600x400?text=Sua+Foto+1',
-    'https://via.placeholder.com/600x400?text=Sua+Foto+2',
-    'https://via.placeholder.com/600x400?text=Sua+Foto+3',
-    'https://via.placeholder.com/600x400?text=Sua+Foto+4'
+    'https://i.imgur.com/WAlZRr0.jpg',
+    'https://i.imgur.com/9RV6TRA.jpg',
+    'https://i.imgur.com/bYKo4g5.jpg',
+    'https://i.imgur.com/5B5rNEU.jpg',
+    'https://i.imgur.com/abqP82z.jpg',
 ];
 
 const DEFAULT_PLACEHOLDER_IMAGE = 'https://via.placeholder.com/180x180?text=Jantinha+Nota+1000';
