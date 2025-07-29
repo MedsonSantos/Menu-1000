@@ -40,10 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalPhotosGrid = document.getElementById('modal-photos-grid');
 
     // NOVO: Elementos do Modal de Imagem Única (para clique em fotos de produtos)
-    const imageModal = document.getElementById('image-modal'); // Seu modal existente para imagem
-    const fullImage = document.getElementById('full-image'); // A <img> dentro dele
-    const closeImageModalButton = document.getElementById('close-image-modal'); // Botão fechar do modal de imagem
-    // const captionText = document.getElementById("caption"); // Removi pois não há elemento com id="caption" no seu HTML e não é necessário para esta função
+    // REMOVIDO: const imageModal = document.getElementById('image-modal');
+    // REMOVIDO: const fullImage = document.getElementById('full-image');
+    // REMOVIDO: const closeImageModalButton = document.getElementById('close-image-modal');
 
     // Elementos do Ícone do Carrinho no Header
     const cartIconContainer = document.getElementById('cart-icon-container');
@@ -131,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'auto'; // Restaura o scroll do body
     }
 
-    // Fechar modal ao clicar fora dele (AJUSTADO PARA INCLUIR imageModal)
+    // Fechar modal ao clicar fora dele (AJUSTADO PARA REMOVER imageModal)
     window.addEventListener('click', (event) => {
         if (event.target === cartModal) {
             closeModal(cartModal);
@@ -143,9 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal(chatModal);
             chatbox.innerHTML = ''; // Limpa o chatbox ao fechar
             delete chatbox.dataset.initialMessageShown; // Permite que a mensagem inicial apareça novamente
-        } else if (event.target === imageModal) { // NOVO: Para o modal de imagem única
-            closeModal(imageModal);
         }
+        // REMOVIDO: else if (event.target === imageModal) { closeModal(imageModal); }
     });
 
 
@@ -493,7 +491,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let total = 0;
 
         let validationFailed = false;
-
         // Processa os itens do carrinho
         cart.forEach((cartItem, index) => {
             const product = products.find(p => p.id === cartItem.id);
@@ -516,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         validationFailed = true;
                         return;
                     }
-                    itemDetails += `   - Espeto: ${espeto}\n`;
+                    itemDetails += `    - Espeto: ${espeto}\n`;
                 }
 
                 const feijao = cartItem.feijao || 'Não selecionado';
@@ -525,8 +522,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     validationFailed = true;
                     return;
                 }
-                itemDetails += `   - Feijão: ${feijao}\n`;
-                itemDetails += `   - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
+                itemDetails += `    - Feijão: ${feijao}\n`;
+                itemDetails += `    - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
 
                 message += itemDetails;
 
@@ -731,8 +728,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Adiciona event listeners aos botões "Adicionar" dos produtos
         setupProductEventListeners();
-        // NOVO: Chama a função para configurar os listeners das imagens após o menu ser renderizado
-        setupImageModalEventListeners();
+        // REMOVIDO: setupImageModalEventListeners(); // NÃO CHAMA MAIS PARA O MODAL DE IMAGEM ÚNICA
     }
 
     /**
@@ -773,77 +769,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 img.classList.add('modal-grid-image'); // Adiciona uma classe para o listener
                 modalPhotosGrid.appendChild(img);
             });
-            // NOVO: Adiciona listeners para as imagens do grid de fotos também
-            setupImageModalEventListeners();
+            // REMOVIDO: setupImageModalEventListeners(); // NÃO CHAMA MAIS PARA O MODAL DE IMAGEM ÚNICA
         }
     }
 
     // --- Funções e Lógica para o Modal de Imagem Única ---
-    // Funções openImageModal e closeImageModal agora são mais genéricas
-    // e reutilizam as funções openModal/closeModal já existentes para
-    // padronizar o comportamento de scroll do body.
-
-    /**
-     * Abre o modal de imagem única com a imagem fornecida.
-     * @param {string} imgSrc - A URL da imagem a ser exibida.
-     */
-      function openSingleImageModal(imgSrc) {
-        // Verifique se a imagem de fato existe antes de tentar carregar
-        if (!imgSrc || imgSrc.includes(DEFAULT_PLACEHOLDER_IMAGE)) {
-            alert('Item sem imagem disponível para visualização.');
-            return;
-        }
-        fullImage.src = imgSrc; // Define a fonte da imagem no modal
-        openModal(imageModal); // Usa a função genérica para abrir o modal
-    }
-
-    /**
-     * Fecha o modal de imagem única.
-     */
-    function closeSingleImageModal() {
-        closeModal(imageModal); // Usa a função genérica para fechar o modal
-    }
-
-    // AJUSTE: Handler para o clique no botão de fechar do modal de imagem
-    if (closeImageModalButton) {
-        closeImageModalButton.addEventListener('click', closeSingleImageModal);
-    }
-
-    // Adiciona o evento de clique a todas as imagens pequenas após a renderização do menu
-    // Esta função DEVE ser chamada após renderMenu() ter adicionado os produtos ao DOM
-    function setupImageModalEventListeners() {
-        // Seleciona todas as imagens pequenas de produtos
-        document.querySelectorAll('.product-image-small').forEach(img => {
-            // Remove qualquer listener anterior para evitar duplicação se renderMenu for chamado várias vezes
-            img.removeEventListener('click', handleProductImageClick);
-            // Adiciona o novo listener
-            img.addEventListener('click', handleProductImageClick);
-        });
-
-        // NOVO: Adiciona listeners para as imagens dentro do modal de "Nossas Fotos" também
-        document.querySelectorAll('.modal-grid-image').forEach(img => {
-            img.removeEventListener('click', handleProductImageClick);
-            img.addEventListener('click', handleProductImageClick);
-        });
-    }
-/**
- * Handler para o clique em imagens de produtos ou do grid de fotos.
- * @param {Event} event - O evento de clique.
- */
-function handleProductImageClick(event) {
-    // Obtém a URL da imagem clicada
-    const imageUrl = event.target.src; // Usa o src atual da imagem
-
-    // Verifica se a URL da imagem é a imagem de placeholder padrão
-    // Certifique-se de que DEFAULT_PLACEHOLDER_IMAGE esteja definido no seu código
-    if (imageUrl.includes(DEFAULT_PLACEHOLDER_IMAGE)) {
-        alert('Item sem imagem disponível para visualização.'); // Exibe a mensagem de aviso
-        return; // Impede que o modal seja aberto
-    }
-
-    // Se a imagem não for o placeholder, abre o modal normalmente
-    openSingleImageModal(imageUrl);
-}
+    // REMOVIDAS:
+    // function openSingleImageModal(imgSrc) { ... }
+    // function closeSingleImageModal() { ... }
+    // if (closeImageModalButton) { closeImageModalButton.addEventListener('click', closeSingleImageModal); }
+    // function setupImageModalEventListeners() { ... }
+    // function handleProductImageClick(event) { ... }
 
 
     // --- Event Listeners Globais ---
@@ -967,7 +903,7 @@ function handleProductImageClick(event) {
 
     // --- Inicializações ao carregar o DOM ---
     initializeTheme(); // Aplica o tema salvo ao carregar a página
-    renderMenu(); // Renderiza o cardápio inicial (e chama setupImageModalEventListeners() dentro dela)
+    renderMenu(); // Renderiza o cardápio inicial (e NÃO CHAMA mais setupImageModalEventListeners() dentro dela)
     updateCartDisplay(); // Garante que o contador do carrinho e o display estejam corretos ao carregar a página
     handleOrderTypeChange(); // Chama ao carregar para definir o estado inicial (Entrega) ou Retirada.
 });

@@ -30,7 +30,7 @@
             /* Cor da sombra */
             --header-bg: #333;
             /* Fundo do cabeçalho */
-            --footer-bg: #e8e1e1;
+            --footer-bg: #1a1a1a;
             /* Fundo do rodapé */
             --titulo-carrinho: #197be3;
         }
@@ -52,7 +52,7 @@
             --shadow-color: rgba(0, 0, 0, 0.1);
             --header-bg: #d2d2ce;
             /* Cor do logo para o tema claro */
-            --footer-bg: #0a0a0a;
+            --footer-bg: #FFFAFA;
             /* Cor do rodapé para o tema claro */
             --category-color: #bebdbd;
             /* Cor de fundo da categoria para tema claro (preto) */
