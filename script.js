@@ -8,39 +8,43 @@ document.addEventListener('DOMContentLoaded', function() {
     let cart = [];
 
     // --- Elementos do DOM ---
+    const body = document.body;
+
     const menuSections = document.getElementById('menu-sections');
 
     // Elementos do Modal do Carrinho
     const cartModal = document.getElementById('cart-modal');
-    const closeCartModalBtn = cartModal.querySelector('.close-button');
-    // ATENÇÃO: NOVO ID para o contêiner rolável dos itens do carrinho
     const cartItemsScrollContainer = document.getElementById('cart-items-scroll-container');
-    const cartItemsModalContainer = document.getElementById('cart-items-modal'); // Mantenha este para adicionar os itens DENTRO do scrollContainer
+    const cartItemsModalContainer = document.getElementById('cart-items-modal');
     const cartTotalModalSpan = document.getElementById('cart-total-modal');
     const checkoutWhatsappModalBtn = document.getElementById('checkout-whatsapp-modal');
 
-    // Adicionado referência ao container dos detalhes do pedido
     const orderDetailsContainer = document.getElementById('order-details-container');
-
-    // NOVOS ELEMENTOS PARA ENTREGA/RETIRADA
     const orderTypeSelect = document.getElementById('order-type');
     const deliveryOptionsDiv = document.getElementById('delivery-options');
     const pickupOptionsDiv = document.getElementById('pickup-options');
     const deliveryAddressInput = document.getElementById('delivery-address');
-    const pickupNameInput = document.getElementById('pickup-name');
-    const deliveryFeeInfo = document.getElementById('delivery-fee-info'); // Referência ao parágrafo de aviso da taxa
-
+    const pickupNameInput = document = document.getElementById('pickup-name');
+    const deliveryFeeInfo = document.getElementById('delivery-fee-info');
     const notesTextarea = document.getElementById('notes');
+
+    // Botões de rolagem do carrinho
+    const scrollUpBtn = document.getElementById('scroll-up-btn');
+    const scrollDownBtn = document.getElementById('scroll-down-btn');
 
     // Elementos do Modal de Informações
     const infoModal = document.getElementById('info-modal');
-    const closeInfoModalBtn = infoModal.querySelector('.close-button');
     const infoToggleContainer = document.getElementById('info-toggle-container');
 
     // Elementos do Modal de Fotos (em grade, como "Em Breve")
     const photosModal = document.getElementById('photos-modal');
-    const closePhotosModalBtn = photosModal.querySelector('.close-button');
     const modalPhotosGrid = document.getElementById('modal-photos-grid');
+
+    // Elemento para o modal de imagem grande (para clique nas miniaturas)
+    const imageModal = document.getElementById('image-modal'); // Certifique-se de ter este modal no HTML
+    const modalImage = imageModal ? imageModal.querySelector('img') : null; // A imagem dentro do modal
+    const closeImageModalBtn = imageModal ? imageModal.querySelector('.close-button') : null; // Botão de fechar do modal de imagem grande
+
 
     // Elementos do Ícone do Carrinho no Header
     const cartIconContainer = document.getElementById('cart-icon-container');
@@ -65,67 +69,59 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
 
+    // --- Variáveis de Dados (assumindo que vêm de cardapio.js e knowledgeBase.js) ---
+    // Certifique-se de que 'products', 'categoriesData', 'chatbotKnowledgeBase',
+    // 'photos', 'DEFAULT_LOTTIE_JSON', 'DEFAULT_CATEGORY_IMAGE', 'DEFAULT_PLACEHOLDER_IMAGE'
+    // estão definidos em 'cardapio.js' e 'knowledgeBase.js' e são globais ou importados.
+    // A variável 'photos' agora é esperada para vir do seu cardapio.js como um array de strings.
+
+
     // --- Funções de Manipulação do Tema ---
-    /**
-     * Define o tema da aplicação (claro ou escuro).
-     * @param {string} theme - 'light' para tema claro, 'dark' para tema escuro.
-     */
     function setTheme(theme) {
         if (theme === 'light') {
-            document.body.classList.add('light-theme');
+            body.classList.add('light-theme');
             themeToggleIcon.classList.remove('fa-sun');
             themeToggleIcon.classList.add('fa-moon');
             localStorage.setItem('theme', 'light');
         } else {
-            document.body.classList.remove('light-theme');
+            body.classList.remove('light-theme');
             themeToggleIcon.classList.remove('fa-moon');
             themeToggleIcon.classList.add('fa-sun');
             localStorage.setItem('theme', 'dark');
         }
     }
 
-    /**
-     * Alterna entre o tema claro e escuro.
-     */
     function toggleTheme() {
-        if (document.body.classList.contains('light-theme')) {
+        if (body.classList.contains('light-theme')) {
             setTheme('dark');
         } else {
             setTheme('light');
         }
     }
 
-    /**
-     * Inicializa o tema com base na preferência salva no localStorage.
-     */
     function initializeTheme() {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             setTheme('light');
         } else {
-            // Padrão para escuro se não houver preferência salva ou for 'dark'
             setTheme('dark');
         }
     }
 
 
     // --- Funções de Manipulação de Modais (Generalizadas) ---
-    /**
-     * Abre um modal específico.
-     * @param {HTMLElement} modalElement - O elemento DOM do modal a ser aberto.
-     */
     function openModal(modalElement) {
-        modalElement.style.display = 'flex'; // Usando 'flex' para centralização CSS
-        document.body.style.overflow = 'hidden'; // Impede o scroll do body
+        if (modalElement) {
+            modalElement.style.display = 'flex';
+            body.style.overflow = 'hidden';
+        }
     }
 
-    /**
-     * Fecha um modal específico.
-     * @param {HTMLElement} modalElement - O elemento DOM do modal a ser fechado.
-     */
     function closeModal(modalElement) {
-        modalElement.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restaura o scroll do body
+        if (modalElement) {
+            modalElement.style.display = 'none';
+            body.style.overflow = 'auto';
+        }
     }
 
     // Fechar modal ao clicar fora dele
@@ -138,54 +134,53 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal(photosModal);
         } else if (event.target === chatModal) {
             closeModal(chatModal);
-            chatbox.innerHTML = ''; // Limpa o chatbox ao fechar
-            delete chatbox.dataset.initialMessageShown; // Permite que a mensagem inicial apareça novamente
+            if (chatbox) {
+                chatbox.innerHTML = '';
+                delete chatbox.dataset.initialMessageShown;
+            }
+        } else if (event.target === imageModal) {
+            closeModal(imageModal);
         }
     });
 
 
     // --- Funções Auxiliares do Chatbot ---
-    // Função para obter o nome do dia da semana em português
     function getWeekdayName(dayIndex) {
         const weekdays = [
-            "Domingo",
-            "Segunda-feira",
-            "Terça-feira",
-            "Quarta-feira",
-            "Quinta-feira",
-            "Sexta-feira",
-            "Sábado"
+            "Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira",
+            "Quinta-feira", "Sexta-feira", "Sábado"
         ];
         return weekdays[dayIndex];
     }
 
-    // Função para adicionar uma mensagem ao chatbox
     function addMessage(message, sender) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', `${sender}-message`);
-        // Para exibir as quebras de linha (\n) corretamente no HTML
-        messageDiv.innerHTML = message.replace(/\n/g, '<br>');
-        chatbox.appendChild(messageDiv);
-        chatbox.scrollTop = chatbox.scrollHeight; // Rolagem automática para a última mensagem
+        if (chatbox) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', `${sender}-message`);
+            messageDiv.innerHTML = message.replace(/\n/g, '<br>');
+            chatbox.appendChild(messageDiv);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
     }
 
     // Lógica Principal do Chatbot
     function getBotResponse(userMessage) {
-        userMessage = userMessage.toLowerCase().trim(); // Normaliza a mensagem do usuário
+        userMessage = userMessage.toLowerCase().trim();
 
         const today = new Date();
         const dayOfWeek = today.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
 
         // 1. Verificar se é Segunda-feira (Dia de Fechamento)
         if (dayOfWeek === 1) { // Se for segunda-feira
-            return "😔 Olá! Infelizmente, estamos fechados às segundas-feiras. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 23:30h. Te esperamos a partir de amanhã! 😉";
+            return "😔 Olá! Infelizmente, estamos fechados às segundas-feiras. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h. Te esperamos a partir de amanhã! 😉";
         }
 
         // 3. Se não for Segunda-feira, verificar as palavras-chave na base de conhecimento
-        // NOTE: chatbotKnowledgeBase é global, carregada de knowledgeBase.js
-        for (const keyword in chatbotKnowledgeBase) {
-            if (userMessage.includes(keyword)) {
-                return chatbotKnowledgeBase[keyword];
+        if (typeof chatbotKnowledgeBase !== 'undefined') {
+            for (const keyword in chatbotKnowledgeBase) {
+                if (userMessage.includes(keyword)) {
+                    return chatbotKnowledgeBase[keyword];
+                }
             }
         }
 
@@ -194,13 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- Funções de Carrinho ---
-    /**
-     * Adiciona um item genérico (não-jantinha personalizável) ao carrinho,
-     * agrupando se o item já existir.
-     * @param {string} productId - O ID do produto a ser adicionado.
-     */
     function addToCart(productId) {
-        // Procura por um item existente no carrinho que tenha o mesmo ID E não seja uma jantinha personalizável
         const existingItemIndex = cart.findIndex(item => item.id === productId && !['pp-1', 'pp-2', 'pp-3'].includes(item.id));
 
         if (existingItemIndex > -1) {
@@ -212,19 +201,13 @@ document.addEventListener('DOMContentLoaded', function() {
         flashCartIcon();
     }
 
-    /**
-     * Adiciona uma nova instância de uma jantinha personalizável (pp-1, pp-2, pp-3) ao carrinho.
-     * Cada jantinha é um item separado no carrinho para permitir personalização individual.
-     * @param {string} productId - O ID do produto da jantinha.
-     */
     function addCustomizableJantinhaToCart(productId) {
-        const newItem = { id: productId, quantity: 1 }; // quantity será sempre 1 para essas jantinhas personalizadas
+        const newItem = { id: productId, quantity: 1 };
 
-        // Adiciona as opções de personalização baseadas no ID do produto
-        if (productId === 'pp-1' || productId === 'pp-2') { // Jantinha Completa e Jantinha Nota 1000
+        if (productId === 'pp-1' || productId === 'pp-2') {
             newItem.espeto = '';
             newItem.feijao = '';
-        } else if (productId === 'pp-3') { // Jantinha sem Espeto
+        } else if (productId === 'pp-3') {
             newItem.feijao = '';
         }
 
@@ -241,80 +224,63 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // NOVAS FUNÇÕES PARA ROLAGEM DENTRO DO MODAL
-    /**
-     * Rola o contêiner dos itens do carrinho para cima.
-     */
     function scrollCartUp() {
         if (cartItemsScrollContainer) {
-            // Rola para cima pela altura de um item típico ou um valor fixo
-            const scrollAmount = cartItemsScrollContainer.clientHeight * 0.5; // Rola 50% da altura visível
+            const scrollAmount = cartItemsScrollContainer.clientHeight * 0.5;
             cartItemsScrollContainer.scrollBy({ top: -scrollAmount, behavior: 'smooth' });
         }
     }
 
-    /**
-     * Rola o contêiner dos itens do carrinho para baixo.
-     */
     function scrollCartDown() {
         if (cartItemsScrollContainer) {
-            // Rola para baixo pela altura de um item típico ou um valor fixo
-            const scrollAmount = cartItemsScrollContainer.clientHeight * 0.5; // Rola 50% da altura visível
+            const scrollAmount = cartItemsScrollContainer.clientHeight * 0.5;
             cartItemsScrollContainer.scrollBy({ top: scrollAmount, behavior: 'smooth' });
         }
     }
 
-
-    /**
-     * Adiciona uma animação de "flash" ao ícone do carrinho.
-     */
     function flashCartIcon() {
-        cartIconContainer.classList.add('flash');
-        setTimeout(() => {
-            cartIconContainer.classList.remove('flash');
-        }, 500);
+        if (cartIconContainer) {
+            cartIconContainer.classList.add('flash');
+            setTimeout(() => {
+                cartIconContainer.classList.remove('flash');
+            }, 500);
+        }
     }
 
-    /**
-     * Atualiza a exibição do carrinho no modal, incluindo as opções de personalização.
-     * MODIFICADA: Adicionou botões de rolagem e esconde/mostra o bloco de detalhes.
-     */
     function updateCartDisplay() {
+        if (!cartItemsModalContainer || !cartTotalModalSpan || !cartCountSpan) return;
+
         cartItemsModalContainer.innerHTML = '';
         let total = 0;
         let itemCount = 0;
 
         if (cart.length === 0) {
             cartItemsModalContainer.innerHTML = '<p> ❌Nenhum item no carrinho.</p>';
-            // Esconde o bloco de detalhes do pedido se o carrinho estiver vazio
             if (orderDetailsContainer) {
                 orderDetailsContainer.style.display = 'none';
             }
         } else {
-            // Mostra o bloco de detalhes do pedido se houver itens
             if (orderDetailsContainer) {
-                orderDetailsContainer.style.display = 'block'; // ou 'flex', dependendo do seu CSS
+                orderDetailsContainer.style.display = 'block';
             }
 
             cart.forEach((cartItem, index) => {
                 const product = products.find(p => p.id === cartItem.id);
                 if (!product) {
                     console.warn(`Produto com ID ${cartItem.id} não encontrado.`);
-                    return; // Pula para o próximo item se o produto não for encontrado
+                    return;
                 }
 
-                const itemTotal = product.price * cartItem.quantity; // Multiplica pela quantidade para produtos não-jantinha
+                const itemTotal = product.price * cartItem.quantity;
                 total += itemTotal;
-                itemCount += cartItem.quantity; // Soma a quantidade total de todos os produtos
+                itemCount += cartItem.quantity;
 
                 const cartItemDiv = document.createElement('div');
                 cartItemDiv.classList.add('cart-item');
-                // Usamos o 'index' do array `cart` para identificar essa jantinha única
                 let optionsHtml = '';
 
-                // Lógica para jantinhas personalizáveis
                 if (['pp-1', 'pp-2', 'pp-3'].includes(product.id)) {
-                    if (product.id === 'pp-1' || product.id === 'pp-2') { // Jantinha Completa e Jantinha Nota 1000
+                    if (product.id === 'pp-1' || product.id === 'pp-2') {
                         optionsHtml += `
                             <div class="input-group-inline">
                                 <label for="espeto-${index}">Espeto:</label>
@@ -335,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         `;
                     }
 
-                    if (product.id === 'pp-1' || product.id === 'pp-2' || product.id === 'pp-3') { // Todas as jantinhas precisam de feijão
+                    if (product.id === 'pp-1' || product.id === 'pp-2' || product.id === 'pp-3') {
                         optionsHtml += `
                             <div class="input-group-inline">
                                 <label for="feijao-${index}">Feijão:</label>
@@ -349,7 +315,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
 
-                // Renderização do item
                 cartItemDiv.innerHTML = `
                     <div class="cart-item-info">
                         <span class="item-name">${product.name} ${['pp-1', 'pp-2', 'pp-3'].includes(product.id) ? '' : `(x${cartItem.quantity})`}</span>
@@ -364,18 +329,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
                 cartItemsModalContainer.appendChild(cartItemDiv);
             });
-
-            // Adiciona os botões de navegação APÓS os itens se houver mais de 1 item,
-            // ou se o container tiver overflow (melhor ainda)
-            // Para simplicidade, vamos adicionar sempre que houver itens.
-            // Para desabilitar, precisaria de uma lógica mais complexa baseada no scrollHeight/clientHeight.
-         
         }
 
         cartTotalModalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
         cartCountSpan.textContent = itemCount;
 
-        // Adiciona event listeners para os botões de remover
         cartItemsModalContainer.querySelectorAll('.remove-item-btn').forEach(button => {
             button.addEventListener('click', (event) => {
                 const cartIndex = parseInt(event.target.dataset.cartIndex);
@@ -383,14 +341,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Event listeners para os selects de espeto e feijão das jantinhas individuais
         cartItemsModalContainer.querySelectorAll('.jantinha-options-individual select').forEach(select => {
             select.addEventListener('change', (event) => {
                 const cartIndex = parseInt(event.target.dataset.cartIndex);
-                const optionType = event.target.dataset.optionType; // 'espeto' ou 'feijao'
+                const optionType = event.target.dataset.optionType;
                 const value = event.target.value;
 
-                // Atualiza a propriedade do item correspondente no array `cart`
                 if (cart[cartIndex]) {
                     cart[cartIndex][optionType] = value;
                 }
@@ -398,34 +354,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    /**
-     * Controla a visibilidade dos campos de endereço e nome de retirada
-     * com base na seleção do tipo de pedido.
-     */
     function handleOrderTypeChange() {
+        if (!orderTypeSelect || !deliveryOptionsDiv || !pickupOptionsDiv || !deliveryFeeInfo || !deliveryAddressInput || !pickupNameInput) return;
+
         const selectedType = orderTypeSelect.value;
 
         if (selectedType === 'delivery') {
             deliveryOptionsDiv.style.display = 'block';
             pickupOptionsDiv.style.display = 'none';
-            deliveryFeeInfo.style.display = 'block'; // Mostra aviso de taxa
-            deliveryAddressInput.required = true; // Torna o endereço obrigatório
-            pickupNameInput.required = false; // Garante que o nome não é obrigatório
-            pickupNameInput.value = ''; // Limpa o campo de nome ao mudar para entrega
-        } else { // 'pickup'
+            deliveryFeeInfo.style.display = 'block';
+            deliveryAddressInput.required = true;
+            pickupNameInput.required = false;
+            pickupNameInput.value = '';
+        } else {
             deliveryOptionsDiv.style.display = 'none';
             pickupOptionsDiv.style.display = 'block';
-            deliveryFeeInfo.style.display = 'none'; // Esconde aviso de taxa
-            deliveryAddressInput.required = false; // Endereço não é obrigatório
-            pickupNameInput.required = true; // Nome de retirada é obrigatório
-            deliveryAddressInput.value = ''; // Limpa o campo de endereço ao mudar para retirada
+            deliveryFeeInfo.style.display = 'none';
+            deliveryAddressInput.required = false;
+            pickupNameInput.required = true;
+            deliveryAddressInput.value = '';
         }
     }
 
-
-    /**
-     * Envia o pedido para o WhatsApp com todos os detalhes.
-     */
     function sendOrderToWhatsapp() {
         if (cart.length === 0) {
             alert('❌ Seu carrinho está vazio! Adicione itens antes de fazer o pedido.');
@@ -437,7 +387,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const pickupName = pickupNameInput.value.trim();
         const notes = notesTextarea.value.trim();
 
-        // Validação de campos obrigatórios
         if (orderType === 'delivery' && !deliveryAddress) {
             alert('Por favor, digite o endereço de entrega para prosseguir.');
             return;
@@ -451,7 +400,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let total = 0;
 
         let validationFailed = false;
-        // Processa os itens do carrinho
         cart.forEach((cartItem, index) => {
             const product = products.find(p => p.id === cartItem.id);
             if (!product) {
@@ -459,7 +407,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Se for uma jantinha personalizável
             if (['pp-1', 'pp-2', 'pp-3'].includes(product.id)) {
                 const itemPrice = product.price;
                 total += itemPrice;
@@ -473,7 +420,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         validationFailed = true;
                         return;
                     }
-                    itemDetails += `     - Espeto: ${espeto}\n`;
+                    itemDetails += `    - Espeto: ${espeto}\n`;
                 }
 
                 const feijao = cartItem.feijao || 'Não selecionado';
@@ -482,8 +429,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     validationFailed = true;
                     return;
                 }
-                itemDetails += `     - Feijão: ${feijao}\n`;
-                itemDetails += `     - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
+                itemDetails += `    - Feijão: ${feijao}\n`;
+                itemDetails += `    - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
 
                 message += itemDetails;
 
@@ -494,7 +441,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Se alguma validação de Jantinha falhou, interrompe o processo
         if (validationFailed) {
             return;
         }
@@ -503,15 +449,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (orderType === 'delivery') {
             message += `***Endereço de Entrega:***\n${deliveryAddress}\n`;
-
-            // Codifica o endereço para ser usado na URL
             const encodedDeliveryAddress = encodeURIComponent(deliveryAddress);
-            // AJUSTE: Corrigido o link do Google Maps para ser funcional
-            const googleMapsUrl = `http://maps.google.com/?q=${encodedDeliveryAddress}`; // Link corrigido
-
-            // Mantém apenas o link mascarado com "Ver no Mapa"
+            // Corrigido o link do Google Maps para ser funcional no WhatsApp
+            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedDeliveryAddress}`; // URL mais genérica e robusta
             message += `[Ver no Mapa](${googleMapsUrl})\n`;
-        } else { // 'pickup'
+        } else {
             message += `***Nome para Retirada:***\n${pickupName}\n`;
         }
         if (notes) {
@@ -527,9 +469,7 @@ document.addEventListener('DOMContentLoaded', function() {
         message += `\nObrigado por pedir no Jantinha Nota 1000!`;
 
         const whatsappNumber = '5562992020331';
-
         const encodedMessage = encodeURIComponent(message);
-
         const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
 
         console.log('Mensagem final do WhatsApp:', decodeURIComponent(encodedMessage));
@@ -538,23 +478,79 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // --- Funções de Renderização do Menu e Fotos ---
-    /**
-     * Função auxiliar para normalizar nomes de categoria para IDs HTML.
-     * @param {string} name - O nome da categoria.
-     * @returns {string} O nome normalizado para uso como ID HTML.
-     */
     function normalizeCategoryName(name) {
         return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
     }
 
     /**
-     * Renderiza o cardápio principal e os botões de atalho/categorias.
+     * Handler para o clique no botão "Adicionar".
+     * @param {Event} event - O evento de clique.
      */
+    function handleAddButtonClick(event) {
+        const productId = event.target.dataset.id;
+        // Verifica se o produto é uma jantinha que precisa de personalização
+        if (['pp-1', 'pp-2', 'pp-3'].includes(productId)) {
+            addCustomizableJantinhaToCart(productId);
+        } else {
+            addToCart(productId); // Outros itens são agrupados
+        }
+    }
+
+    /**
+     * Renderiza as fotos dentro do modal de fotos.
+     * Agora usa a variável 'photos' que vem do cardapio.js.
+     */
+    function renderPhotosInModal() {
+        // Verifica se modalPhotosGrid e 'photos' existem e se 'photos' é um array
+        if (!modalPhotosGrid || typeof photos === 'undefined' || !Array.isArray(photos)) {
+            console.warn("'photos' não está definida ou não é um array. Não foi possível renderizar fotos.");
+            modalPhotosGrid.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
+            return;
+        }
+
+        modalPhotosGrid.innerHTML = ''; // Limpa antes de adicionar
+
+        if (photos.length === 0) {
+            modalPhotosGrid.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
+            return;
+        }
+
+        photos.forEach(photoUrl => { // Iteramos diretamente sobre a URL da foto
+            const imgContainer = document.createElement('div');
+            imgContainer.classList.add('photo-item-modal');
+
+            const img = document.createElement('img');
+            img.src = photoUrl; // A URL da foto
+            img.alt = 'Foto da Jantinha Nota 1000'; // Um alt genérico, já que não temos um específico no array
+            img.classList.add('modal-thumbnail');
+
+            imgContainer.appendChild(img);
+            modalPhotosGrid.appendChild(imgContainer);
+        });
+
+        // Adiciona event listeners para abrir a imagem grande ao clicar nas miniaturas
+        modalPhotosGrid.querySelectorAll('.modal-thumbnail').forEach(thumbnail => {
+            thumbnail.removeEventListener('click', openLargeImageModal); // Evita duplicação
+            thumbnail.addEventListener('click', openLargeImageModal);
+        });
+    }
+
+    // Função para abrir o modal de imagem grande
+    function openLargeImageModal(event) {
+        if (modalImage && imageModal && event.target.tagName === 'IMG') {
+            modalImage.src = event.target.src;
+            modalImage.alt = event.target.alt;
+            openModal(imageModal);
+        }
+    }
+
+
     function renderMenu() {
+        if (!menuSections || !categoryNavigation || typeof products === 'undefined' || typeof categoriesData === 'undefined') return;
+
         menuSections.innerHTML = '';
         categoryNavigation.innerHTML = '';
 
-        // Agrupa os produtos por categoria
         const categories = products.reduce((acc, product) => {
             if (!acc[product.category]) {
                 acc[product.category] = [];
@@ -563,14 +559,12 @@ document.addEventListener('DOMContentLoaded', function() {
             return acc;
         }, {});
 
-        // Renderiza os botões de categoria e os botões de atalho
         categoriesData.forEach(item => {
             const normalizedId = normalizeCategoryName(item.name);
 
             const categoryButton = document.createElement('button');
             categoryButton.classList.add('category-button');
 
-            // Define o target (ID da seção, URL ou ID do modal)
             if (item.type === 'category') {
                 categoryButton.dataset.targetId = `category-${normalizedId}`;
                 categoryButton.dataset.type = 'category';
@@ -586,11 +580,10 @@ document.addEventListener('DOMContentLoaded', function() {
             lottieContainer.classList.add('lottie-icon-container');
             categoryButton.appendChild(lottieContainer);
 
-            // Define a URL Lottie ou imagem de fallback
-            const lottieJsonUrlToUse = item.lottieJsonUrl || DEFAULT_LOTTIE_JSON;
-            const imageUrlToUseForFallback = item.imageUrl || DEFAULT_CATEGORY_IMAGE;
+            // Garante que as variáveis DEFAULT_LOTTIE_JSON e DEFAULT_CATEGORY_IMAGE existem
+            const lottieJsonUrlToUse = item.lottieJsonUrl || (typeof DEFAULT_LOTTIE_JSON !== 'undefined' ? DEFAULT_LOTTIE_JSON : '');
+            const imageUrlToUseForFallback = item.imageUrl || (typeof DEFAULT_CATEGORY_IMAGE !== 'undefined' ? DEFAULT_CATEGORY_IMAGE : '');
 
-            // Tenta carregar Lottie, se não, usa imagem de fallback
             if (lottieJsonUrlToUse && typeof lottie !== 'undefined') {
                 lottie.loadAnimation({
                     container: lottieContainer,
@@ -602,7 +595,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         className: 'lottie-svg'
                     }
                 });
-            } else {
+            } else if (imageUrlToUseForFallback) {
                 const fallbackImage = document.createElement('img');
                 fallbackImage.src = imageUrlToUseForFallback;
                 fallbackImage.alt = `Ícone da categoria ${item.name}`;
@@ -624,13 +617,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 } else if (targetType === 'link') {
                     const url = event.currentTarget.dataset.url;
-                    window.open(url, '_blank'); // Abre em nova aba
+                    window.open(url, '_blank');
                 } else if (targetType === 'modal') {
                     const targetModalId = event.currentTarget.dataset.targetModalId;
                     const targetModal = document.getElementById(targetModalId);
                     if (targetModal) {
                         openModal(targetModal);
-                        // Apenas renderiza fotos se for o modal de fotos
                         if (targetModalId === 'photos-modal') {
                             renderPhotosInModal();
                         }
@@ -640,12 +632,10 @@ document.addEventListener('DOMContentLoaded', function() {
             categoryNavigation.appendChild(categoryButton);
         });
 
-        // Renderiza as seções de produtos (apenas para as categorias 'type: category')
         for (const categoryName in categories) {
-            // Verifica se a categoria é do tipo 'category' na categoriesData
             const categoryDataEntry = categoriesData.find(cat => cat.name === categoryName && cat.type === 'category');
             if (!categoryDataEntry) {
-                continue; // Pula se não for uma categoria de produtos
+                continue;
             }
 
             const normalizedId = normalizeCategoryName(categoryName);
@@ -666,11 +656,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 productCard.classList.add('product-card');
                 productCard.dataset.id = product.id;
 
-                const imageUrlToUse = (product.imageUrl && !product.imageUrl.includes('link_da_sua_imagem_'))
-                    ? product.imageUrl
-                    : DEFAULT_PLACEHOLDER_IMAGE;
+                const imageUrlToUse = (product.imageUrl && !product.imageUrl.includes('link_da_sua_imagem_')) ? product.imageUrl : (typeof DEFAULT_PLACEHOLDER_IMAGE !== 'undefined' ? DEFAULT_PLACEHOLDER_IMAGE : '');
 
-                // Adicionado um container para a imagem para melhor controle de clique
                 productCard.innerHTML = `
                     <div class="product-image-container">
                         <img src="${imageUrlToUse}" class="product-image-small" alt="${product.name}">
@@ -686,7 +673,6 @@ document.addEventListener('DOMContentLoaded', function() {
             menuSections.appendChild(categoryDiv);
         }
 
-        // Adiciona event listeners aos botões "Adicionar" dos produtos
         setupProductEventListeners();
     }
 
@@ -700,67 +686,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    /**
-     * Handler para o clique no botão "Adicionar".
-     * @param {Event} event - O evento de clique.
-     */
-    function handleAddButtonClick(event) {
-        const productId = event.target.dataset.id;
-        // Verifica se o produto é uma jantinha que precisa de personalização
-        if (['pp-1', 'pp-2', 'pp-3'].includes(productId)) {
-            addCustomizableJantinhaToCart(productId);
-        } else {
-            addToCart(productId); // Outros itens são agrupados
-        }
-    }
-
-
-    /**
-     * Renderiza as fotos dentro do modal de fotos.
-     */
-    function renderPhotosInModal() {
-        if (modalPhotosGrid) {
-            modalPhotosGrid.innerHTML = ''; // Limpa antes de adicionar
-            photos.forEach(photoUrl => {
-                const img = document.createElement('img');
-                img.src = photoUrl;
-                img.alt = 'Foto da Jantinha Nota 1000';
-                img.classList.add('modal-grid-image'); // Adiciona uma classe para o listener
-                modalPhotosGrid.appendChild(img);
-            });
-        }
-    }
-
     // --- Event Listeners Globais ---
-    // Adiciona event listeners para os botões de rolagem (AGORA SÃO FIXOS NO HTML)
-    if (document.getElementById('scroll-up-btn')) {
-        document.getElementById('scroll-up-btn').addEventListener('click', scrollCartUp);
-    }
-    if (document.getElementById('scroll-down-btn')) {
-        document.getElementById('scroll-down-btn').addEventListener('click', scrollCartDown);
-    }
-    // Event listener para o botão "Voltar ao Topo"
-    window.onscroll = function() {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            scrollToTopBtn.style.display = "flex"; // Mostra o botão
-            scrollToTopBtn.style.opacity = "1"; // Torna visível
-        } else {
-            scrollToTopBtn.style.opacity = "0"; // Torna invisível
-            // Usa um pequeno atraso para esconder completamente após a transição de opacidade
-            setTimeout(() => {
-                if (scrollToTopBtn.style.opacity === "0") {
-                    scrollToTopBtn.style.display = "none";
-                }
-            }, 300); // Deve ser igual ao tempo de transition no CSS
-        }
-    };
 
-    scrollToTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // Adiciona rolagem suave
+    // Event Listeners para botões de rolagem do carrinho
+    if (scrollUpBtn) {
+        scrollUpBtn.addEventListener('click', scrollCartUp);
+    }
+    if (scrollDownBtn) {
+        scrollDownBtn.addEventListener('click', scrollCartDown);
+    }
+
+    // Event listener para o botão "Voltar ao Topo"
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', function() {
+            // Usa window.scrollY para navegadores modernos
+            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+            if (scrollPosition > 200) {
+                scrollToTopBtn.style.display = "flex";
+                scrollToTopBtn.style.opacity = "1";
+            } else {
+                scrollToTopBtn.style.opacity = "0";
+                setTimeout(() => {
+                    // Verifica novamente a opacidade antes de esconder completamente
+                    if (scrollToTopBtn.style.opacity === "0") {
+                        scrollToTopBtn.style.display = "none";
+                    }
+                }, 300); // Tempo igual ao 'transition' no CSS
+            }
         });
-    });
+
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
     // Event listener para o botão do carrinho no header
     if (cartIconContainer) {
@@ -771,16 +732,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Adiciona event listeners para todos os botões de fechar modal
-    document.querySelectorAll('.close-button').forEach(button => {
-        button.addEventListener('click', (event) => {
+    // Adiciona event listeners para todos os botões de fechar modal (classe '.close-button')
+    document.querySelectorAll('.modal .close-button').forEach(button => {
+        button.addEventListener('click', () => {
             const modalElement = button.closest('.modal'); // Encontra o modal pai do botão
             if (modalElement) {
                 closeModal(modalElement);
+                // Lógica específica para o chatbot ao fechar
+                if (modalElement.id === 'chatModal') {
+                    if (chatbox) {
+                        chatbox.innerHTML = '';
+                        delete chatbox.dataset.initialMessageShown;
+                    }
+                }
             }
         });
     });
-
 
     // Event listener para o botão de checkout do WhatsApp
     if (checkoutWhatsappModalBtn) {
@@ -797,23 +764,21 @@ document.addEventListener('DOMContentLoaded', function() {
         infoToggleContainer.addEventListener('click', () => openModal(infoModal));
     }
 
-
     // Event listener para o select de tipo de pedido
     if (orderTypeSelect) {
         orderTypeSelect.addEventListener('change', handleOrderTypeChange);
     }
 
-
     // Event listener para abrir o modal do chat
     if (openChatBtn) {
         openChatBtn.addEventListener('click', () => {
             openModal(chatModal);
-            if (!chatbox.dataset.initialMessageShown) {
+            if (chatbox && !chatbox.dataset.initialMessageShown) {
                 const currentDayName = getWeekdayName(new Date().getDay());
-                // Verifica se chatbotKnowledgeBase está definida antes de usar
                 if (typeof chatbotKnowledgeBase !== 'undefined') {
+                    // Atualiza a resposta inicial do chatbot com o dia da semana
                     chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${currentDayName}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍔 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas**\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
-                    chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"]; // 'oi' também usa a mesma mensagem
                 }
                 const initialBotMessage = typeof chatbotKnowledgeBase !== 'undefined' ? chatbotKnowledgeBase["ola"] : "Olá! Como posso ajudar você hoje?";
                 addMessage(initialBotMessage, 'bot');
@@ -826,8 +791,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (closeChatModalBtn) {
         closeChatModalBtn.addEventListener('click', () => {
             closeModal(chatModal);
-            chatbox.innerHTML = '';
-            delete chatbox.dataset.initialMessageShown;
+            if (chatbox) { // Garante que chatbox existe antes de limpar
+                chatbox.innerHTML = '';
+                delete chatbox.dataset.initialMessageShown;
+            }
         });
     }
 
