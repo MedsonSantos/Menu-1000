@@ -31,7 +31,6 @@
             --header-bg: #333;
             /* Fundo do cabeçalho */
             --footer-bg: #1a1a1a;
-            /* Fundo do rodapé */
             --titulo-carrinho: #197be3;
         }
 
@@ -571,6 +570,55 @@
             overflow-y: auto;
             padding-right: 5px;
         }
+        /* Container que irá rolar os itens do carrinho */
+        #cart-items-scroll-container {
+            max-height: 200px; /* Ajuste esta altura conforme o necessário para o seu modal */
+            overflow-y: auto;  /* Habilita a rolagem vertical quando o conteúdo exceder a altura */
+            border: 1px solid var(--border-color); /* Apenas para visualização - pode remover depois */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            /* Adicione um scrollbar estilizado se desejar, para melhor UX */
+            scrollbar-width: thin; /* Para Firefox */
+            scrollbar-color: var(--primary-color) var(--background-light); /* Para Firefox */
+        }
+        #cart-items-scroll-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #cart-items-scroll-container::-webkit-scrollbar-track {
+            background: var(--background-light);
+            border-radius: 10px;
+        }
+
+        #cart-items-scroll-container::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        /* Estilo para os botões de rolagem */
+        .cart-scroll-buttons {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            margin-top: 10px; /* Espaçamento entre os itens e os botões */
+            border-top: 1px solid var(--border-color); /* Linha divisória opcional */
+        }
+
+        .cart-scroll-buttons button {
+            background-color: var(--secondary-color);
+            color: var(--text-color-dark);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-scroll-buttons button:hover {
+            background-color: var(--primary-color);
+        }
 
         .cart-item {
             display: flex;
@@ -595,7 +643,7 @@
 
         .cart-item-info .item-name {
             font-weight: 600;
-            color: var(--footer-bg);
+            color: var(--texto-categoria);
             transition: color 0.3s ease;
         }
 
@@ -1271,12 +1319,9 @@
             }
 
             #cart-items-modal {
-                max-height: 25vh;
-                /* Pode precisar de mais ajustes em telas muito pequenas */
-                padding-right: 0;
-                /* Remove o padding direito para evitar rolagem desnecessária */
-                overflow-y: auto;
-                /* Garante que a rolagem funcione corretamente */
+                display: flex; /* ou block, ou column - dependendo do layout dos seus itens */
+                flex-direction: column; /* Se os itens são um embaixo do outro */
+                gap: 10px; /* Espaço entre os itens */
             }
 
             .order-input {

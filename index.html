@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-   
+    
 </head>
 <body>
     <header>
@@ -41,12 +41,19 @@
         <div class="modal-content">
             <span class="close-button" data-modal="cart">×</span>
             <h2>🛒 Seu Carrinho</h2>
-            <div id="cart-items-modal">
-                </div>
+            
+            <div id="cart-items-scroll-container" class="cart-items-list-wrapper" style="max-height: 200px; overflow-y: auto;">
+                <div id="cart-items-modal">
+                    </div>
+            </div>
+            <div class="cart-scroll-buttons">
+                <button id="scroll-up-btn">⬆️</button>
+                <button id="scroll-down-btn">⬇️</button>
+            </div>
             <div class="cart-summary-modal">
                 <p>💵Total: <span id="cart-total-modal">R$ 0,00</span></p>
 
-                <div class="order-options">
+                <div id="order-details-container" style="display: none;">
                     <h3>Detalhes do Pedido</h3>
                     
                     <div class="input-group">
@@ -79,7 +86,6 @@
                         <textarea id="notes" class="order-input" rows="3" placeholder="Ex: Sem cebola, pimenta à parte, etc."></textarea>
                     </div>
                 </div>
-                
                 <button id="checkout-whatsapp-modal"><i class="fab fa-whatsapp"></i> Pedir via WhatsApp</button>
             </div>
         </div>
@@ -96,8 +102,8 @@
                 <p>🫰Taxa de entrega pode variar de dependendo da sua localização sendo a mínima de 4,00 R$.</p>
                 <p>💵 Pagamentos via PIX, Cartão (débito/crédito) e Dinheiro.</p>
                 <p>🕧 Horários das entregas:<br>
-                                    📅Terça a Sexta das 19:40 até 23:30<br>
-                                    📅Sábado e Domingo das 19:00 até 23:45 .</p>
+                                        📅Terça a Sexta das 19:40 até 23:30<br>
+                                        📅Sábado e Domingo das 19:00 até 23:45 .</p>
             </div>
             <div class="info-section">
                 <h3><i class="fas fa-clock"></i>Horário de Funcionamento Local</h3>
