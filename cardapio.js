@@ -551,7 +551,7 @@ const products = [
         price: 49.99,
         imageUrl: 'https://i.imgur.com/VNoKQMD.png',
     },
-     {
+    {
         id: 'por-2',
         category: 'PORÇÕES',
         name: 'Frango a Passarinho 1Kg',
@@ -567,7 +567,7 @@ const products = [
         price: 26.99,
         imageUrl: 'https://i.imgur.com/zJpJ2gq.png/zJpJ2gq.png',
     },
-     {
+    {
         id: 'por-4',
         category: 'PORÇÕES',
         name: 'Batata 1000 500g',
@@ -575,7 +575,7 @@ const products = [
         price: 33.99,
         imageUrl: 'https://i.imgur.com/GfH9sCb.png',
     },
-     {
+    {
         id: 'por-5',
         category: 'PORÇÕES',
         name: 'Costelinha 1000',
@@ -583,7 +583,7 @@ const products = [
         price: 22.00,
         imageUrl: 'https://i.imgur.com/GvqqqWD.png',
     },
-     {
+    {
         id: 'por-6',
         category: 'PORÇÕES',
         name: 'Medalhão 1000',
