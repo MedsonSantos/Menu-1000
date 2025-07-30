@@ -121,13 +121,27 @@
     "asinha": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
     "tulipa": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
     "coxinha da asa": "🍗 O espeto de Coxinha da Asa custa R$ 11,00. Experimente!",
-    "coracao": "❤️ O espeto de Coração custa R$ 11,00. Crocante e saboroso!",
+    "coracao": "🍢 O espeto de Coração custa R$ 11,00. Crocante e saboroso!",
+    "coração": "🍢 O espeto de Coração custa R$ 11,00. Crocante e saboroso!",
     "contra file": "🥩 O espeto de Contra Filé custa R$ 11,00. Macio e suculento!",
+    "contra": "🥩 O espeto de Contra Filé custa R$ 11,00. Macio e suculento!",
     "cupim": "🥩 O espeto de Cupim Grill custa R$ 11,00. Perfeito para você!",
+    "cupim grill": "🥩 O espeto de Cupim Grill custa R$ 11,00. Perfeito para você!",
     "picanha montada": "🥩 O espeto de Picanha Montada custa R$ 11,00. Sabor inigualável!",
     "cafta bovina": "🍖 A Cafta Bovina com Queijo custa R$ 12,00. Imperdível!",
     "frango com bacon": "🥓 O espeto de Frango com Bacon custa R$ 11,00. Uma combinação perfeita!",
+    "frango e bacon": "🥓 O espeto de Frango com Bacon custa R$ 11,00. Uma combinação perfeita!",
+    "frango bacon": "🥓 O espeto de Frango com Bacon custa R$ 11,00. Uma combinação perfeita!",
     "frango sem bacon": "🍗 O espeto de Frango Sem Bacon custa R$ 11,00. Leve e delicioso!",
+    "frango": "🍗 temos varias opções de Frango:"+
+            "- Frango com Bacon"+
+            "- Frango Sem Bacon"+
+            "- Asinha de Frango"+
+            "- Coxinha da Asa"+
+            "- Frango à Passarinho 1kg"+
+            "Para saber mais sobre cada um só me dizer escrevendo o tipo exemplo (Frango com Bacon)",
+
+    "só frango": "🍗 O espeto de Frango Sem Bacon custa R$ 11,00. Leve e delicioso!",
     "linguica caipira": "🍢 A Linguiça Caipira custa R$ 11,00. Um toque do interior!",
     "linguica apimentada": "🌶️ A Linguiça C. Apimentada custa R$ 11,00. Para quem gosta de um toque a mais!",
     "queijo coalho": "🧀 O espeto de Queijo Coalho custa R$ 12,00. Derrete na boca!",
@@ -238,6 +252,7 @@
 
     // Fotos
     "fotos": "📸 Confira nossas fotos deliciosas! Temos uma variedade de pratos e drinks que vão te deixar com água na boca!",
+    "foto": "📸 Confira nossas fotos deliciosas! Temos uma variedade de pratos e drinks que vão te deixar com água na boca!",
 };  
   // --- Lógica Principal do Chatbot ---
 

@@ -132,6 +132,57 @@
             z-index: 100;
         }
 
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            background-color: var(--background-color); /* Use a cor de fundo do seu tema */
+            border-bottom: 1px solid var(--border-color);
+            gap: 10px; /* Espaço entre o input e o botão */
+        }
+        #searchInput {
+            flex-grow: 1; /* Permite que o input ocupe o máximo de espaço possível */
+            max-width: 500px; /* Limita a largura máxima */
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 25px; /* Bordas arredondadas */
+            font-size: 1rem;
+            background-color: var(--input-bg-color); /* Cor de fundo para o input */
+            color: var(--text-color); /* Cor do texto */
+            transition: border-color 0.3s ease;
+        }
+        #searchInput::placeholder {
+            color: var(--text-color-light); /* Cor do placeholder */
+        }
+
+        #searchInput:focus {
+            border-color: var(--primary-color); /* Cor da borda ao focar */
+            outline: none;
+        }
+
+        .button-search {
+            background-color: var(--primary-color); /* Cor primária para o botão */
+            color: white;
+            border: none;
+            border-radius: 25px; /* Bordas arredondadas */
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .button-search:hover {
+            background-color: var(--dark-primary-color); /* Cor mais escura ao passar o mouse */
+            transform: translateY(-1px); /* Pequeno efeito ao passar o mouse */
+        }
+
+        .button-search i {
+            margin: 0; /* Remove margem padrão de ícones */
+        }
+
 
         /* Estilos para o ícone do carrinho */
         .cart-icon-container {

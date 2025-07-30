@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Elementos do DOM ---
     const body = document.body;
-
+    const searchInput = document.getElementById('searchInput'); // Elemento da barra de pesquisa
+    const searchButton = document.getElementById('searchButton'); // Botão de pesquisa (se houver)
     const menuSections = document.getElementById('menu-sections');
 
     // Elementos do Modal do Carrinho
@@ -185,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // 4. Se nenhuma palavra-chave for encontrada e não for segunda, retornar mensagem genérica
-        return "Desculpe, não entendi sua pergunta. Poderia reformular ou perguntar sobre o menu, entrega, horários, etc.?";
+        return "Desculpe, não entendi sua pergunta. Poderia reformular ou perguntar sobre o cardápio, entrega, horários, etc.?";
     }
 
     // --- Funções de Carrinho ---
@@ -420,7 +421,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         validationFailed = true;
                         return;
                     }
-                    itemDetails += `    - Espeto: ${espeto}\n`;
+                    itemDetails += `     - Espeto: ${espeto}\n`;
                 }
 
                 const feijao = cartItem.feijao || 'Não selecionado';
@@ -429,8 +430,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     validationFailed = true;
                     return;
                 }
-                itemDetails += `    - Feijão: ${feijao}\n`;
-                itemDetails += `    - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
+                itemDetails += `     - Feijão: ${feijao}\n`;
+                itemDetails += `     - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
 
                 message += itemDetails;
 
@@ -522,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const img = document.createElement('img');
             img.src = photoUrl; // A URL da foto
             img.alt = 'Foto da Jantinha Nota 1000'; // Um alt genérico, já que não temos um específico no array
-        
+
 
             imgContainer.appendChild(img);
             modalPhotosGrid.appendChild(imgContainer);
@@ -544,20 +545,55 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    /**
+     * NOVO: Função para filtrar produtos.
+     * @param {string} query - O termo de pesquisa.
+     * @returns {Array} - Um array de produtos filtrados.
+     */
+    function filterProducts(query) {
+        if (!query) {
+            return products; // Se a query estiver vazia, retorna todos os produtos
+        }
+        const lowerCaseQuery = query.toLowerCase().trim();
+        return products.filter(product =>
+            product.name.toLowerCase().includes(lowerCaseQuery) ||
+            (product.description && product.description.toLowerCase().includes(lowerCaseQuery)) ||
+            (product.category && product.category.toLowerCase().includes(lowerCaseQuery))
+        );
+    }
 
-    function renderMenu() {
+
+    /**
+     * Modificada: A função renderMenu agora aceita um array de produtos para renderizar.
+     * Isso permite que ela seja usada tanto para exibir todos os produtos quanto para exibir resultados de pesquisa.
+     * @param {Array} productsToRender - O array de produtos a serem exibidos.
+     */
+    function renderMenu(productsToRender = products) { // Define products como padrão
         if (!menuSections || !categoryNavigation || typeof products === 'undefined' || typeof categoriesData === 'undefined') return;
 
         menuSections.innerHTML = '';
-        categoryNavigation.innerHTML = '';
+        // Manter categoryNavigation para os botões de categoria fixos, mas podemos limpá-lo e recriá-lo se a navegação precisar reagir à pesquisa.
+        // Por enquanto, vamos re-criar os botões de categoria, mas o filtro será aplicado ao conteúdo principal.
+        categoryNavigation.innerHTML = ''; // Limpa antes de adicionar os botões de navegação
 
-        const categories = products.reduce((acc, product) => {
-            if (!acc[product.category]) {
-                acc[product.category] = [];
-            }
-            acc[product.category].push(product);
-            return acc;
-        }, {});
+        // Adicionar o botão "Todos" para exibir todos os produtos
+        const allButton = document.createElement('button');
+        allButton.classList.add('category-button');
+        allButton.textContent = '🏠 Todos';
+        allButton.addEventListener('click', () => {
+            renderMenu(products); // Renderiza todos os produtos
+            searchInput.value = ''; // Limpa a barra de pesquisa
+            // Remove a classe 'active' de todos os botões de categoria e adiciona no "Todos"
+            categoryNavigation.querySelectorAll('.category-button').forEach(btn => btn.classList.remove('active'));
+            allButton.classList.add('active');
+        });
+        categoryNavigation.appendChild(allButton);
+
+        // Define o botão "Todos" como ativo por padrão na primeira renderização
+        if (productsToRender === products) {
+            allButton.classList.add('active');
+        }
+
 
         categoriesData.forEach(item => {
             const normalizedId = normalizeCategoryName(item.name);
@@ -580,7 +616,6 @@ document.addEventListener('DOMContentLoaded', function() {
             lottieContainer.classList.add('lottie-icon-container');
             categoryButton.appendChild(lottieContainer);
 
-            // Garante que as variáveis DEFAULT_LOTTIE_JSON e DEFAULT_CATEGORY_IMAGE existem
             const lottieJsonUrlToUse = item.lottieJsonUrl || (typeof DEFAULT_LOTTIE_JSON !== 'undefined' ? DEFAULT_LOTTIE_JSON : '');
             const imageUrlToUseForFallback = item.imageUrl || (typeof DEFAULT_CATEGORY_IMAGE !== 'undefined' ? DEFAULT_CATEGORY_IMAGE : '');
 
@@ -608,13 +643,16 @@ document.addEventListener('DOMContentLoaded', function() {
             categoryButton.appendChild(buttonText);
 
             categoryButton.addEventListener('click', (event) => {
+                // Remove a seleção de outras categorias
+                categoryNavigation.querySelectorAll('.category-button').forEach(btn => btn.classList.remove('active'));
+                event.currentTarget.classList.add('active'); // Marca a categoria clicada como ativa
+                searchInput.value = ''; // Limpa a barra de pesquisa ao selecionar uma categoria
+
                 const targetType = event.currentTarget.dataset.type;
                 if (targetType === 'category') {
-                    const targetId = event.currentTarget.dataset.targetId;
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+                    const targetCategoryName = item.name;
+                    const productsInCategory = products.filter(p => p.category === targetCategoryName);
+                    renderMenu(productsInCategory); // Renderiza apenas produtos da categoria selecionada
                 } else if (targetType === 'link') {
                     const url = event.currentTarget.dataset.url;
                     window.open(url, '_blank');
@@ -632,7 +670,16 @@ document.addEventListener('DOMContentLoaded', function() {
             categoryNavigation.appendChild(categoryButton);
         });
 
-        for (const categoryName in categories) {
+        // Agora, crie as seções do menu com base nos `productsToRender`
+        const categoriesInDisplay = productsToRender.reduce((acc, product) => {
+            if (!acc[product.category]) {
+                acc[product.category] = [];
+            }
+            acc[product.category].push(product);
+            return acc;
+        }, {});
+
+        for (const categoryName in categoriesInDisplay) {
             const categoryDataEntry = categoriesData.find(cat => cat.name === categoryName && cat.type === 'category');
             if (!categoryDataEntry) {
                 continue;
@@ -651,12 +698,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const productsGrid = document.createElement('div');
             productsGrid.classList.add('products-grid');
 
-            categories[categoryName].forEach(product => {
+            categoriesInDisplay[categoryName].forEach(product => {
                 const productCard = document.createElement('div');
                 productCard.classList.add('product-card');
                 productCard.dataset.id = product.id;
 
-                const imageUrlToUse = (product.imageUrl && !product.imageUrl.includes('link_da_sua_imagem_')) ? product.imageUrl : (typeof DEFAULT_PLACEHOLDER_IMAGE !== 'undefined' ? DEFAULT_PLACEHOLDER_IMAGE : '');
+                const imageUrlToUse = (product.imageUrl && !product.imageUrl.includes('link_da_sua_imagem_')) ? product.imageUrl : (typeof DEFAULT_PLACEHOLDER_IMAGE !== 'undefined' ? DEFAULT_PLACEHOLDER_IMAGE : 'https://via.placeholder.com/100x100?text=Sem+Foto');
 
                 productCard.innerHTML = `
                     <div class="product-image-container">
@@ -672,8 +719,7 @@ document.addEventListener('DOMContentLoaded', function() {
             categoryDiv.appendChild(productsGrid);
             menuSections.appendChild(categoryDiv);
         }
-
-        setupProductEventListeners();
+        setupProductEventListeners(); // Re-adiciona listeners para os novos botões "Adicionar"
     }
 
     /**
@@ -823,9 +869,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // NOVO: Event listener para a barra de pesquisa
+    if (searchInput) {
+        searchInput.addEventListener('input', (event) => { // 'input' é melhor que 'keyup' para capturar mudanças ao colar, etc.
+            const query = event.target.value;
+            const filteredProducts = filterProducts(query);
+            renderMenu(filteredProducts); // Renderiza o menu com os produtos filtrados
+
+            // Se houver pesquisa, desativar o botão "Todos" e os botões de categoria
+            if (query) {
+                categoryNavigation.querySelectorAll('.category-button.active').forEach(btn => btn.classList.remove('active'));
+            } else {
+                // Se a pesquisa for limpa, reativar o botão "Todos"
+                const allButton = categoryNavigation.querySelector('.category-button:first-child');
+                if (allButton) {
+                    allButton.classList.add('active');
+                }
+            }
+        });
+
+        // Opcional: listener para o botão de pesquisa, se você quiser um.
+        if (searchButton) {
+            searchButton.addEventListener('click', () => {
+                const query = searchInput.value;
+                const filteredProducts = filterProducts(query);
+                renderMenu(filteredProducts);
+            });
+        }
+    }
+
+
     // --- Inicializações ao carregar o DOM ---
     initializeTheme(); // Aplica o tema salvo ao carregar a página
-    renderMenu(); // Renderiza o cardápio inicial
+    renderMenu(); // Renderiza o cardápio inicial (agora com a lógica de pesquisa integrada, exibindo todos por padrão)
     updateCartDisplay(); // Garante que o contador do carrinho e o display estejam corretos ao carregar a página
     handleOrderTypeChange(); // Chama ao carregar para definir o estado inicial (Entrega) ou Retirada.
 });
