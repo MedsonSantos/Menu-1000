@@ -680,6 +680,7 @@ const photos = [
     'https://i.imgur.com/bYKo4g5.jpg',
     'https://i.imgur.com/5B5rNEU.jpg',
     'https://i.imgur.com/abqP82z.jpg',
+    'img src="imagens/logonova.png"',
 ];
 
 const DEFAULT_PLACEHOLDER_IMAGE = 'https://via.placeholder.com/180x180?text=Jantinha+Nota+1000';

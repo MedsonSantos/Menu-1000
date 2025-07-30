@@ -216,7 +216,10 @@
     "torresmo": "🐷 O Torresmo (Adicional) custa R$ 3,00.",
     "cheiro verde": "🌿 O Cheiro Verde (Adicional) custa R$ 2,00.",
     "torrada": "🍞 A Torrada (Adicional) custa R$ 2,00.",
-    "mel": "🍯 O Mel (Adicional) custa R$ 3,00."
+    "mel": "🍯 O Mel (Adicional) custa R$ 3,00.",
+
+    // Fotos
+    "fotos": "📸 Confira nossas fotos deliciosas! Temos uma variedade de pratos e drinks que vão te deixar com água na boca!",
 };  
   // --- Lógica Principal do Chatbot ---
 

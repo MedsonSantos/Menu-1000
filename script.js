@@ -522,7 +522,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const img = document.createElement('img');
             img.src = photoUrl; // A URL da foto
             img.alt = 'Foto da Jantinha Nota 1000'; // Um alt genérico, já que não temos um específico no array
-            img.classList.add('modal-thumbnail');
+        
 
             imgContainer.appendChild(img);
             modalPhotosGrid.appendChild(imgContainer);
