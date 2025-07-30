@@ -918,13 +918,10 @@
 
         #modal-photos-grid img {
             width: 100%;
-            height: 150px;
-            /* Será sobrescrito pela media query para desktop */
+            height: 100px;
             object-fit: cover;
             border-radius: 8px;
-            /* Será sobrescrito pela media query para desktop */
             box-shadow: 0 2px 5px var(--shadow-color);
-            /* Será sobrescrito pela media query para desktop */
             transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
         }
 

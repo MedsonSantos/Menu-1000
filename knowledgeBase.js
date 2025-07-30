@@ -5,8 +5,8 @@
     "menu": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Hambúrgueres' 🍔, 'Jantinhas' 🍛, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
     "cardapio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Hambúrgueres' 🍔, 'Jantinhas' 🍛, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
     "cardápio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Hambúrgueres' 🍔, 'Jantinhas' 🍛, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
-    "entrega": "🚀 Fazemos entregas em toda a região! 💵 A taxa de entrega varia conforme a quilometragem sendo a mínima de R$ 4,00 e a distância de 8km. Você pode verificar o valor e exato no carrinho 🛒 ao finalizar seu pedido. Chegaremos rapidinho! 💨",
-    "delivery": "🚀 Fazemos entregas em toda a região! 💵 A taxa de entrega varia conforme a quilometragem sendo a mínima de R$ 4,00 e a distância de 8km. Você pode verificar o valor exato no carrinho 🛒 ao finalizar seu pedido. Chegaremos rapidinho! 💨",
+    "entrega": "🚀 Fazemos entregas em toda a região! 💵 A taxa de entrega varia conforme a quilometragem sendo a mínima de R$ 4,00 e a distância máxima de 8km. Você pode verificar o valor e exato no carrinho 🛒 ao finalizar seu pedido. Chegaremos rapidinho! 💨",
+    "delivery": "🚀 Fazemos entregas em toda a região! 💵 A taxa de entrega varia conforme a quilometragem sendo a mínima de R$ 4,00 e a distância máxima de 8km. Você pode verificar o valor exato no carrinho 🛒 ao finalizar seu pedido. Chegaremos rapidinho! 💨",
     "horário": "⏰ Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 23:30h. Te esperamos! 😉",
     "horario": "⏰ Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 23:30h. Te esperamos! 😉",
     "horários": "⏰ Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 23:30h. Te esperamos! 😉",
@@ -17,6 +17,8 @@
     "jantinha kids": "👧👦 A Jantinha Kids é perfeita para as crianças! Lembre-se que ela está disponível apenas para consumo no local ou retirada, e não para entrega. Uma delícia para os pequenos! 🌟",
     "jantinhas kids": "👧👦 A Jantinha Kids é perfeita para as crianças! Lembre-se que ela está disponível apenas para consumo no local ou retirada, e não para entrega. Uma delícia para os pequenos! 🌟",
     "jantinhas": "🍽️Temos várias opções de jantinhas: Jantinha Kids👶, Jantinha completa🍲, Jantinha Nota 1000 🥘 e Jantinha de Estrogonofe. Se quiser saber mais sobre cada uma só me dizer escrevendo o tipo exemplo (Jantinha de Estrogonofe)",
+    "jantinha": "🍽️Temos várias opções de jantinhas: Jantinha Kids👶, Jantinha completa🍲, Jantinha Nota 1000 🥘 e Jantinha de Estrogonofe. Se quiser saber mais sobre cada uma só me dizer escrevendo o tipo exemplo (Jantinha de Estrogonofe)",
+    "janta": "🍽️Temos várias opções de jantinhas: Jantinha Kids👶, Jantinha completa🍲, Jantinha Nota 1000 🥘 e Jantinha de Estrogonofe. Se quiser saber mais sobre cada uma só me dizer escrevendo o tipo exemplo (Jantinha de Estrogonofe)",
     "cancelar": "🚫 Seu pedido ainda não foi enviado. Você pode ajustar os itens no carrinho 🛒 antes de finalizar. Para cancelar um pedido já enviado, por favor, entre em contato via WhatsApp. Fale com a gente! 💬",
     "obrigado": "🎉 De nada! Fico feliz em ajudar. Se precisar de mais alguma coisa, é só perguntar! Estamos aqui para você! 😊",
     "fechar": "👋 Certo, estarei aqui se precisar de mais alguma coisa. Obrigado e até a próxima! ✨",
@@ -24,6 +26,8 @@
     "cartão": "💰 Aceitamos Pix, cartão de crédito/débito e dinheiro. Facilitamos para você! 👍",
     "dinheiro": "💰 Aceitamos Pix, cartão de crédito/débito e dinheiro. Facilitamos para você! 👍",
     "boa noite": "🌃 Boa noite! Como posso ajudar você hoje? Pergunte sobre nosso menu 📓, entrega 🛵, horários ⏰, ou qualquer dúvida sobre nossos produtos. ✨",
+    "bom dia": "🌅 Bom dia! Como posso ajudar você hoje? Pergunte sobre nosso menu 📓, entrega 🛵, horários ⏰, ou qualquer dúvida sobre nossos produtos. ✨",
+    "boa tarde": "🌇 Boa tarde! Como posso ajudar você hoje? Pergunte sobre nosso menu 📓, entrega 🛵, horários ⏰, ou qualquer dúvida sobre nossos produtos. ✨",
     "queijo": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",
     "queijos": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",  
     "tem jantinha": "🍛 Temos diversas opções de Jantinhas deliciosas para você! Confira:\n\n" +
@@ -97,7 +101,21 @@
                   "- Romeu e Julieta (Queijo, Goiabada com Bacon)\n\n" +
                   "Para mais opções, como porções e outros, confira nosso cardápio completo! 😊",
           
-                  
+     "caldos": "🥣 Temos caldos quentinhos para aquecer sua noite! Confira:\n\n" +
+                  "- Caldo de Feijão\n" +
+                  "- Caldo de Costela\n" +
+                  "- Caldo de Frango\n\n" +
+                  "Cada caldo tem 500ml e custa R$ 18,00. Podem ser misturados ao seu desejo!😋"+
+                  "🍞Acompanham torrada, cheiro verde e torresmo!\n\n" +
+                  "Para mais opções, como porções e outros, confira nosso cardápio completo! 😊",
+     "caldo": "🥣 Temos caldos quentinhos para aquecer sua noite! Confira:\n\n" +
+                  "- Caldo de Feijão\n" +
+                  "- Caldo de Costela\n" +
+                  "- Caldo de Frango\n\n" +
+                  "Cada caldo tem 500ml e custa R$ 18,00. Podem ser misturados ao seu desejo!😋"+
+                  "🍞Acompanham torrada, cheiro verde e torresmo!\n\n" +
+                  "Para mais opções, como porções e outros, confira nosso cardápio completo! 😊",
+
     // --- Produtos e Preços do Cardápio ---
     // ESPETOS  
     "asinha": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
