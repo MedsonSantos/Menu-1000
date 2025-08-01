@@ -41,7 +41,7 @@ const products = [
         name: 'Jantinha Kids',
         description: '(somente consumo no local) um pouco de arroz, um pouco de estrogonofe e batata palha',
         price: 22.00,
-        imageUrl: 'https://i.imgur.com/mqHpsX0.png'
+        imageUrl: 'https://i.imgur.com/KA04d4m.png'
     },
 
     //--------------------------------------ESPETOS-------------------------------------//
@@ -236,7 +236,7 @@ const products = [
         name: 'Pastel Frango com Queijo',
         description: '',
         price: 13.00,
-        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+        imageUrl: 'https://i.imgur.com/Wf2aW4t.png'
     },
     {
         id: 'lan-2',
@@ -244,7 +244,7 @@ const products = [
         name: 'Pastel Presunto e Queijo',
         description: '',
         price: 13.00,
-        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+        imageUrl: 'https://i.imgur.com/Wf2aW4t.png'
     },
     {
         id: 'lan-3',
@@ -252,7 +252,7 @@ const products = [
         name: 'Pastel Carne com Queijo',
         description: '',
         price: 13.00,
-        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+        imageUrl: 'https://i.imgur.com/Wf2aW4t.png'
     },
     {
         id: 'lan-4',

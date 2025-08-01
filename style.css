@@ -144,7 +144,7 @@
             left: 38%;
             background-color: var(--titulo-carrinho);
             border-radius: 50%; /* Botão redondo */
-            margin-bottom: -40px;
+            margin-bottom: -100px;
             
         }
         #next-photo-btn {
@@ -154,7 +154,7 @@
             right: 38%;
             background-color: var(--titulo-carrinho);
             border-radius: 50%; /* Botão redondo */
-            margin-bottom: -40px; 
+            margin-bottom: -100px; 
 
         }
         .carousel-container {
