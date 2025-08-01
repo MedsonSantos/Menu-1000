@@ -91,7 +91,7 @@ const products = [
         name: 'Cupim',
         description: 'Grill',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/YFvNxNd.png'
     },
     {
         id: 'esp-7',
@@ -139,7 +139,7 @@ const products = [
         name: 'Cafta 1000',
         description: 'Carne bovina envolta em bacon, recheada com queijo',
         price: 14.00,
-        /*imageUrl: 'https://i.imgur.com/j8KuBRF.png'*/
+        imageUrl: 'https://i.imgur.com/j8KuBRF.png'
 
     },
     {

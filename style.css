@@ -137,23 +137,22 @@
         }
 
         #prev-photo-btn{
-            width: 30px;
-            height: 30px;
+            
+            width: 25px;
+            height: 25px;
             position: absolute;
             left: 38%;
-            bottom: 1%;
-            transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+            transform: translateY(75%); /* Ajusta o alinhamento vertical */
             background-color: var(--titulo-carrinho);
             border-radius: 50%; /* Botão redondo */
             
         }
         #next-photo-btn {
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             position: absolute;
-            bottom: 1%;
             right: 38%;
-            transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+            transform: translateY(75%); /* Ajusta o alinhamento vertical */
             background-color: var(--titulo-carrinho);
             border-radius: 50%; /* Botão redondo */
         }
