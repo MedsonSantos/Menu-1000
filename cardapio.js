@@ -276,7 +276,7 @@ const products = [
         name: 'Creme de Morango',
         description: 'Copo de 500ml',
         price: 13.00,
-        imageUrl: ''
+        imageUrl: 'https://i.imgur.com/iGzRZrI.png'
     },
     {
         id: 'lan-7',
