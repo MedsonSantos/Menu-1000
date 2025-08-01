@@ -183,6 +183,7 @@
             margin: 0; /* Remove margem padrão de ícones */
         }
 
+        
 
         /* Estilos para o ícone do carrinho */
         .cart-icon-container {
@@ -1411,6 +1412,11 @@
                 transform: translateY(-3px);
             }
         }
+         #scrollToTopBtn {
+                display: none;
+                bottom: 30px;
+                left: 15px;
+            }
 
         /* Estilos específicos para o Modal do Chatbot */
         .chat-modal-content {

@@ -541,7 +541,7 @@ const products = [
         name: 'Energético Lata 473ml',
         description: 'Lata 473ml (Monster/Crystal Energy)',
         price: 13.00,
-        imageUrl: 'URL_DA_IMAGEM_ENERGETICO' 
+        imageUrl: 'https://i.imgur.com/655H1vS.png' 
     },
     {
         id: 'por-1',
