@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const deliveryOptionsDiv = document.getElementById('delivery-options');
     const pickupOptionsDiv = document.getElementById('pickup-options');
     const deliveryAddressInput = document.getElementById('delivery-address');
-    const pickupNameInput = document = document.getElementById('pickup-name');
+    const pickupNameInput = document.getElementById('pickup-name'); // Corrigido = document = document.getElementById
     const deliveryFeeInfo = document.getElementById('delivery-fee-info');
     const notesTextarea = document.getElementById('notes');
 
@@ -36,14 +36,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const infoModal = document.getElementById('info-modal');
     const infoToggleContainer = document.getElementById('info-toggle-container');
 
-    // Elementos do Modal de Fotos (em grade, como "Em Breve")
+    // Elementos do Modal de Fotos (AJUSTADOS PARA O CARROSSEL)
     const photosModal = document.getElementById('photos-modal');
-    const modalPhotosGrid = document.getElementById('modal-photos-grid');
+    // REMOVIDO: const modalPhotosGrid = document.getElementById('modal-photos-grid'); // Não será mais uma grade diretamente
+    const carouselTrackPhotos = document.getElementById('carousel-track-photos'); // O novo track para as imagens do carrossel
+    const prevPhotoButton = document.getElementById('prev-photo-btn'); // Botão Anterior
+    const nextPhotoButton = document.getElementById('next-photo-btn'); // Botão Próxima
 
-    // Elemento para o modal de imagem grande (para clique nas miniaturas)
-    const imageModal = document.getElementById('image-modal'); // Certifique-se de ter este modal no HTML
-    const modalImage = imageModal ? imageModal.querySelector('img') : null; // A imagem dentro do modal
-    const closeImageModalBtn = imageModal ? imageModal.querySelector('.close-button') : null; // Botão de fechar do modal de imagem grande
+    // Elemento para o modal de imagem grande (REMOVIDO / NÃO USADO DIRETAMENTE AGORA)
+    // const imageModal = document.getElementById('image-modal'); // Certifique-se de ter este modal no HTML
+    // const modalImage = imageModal ? imageModal.querySelector('img') : null; // A imagem dentro do modal
+    // const closeImageModalBtn = imageModal ? imageModal.querySelector('.close-button') : null; // Botão de fechar do modal de imagem grande
 
 
     // Elementos do Ícone do Carrinho no Header
@@ -74,6 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // 'photos', 'DEFAULT_LOTTIE_JSON', 'DEFAULT_CATEGORY_IMAGE', 'DEFAULT_PLACEHOLDER_IMAGE'
     // estão definidos em 'cardapio.js' e 'knowledgeBase.js' e são globais ou importados.
     // A variável 'photos' agora é esperada para vir do seu cardapio.js como um array de strings.
+    // Exemplo de como 'photos' pode ser (se não estiver em cardapio.js):
+    // const photos = [
+    //     './images/foto1.jpg',
+    //     './images/foto2.jpg',
+    //     './images/foto3.jpg'
+    // ];
 
 
     // --- Funções de Manipulação do Tema ---
@@ -138,9 +147,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 chatbox.innerHTML = '';
                 delete chatbox.dataset.initialMessageShown;
             }
-        } else if (event.target === imageModal) {
-            closeModal(imageModal);
         }
+        // REMOVIDO: else if (event.target === imageModal) { closeModal(imageModal); }
     });
 
 
@@ -496,53 +504,102 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // =========================================================
+    // NOVO CÓDIGO DO CARROSSEL DE FOTOS - INÍCIO
+    // =========================================================
+    let currentSlideIndex = 0;
+    let photoSlides = []; // Array para armazenar os elementos <img> do carrossel
+
     /**
-     * Renderiza as fotos dentro do modal de fotos.
-     * Agora usa a variável 'photos' que vem do cardapio.js.
+     * Renderiza as fotos dentro do modal de fotos como um carrossel.
+     * Usa a variável 'photos' que vem do cardapio.js.
      */
     function renderPhotosInModal() {
-        // Verifica se modalPhotosGrid e 'photos' existem e se 'photos' é um array
-        if (!modalPhotosGrid || typeof photos === 'undefined' || !Array.isArray(photos)) {
-            console.warn("'photos' não está definida ou não é um array. Não foi possível renderizar fotos.");
-            modalPhotosGrid.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
+        // Verifica se carouselTrackPhotos e 'photos' existem e se 'photos' é um array
+        if (!carouselTrackPhotos || typeof photos === 'undefined' || !Array.isArray(photos)) {
+            console.warn("'photos' não está definida ou não é um array. Não foi possível renderizar fotos no carrossel.");
+            carouselTrackPhotos.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
+            prevPhotoButton.style.display = 'none';
+            nextPhotoButton.style.display = 'none';
             return;
         }
 
-        modalPhotosGrid.innerHTML = ''; // Limpa antes de adicionar
+        carouselTrackPhotos.innerHTML = ''; // Limpa as imagens existentes no track
+        photoSlides = []; // Reseta o array de slides
 
         if (photos.length === 0) {
-            modalPhotosGrid.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
+            carouselTrackPhotos.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
+            prevPhotoButton.style.display = 'none';
+            nextPhotoButton.style.display = 'none';
             return;
         }
 
-        photos.forEach(photoUrl => { // Iteramos diretamente sobre a URL da foto
-            const imgContainer = document.createElement('div');
-            imgContainer.classList.add('photo-item-modal');
-
+        photos.forEach((photoUrl, index) => {
             const img = document.createElement('img');
-            img.src = photoUrl; // A URL da foto
-            img.alt = 'Foto da Jantinha Nota 1000'; // Um alt genérico, já que não temos um específico no array
-        
-
-            imgContainer.appendChild(img);
-            modalPhotosGrid.appendChild(imgContainer);
+            img.src = photoUrl;
+            img.alt = `Foto da Jantinha Nota 1000 - ${index + 1}`;
+            img.classList.add('carousel-slide');
+            if (index === 0) {
+                img.classList.add('active'); // Ativa a primeira imagem por padrão
+            }
+            carouselTrackPhotos.appendChild(img);
+            photoSlides.push(img); // Adiciona a imagem ao array de slides
         });
 
-        // Adiciona event listeners para abrir a imagem grande ao clicar nas miniaturas
-        modalPhotosGrid.querySelectorAll('.modal-thumbnail').forEach(thumbnail => {
-            thumbnail.removeEventListener('click', openLargeImageModal); // Evita duplicação
-            thumbnail.addEventListener('click', openLargeImageModal);
-        });
+        currentSlideIndex = 0; // Garante que começa na primeira foto
+        updateCarouselButtons(); // Atualiza o estado dos botões
+
+        // REMOVIDO: Lógica para abrir modal de imagem grande a partir de miniaturas,
+        // pois agora o carrossel é a exibição principal.
     }
 
-    // Função para abrir o modal de imagem grande
-    function openLargeImageModal(event) {
-        if (modalImage && imageModal && event.target.tagName === 'IMG') {
-            modalImage.src = event.target.src;
-            modalImage.alt = event.target.alt;
-            openModal(imageModal);
+    /**
+     * Exibe o slide no índice especificado no carrossel de fotos.
+     * @param {number} index - O índice do slide a ser exibido.
+     */
+    function showPhotoSlide(index) {
+        if (photoSlides.length === 0) return;
+
+        // Garante que o índice esteja dentro dos limites
+        currentSlideIndex = Math.max(0, Math.min(index, photoSlides.length - 1));
+
+        photoSlides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === currentSlideIndex) {
+                slide.classList.add('active');
+            }
+        });
+        updateCarouselButtons();
+    }
+
+    /**
+     * Atualiza a visibilidade dos botões de navegação do carrossel.
+     */
+    function updateCarouselButtons() {
+        if (photoSlides.length <= 1) { // Se houver 0 ou 1 foto, esconde os botões
+            if (prevPhotoButton) prevPhotoButton.style.display = 'none';
+            if (nextPhotoButton) nextPhotoButton.style.display = 'none';
+        } else {
+            if (prevPhotoButton) prevPhotoButton.style.display = (currentSlideIndex === 0) ? 'none' : 'block';
+            if (nextPhotoButton) nextPhotoButton.style.display = (currentSlideIndex === photoSlides.length - 1) ? 'none' : 'block';
         }
     }
+
+    // Event Listeners para os botões do carrossel
+    if (prevPhotoButton) {
+        prevPhotoButton.addEventListener('click', () => {
+            showPhotoSlide(currentSlideIndex - 1);
+        });
+    }
+
+    if (nextPhotoButton) {
+        nextPhotoButton.addEventListener('click', () => {
+            showPhotoSlide(currentSlideIndex + 1);
+        });
+    }
+    // =========================================================
+    // NOVO CÓDIGO DO CARROSSEL DE FOTOS - FIM
+    // =========================================================
 
 
     function renderMenu() {
@@ -623,8 +680,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     const targetModal = document.getElementById(targetModalId);
                     if (targetModal) {
                         openModal(targetModal);
+                        // ***** CHAMADA DA NOVA FUNÇÃO PARA RENDERIZAR FOTOS *****
                         if (targetModalId === 'photos-modal') {
-                            renderPhotosInModal();
+                            renderPhotosInModal(); // Chama a função que configura o carrossel
                         }
                     }
                 }

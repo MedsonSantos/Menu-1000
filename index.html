@@ -134,19 +134,18 @@
     
     <div id="photos-modal" class="modal">
         <div class="modal-content">
-            <span class="close-button">×</span>
+            <span class="close-button" data-modal="photos">&times;</span> 
             <h2>Nossas Fotos</h2>
-            <div id="modal-photos-grid">
-                <button class="modal-nav-button prev-button" id="prev-photo-btn">&#10094;</button> 
-                <button class="modal-nav-button next-button" id="next-photo-btn">&#10095;</button> 
+            
+            <div class="carousel-container">
+                <button class="carousel-button prev-button" id="prev-photo-btn">&lt;</button>
+                <div class="carousel-track" id="carousel-track-photos">
+                    </div>
+                <button class="carousel-button next-button" id="next-photo-btn">&gt;</button>
             </div>
-    </div>
-            </div>
-        </div>
-    </div>
 
+            </div>
     </div>
-</div>
 
     <button id="scrollToTopBtn" title="Voltar ao Topo">
         <i class="fas fa-arrow-up"></i>
