@@ -519,8 +519,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!carouselTrackPhotos || typeof photos === 'undefined' || !Array.isArray(photos)) {
             console.warn("'photos' não está definida ou não é um array. Não foi possível renderizar fotos no carrossel.");
             carouselTrackPhotos.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
-            prevPhotoButton.style.display = 'none';
-            nextPhotoButton.style.display = 'none';
+            if (prevPhotoButton) prevPhotoButton.style.display = 'none';
+            if (nextPhotoButton) nextPhotoButton.style.display = 'none';
             return;
         }
 
@@ -529,28 +529,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (photos.length === 0) {
             carouselTrackPhotos.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
-            prevPhotoButton.style.display = 'none';
-            nextPhotoButton.style.display = 'none';
+            if (prevPhotoButton) prevPhotoButton.style.display = 'none';
+            if (nextPhotoButton) nextPhotoButton.style.display = 'none';
             return;
         }
 
         photos.forEach((photoUrl, index) => {
+            const imgContainer = document.createElement('div');
+            imgContainer.classList.add('carousel-slide');
+
             const img = document.createElement('img');
             img.src = photoUrl;
             img.alt = `Foto da Jantinha Nota 1000 - ${index + 1}`;
-            img.classList.add('carousel-slide');
-            if (index === 0) {
-                img.classList.add('active'); // Ativa a primeira imagem por padrão
-            }
-            carouselTrackPhotos.appendChild(img);
-            photoSlides.push(img); // Adiciona a imagem ao array de slides
+            
+            imgContainer.appendChild(img);
+            carouselTrackPhotos.appendChild(imgContainer);
+            photoSlides.push(imgContainer); // Adiciona o container da imagem ao array de slides
         });
 
         currentSlideIndex = 0; // Garante que começa na primeira foto
         updateCarouselButtons(); // Atualiza o estado dos botões
-
-        // REMOVIDO: Lógica para abrir modal de imagem grande a partir de miniaturas,
-        // pois agora o carrossel é a exibição principal.
     }
 
     /**
@@ -562,12 +560,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Garante que o índice esteja dentro dos limites
         currentSlideIndex = Math.max(0, Math.min(index, photoSlides.length - 1));
-
-        photoSlides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === currentSlideIndex) {
-                slide.classList.add('active');
-            }
+        const scrollPosition = currentSlideIndex * carouselTrackPhotos.offsetWidth;
+        carouselTrackPhotos.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth' // Rolagem suave
+        
         });
         updateCarouselButtons();
     }
@@ -595,6 +592,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (nextPhotoButton) {
         nextPhotoButton.addEventListener('click', () => {
             showPhotoSlide(currentSlideIndex + 1);
+        });
+    }
+    if (carouselTrackPhotos) {
+        carouselTrackPhotos.addEventListener('scroll', () => {
+            const newIndex = Math.round(carouselTrackPhotos.scrollLeft / carouselTrackPhotos.offsetWidth);
+            if (newIndex !== currentSlideIndex) {
+                currentSlideIndex = newIndex;
+                updateCarouselButtons();
+            }
         });
     }
     // =========================================================
