@@ -142,7 +142,7 @@
             height: 25px;
             position: absolute;
             left: 38%;
-            transform: translateY(75%); /* Ajusta o alinhamento vertical */
+            transform: translateY(100%); /* Ajusta o alinhamento vertical */
             background-color: var(--titulo-carrinho);
             border-radius: 50%; /* Botão redondo */
             
@@ -152,7 +152,7 @@
             height: 25px;
             position: absolute;
             right: 38%;
-            transform: translateY(75%); /* Ajusta o alinhamento vertical */
+            transform: translateY(100%); /* Ajusta o alinhamento vertical */
             background-color: var(--titulo-carrinho);
             border-radius: 50%; /* Botão redondo */
         }

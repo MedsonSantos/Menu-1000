@@ -115,7 +115,7 @@ const products = [
         name: 'Linguiça Caipira',
         description: 'Linguiça Suína da fazenda sem pimenta',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/WAMPEvZ.png'
+        imageUrl: 'https://i.imgur.com/hbCbgOw.png'
     },
     {
         id: 'esp-10',
@@ -123,7 +123,7 @@ const products = [
         name: 'Linguiça Caipira Apimentada',
         description: 'Linguiça Suína com um toque de pimenta',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/hbCbgOw.png'
     },
     {
         id: 'esp-11',
@@ -156,7 +156,7 @@ const products = [
         name: 'Coalho',
         description: 'Queijo Coalho no espeto',
         price: 12.00,
-        imageUrl: 'https://i.imgur.com/ExemploFrango.jpg'
+        imageUrl: 'https://i.imgur.com/fc8t1gl.png'
     },
     
     //--------------------------------------CALDOS-------------------------------------//
