@@ -144,7 +144,7 @@
             left: 3%;
             background-color: var(--titulo-carrinho);
             border-radius: 50%; /* Botão redondo */
-            margin-bottom: 3%;
+         
             
         }
         #next-photo-btn {
@@ -154,7 +154,7 @@
             right: 3%;
             background-color: var(--titulo-carrinho);
             border-radius: 50%; /* Botão redondo */
-            margin-bottom: 3%;
+            
             
 
         }
