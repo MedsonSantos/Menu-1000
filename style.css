@@ -129,7 +129,7 @@
 
         .carousel-slide img {
             max-width: 100%; /* Impede que a imagem seja maior que a largura do slide */
-            max-height: 400px; /* Define uma altura máxima padrão (ajuste conforme necessário) */
+            max-height: 250px; /* Define uma altura máxima padrão (ajuste conforme necessário) */
             width: auto; /* Mantém a proporção da largura */
             height: auto; /* Mantém a proporção da altura */
             object-fit: contain; /* Garante que a imagem inteira caiba, com possíveis espaços vazios */
@@ -141,6 +141,7 @@
             /* Estilos existentes dos botões... */
             top: 50%; /* Centraliza verticalmente os botões */
             transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+            background-color: var(--button-bg-success-hover);
         }
 
         /* Estilos para o ícone de alternar tema */
