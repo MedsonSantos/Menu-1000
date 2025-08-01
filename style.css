@@ -1227,6 +1227,14 @@
                 /* Mantém o peso da fonte consistente */
 
             }
+            #modal-photos-grid img {
+                width: 50%;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px var(--shadow-color);
+                transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+            }
 
             header p {
                 font-size: 1em;
@@ -1515,6 +1523,14 @@
                 height: 40px;
             }
 
+            #modal-photos-grid img {
+                width: 50%;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px var(--shadow-color);
+                transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+            }
             #info-modal .modal-content {
                 padding: 5px;
                 width: 80%;
@@ -1556,6 +1572,14 @@
             .info-section h3 {
                 font-size: 1.2em;
                 gap: 8px;
+            }
+            #modal-photos-grid img {
+                width: 50%;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px var(--shadow-color);
+                transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
             }
 
             .info-section p,
