@@ -107,6 +107,41 @@
             font-size: 1.1em;
             font-weight: 400;
         }
+        /* Carrossel das Fotos no modal fotos*/
+
+        #carousel-track-photos {
+            display: flex;
+            overflow-x: auto; /* Garante a rolagem horizontal se necessário */
+            scroll-snap-type: x mandatory; /* Força o "snap" para cada imagem */
+            width: 100%; /* O carrossel ocupa a largura total do modal */
+            height: auto; /* A altura se ajusta ao tamanho padrão das imagens */
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%; /* Cada slide ocupa 100% da largura do container pai */
+            width: 100%; /* Garante que cada imagem ocupe a largura do track */
+            height: auto; /* A altura se ajustará */
+            scroll-snap-align: start; /* Alinha o início de cada imagem com o container */
+            display: flex; /* Para centralizar a imagem */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+        }
+
+        .carousel-slide img {
+            max-width: 100%; /* Impede que a imagem seja maior que a largura do slide */
+            max-height: 400px; /* Define uma altura máxima padrão (ajuste conforme necessário) */
+            width: auto; /* Mantém a proporção da largura */
+            height: auto; /* Mantém a proporção da altura */
+            object-fit: contain; /* Garante que a imagem inteira caiba, com possíveis espaços vazios */
+            /* object-fit: cover; Se preferir que a imagem preencha, cortando se necessário */
+        }
+
+        #prev-photo-btn,
+        #next-photo-btn {
+            /* Estilos existentes dos botões... */
+            top: 50%; /* Centraliza verticalmente os botões */
+            transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+        }
 
         /* Estilos para o ícone de alternar tema */
         .theme-toggle-container {
