@@ -259,7 +259,7 @@ const products = [
         category: 'LANCHES',
         name: 'Creme de Cupuaçu',
         description: 'Copo de 500ml',
-        price: 13.00,
+        price: 15.00,
         imageUrl: 'https://i.imgur.com/kFgB7bd.png'
     },
     {
@@ -267,7 +267,7 @@ const products = [
         category: 'LANCHES',
         name: 'Creme de Maracujá',
         description: 'Copo de 500ml',
-        price: 13.00,
+        price: 15.00,
         imageUrl: 'https://i.imgur.com/wrEZygt.png'
     },
     {
@@ -275,7 +275,7 @@ const products = [
         category: 'LANCHES',
         name: 'Creme de Morango',
         description: 'Copo de 500ml',
-        price: 13.00,
+        price: 15.00,
         imageUrl: 'https://i.imgur.com/iGzRZrI.png'
     },
     {
@@ -283,7 +283,7 @@ const products = [
         category: 'LANCHES',
         name: 'Creme de Tamarindo',
         description: 'Copo de 500ml',
-        price: 13.00,
+        price: 15.00,
         imageUrl: ''
     },
 
