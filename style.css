@@ -136,12 +136,34 @@
             /* object-fit: cover; Se preferir que a imagem preencha, cortando se necessário */
         }
 
-        #prev-photo-btn,
-        #next-photo-btn {
-            /* Estilos existentes dos botões... */
-            top: 50%; /* Centraliza verticalmente os botões */
+        #prev-photo-btn{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: 38%;
+            bottom: 1%;
             transform: translateY(-50%); /* Ajusta o alinhamento vertical */
-            background-color: var(--button-bg-success-hover);
+            background-color: var(--titulo-carrinho);
+            border-radius: 50%; /* Botão redondo */
+            
+        }
+        #next-photo-btn {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            bottom: 1%;
+            right: 38%;
+            transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+            background-color: var(--titulo-carrinho);
+            border-radius: 50%; /* Botão redondo */
+        }
+        .carousel-container {
+            width: 100%; /* Ocupa a largura total do modal-content */
+            flex-grow: 1; /* Permite que ocupe o espaço disponível */
+            display: flex; /* Para centralizar o track interno */
+            justify-content: center; /* Centraliza o track horizontalmente */
+            align-items: center; /* Centraliza o track verticalmente */
+            overflow: hidden; /* Garante que nada transborde */
         }
 
         /* Estilos para o ícone de alternar tema */
