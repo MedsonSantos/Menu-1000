@@ -361,18 +361,15 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: var(--category-color);
-            /* Agora usa a variável --category-color */
+            background-color: var(--category-color);      
             color: var(--texto-categoria);
             border: 1px solid var(--texto-categoria);
-            /* Borda com a cor do texto da categoria */
             padding: 0.8em 0.5em;
             border-radius: 25px;
             cursor: pointer;
-            font-size: 1em;
-            font-weight: 600;
-            transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.3s ease;
-            /* Adicionada transição para border-color */
+            font-size: 2em;
+            font-weight: 700;
+            transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.3s ease; /* Adicionada transição para border-color */
             width: 120px;
             height: 100px;
             text-align: center;
@@ -380,7 +377,7 @@
             text-overflow: ellipsis;
             white-space: normal;
             line-height: 1.2;
-            gap: 2px;
+            gap: 5px;
             /* Espaçamento entre o ícone e o texto */
             max-width: 100%;
             /* Ajustado para melhor responsividade em certas situações */
@@ -1287,6 +1284,20 @@
             header h1 {
                 font-size: 1.8em;
             }
+            .category-navigation {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 1em;
+                background-color: var(--bg-secondary);
+                box-shadow: 0 2px 4px var(--shadow-color);
+                margin: 0.5em auto;
+                max-width: 1200px;
+                border-radius: 8px;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+            }
              #image-modal .close-button {
                 top: 10px;
                 right: 10px;
@@ -1403,6 +1414,7 @@
                 justify-content: space-around;
                 padding: 0.5em;
                 gap: 5px;
+             
             }
 
             .category-button {
@@ -1410,7 +1422,7 @@
                 height: 75px;
                 padding: 0.5em 0.2em;
                 font-size: 0.6em;
-                border-radius: 15px;
+                border-radius: 8px;
                 gap: 1px;
                 /* Espaçamento entre o ícone e o texto */
             }
@@ -1600,7 +1612,20 @@
                 bottom: 20px;
                 left: 15px;
             }
-                    
+            .category-navigation {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 1em;
+                background-color: var(--bg-secondary);
+                box-shadow: 0 2px 4px var(--shadow-color);
+                margin: 0.5em auto;
+                border-radius: 15px;
+                width: 88%;
+
+            }
+                        
             #image-modal .close-button {
                 top: 10px;
                 right: 10px;
@@ -1651,6 +1676,16 @@
                 height: 35px;
             }
 
+            .category-navigation {
+                display: flex;
+                justify-content: center;
+                gap: 2px;
+                padding: 0.8em;
+                margin: 0.1em auto;
+                border-radius: 15px;
+                width: 88%;
+
+        }
             #info-modal .modal-content {
                 padding: 5px;
                 width: 80%;

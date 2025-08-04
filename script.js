@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 statusFuncionamentoMainElement.classList.remove('fechado-main');
                 statusFuncionamentoMainElement.style.display = 'block';
             } else if (status === 'CLOSED') {
-                statusFuncionamentoMainElement.textContent = "😔 Olá! Estamos fechados hoje. Nosso horário de funcionamento é de TERÇA a DOMINGO, das 18:00h às 00:00h.";
+                statusFuncionamentoMainElement.textContent = "❌ Olá! Estamos fechados hoje. Nosso horário de funcionamento é de TERÇA a DOMINGO, das 18:00h às 00:00h.";
                 statusFuncionamentoMainElement.classList.add('fechado-main');
                 statusFuncionamentoMainElement.classList.remove('aberto-main');
                 statusFuncionamentoMainElement.style.display = 'block';
