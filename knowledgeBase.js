@@ -2,9 +2,9 @@
     const chatbotKnowledgeBase = {
     "ola": "", 
     "oi": "",
-    "menu": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Hambúrgueres' 🍔, 'Jantinhas' 🍛, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
-    "cardapio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Hambúrgueres' 🍔, 'Jantinhas' 🍛, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
-    "cardápio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Hambúrgueres' 🍔, 'Jantinhas' 🍛, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
+    "menu": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
+    "cardapio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, 'Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
+    "cardápio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, 'Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
     "entrega": "🚀 Fazemos entregas em toda a região! 💵 A taxa de entrega varia conforme a quilometragem sendo a mínima de R$ 4,00 e a distância máxima de 8km. Você pode verificar o valor e exato no carrinho 🛒 ao finalizar seu pedido. Chegaremos rapidinho! 💨",
     "delivery": "🚀 Fazemos entregas em toda a região! 💵 A taxa de entrega varia conforme a quilometragem sendo a mínima de R$ 4,00 e a distância máxima de 8km. Você pode verificar o valor exato no carrinho 🛒 ao finalizar seu pedido. Chegaremos rapidinho! 💨",
     "horário": "⏰ Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 23:30h. Te esperamos! 😉",

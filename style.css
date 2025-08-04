@@ -60,19 +60,19 @@
         /* ----------------------------ALERTA DE FUNCIONAMENTO SER FOR SEGUNDA FEIRA-----------------------------------------*/
         #status-funcionamento-main {
             text-align: center;
-            padding: 15px 20px;
+            padding: 10px 10px;
             margin: 20px auto; /* Centraliza horizontalmente e adiciona margem */
-            border-radius: 10px;
-            font-size: 0.6rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
             font-weight: bold;
             max-width: 800px; /* Limita a largura para não ficar muito esticado em telas grandes */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none; /* Por padrão, escondido; só aparece se for segunda */
+            
         }
 
         #status-funcionamento-main.fechado-main {
-            background-color: var(--bg-secondary); /* Laranja pastel */
-            color: #e65100; /* Laranja escuro */
+            background-color: var(--bg-secondary);
+            color: var(--texto-categoria); 
           
         }
 

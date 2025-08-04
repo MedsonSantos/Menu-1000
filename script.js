@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 statusFuncionamentoMainElement.classList.remove('fechado-main');
                 statusFuncionamentoMainElement.style.display = 'block';
             } else if (status === 'CLOSED') {
-                statusFuncionamentoMainElement.textContent = "😔 Olá! Estamos fechados no momento. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h. Te esperamos! 😉";
+                statusFuncionamentoMainElement.textContent = "😔 Olá! Estamos fechados hoje. Nosso horário de funcionamento é de TERÇA a DOMINGO, das 18:00h às 00:00h.";
                 statusFuncionamentoMainElement.classList.add('fechado-main');
                 statusFuncionamentoMainElement.classList.remove('aberto-main');
                 statusFuncionamentoMainElement.style.display = 'block';
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const status = getStoreStatus(); // Pega o status atual
 
         if (status === 'CLOSED') { // Se a loja estiver explicitamente 'CLOSED'
-            return "😔 Olá! Estamos fechados no momento. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h. Te esperamos! 😉";
+            return "😔 Olá! Estamos fechados. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h.";
         } else if (status === 'AWAITING_OPENING') { // Se a loja ainda vai abrir
             return "⏰ Olá! Ainda não abrimos. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h. Abriremos às " + operatingHours.openTime + " de hoje! 😉";
         }
@@ -290,6 +290,11 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (productId === 'pp-3') {
             newItem.feijao = '';
         }
+
+        // Lógica para as misturas dos caldos //
+        if (productId === 'cald-1' || productId === 'cald-2' || productId === 'cald-3') {
+        newItem.acompanhamento = ''; // Inicializa a opção de acompanhamento
+    }
 
         cart.push(newItem);
         updateCartDisplay();
@@ -394,6 +399,44 @@ document.addEventListener('DOMContentLoaded', function() {
                         `;
                     }
                 }
+                
+                if (['cald-1', 'cald-2', 'cald-3'].includes(product.id)) {
+                    let acompanhamentoOptions = '';
+                    let selectLabel = 'Acompanha:';
+                    // Define as opções baseadas no tipo de caldo
+                    switch (product.id) {
+                        case 'cald-1': // Caldo de Feijão
+                        acompanhamentoOptions = `
+                            <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ? 'selected' : ''}>Sem mistura</option>
+                            <option value="Feijão com Costela" ${cartItem.acompanhamento === 'Feijão com Costela' ? 'selected' : ''}>Feijão com Costela</option>
+                            <option value="Feijão com Frango" ${cartItem.acompanhamento === 'Feijão com Frango' ? 'selected' : ''}>Feijão com Frango</option>
+                        `;
+                            break;
+                        case 'cald-2': // Caldo de Frango
+                            acompanhamentoOptions = `
+                                <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ? 'selected' : ''}>Sem mistura</option>
+                                <option value="Frango com Feijão" ${cartItem.acompanhamento === 'Frango com Feijão' ? 'selected' : ''}>Frango com Feijão</option>
+                                <option value="Frango com Costela" ${cartItem.acompanhamento === 'Frango com Costela' ? 'selected' : ''}>Frango com Costela</option>
+                            `;
+                            break;
+                        case 'cald-3': // Caldo de Costela
+                            acompanhamentoOptions = `
+                                <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ? 'selected' : ''}>Sem mistura</option>
+                                <option value="Costela com Feijão" ${cartItem.acompanhamento === 'Costela com Feijão' ? 'selected' : ''}>Costela com Feijão</option>
+                                <option value="Costela com Frango" ${cartItem.acompanhamento === 'Costela com Frango' ? 'selected' : ''}>Costela com Frango</option>
+                            `;
+                            break;
+                    }
+                     optionsHtml += `
+                    <div class="input-group-inline">
+                        <label for="acompanhamento-${index}">${selectLabel}</label>
+                        <select id="acompanhamento-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="acompanhamento">
+                            <option value="" disabled ${cartItem.acompanhamento === '' ? 'selected' : ''}>Selecione</option>
+                            ${acompanhamentoOptions}
+                        </select>
+                    </div>
+                `;
+            }
 
                 cartItemDiv.innerHTML = `
                     <div class="cart-item-info">
@@ -410,6 +453,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 cartItemsModalContainer.appendChild(cartItemDiv);
             });
         }
+        
 
         cartTotalModalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
         cartCountSpan.textContent = itemCount;
@@ -915,7 +959,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                if (storeStatus === 'CLOSED') {
                     // Se a loja estiver fechada (incluindo segunda-feira), use a mensagem de fechado
-                    initialBotMessage = "😔 Olá! Estamos fechados no momento. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h. Te esperamos! 😉";
+                    initialBotMessage = "😔 Olá! Estamos fechados. Nosso horário de funcionamento é de TERÇA a DOMINGO, das 18:00h às 00:00h. 😉";
                 } else if (storeStatus === 'AWAITING_OPENING') {
                     // Se estiver esperando abrir (no dia de funcionamento)
                     initialBotMessage = "⏰ Olá! Ainda não abrimos. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h. Abriremos às " + operatingHours.openTime + " de hoje! 😉";
@@ -924,7 +968,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const currentDayName = getWeekdayName(new Date().getDay());
                     // Verifica se chatbotKnowledgeBase está definido para evitar erros
                     if (typeof chatbotKnowledgeBase !== 'undefined') {
-                        chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${currentDayName}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍔 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas**\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
+                        chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${currentDayName}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas**\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
                         chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"]; // 'oi' também usa a mesma mensagem
                         initialBotMessage = chatbotKnowledgeBase["ola"];
                     } else {
