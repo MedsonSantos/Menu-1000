@@ -89,8 +89,7 @@
             justify-content: center;
             position: relative;
             transition: background-color 0.3s ease;
-            border-radius: 15px;
-            width: 90%;
+           
          
         }
 
@@ -1274,35 +1273,38 @@
                 height: 40px;
             }
 
-            .products-grid {
-                /* Ajusta a grade de produtos para telas pequenas NOS ITENS PRUDUTOS */
+            .products-grid { /* Ajusta a grade de produtos para telas pequenas NOS ITENS PRUDUTOS */
                 display: grid;
-                gap: 5px;
-                /* Espaçamento entre os itens */
+                gap: 3px;/* Espaçamento entre os itens */
                 grid-template-columns: repeat(2, 1fr);
                 font-size: 15px;
                 text-indent: 0.5em;
-                font-family: pacifico, sans-serif;
-                /* Mantém a fonte consistente */
-                font-weight: 600;
-                /* Mantém o peso da fonte consistente */
+                font-family: pacifico, sans-serif; /* Mantém a fonte consistente */
+                font-weight: 800; /* Mantém o peso da fonte consistente */
 
             }
             #modal-photos-grid img {
                 width: 50%;
                 height: 50px;
                 object-fit: cover;
-                border-radius: 8px;
+                border-radius: 15px;
                 box-shadow: 0 2px 5px var(--shadow-color);
                 transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
             }
 
+            header{
+                border-radius: 15px;
+                width: 90%;
+                align-items: center;
+            }
+
             header p {
-                font-size: 1em;
+                font-size: 0.8em;
             }
 
             .header-logo {
-                max-width: 70px;
+                max-width: 63px;
+             
             }
 
             .theme-toggle-container {
@@ -1319,14 +1321,14 @@
 
             .cart-icon-container {
                 font-size: 1.4em;
-                width: 45px;
-                height: 45px;
+                width: 40px;
+                height: 40px;
                 right: 15px;
                 top: 55px;
             }
 
             .cart-icon {
-                font-size: 1.4em;
+                font-size: 1.2em;
                 position: absolute;
             }
 
@@ -1338,13 +1340,11 @@
             }
 
             .category h2 {
-                text-indent: 1em;
-                /* Indenta o título da categoria */
+                text-indent: 1em; /* Indenta o título da categoria */
                 text-align: center;
                 margin-bottom: 0.5em;
                 font-size: 1.2em;
-                line-height: 0.5;
-                /* Ajusta o espaçamento entre linhas */
+                line-height: 0.5; /* Ajusta o espaçamento entre linhas */
 
             }
 
