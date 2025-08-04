@@ -80,7 +80,7 @@
         header {
             background-color: var(--header-bg);
             color: var(--text-primary);
-            padding: 1.1em;
+            padding: 1em;
             text-align: center;
             box-shadow: 0 2px 4px var(--shadow-color);
             display: flex;
@@ -89,6 +89,9 @@
             justify-content: center;
             position: relative;
             transition: background-color 0.3s ease;
+            border-radius: 15px;
+            width: 90%;
+         
         }
 
         .logo-container {
@@ -413,13 +416,12 @@
         .lottie-icon-container {
             width: 60px;
             height: 60px;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.7);
+   
         }
 
         /* Estilos para o SVG gerado pelo Lottie (se Lottie.js usar SVG) */
@@ -1382,11 +1384,11 @@
             }
 
             .category-button {
-                width: 80px;
+                width: 75px;
                 height: 75px;
                 padding: 0.5em 0.2em;
-                font-size: 0.8em;
-                border-radius: 5px;
+                font-size: 0.6em;
+                border-radius: 15px;
                 gap: 1px;
                 /* Espaçamento entre o ícone e o texto */
             }
@@ -1395,6 +1397,9 @@
                 width: 50px;
                 height: 50px;
                 margin-bottom: 3px;
+                
+
+              
             }
 
             .category-button span.button-text {
