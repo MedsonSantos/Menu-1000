@@ -70,7 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Script para o botão "Voltar ao Topo"
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    
+    //alerta de funcionamento
 
+    const statusFuncionamentoMainElement = document.getElementById('status-funcionamento-main');
 
     // --- Variáveis de Dados (assumindo que vêm de cardapio.js e knowledgeBase.js) ---
     // Certifique-se de que 'products', 'categoriesData', 'chatbotKnowledgeBase',
@@ -84,7 +87,34 @@ document.addEventListener('DOMContentLoaded', function() {
     //     './images/foto3.jpg'
     // ];
 
+    
+    /* Função para verificar o dia e atualizar o status de funcionamento na tela principal.*/
+    function updateMainScreenOperatingStatus() {
+        const today = new Date();
+        const dayOfWeek = today.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
 
+        if (statusFuncionamentoMainElement) {
+            if (dayOfWeek === 1) { // Se for Segunda-feira
+                statusFuncionamentoMainElement.textContent = "😔 Olá! estamos fechados às segundas-feiras. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h. Te esperamos amanhã! 😉";
+                statusFuncionamentoMainElement.classList.add('fechado-main');
+                statusFuncionamentoMainElement.classList.remove('aberto-main');
+                statusFuncionamentoMainElement.style.display = 'block'; // Garante que esteja visível
+            } else {
+                // Se não for segunda, e você não quiser exibir nada por padrão, pode deixar vazio
+                // ou exibir um status "Aberto", dependendo da sua lógica de horários mais complexa.
+                // Por agora, vou configurar para esconder se estiver aberto.
+                // Se preferir mostrar "Aberto", mude para:
+                // statusFuncionamentoMainElement.textContent = "🥳 Estamos abertos! Faça seu pedido!";
+                // statusFuncionamentoMainElement.classList.add('aberto-main');
+                // statusFuncionamentoMainElement.classList.remove('fechado-main');
+                statusFuncionamentoMainElement.textContent = ''; // Limpa o texto
+                statusFuncionamentoMainElement.classList.remove('fechado-main');
+                statusFuncionamentoMainElement.classList.remove('aberto-main');
+                statusFuncionamentoMainElement.style.display = 'none'; // Esconde se não for segunda
+            }
+        }
+    }
+    updateMainScreenOperatingStatus();
     // --- Funções de Manipulação do Tema ---
     function setTheme(theme) {
         if (theme === 'light') {
@@ -456,13 +486,13 @@ document.addEventListener('DOMContentLoaded', function() {
         message += `*Tipo de Pedido:* ${orderType === 'delivery' ? 'Entrega' : 'Retirada no Local'}\n`;
 
         if (orderType === 'delivery') {
-            message += `***Endereço de Entrega:***\n${deliveryAddress}\n`;
+            message += `**Endereço de Entrega:**\n${deliveryAddress}\n`;
             const encodedDeliveryAddress = encodeURIComponent(deliveryAddress);
             // Corrigido o link do Google Maps para ser funcional no WhatsApp
             const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedDeliveryAddress}`; // URL mais genérica e robusta
             message += `[Ver no Mapa](${googleMapsUrl})\n`;
         } else {
-            message += `***Nome para Retirada:***\n${pickupName}\n`;
+            message += `**Nome para Retirada:**\n${pickupName}\n`;
         }
         if (notes) {
             message += `\n*Observações:*\n${notes}\n`;
@@ -474,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
             message += `_Atenção: Taxa de entrega será calculada conforme o endereço._\n`;
         }
 
-        message += `\nObrigado por pedir no Jantinha Nota 1000!`;
+        message += `\nObrigado por pedir na Jantinha Nota 1000!`;
 
         const whatsappNumber = '5562992020331';
         const encodedMessage = encodeURIComponent(message);
