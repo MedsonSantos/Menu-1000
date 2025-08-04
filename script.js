@@ -558,6 +558,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 message += itemDetails;
 
+                // --- NOVO CÓDIGO ADICIONADO PARA CALDOS ---
+                } else if (['cald-1', 'cald-2', 'cald-3'].includes(product.id)) {
+                    const itemPrice = product.price;
+                    total += itemPrice;
+
+                    let itemDetails = `1x ${product.name}:\n`;
+                    const acompanhamento = cartItem.acompanhamento || 'Não selecionado';
+
+                    if (acompanhamento === 'Não selecionado') {
+                        alert(`Por favor, selecione a mistura para o "${product.name}" (Item #${index + 1} no carrinho).`);
+                        validationFailed = true;
+                        return;
+                    }
+
+                itemDetails += `    - Mistura: ${acompanhamento}\n`;
+                itemDetails += `    - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
+                message += itemDetails;
+        
+        // --- FIM DO CÓDIGO NOVO ---
+
             } else {
                 const itemPrice = product.price * cartItem.quantity;
                 total += itemPrice;
@@ -572,13 +592,10 @@ document.addEventListener('DOMContentLoaded', function() {
         message += `*Tipo de Pedido:* ${orderType === 'delivery' ? 'Entrega' : 'Retirada no Local'}\n`;
 
         if (orderType === 'delivery') {
-            message += `**Endereço de Entrega:**\n${deliveryAddress}\n`;
-            const encodedDeliveryAddress = encodeURIComponent(deliveryAddress);
-            // Corrigido o link do Google Maps para ser funcional no WhatsApp
-            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedDeliveryAddress}`; // URL mais genérica e robusta
-            message += `[Ver no Mapa](${googleMapsUrl})\n`;
+            message += `*Endereço de Entrega:*\n${deliveryAddress}\n`;
+          
         } else {
-            message += `**Nome para Retirada:**\n${pickupName}\n`;
+            message += `*Nome para Retirada:*\n${pickupName}\n`;
         }
         if (notes) {
             message += `\n*Observações:*\n${notes}\n`;

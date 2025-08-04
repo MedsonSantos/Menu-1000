@@ -395,12 +395,9 @@
 
         /* Botão Voltar ao Topo */
         #scrollToTopBtn {
-            display: none;
-            /* Esconde o botão por padrão */
-            position: fixed;
-            /* Fixa o botão na tela */
-            bottom: 20px;
-            /* Posição abaixo do botão do chat */
+            display: none;  /* Esconde o botão por padrão */
+            position: fixed; /* Fixa o botão na tela */
+            bottom: 20px; /* Posição abaixo do botão do chat */
             right: 355px;
             z-index: 998;
             /* Mesmo z-index do botão do chat */
@@ -1134,7 +1131,7 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Responsividade para telas maiores (desktop) */
+        /* Responsividade para telas maiores (desktop)---------------------------------------------------------------------------- */
         @media (min-width: 768px) {
             .products-grid {
                 grid-template-columns: repeat(5, 1fr);
@@ -1513,7 +1510,7 @@
         }
          #scrollToTopBtn {
                 display: none;
-                bottom: 30px;
+                bottom: 15px;
                 left: 15px;
             }
 
@@ -1600,7 +1597,7 @@
 
             #scrollToTopBtn {
                 display: none;
-                bottom: 30px;
+                bottom: 20px;
                 left: 15px;
             }
                     
@@ -1644,12 +1641,14 @@
 
         }
 
-        @media (max-width: 390px) {
+        @media (max-width: 390px) { /*--------------------------------telas 390px-------------------------------------------------*/
 
             #scrollToTopBtn {
                 display: none;
-                bottom: 30px;
+                bottom: 20px;
                 left: 15px;
+                width: 35px;
+                height: 35px;
             }
 
             #info-modal .modal-content {
