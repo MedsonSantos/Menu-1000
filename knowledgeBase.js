@@ -2,6 +2,19 @@
     const chatbotKnowledgeBase = {
     "ola": "", 
     "oi": "",
+    "quem é você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "seu nome?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "quem e você": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "Quem é vc?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "vc?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "vc": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+
+    "Quem e vc": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "quem é você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "quem é você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "quem é voce?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "quem e voce": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "menu": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
     "cardapio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, 'Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
     "cardápio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, 'Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
@@ -14,7 +27,11 @@
     "funcionamento": "⏰ Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 23:30h. Te esperamos! 😉",
     "contato": "📱 Você pode nos contatar pelo WhatsApp clicando no botão verde de WhatsApp no carrinho 🛒, ou em nossas redes sociais. Estamos à disposição! 💬",
     "whatsapp": "📲 Para fazer seu pedido ou tirar dúvidas, clique no botão de WhatsApp (o ícone verde do chat) no canto inferior direito da tela. Ele está disponível quando você visualiza o carrinho. Nos chame lá! 👋",
+    "zap": "📲 Para fazer seu pedido ou tirar dúvidas, clique no botão de WhatsApp (o ícone verde do chat) no canto inferior direito da tela. Ele está disponível quando você visualiza o carrinho. Nos chame lá! 👋",
+    "fone": "📱 Você pode nos contatar pelo WhatsApp clicando no botão verde de WhatsApp no carrinho 🛒, ou em nossas redes sociais. Estamos à disposição! 💬",
+    "telefone": "📱 Você pode nos contatar pelo WhatsApp clicando no botão verde de WhatsApp no carrinho 🛒, ou em nossas redes sociais. Estamos à disposição! 💬",
     "jantinha kids": "👧👦 A Jantinha Kids é perfeita para as crianças! Lembre-se que ela está disponível apenas para consumo no local ou retirada, e não para entrega. Uma delícia para os pequenos! 🌟",
+    "kids": "👧👦 A Jantinha Kids é perfeita para as crianças! Lembre-se que ela está disponível apenas para consumo no local ou retirada, e não para entrega. Uma delícia para os pequenos! 🌟",
     "jantinhas kids": "👧👦 A Jantinha Kids é perfeita para as crianças! Lembre-se que ela está disponível apenas para consumo no local ou retirada, e não para entrega. Uma delícia para os pequenos! 🌟",
     "jantinhas": "🍽️Temos várias opções de jantinhas: Jantinha Kids👶, Jantinha completa🍲, Jantinha Nota 1000 🥘 e Jantinha de Estrogonofe. Se quiser saber mais sobre cada uma só me dizer escrevendo o tipo exemplo (Jantinha de Estrogonofe)",
     "jantinha": "🍽️Temos várias opções de jantinhas: Jantinha Kids👶, Jantinha completa🍲, Jantinha Nota 1000 🥘 e Jantinha de Estrogonofe. Se quiser saber mais sobre cada uma só me dizer escrevendo o tipo exemplo (Jantinha de Estrogonofe)",
@@ -159,7 +176,7 @@
     "jantinha completa": "🍛 A Jantinha Completa (Arroz, Feijão Tropeiro ou de Caldo, Vinagrete e Mandioca com 1 Espeto) custa R$ 22,00.",
     "jantinha estrogonofe": "🍲 A Jantinha Estrogonofe (Arroz, Estrogonofe de Frango, Batata Palha, Vinagrete Opcional, Sem Espeto) custa R$ 22,00.",
     "jantinha nota 1000": "🌟 A Jantinha Nota 1000 (Arroz, Feijão Tropeiro ou de Caldo, Vinagrete, Mandioca, Estrogonofe, Batata Palha e 1 Espeto) custa R$ 27,00. É a nossa especialidade!",
-
+    
     // CALDOS 500ML
     "caldo de costela": "🥣 O Caldo de Costela 500ml custa R$ 18,00. Aquece o coração!",
     "caldo de frango": "🥣 O Caldo de Frango 500ml custa R$ 18,00. Leve e saboroso!",
@@ -203,6 +220,9 @@
     "guarana antarctica 2l": "🥤 O Guaraná Antártica 2L custa R$ 13,00.",
     "mineiro 2l": "🥤 O Mineiro 2L custa R$ 11,00.",
     "coca cola": "🥤Temos a coca lata, 600ml, 1 litro e 2 litros além de opções de coca zero",
+    "coca": "🥤Temos a coca lata, 600ml, 1 litro e 2 litros além de opções de coca zero",
+    "refrigerantes":"🥤Temos refrigerantes lata 350ml, 600ml, 1 litro e 2 litros",
+    "refri":"🥤Temos refrigerantes lata 350ml, 600ml, 1 litro e 2 litros",
 
     // SUCOS E DIVERSOS
     "lafruits sabores": "🍎🍇 O Suco Láfruit 1L Sabores custa R$ 11,00.",
@@ -210,7 +230,8 @@
     "suco de laranja 500ml": "🍊 O Suco de Laranja 500ml custa R$ 12,00. Fresquinho!",
     "suco de laranja 1l": "🍊 O Suco de Laranja 1L custa R$ 22,00. Perfeito para compartilhar!",
     "suco polpa sabores": "🍍🥭 O Suco Polpa Sabores 1L custa R$ 20,00.",
-    "suco":"",
+    "suco":"🍊 Temos sucos de laranja natural, Láfruit 1L, caixinha 200ml e sucos da polpa 500ml ou 1L",
+    "sucos":"🍊 Temos sucos de laranja natural, Láfruit 1L, caixinha 200ml e sucos da polpa 500ml ou 1L",
 
     // PORÇÕES
     "frango a passarinho": "🍗 A porção de Frango a Passarinho 1KG (Serve 2 pessoas) custa R$ 34,99.",
