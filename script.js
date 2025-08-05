@@ -146,11 +146,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 statusFuncionamentoMainElement.style.display = 'block';
             } else if (status === 'AWAITING_OPENING') {
                 // Mensagem para quando não está aberto ainda, mas vai abrir no dia
-                statusFuncionamentoMainElement.textContent = "⏰ Abriremos hoje às " + operatingHours.openTime + "! Prepare-se!";
-                statusFuncionamentoMainElement.classList.add('awaiting-opening-main'); // Opcional: Nova classe para estilizar
-                statusFuncionamentoMainElement.classList.remove('aberto-main');
-                statusFuncionamentoMainElement.classList.remove('fechado-main');
-                statusFuncionamentoMainElement.style.display = 'block';
+                //statusFuncionamentoMainElement.textContent = "⏰ Abriremos hoje às " + operatingHours.openTime + "! Prepare-se!";
+                //statusFuncionamentoMainElement.classList.add('awaiting-opening-main'); // Opcional: Nova classe para estilizar
+                //statusFuncionamentoMainElement.classList.remove('aberto-main');
+                //statusFuncionamentoMainElement.classList.remove('fechado-main');
+                //statusFuncionamentoMainElement.style.display = 'block';
             }
         }
     }
@@ -247,22 +247,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function getBotResponse(userMessage) {
         userMessage = userMessage.toLowerCase().trim();
 
-        const status = getStoreStatus(); // Pega o status atual
 
-        if (status === 'CLOSED') { // Se a loja estiver explicitamente 'CLOSED'
-            return "😔 Olá! Estamos fechados. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h.";
-        } else if (status === 'AWAITING_OPENING') { // Se a loja ainda vai abrir
-            return "⏰ Olá! Ainda não abrimos. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h. Abriremos às " + operatingHours.openTime + " de hoje! 😉";
-        }
-
-        // Se a loja estiver 'OPEN', procede com a lógica de palavras-chave
-        if (typeof chatbotKnowledgeBase !== 'undefined') {
-            for (const keyword in chatbotKnowledgeBase) {
-                if (userMessage.includes(keyword)) {
-                    return chatbotKnowledgeBase[keyword];
-                }
+       if (typeof chatbotKnowledgeBase !== 'undefined') {
+        for (const keyword in chatbotKnowledgeBase) {
+            if (userMessage.includes(keyword)) {
+                return chatbotKnowledgeBase[keyword];
             }
         }
+    }
 
         // 3. Se nenhuma palavra-chave for encontrada e não for segunda, retornar mensagem genérica
         return "Desculpe, não entendi sua pergunta. Poderia reformular ou perguntar sobre o menu, entrega, horários, etc.?";
@@ -971,27 +963,17 @@ document.addEventListener('DOMContentLoaded', function() {
         openChatBtn.addEventListener('click', () => {
             openModal(chatModal);
             if (chatbox && !chatbox.dataset.initialMessageShown) {
-                const storeStatus = getStoreStatus();
+                const currentDayName = getWeekdayName(new Date().getDay());
                 let initialBotMessage = "";
 
-               if (storeStatus === 'CLOSED') {
-                    // Se a loja estiver fechada (incluindo segunda-feira), use a mensagem de fechado
-                    initialBotMessage = "😔 Olá! Estamos fechados. Nosso horário de funcionamento é de TERÇA a DOMINGO, das 18:00h às 00:00h. 😉";
-                } else if (storeStatus === 'AWAITING_OPENING') {
-                    // Se estiver esperando abrir (no dia de funcionamento)
-                    initialBotMessage = "⏰ Olá! Ainda não abrimos. Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 00:00h. Abriremos às " + operatingHours.openTime + " de hoje! 😉";
-                } else {
-                    // Para os outros dias e horários (quando está OPEN)
-                    const currentDayName = getWeekdayName(new Date().getDay());
-                    // Verifica se chatbotKnowledgeBase está definido para evitar erros
                     if (typeof chatbotKnowledgeBase !== 'undefined') {
                         chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${currentDayName}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas**\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
-                        chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"]; // 'oi' também usa a mesma mensagem
+                        chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"];
                         initialBotMessage = chatbotKnowledgeBase["ola"];
                     } else {
                         initialBotMessage = "Olá! Como posso ajudar você hoje?";
                     }
-                }
+                
 
                 // Adiciona a mensagem inicial ao chat
                 addMessage(initialBotMessage, 'bot');
