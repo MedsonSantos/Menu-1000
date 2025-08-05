@@ -2,6 +2,9 @@
     const chatbotKnowledgeBase = {
     "ola": "", 
     "oi": "",
+
+// Sobre o chat-------------------------------------------------------------------------------------------
+
     "quem é você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "seu nome?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "quem e você": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
@@ -9,12 +12,17 @@
     "Quem é vc?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "vc?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "vc": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
-
     "Quem e vc": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "quem é você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "quem é você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "quem é voce?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
-    "quem e voce": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "quem e voce" : "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
+    "ajudar" : "🫡Posso te ajudar pergunte-me algo referente a nosso estabelecimento exemplo: quais são os espetos...",
+    "ajuda": "🫡Posso te ajudar pergunte-me algo referente a nosso estabelecimento exemplo: quais são os espetos...",
+
+
+// Início comum----------------------------------------------------------------------------------------------
+
     "menu": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
     "cardapio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, 'Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
     "cardápio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, 'Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
