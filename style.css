@@ -78,9 +78,10 @@
 
         #status-funcionamento-main.aberto-main {
             /* Estilos se você decidir mostrar "Aberto" também */
-            background-color: #e8f5e9; /* Verde pastel */
+            background-color: #e8f5e900; /* Verde pastel */
             color: #388e3c; /* Verde escuro */
-            border: 1px solid #a5d6a7;
+            padding: 0.1%;
+          
         }
 
         /* Reset básico e fontes */
