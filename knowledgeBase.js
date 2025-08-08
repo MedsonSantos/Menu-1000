@@ -17,9 +17,83 @@
     "quem é você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "quem é voce?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "quem e voce" : "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
-    "ajudar" : "🫡Posso te ajudar pergunte-me algo referente a nosso estabelecimento exemplo: quais são os espetos...",
-    "ajuda": "🫡Posso te ajudar pergunte-me algo referente a nosso estabelecimento exemplo: quais são os espetos...",
+    "ajudar" : "🫡Posso te ajudar pergunte-me algo referente a nosso estabelecimento exemplo: como faço o pedido?",
+    "ajuda": "🫡Posso te ajudar pergunte-me algo referente a nosso estabelecimento exemplo: como faço o pedido?.",
+    "indicação": "😉 indicamos a jantinha nota 1000, além de bem caprichada, tem um sabor diferenciado!",
+    "indica": "😉 indicamos a jantinha nota 1000, além de bem caprichada, tem um sabor diferenciado!",
+    "popular": "😉 pedidos mais comuns: \n\n" +
+            "- Jantinha Nota 1000 🍲\n" +
+            "- Jantinha Completa 🥘\n" +
+            "- Espeto de Contra-filé 🍢 \n" +
+            "- Espeto de Frango com bacon 🥓",
 
+    "Pedidos": "😉 pedidos mais comuns: \n\n" +
+            "- Jantinha Nota 1000 🍲\n" +
+            "- Jantinha Completa 🥘\n" +
+            "- Espeto de Contra-filé 🍢 \n" +
+            "- Espeto de Frango com bacon 🥓",
+
+    "os mais pedidos": "😉 pedidos mais comuns: \n\n" +
+            "- Jantinha Nota 1000 🍲\n" +
+            "- Jantinha Completa 🥘\n" +
+            "- Espeto de Contra-filé 🍢 \n" +
+            "- Espeto de Frango com bacon 🥓",
+
+    "pedido": "Para realizar um pedido:\n\n" +
+            " 1️⃣ - Escolha o produto que deseja 🍢 \n"+
+            " 2️⃣ - Clique no botão ADICIONAR ➕ (logo abaixo do valor do produto) \n"+
+            " 3️⃣ - Clique no icone do carrinho🛒 \n"+
+            " 4️⃣ - Preencha as informações solicitadas 📝 \n"+
+            " 5️⃣ - Clique no botão PEDIR VIA WHATSAPP ✅\n"+
+            "Prontinho! viu como é facil 😁 Seu pedido será enviado para o WhatsApp, e um de nossos atendentes irá anotar 😉 seu pedido!",
+
+    "como faço um pedido": "Para realizar um pedido:\n\n" +
+            " 1️⃣ - Escolha o produto que deseja 🍢 \n"+
+            " 2️⃣ - Clique no botão ADICIONAR ➕ (logo abaixo do valor do produto) \n"+
+            " 3️⃣ - Clique no icone do carrinho🛒 \n"+
+            " 4️⃣ - Preencha as informações solicitadas 📝 \n"+
+            " 5️⃣ - Clique no botão PEDIR VIA WHATSAPP ✅\n"+
+            "Prontinho! viu como é facil 😁 Seu pedido será enviado para o WhatsApp, e um de nossos atendentes irá anotar 😉 seu pedido!",
+
+    "como faço o pedido": "Para realizar um pedido:\n\n" +
+            " 1️⃣ - Escolha o produto que deseja 🍢 \n"+
+            " 2️⃣ - Clique no botão ADICIONAR ➕ (logo abaixo do valor do produto) \n"+
+            " 3️⃣ - Clique no icone do carrinho🛒 \n"+
+            " 4️⃣ - Preencha as informações solicitadas 📝 \n"+
+            " 5️⃣ - Clique no botão PEDIR VIA WHATSAPP ✅\n"+
+            "Prontinho! viu como é facil 😁 Seu pedido será enviado para o WhatsApp, e um de nossos atendentes irá anotar 😉 seu pedido!",
+
+    "como faço o pedido?": "Para realizar um pedido:\n\n" +
+            " 1️⃣ - Escolha o produto que deseja 🍢 \n"+
+            " 2️⃣ - Clique no botão ADICIONAR ➕ (logo abaixo do valor do produto) \n"+
+            " 3️⃣ - Clique no icone do carrinho🛒 \n"+
+            " 4️⃣ - Preencha as informações solicitadas 📝 \n"+
+            " 5️⃣ - Clique no botão PEDIR VIA WHATSAPP ✅\n"+
+            "Prontinho! viu como é facil 😁 Seu pedido será enviado para o WhatsApp, e um de nossos atendentes irá anotar 😉 seu pedido!",
+
+    "como faço um pedido?": "Para realizar um pedido:\n\n" +
+            " 1️⃣ - Escolha o produto que deseja 🍢 \n"+
+            " 2️⃣ - Clique no botão ADICIONAR ➕ (logo abaixo do valor do produto) \n"+
+            " 3️⃣ - Clique no icone do carrinho🛒 \n"+
+            " 4️⃣ - Preencha as informações solicitadas 📝 \n"+
+            " 5️⃣ - Clique no botão PEDIR VIA WHATSAPP ✅\n"+
+            "Prontinho! viu como é facil 😁 Seu pedido será enviado para o WhatsApp, e um de nossos atendentes irá anotar 😉 seu pedido!",
+
+    "como faço": "Para realizar um pedido:\n\n" +
+            " 1️⃣ - Escolha o produto que deseja 🍢 \n"+
+            " 2️⃣ - Clique no botão ADICIONAR ➕ (logo abaixo do valor do produto) \n"+
+            " 3️⃣ - Clique no icone do carrinho🛒 \n"+
+            " 4️⃣ - Preencha as informações solicitadas 📝 \n"+
+            " 5️⃣ - Clique no botão PEDIR VIA WHATSAPP ✅\n"+
+            "Prontinho! viu como é facil 😁 Seu pedido será enviado para o WhatsApp, e um de nossos atendentes irá anotar 😉 seu pedido!",
+            
+    "como faço?": "Para realizar um pedido:\n\n" +
+            " 1️⃣ - Escolha o produto que deseja 🍢 \n"+
+            " 2️⃣ - Clique no botão ADICIONAR ➕ (logo abaixo do valor do produto) \n"+
+            " 3️⃣ - Clique no icone do carrinho🛒 \n"+
+            " 4️⃣ - Preencha as informações solicitadas 📝 \n"+
+            " 5️⃣ - Clique no botão PEDIR VIA WHATSAPP ✅\n"+
+            "Prontinho! viu como é facil 😁 Seu pedido será enviado para o WhatsApp, e um de nossos atendentes irá anotar 😉 seu pedido!",
 
 // Início comum----------------------------------------------------------------------------------------------
 
@@ -175,6 +249,7 @@
     "provolone": "🧀 O espeto de Queijo Provolone custa R$ 12,00. Uma opção deliciosa!",
     "romeu e julieta": "🍓 O Romeu e Julieta (Queijo, Goiabada com Bacon) custa R$ 13,00. Uma sobremesa incrível no espeto!",
     "romeu:": "🍓 O Romeu e Julieta (Queijo, Goiabada com Bacon) custa R$ 13,00. Uma sobremesa incrível no espeto!",
+    "Romeu:": "🍓 O Romeu e Julieta (Queijo, Goiabada com Bacon) custa R$ 13,00. Uma sobremesa incrível no espeto!",
     "julieta": "🍓 O Romeu e Julieta (Queijo, Goiabada com Bacon) custa R$ 13,00. Uma sobremesa incrível no espeto!",
 
     // JANTINHAS
