@@ -158,6 +158,16 @@ const products = [
         price: 12.00,
         imageUrl: 'https://i.imgur.com/fc8t1gl.png'
     },
+
+    {
+        id: 'esp-15',
+        category: 'ESPETOS',
+        name: 'Romeu e Julieta',
+        description: 'Goiabada com Queijo e Bacon',
+        price: 13.00,
+        imageUrl: ''
+    },
+    
     
     //--------------------------------------CALDOS-------------------------------------//
     {

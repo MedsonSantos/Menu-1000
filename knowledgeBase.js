@@ -86,7 +86,7 @@
             " 4️⃣ - Preencha as informações solicitadas 📝 \n"+
             " 5️⃣ - Clique no botão PEDIR VIA WHATSAPP ✅\n"+
             "Prontinho! viu como é facil 😁 Seu pedido será enviado para o WhatsApp, e um de nossos atendentes irá anotar 😉 seu pedido!",
-            
+
     "como faço?": "Para realizar um pedido:\n\n" +
             " 1️⃣ - Escolha o produto que deseja 🍢 \n"+
             " 2️⃣ - Clique no botão ADICIONAR ➕ (logo abaixo do valor do produto) \n"+
@@ -395,7 +395,7 @@
                 // Preenche as mensagens "ola" e "oi" na base de conhecimento
                 // Apenas quando a função getWeekdayName está disponível
                 const currentDayName = getWeekdayName(new Date().getDay());
-                chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${currentDayName}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍔 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas** (Cervejas, Refrigerantes, Sucos)\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
+                chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${currentDayName}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas** (Cervejas, Refrigerantes, Sucos)\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
                 chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"]; // "oi" usa a mesma mensagem que "ola"
 
                 const initialBotMessage = chatbotKnowledgeBase["ola"]; // Usa a resposta "ola" como mensagem inicial
