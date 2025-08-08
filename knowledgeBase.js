@@ -34,10 +34,10 @@
             "- Espeto de Frango com bacon 🥓",
 
     "os mais pedidos": "😉 pedidos mais comuns: \n\n" +
-            "- Jantinha Nota 1000 🍲\n" +
-            "- Jantinha Completa 🥘\n" +
-            "- Espeto de Contra-filé 🍢 \n" +
-            "- Espeto de Frango com bacon 🥓",
+            "#Jantinha Nota 1000 🍲\n" +
+            "#Jantinha Completa 🥘\n" +
+            "#Espeto de Contra-filé 🍢 \n" +
+            "#Espeto de Frango com bacon 🥓",
 
     "pedido": "Para realizar um pedido:\n\n" +
             " 1️⃣ - Escolha o produto que deseja 🍢 \n"+
@@ -136,21 +136,21 @@
                    "- **Jantinha Estrogonofe:** Arroz, estrogonofe de frango, batata palha (vinagrete opcional, sem espeto). [cite_start]Por R$ 22,00. [cite: 15]\n" +
                    "- **Jantinha Nota 1000:** Arroz, feijão tropeiro ou de caldo, vinagrete, mandioca, estrogonofe, batata palha e 1 espeto. [cite_start]Por R$ 27,00. [cite: 15]\n\n" +
                    "Qual delas você gostaria de pedir? 😉",
-     "tipos de jantinha": "🍛 Temos diversas opções de Jantinhas deliciosas para você! Confira:\n\n" +
+    "tipos de jantinha": "🍛 Temos diversas opções de Jantinhas deliciosas para você! Confira:\n\n" +
                    "- **Jantinha Kids:** Uma pequena porção de arroz e estrogonofe de frango (somente consumo no local). [cite_start]Por R$ 17,00. [cite: 15]\n" +
                    "- **Jantinha S/ Espeto:** Arroz, feijão tropeiro ou de caldo, vinagrete e mandioca (sem espeto). [cite_start]Por R$ 19,00. [cite: 15]\n" +
                    "- **Jantinha Completa:** Arroz, feijão tropeiro ou de caldo, vinagrete, mandioca e 1 espeto. [cite_start]Por R$ 22,00. [cite: 15]\n" +
                    "- **Jantinha Estrogonofe:** Arroz, estrogonofe de frango, batata palha (vinagrete opcional, sem espeto). [cite_start]Por R$ 22,00. [cite: 15]\n" +
                    "- **Jantinha Nota 1000:** Arroz, feijão tropeiro ou de caldo, vinagrete, mandioca, estrogonofe, batata palha e 1 espeto. [cite_start]Por R$ 27,00. [cite: 15]\n\n" +
                    "Qual delas você gostaria de pedir? 😉",
-     "jantinha": "🍛 Temos diversas opções de Jantinhas deliciosas para você! Confira:\n\n" +
+    "jantinha": "🍛 Temos diversas opções de Jantinhas deliciosas para você! Confira:\n\n" +
                    "- **Jantinha Kids:** Uma pequena porção de arroz e estrogonofe de frango (somente consumo no local). [cite_start]Por R$ 17,00. [cite: 15]\n" +
                    "- **Jantinha S/ Espeto:** Arroz, feijão tropeiro ou de caldo, vinagrete e mandioca (sem espeto). [cite_start]Por R$ 19,00. [cite: 15]\n" +
                    "- **Jantinha Completa:** Arroz, feijão tropeiro ou de caldo, vinagrete, mandioca e 1 espeto. [cite_start]Por R$ 22,00. [cite: 15]\n" +
                    "- **Jantinha Estrogonofe:** Arroz, estrogonofe de frango, batata palha (vinagrete opcional, sem espeto). [cite_start]Por R$ 22,00. [cite: 15]\n" +
                    "- **Jantinha Nota 1000:** Arroz, feijão tropeiro ou de caldo, vinagrete, mandioca, estrogonofe, batata palha e 1 espeto. [cite_start]Por R$ 27,00. [cite: 15]\n\n" +
                    "Qual delas você gostaria de pedir? 😉",
-   "tipos de espeto": "🍢 Temos uma variedade de espetos deliciosos, além de porções e pastéis! Veja algumas opções:\n\n" +
+    "tipos de espeto": "🍢 Temos uma variedade de espetos deliciosos, além de porções e pastéis! Veja algumas opções:\n\n" +
                   "- Asinha\n" +
                   "- Coxinha da Asa\n" +
                   "- Coração\n" +
