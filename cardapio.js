@@ -165,7 +165,7 @@ const products = [
         name: 'Romeu e Julieta',
         description: 'Goiabada com Queijo e Bacon',
         price: 13.00,
-        imageUrl: ''
+        imageUrl: 'https://i.imgur.com/rHzvptL'
     },
     
     
