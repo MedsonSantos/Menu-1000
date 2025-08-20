@@ -49,7 +49,7 @@ const products = [
         id: 'esp-1',
         category: 'ESPETOS',
         name: 'Frango com Bacon',
-        description: '',
+        description: 'Acompanhamentos não inclusos',
         price: 11.00,
         imageUrl: 'https://i.imgur.com/LFRKjj0.png'
     },
@@ -57,7 +57,7 @@ const products = [
         id: 'esp-2',
         category: 'ESPETOS',
         name: 'Frango sem Bacon',
-        description: '',
+        description: 'Acompanhamentos não inclusos',
         price: 11.00,
         imageUrl: 'https://i.imgur.com/pt0WHsW.png'
     },
@@ -65,7 +65,7 @@ const products = [
         id: 'esp-3',
         category: 'ESPETOS',
         name: 'Contra Filé',
-        description: '',
+        description: 'Acompanhamentos não inclusos',
         price: 11.00,
         imageUrl: 'https://i.imgur.com/YFvNxNd.png'
     },
@@ -73,7 +73,7 @@ const products = [
         id: 'esp-4',
         category: 'ESPETOS',
         name: 'Picanha Montada',
-        description: '',
+        description: 'Acompanhamentos não inclusos',
         price: 11.00,
         imageUrl: 'https://i.imgur.com/qnGt8F2.png'
     },
@@ -81,15 +81,15 @@ const products = [
         id: 'esp-5',
         category: 'ESPETOS',
         name: 'Asinha',
-        description: 'Tulipa',
+        description: 'Acompanhamentos não inclusos',
         price: 11.00,
         imageUrl: 'https://i.imgur.com/yKRuyzc.png'
     },
     {
         id: 'esp-6',
         category: 'ESPETOS',
-        name: 'Cupim',
-        description: 'Grill',
+        name: 'Cupim Grill',
+        description: 'Acompanhamentos não inclusos',
         price: 11.00,
         imageUrl: 'https://i.imgur.com/YFvNxNd.png'
     },
@@ -97,7 +97,7 @@ const products = [
         id: 'esp-7',
         category: 'ESPETOS',
         name: 'Coração',
-        description: '',
+        description: 'Acompanhamentos não inclusos',
         price: 11.00,
         imageUrl: 'https://i.imgur.com/RaVZjrn.png'
     },
@@ -105,7 +105,7 @@ const products = [
         id: 'esp-8',
         category: 'ESPETOS',
         name: 'Coxinha da Asa',
-        description: 'Drumette',
+        description: 'Acompanhamentos não inclusos',
         price: 11.00,
         imageUrl: 'https://i.imgur.com/Cb17Q5F.png'
     },
@@ -113,7 +113,7 @@ const products = [
         id: 'esp-9',
         category: 'ESPETOS',
         name: 'Linguiça Caipira',
-        description: 'Linguiça Suína da fazenda sem pimenta',
+        description: 'Linguiça Suína da fazenda sem pimenta (Acompanhamentos não inclusos)',
         price: 11.00,
         imageUrl: 'https://i.imgur.com/hbCbgOw.png'
     },
@@ -121,7 +121,7 @@ const products = [
         id: 'esp-10',
         category: 'ESPETOS',
         name: 'Linguiça Caipira Apimentada',
-        description: 'Linguiça Suína com um toque de pimenta',
+        description: 'Linguiça Suína com um toque de pimenta (Acompanhamentos não inclusos)',
         price: 11.00,
         imageUrl: 'https://i.imgur.com/hbCbgOw.png'
     },
@@ -129,7 +129,7 @@ const products = [
         id: 'esp-11',
         category: 'ESPETOS',
         name: 'Cafta',
-        description: 'Carne bovina recheada com queijo',
+        description: 'Carne bovina recheada com queijo (Acompanhamentos não inclusos)',
         price: 12.00,
         imageUrl: 'https://i.imgur.com/j8KuBRF.png'
     },
@@ -137,7 +137,7 @@ const products = [
         id: 'esp-12',
         category: 'ESPETOS',
         name: 'Cafta 1000',
-        description: 'Carne bovina envolta em bacon, recheada com queijo',
+        description: 'Carne bovina envolta em bacon, recheada com queijo (Acompanhamentos não inclusos)',
         price: 14.00,
         imageUrl: 'https://i.imgur.com/j8KuBRF.png'
 
@@ -146,7 +146,7 @@ const products = [
         id: 'esp-13',
         category: 'ESPETOS',
         name: 'Provolone',
-        description: 'Queijo provolone bola defumado no espeto',
+        description: 'Queijo provolone bola defumado no espeto, (Acompanhamentos não inclusos)',
         price: 12.00,
         imageUrl: 'https://i.imgur.com/8oS73mV.png'
     },
@@ -154,7 +154,7 @@ const products = [
         id: 'esp-14',
         category: 'ESPETOS',
         name: 'Coalho',
-        description: 'Queijo Coalho no espeto',
+        description: 'Queijo Coalho no espeto (Acompanhamentos não inclusos)',
         price: 12.00,
         imageUrl: 'https://i.imgur.com/fc8t1gl.png'
     },
