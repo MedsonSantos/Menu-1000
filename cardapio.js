@@ -690,7 +690,10 @@ const photos = [
     'https://i.imgur.com/bYKo4g5.jpg',
     'https://i.imgur.com/5B5rNEU.jpg',
     'https://i.imgur.com/abqP82z.jpg',
-    'https://i.imgur.com/mv5NR0Q.jpg'
+    'https://i.imgur.com/mv5NR0Q.jpg',
+    'https://i.imgur.com/n8xC1v2.jpg',
+    'https://i.imgur.com/FEE7ZfY.jpg',
+    'https://i.imgur.com/tKJBwT2.jpg'
     
 ];
 
