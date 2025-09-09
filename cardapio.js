@@ -211,7 +211,7 @@ const products = [
         name: 'Mandioca',
         description: 'Mandioca cozida no ponto certo, macia por dentro.',
         price: 7.00,
-        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+        imageUrl: 'https://i.imgur.com/Lu90svr.png'
     },
     {
         id: 'guar-3',
@@ -219,7 +219,7 @@ const products = [
         name: 'Vinagrete',
         description: 'Tomates selecionados fresquinho.',
         price: 7.00,
-        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+        imageUrl: 'https://i.imgur.com/Aa5hrjm.png'
     },
     {
         id: 'guar-4',
@@ -227,7 +227,7 @@ const products = [
         name: 'Feijão Tropeiro (P)',
         description: 'Porção de feijão tropeiro pequena, mas grande no sabor!',
         price: 10.00,
-        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+        imageUrl: 'https://i.imgur.com/uCru0sw.png'
     },
     {
         id: 'guar-5',
@@ -235,7 +235,7 @@ const products = [
         name: 'Feijão Tropeiro (G)',
         description: 'Porção de feijão tropeiro grande, para quem quer dividir!',
         price: 15.00,
-        imageUrl: 'https://i.imgur.com/ExemploMandioca.jpg'
+        imageUrl: 'https://i.imgur.com/RB50utr.png'
     },
 
     //--------------------------------------LANCHES-------------------------------------//
