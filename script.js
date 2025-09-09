@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     // Carrinho de compras. Cada item pode ser:
     // - Jantinha Completa: { id: 'pp-1', espeto: 'Carne', feijao: 'Tropeiro', quantity: 1 }
     // - Jantinha Nota 1000: { id: 'pp-2', espeto: 'Carne', feijao: 'Tropeiro', quantity: 1 }
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Elementos do DOM ---
     const body = document.body;
-
     const menuSections = document.getElementById('menu-sections');
 
     // Elementos do Modal do Carrinho
@@ -18,13 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartItemsModalContainer = document.getElementById('cart-items-modal');
     const cartTotalModalSpan = document.getElementById('cart-total-modal');
     const checkoutWhatsappModalBtn = document.getElementById('checkout-whatsapp-modal');
-
     const orderDetailsContainer = document.getElementById('order-details-container');
     const orderTypeSelect = document.getElementById('order-type');
     const deliveryOptionsDiv = document.getElementById('delivery-options');
     const pickupOptionsDiv = document.getElementById('pickup-options');
     const deliveryAddressInput = document.getElementById('delivery-address');
-    const pickupNameInput = document.getElementById('pickup-name'); // Corrigido = document = document.getElementById
+    const pickupNameInput = document.getElementById('pickup-name');
     const deliveryFeeInfo = document.getElementById('delivery-fee-info');
     const notesTextarea = document.getElementById('notes');
 
@@ -38,16 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Elementos do Modal de Fotos (AJUSTADOS PARA O CARROSSEL)
     const photosModal = document.getElementById('photos-modal');
-    // REMOVIDO: const modalPhotosGrid = document.getElementById('modal-photos-grid'); // Não será mais uma grade diretamente
-    const carouselTrackPhotos = document.getElementById('carousel-track-photos'); // O novo track para as imagens do carrossel
-    const prevPhotoButton = document.getElementById('prev-photo-btn'); // Botão Anterior
-    const nextPhotoButton = document.getElementById('next-photo-btn'); // Botão Próxima
-
-    // Elemento para o modal de imagem grande (REMOVIDO / NÃO USADO DIRETAMENTE AGORA)
-    // const imageModal = document.getElementById('image-modal'); // Certifique-se de ter este modal no HTML
-    // const modalImage = imageModal ? imageModal.querySelector('img') : null; // A imagem dentro do modal
-    // const closeImageModalBtn = imageModal ? imageModal.querySelector('.close-button') : null; // Botão de fechar do modal de imagem grande
-
+    const carouselTrackPhotos = document.getElementById('carousel-track-photos');
+    const prevPhotoButton = document.getElementById('prev-photo-btn');
+    const nextPhotoButton = document.getElementById('next-photo-btn');
 
     // Elementos do Ícone do Carrinho no Header
     const cartIconContainer = document.getElementById('cart-icon-container');
@@ -70,9 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Script para o botão "Voltar ao Topo"
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    
-    //alerta de funcionamento
 
+    //alerta de funcionamento
     const statusFuncionamentoMainElement = document.getElementById('status-funcionamento-main');
     const operatingHours = {
         // Horários no formato HH:MM
@@ -80,19 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
         closeTime: '23:59', // 23:59h
         closedDay: 1 // 1 para Segunda-feira (0=Dom, 1=Seg, ..., 6=Sab)
     };
+
     // --- Variáveis de Dados (assumindo que vêm de cardapio.js e knowledgeBase.js) ---
     // Certifique-se de que 'products', 'categoriesData', 'chatbotKnowledgeBase',
     // 'photos', 'DEFAULT_LOTTIE_JSON', 'DEFAULT_CATEGORY_IMAGE', 'DEFAULT_PLACEHOLDER_IMAGE'
     // estão definidos em 'cardapio.js' e 'knowledgeBase.js' e são globais ou importados.
-    // A variável 'photos' agora é esperada para vir do seu cardapio.js como um array de strings.
-    // Exemplo de como 'photos' pode ser (se não estiver em cardapio.js):
-    // const photos = [
-    //     './images/foto1.jpg',
-    //     './images/foto2.jpg',
-    //     './images/foto3.jpg'
-    // ];
 
-    
     /** *Função para verificar o dia e atualizar o status de funcionamento na tela principal.
     * @returns {string} true se a loja estiver aberta, false se estiver fechada.*/
     function getStoreStatus() {
@@ -128,12 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return 'CLOSED'; // Fechado (já passou do horário)
     }
 
-        
     function updateMainScreenOperatingStatus() {
-     
         if (statusFuncionamentoMainElement) {
             const status = getStoreStatus(); // Pega o status atual
-
             if (status === 'OPEN') {
                 statusFuncionamentoMainElement.textContent = "🥳 Estamos abertos! Faça seu pedido!";
                 statusFuncionamentoMainElement.classList.add('aberto-main');
@@ -144,13 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 statusFuncionamentoMainElement.classList.add('fechado-main');
                 statusFuncionamentoMainElement.classList.remove('aberto-main');
                 statusFuncionamentoMainElement.style.display = 'block';
-            } else if (status === 'AWAITING_OPENING') {
-                // Mensagem para quando não está aberto ainda, mas vai abrir no dia
-                //statusFuncionamentoMainElement.textContent = "⏰ Abriremos hoje às " + operatingHours.openTime + "! Prepare-se!";
-                //statusFuncionamentoMainElement.classList.add('awaiting-opening-main'); // Opcional: Nova classe para estilizar
-                //statusFuncionamentoMainElement.classList.remove('aberto-main');
-                //statusFuncionamentoMainElement.classList.remove('fechado-main');
-                //statusFuncionamentoMainElement.style.display = 'block';
             }
         }
     }
@@ -189,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-
     // --- Funções de Manipulação de Modais (Generalizadas) ---
     function openModal(modalElement) {
         if (modalElement) {
@@ -220,9 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 delete chatbox.dataset.initialMessageShown;
             }
         }
-        // REMOVIDO: else if (event.target === imageModal) { closeModal(imageModal); }
     });
-
 
     // --- Funções Auxiliares do Chatbot ---
     function getWeekdayName(dayIndex) {
@@ -246,8 +215,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 1. Lógica Principal do Chatbot
     function getBotResponse(userMessage) {
         userMessage = userMessage.toLowerCase().trim();
-
-
        if (typeof chatbotKnowledgeBase !== 'undefined') {
         for (const keyword in chatbotKnowledgeBase) {
             if (userMessage.includes(keyword)) {
@@ -255,15 +222,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-
-        // 3. Se nenhuma palavra-chave for encontrada e não for segunda, retornar mensagem genérica
         return "Desculpe, não entendi sua pergunta. Poderia reformular ou perguntar sobre o menu, entrega, horários, etc.?";
     }
 
     // --- Funções de Carrinho ---
     function addToCart(productId) {
         const existingItemIndex = cart.findIndex(item => item.id === productId && !['pp-1', 'pp-2', 'pp-3'].includes(item.id));
-
         if (existingItemIndex > -1) {
             cart[existingItemIndex].quantity += 1;
         } else {
@@ -275,19 +239,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addCustomizableJantinhaToCart(productId) {
         const newItem = { id: productId, quantity: 1 };
-
         if (productId === 'pp-1' || productId === 'pp-2') {
             newItem.espeto = '';
             newItem.feijao = '';
         } else if (productId === 'pp-3') {
             newItem.feijao = '';
         }
-
         // Lógica para as misturas dos caldos //
         if (productId === 'cald-1' || productId === 'cald-2' || productId === 'cald-3') {
-        newItem.acompanhamento = ''; // Inicializa a opção de acompanhamento
-    }
-
+            newItem.acompanhamento = ''; // Inicializa a opção de acompanhamento
+        }
         cart.push(newItem);
         updateCartDisplay();
         flashCartIcon();
@@ -326,7 +287,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateCartDisplay() {
         if (!cartItemsModalContainer || !cartTotalModalSpan || !cartCountSpan) return;
-
         cartItemsModalContainer.innerHTML = '';
         let total = 0;
         let itemCount = 0;
@@ -340,20 +300,19 @@ document.addEventListener('DOMContentLoaded', function() {
             if (orderDetailsContainer) {
                 orderDetailsContainer.style.display = 'block';
             }
-
             cart.forEach((cartItem, index) => {
                 const product = products.find(p => p.id === cartItem.id);
                 if (!product) {
                     console.warn(`Produto com ID ${cartItem.id} não encontrado.`);
                     return;
                 }
-
                 const itemTotal = product.price * cartItem.quantity;
                 total += itemTotal;
                 itemCount += cartItem.quantity;
 
                 const cartItemDiv = document.createElement('div');
                 cartItemDiv.classList.add('cart-item');
+
                 let optionsHtml = '';
 
                 if (['pp-1', 'pp-2', 'pp-3'].includes(product.id)) {
@@ -377,7 +336,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         `;
                     }
-
                     if (product.id === 'pp-1' || product.id === 'pp-2' || product.id === 'pp-3') {
                         optionsHtml += `
                             <div class="input-group-inline">
@@ -391,27 +349,27 @@ document.addEventListener('DOMContentLoaded', function() {
                         `;
                     }
                 }
-                
+
                 if (['cald-1', 'cald-2', 'cald-3'].includes(product.id)) {
                     let acompanhamentoOptions = '';
                     let selectLabel = 'Acompanha:';
-                    // Define as opções baseadas no tipo de caldo
+
                     switch (product.id) {
-                        case 'cald-1': // Caldo de Feijão
-                        acompanhamentoOptions = `
-                            <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ? 'selected' : ''}>Sem mistura</option>
-                            <option value="Feijão com Costela" ${cartItem.acompanhamento === 'Feijão com Costela' ? 'selected' : ''}>Feijão com Costela</option>
-                            <option value="Feijão com Frango" ${cartItem.acompanhamento === 'Feijão com Frango' ? 'selected' : ''}>Feijão com Frango</option>
-                        `;
+                        case 'cald-1':
+                            acompanhamentoOptions = `
+                                <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ? 'selected' : ''}>Sem mistura</option>
+                                <option value="Feijão com Costela" ${cartItem.acompanhamento === 'Feijão com Costela' ? 'selected' : ''}>Feijão com Costela</option>
+                                <option value="Feijão com Frango" ${cartItem.acompanhamento === 'Feijão com Frango' ? 'selected' : ''}>Feijão com Frango</option>
+                            `;
                             break;
-                        case 'cald-2': // Caldo de Frango
+                        case 'cald-2':
                             acompanhamentoOptions = `
                                 <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ? 'selected' : ''}>Sem mistura</option>
                                 <option value="Frango com Feijão" ${cartItem.acompanhamento === 'Frango com Feijão' ? 'selected' : ''}>Frango com Feijão</option>
                                 <option value="Frango com Costela" ${cartItem.acompanhamento === 'Frango com Costela' ? 'selected' : ''}>Frango com Costela</option>
                             `;
                             break;
-                        case 'cald-3': // Caldo de Costela
+                        case 'cald-3':
                             acompanhamentoOptions = `
                                 <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ? 'selected' : ''}>Sem mistura</option>
                                 <option value="Costela com Feijão" ${cartItem.acompanhamento === 'Costela com Feijão' ? 'selected' : ''}>Costela com Feijão</option>
@@ -419,16 +377,17 @@ document.addEventListener('DOMContentLoaded', function() {
                             `;
                             break;
                     }
-                     optionsHtml += `
-                    <div class="input-group-inline">
-                        <label for="acompanhamento-${index}">${selectLabel}</label>
-                        <select id="acompanhamento-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="acompanhamento">
-                            <option value="" disabled ${cartItem.acompanhamento === '' ? 'selected' : ''}>Selecione</option>
-                            ${acompanhamentoOptions}
-                        </select>
-                    </div>
-                `;
-            }
+
+                    optionsHtml += `
+                        <div class="input-group-inline">
+                            <label for="acompanhamento-${index}">${selectLabel}</label>
+                            <select id="acompanhamento-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="acompanhamento">
+                                <option value="" disabled ${cartItem.acompanhamento === '' ? 'selected' : ''}>Selecione</option>
+                                ${acompanhamentoOptions}
+                            </select>
+                        </div>
+                    `;
+                }
 
                 cartItemDiv.innerHTML = `
                     <div class="cart-item-info">
@@ -442,10 +401,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <button class="remove-item-btn" data-cart-index="${index}">Remover</button>
                     </div>
                 `;
+
                 cartItemsModalContainer.appendChild(cartItemDiv);
             });
         }
-        
 
         cartTotalModalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
         cartCountSpan.textContent = itemCount;
@@ -462,7 +421,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const cartIndex = parseInt(event.target.dataset.cartIndex);
                 const optionType = event.target.dataset.optionType;
                 const value = event.target.value;
-
                 if (cart[cartIndex]) {
                     cart[cartIndex][optionType] = value;
                 }
@@ -472,9 +430,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleOrderTypeChange() {
         if (!orderTypeSelect || !deliveryOptionsDiv || !pickupOptionsDiv || !deliveryFeeInfo || !deliveryAddressInput || !pickupNameInput) return;
-
         const selectedType = orderTypeSelect.value;
-
         if (selectedType === 'delivery') {
             deliveryOptionsDiv.style.display = 'block';
             pickupOptionsDiv.style.display = 'none';
@@ -507,15 +463,16 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Por favor, digite o endereço de entrega para prosseguir.');
             return;
         }
+
         if (orderType === 'pickup' && !pickupName) {
             alert('Por favor, digite o nome para retirada para prosseguir.');
             return;
         }
 
-        let message = `*Boa noite!! Novo Pedido*\n\n`;
+        let message = `*Boa noite!! Novo Pedido*\n`;
         let total = 0;
-
         let validationFailed = false;
+
         cart.forEach((cartItem, index) => {
             const product = products.find(p => p.id === cartItem.id);
             if (!product) {
@@ -526,7 +483,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (['pp-1', 'pp-2', 'pp-3'].includes(product.id)) {
                 const itemPrice = product.price;
                 total += itemPrice;
-
                 let itemDetails = `1x ${product.name}:\n`;
 
                 if (product.id === 'pp-1' || product.id === 'pp-2') {
@@ -546,34 +502,28 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
                 itemDetails += `    - Feijão: ${feijao}\n`;
-                itemDetails += `    - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
-
+                itemDetails += `    - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n`;
                 message += itemDetails;
 
-                // --- NOVO CÓDIGO ADICIONADO PARA CALDOS ---
-                } else if (['cald-1', 'cald-2', 'cald-3'].includes(product.id)) {
-                    const itemPrice = product.price;
-                    total += itemPrice;
+            } else if (['cald-1', 'cald-2', 'cald-3'].includes(product.id)) {
+                const itemPrice = product.price;
+                total += itemPrice;
+                let itemDetails = `1x ${product.name}:\n`;
 
-                    let itemDetails = `1x ${product.name}:\n`;
-                    const acompanhamento = cartItem.acompanhamento || 'Não selecionado';
-
-                    if (acompanhamento === 'Não selecionado') {
-                        alert(`Por favor, selecione a mistura para o "${product.name}" (Item #${index + 1} no carrinho).`);
-                        validationFailed = true;
-                        return;
-                    }
-
-                itemDetails += `    - Mistura: ${acompanhamento}\n`;
-                itemDetails += `    - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
+                const acompanhamento = cartItem.acompanhamento || 'Não selecionado';
+                if (acompanhamento === 'Não selecionado') {
+                    alert(`Por favor, selecione a mistura para o "${product.name}" (Item #${index + 1} no carrinho).`);
+                    validationFailed = true;
+                    return;
+                }
+                itemDetails += `    - Mistura: ${acompanhamento}\n`;
+                itemDetails += `    - Preço: R$ ${itemPrice.toFixed(2).replace('.', ',')}\n`;
                 message += itemDetails;
-        
-        // --- FIM DO CÓDIGO NOVO ---
 
             } else {
                 const itemPrice = product.price * cartItem.quantity;
                 total += itemPrice;
-                message += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n\n`;
+                message += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n`;
             }
         });
 
@@ -585,10 +535,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (orderType === 'delivery') {
             message += `*Endereço de Entrega:*\n${deliveryAddress}\n`;
-          
         } else {
             message += `*Nome para Retirada:*\n${pickupName}\n`;
         }
+
         if (notes) {
             message += `\n*Observações:*\n${notes}\n`;
         }
@@ -604,11 +554,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const whatsappNumber = '5562992020331';
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
-
         console.log('Mensagem final do WhatsApp:', decodeURIComponent(encodedMessage));
         window.open(whatsappUrl, '_blank');
     }
-
 
     // --- Funções de Renderização do Menu e Fotos ---
     function normalizeCategoryName(name) {
@@ -621,11 +569,10 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function handleAddButtonClick(event) {
         const productId = event.target.dataset.id;
-        // Verifica se o produto é uma jantinha que precisa de personalização
         if (['pp-1', 'pp-2', 'pp-3'].includes(productId)) {
             addCustomizableJantinhaToCart(productId);
         } else {
-            addToCart(productId); // Outros itens são agrupados
+            addToCart(productId);
         }
     }
 
@@ -633,24 +580,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // NOVO CÓDIGO DO CARROSSEL DE FOTOS - INÍCIO
     // =========================================================
     let currentSlideIndex = 0;
-    let photoSlides = []; // Array para armazenar os elementos <img> do carrossel
+    let photoSlides = [];
 
     /**
      * Renderiza as fotos dentro do modal de fotos como um carrossel.
-     * Usa a variável 'photos' que vem do cardapio.js.
      */
     function renderPhotosInModal() {
-        // Verifica se carouselTrackPhotos e 'photos' existem e se 'photos' é um array
         if (!carouselTrackPhotos || typeof photos === 'undefined' || !Array.isArray(photos)) {
-            console.warn("'photos' não está definida ou não é um array. Não foi possível renderizar fotos no carrossel.");
+            console.warn("'photos' não está definida ou não é um array.");
             carouselTrackPhotos.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
             if (prevPhotoButton) prevPhotoButton.style.display = 'none';
             if (nextPhotoButton) nextPhotoButton.style.display = 'none';
             return;
         }
 
-        carouselTrackPhotos.innerHTML = ''; // Limpa as imagens existentes no track
-        photoSlides = []; // Reseta o array de slides
+        carouselTrackPhotos.innerHTML = '';
+        photoSlides = [];
 
         if (photos.length === 0) {
             carouselTrackPhotos.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
@@ -662,43 +607,31 @@ document.addEventListener('DOMContentLoaded', function() {
         photos.forEach((photoUrl, index) => {
             const imgContainer = document.createElement('div');
             imgContainer.classList.add('carousel-slide');
-
             const img = document.createElement('img');
             img.src = photoUrl;
             img.alt = `Foto da Jantinha Nota 1000 - ${index + 1}`;
-            
             imgContainer.appendChild(img);
             carouselTrackPhotos.appendChild(imgContainer);
-            photoSlides.push(imgContainer); // Adiciona o container da imagem ao array de slides
+            photoSlides.push(imgContainer);
         });
 
-        currentSlideIndex = 0; // Garante que começa na primeira foto
-        updateCarouselButtons(); // Atualiza o estado dos botões
+        currentSlideIndex = 0;
+        updateCarouselButtons();
     }
 
-    /**
-     * Exibe o slide no índice especificado no carrossel de fotos.
-     * @param {number} index - O índice do slide a ser exibido.
-     */
     function showPhotoSlide(index) {
         if (photoSlides.length === 0) return;
-
-        // Garante que o índice esteja dentro dos limites
         currentSlideIndex = Math.max(0, Math.min(index, photoSlides.length - 1));
         const scrollPosition = currentSlideIndex * carouselTrackPhotos.offsetWidth;
         carouselTrackPhotos.scrollTo({
             left: scrollPosition,
-            behavior: 'smooth' // Rolagem suave
-        
+            behavior: 'smooth'
         });
         updateCarouselButtons();
     }
 
-    /**
-     * Atualiza a visibilidade dos botões de navegação do carrossel.
-     */
     function updateCarouselButtons() {
-        if (photoSlides.length <= 1) { // Se houver 0 ou 1 foto, esconde os botões
+        if (photoSlides.length <= 1) {
             if (prevPhotoButton) prevPhotoButton.style.display = 'none';
             if (nextPhotoButton) nextPhotoButton.style.display = 'none';
         } else {
@@ -713,7 +646,6 @@ document.addEventListener('DOMContentLoaded', function() {
             showPhotoSlide(currentSlideIndex - 1);
         });
     }
-
     if (nextPhotoButton) {
         nextPhotoButton.addEventListener('click', () => {
             showPhotoSlide(currentSlideIndex + 1);
@@ -732,10 +664,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // NOVO CÓDIGO DO CARROSSEL DE FOTOS - FIM
     // =========================================================
 
-
     function renderMenu() {
         if (!menuSections || !categoryNavigation || typeof products === 'undefined' || typeof categoriesData === 'undefined') return;
-
         menuSections.innerHTML = '';
         categoryNavigation.innerHTML = '';
 
@@ -749,10 +679,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         categoriesData.forEach(item => {
             const normalizedId = normalizeCategoryName(item.name);
-
             const categoryButton = document.createElement('button');
             categoryButton.classList.add('category-button');
-
             if (item.type === 'category') {
                 categoryButton.dataset.targetId = `category-${normalizedId}`;
                 categoryButton.dataset.type = 'category';
@@ -768,7 +696,6 @@ document.addEventListener('DOMContentLoaded', function() {
             lottieContainer.classList.add('lottie-icon-container');
             categoryButton.appendChild(lottieContainer);
 
-            // Garante que as variáveis DEFAULT_LOTTIE_JSON e DEFAULT_CATEGORY_IMAGE existem
             const lottieJsonUrlToUse = item.lottieJsonUrl || (typeof DEFAULT_LOTTIE_JSON !== 'undefined' ? DEFAULT_LOTTIE_JSON : '');
             const imageUrlToUseForFallback = item.imageUrl || (typeof DEFAULT_CATEGORY_IMAGE !== 'undefined' ? DEFAULT_CATEGORY_IMAGE : '');
 
@@ -811,24 +738,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     const targetModal = document.getElementById(targetModalId);
                     if (targetModal) {
                         openModal(targetModal);
-                        // ***** CHAMADA DA NOVA FUNÇÃO PARA RENDERIZAR FOTOS *****
                         if (targetModalId === 'photos-modal') {
-                            renderPhotosInModal(); // Chama a função que configura o carrossel
+                            renderPhotosInModal();
                         }
                     }
                 }
             });
+
             categoryNavigation.appendChild(categoryButton);
         });
 
         for (const categoryName in categories) {
             const categoryDataEntry = categoriesData.find(cat => cat.name === categoryName && cat.type === 'category');
-            if (!categoryDataEntry) {
-                continue;
-            }
+            if (!categoryDataEntry) continue;
 
             const normalizedId = normalizeCategoryName(categoryName);
-
             const categoryDiv = document.createElement('div');
             categoryDiv.classList.add('category');
             categoryDiv.id = `category-${normalizedId}`;
@@ -856,8 +780,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="price">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
                     <button class="add-to-cart" data-id="${product.id}">Adicionar</button>
                 `;
+
                 productsGrid.appendChild(productCard);
             });
+
             categoryDiv.appendChild(productsGrid);
             menuSections.appendChild(categoryDiv);
         }
@@ -865,13 +791,10 @@ document.addEventListener('DOMContentLoaded', function() {
         setupProductEventListeners();
     }
 
-    /**
-     * Configura os event listeners para os botões "Adicionar" dos produtos.
-     */
     function setupProductEventListeners() {
         document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.removeEventListener('click', handleAddButtonClick); // Remove listeners antigos para evitar duplicação
-            button.addEventListener('click', handleAddButtonClick); // Adiciona o listener
+            button.removeEventListener('click', handleAddButtonClick);
+            button.addEventListener('click', handleAddButtonClick);
         });
     }
 
@@ -888,7 +811,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listener para o botão "Voltar ao Topo"
     if (scrollToTopBtn) {
         window.addEventListener('scroll', function() {
-            // Usa window.scrollY para navegadores modernos
             const scrollPosition = window.scrollY || document.documentElement.scrollTop;
             if (scrollPosition > 200) {
                 scrollToTopBtn.style.display = "flex";
@@ -896,11 +818,10 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 scrollToTopBtn.style.opacity = "0";
                 setTimeout(() => {
-                    // Verifica novamente a opacidade antes de esconder completamente
                     if (scrollToTopBtn.style.opacity === "0") {
                         scrollToTopBtn.style.display = "none";
                     }
-                }, 300); // Tempo igual ao 'transition' no CSS
+                }, 300);
             }
         });
 
@@ -916,23 +837,20 @@ document.addEventListener('DOMContentLoaded', function() {
     if (cartIconContainer) {
         cartIconContainer.addEventListener('click', () => {
             openModal(cartModal);
-            updateCartDisplay(); // Força a atualização do display ao abrir
-            handleOrderTypeChange(); // Garante que os campos de entrega/retirada estejam corretos
+            updateCartDisplay();
+            handleOrderTypeChange();
         });
     }
 
     // Adiciona event listeners para todos os botões de fechar modal (classe '.close-button')
     document.querySelectorAll('.modal .close-button').forEach(button => {
         button.addEventListener('click', () => {
-            const modalElement = button.closest('.modal'); // Encontra o modal pai do botão
+            const modalElement = button.closest('.modal');
             if (modalElement) {
                 closeModal(modalElement);
-                // Lógica específica para o chatbot ao fechar
-                if (modalElement.id === 'chatModal') {
-                    if (chatbox) {
-                        chatbox.innerHTML = '';
-                        delete chatbox.dataset.initialMessageShown;
-                    }
+                if (modalElement.id === 'chatModal' && chatbox) {
+                    chatbox.innerHTML = '';
+                    delete chatbox.dataset.initialMessageShown;
                 }
             }
         });
@@ -948,9 +866,11 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggleContainer.addEventListener('click', toggleTheme);
     }
 
-    // Event listener para abrir o modal de informações
-    if (infoToggleContainer) {
-        infoToggleContainer.addEventListener('click', () => openModal(infoModal));
+    // ✅ Event listener para abrir o modal de informações (FUNCIONA EM QUALQUER PÁGINA)
+    if (infoToggleContainer && infoModal) {
+        infoToggleContainer.addEventListener('click', () => {
+            openModal(infoModal);
+        });
     }
 
     // Event listener para o select de tipo de pedido
@@ -965,17 +885,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (chatbox && !chatbox.dataset.initialMessageShown) {
                 const currentDayName = getWeekdayName(new Date().getDay());
                 let initialBotMessage = "";
-
-                    if (typeof chatbotKnowledgeBase !== 'undefined') {
-                        chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${currentDayName}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas**\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
-                        chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"];
-                        initialBotMessage = chatbotKnowledgeBase["ola"];
-                    } else {
-                        initialBotMessage = "Olá! Como posso ajudar você hoje?";
-                    }
-                
-
-                // Adiciona a mensagem inicial ao chat
+                if (typeof chatbotKnowledgeBase !== 'undefined') {
+                    chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${currentDayName}! Como posso ajudar você hoje? 😊\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas**\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\nOu qualquer outra dúvida sobre o cardápio! 😉`;
+                    chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"];
+                    initialBotMessage = chatbotKnowledgeBase["ola"];
+                } else {
+                    initialBotMessage = "Olá! Como posso ajudar você hoje?";
+                }
                 addMessage(initialBotMessage, 'bot');
                 chatbox.dataset.initialMessageShown = 'true';
             }
@@ -986,7 +902,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (closeChatModalBtn) {
         closeChatModalBtn.addEventListener('click', () => {
             closeModal(chatModal);
-            if (chatbox) { // Garante que chatbox existe antes de limpar
+            if (chatbox) {
                 chatbox.innerHTML = '';
                 delete chatbox.dataset.initialMessageShown;
             }
@@ -998,10 +914,8 @@ document.addEventListener('DOMContentLoaded', function() {
         sendChatBtn.addEventListener('click', () => {
             const userMessage = chatInput.value;
             if (userMessage.trim() === '') return;
-
             addMessage(userMessage, 'user');
             chatInput.value = '';
-
             setTimeout(() => {
                 const botResponse = getBotResponse(userMessage);
                 addMessage(botResponse, 'bot');
@@ -1019,8 +933,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- Inicializações ao carregar o DOM ---
-    initializeTheme(); // Aplica o tema salvo ao carregar a página
-    renderMenu(); // Renderiza o cardápio inicial
-    updateCartDisplay(); // Garante que o contador do carrinho e o display estejam corretos ao carregar a página
-    handleOrderTypeChange(); // Chama ao carregar para definir o estado inicial (Entrega) ou Retirada.
+    initializeTheme();
+    renderMenu();
+    updateCartDisplay();
+    handleOrderTypeChange();
 });

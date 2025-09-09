@@ -679,8 +679,9 @@ const categoriesData = [
         name: 'FOTOS',
         imageUrl: 'https://i.imgur.com/ExemploFotos.png',
         lottieJsonUrl: 'iconsJSON/fotos.json',
-        type: 'modal',
-        targetModalId: 'photos-modal'
+        type: 'link',
+        targetModalId: 'photos-modal',
+        url: 'photos.html'
     }
 ];
 
