@@ -165,7 +165,7 @@ const products = [
         name: 'Romeu e Julieta',
         description: 'Goiabada com Queijo e Bacon',
         price: 13.00,
-        imageUrl: 'https://i.imgur.com/rHzvptL'
+        imageUrl: 'https://i.imgur.com/rHzvptL.png'
     },
     
     
@@ -203,7 +203,7 @@ const products = [
         name: 'Arroz Branco',
         description: 'Arroz soltinho e fresquinho.',
         price: 8.00,
-        imageUrl: 'https://i.imgur.com/ExemploArroz.jpg'
+        imageUrl: 'https://i.imgur.com/dvC86uT.png'
     },
     {
         id: 'guar-2',
