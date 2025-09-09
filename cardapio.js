@@ -219,7 +219,7 @@ const products = [
         name: 'Vinagrete',
         description: 'Tomates selecionados fresquinho.',
         price: 7.00,
-        imageUrl: 'https://i.imgur.com/Aa5hrjm.png'
+        imageUrl: 'https://i.imgur.com/k0fuSro.png'
     },
     {
         id: 'guar-4',
