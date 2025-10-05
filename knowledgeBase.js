@@ -128,7 +128,10 @@
     "bom dia": "🌅 Bom dia! Como posso ajudar você hoje? Pergunte sobre nosso menu 📓, entrega 🛵, horários ⏰, ou qualquer dúvida sobre nossos produtos. ✨",
     "boa tarde": "🌇 Boa tarde! Como posso ajudar você hoje? Pergunte sobre nosso menu 📓, entrega 🛵, horários ⏰, ou qualquer dúvida sobre nossos produtos. ✨",
     "queijo": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",
-    "queijos": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",  
+    "queijos": "🧀 temos o queojo Coalho e o Provolone um melhor que o outro",
+    "Bebidas": "🍷 temos várias opções de bebidas, refrigerantes, cervejas e sucos consulte nosso cardápio para saber mais",
+    "Bebida": "🍷 temos várias opções de bebidas, refrigerantes, cervejas e sucos consulte nosso cardápio para saber mais",
+    "bebidas": "🍷 temos várias opções de bebidas, refrigerantes, cervejas e sucos consulte nosso cardápio para saber mais",  
     "tem jantinha": "🍛 Temos diversas opções de Jantinhas deliciosas para você! Confira:\n\n" +
                    "- **Jantinha Kids:** Uma pequena porção de arroz e estrogonofe de frango (somente consumo no local). [cite_start]Por R$ 17,00. [cite: 15]\n" +
                    "- **Jantinha S/ Espeto:** Arroz, feijão tropeiro ou de caldo, vinagrete e mandioca (sem espeto). [cite_start]Por R$ 19,00. [cite: 15]\n" +
