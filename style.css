@@ -396,7 +396,7 @@
             display: none;  /* Esconde o botão por padrão */
             position: fixed; /* Fixa o botão na tela */
             bottom: 20px; /* Posição abaixo do botão do chat */
-            right: 355px;
+            right: 20px;
             z-index: 998;
             /* Mesmo z-index do botão do chat */
             background-color: var(--accent-color);
