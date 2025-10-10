@@ -474,7 +474,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Coca Cola 600ml',
         description: 'Garrafa 600ml',
-        price: 7.50,
+        price: 8.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -482,7 +482,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Fanta 600ml',
         description: 'Garrafa 600ml',
-        price: 7.50,
+        price: 8.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -490,7 +490,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Guaraná Antártica 600ml',
         description: 'Garrafa 600ml',
-        price: 7.50,
+        price: 8.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -591,6 +591,7 @@ const products = [
         price: 22.00,
         imageUrl: 'https://i.imgur.com/Jasi4nw.png' 
     },
+    
     {
         id: 'sud-5',
         category: 'BEBIDAS',
@@ -599,8 +600,17 @@ const products = [
         price: 20.00,
         imageUrl: 'imagens/breve.png'
     },
-    {
+
+     {
         id: 'sud-6',
+        category: 'BEBIDAS',
+        name: 'Suco Polpa Sabores 500mL',
+        description: '500ml',
+        price: 10.00,
+        imageUrl: 'imagens/breve.png'
+    },
+    {
+        id: 'sud-7',
         category: 'BEBIDAS', 
         name: 'Água Sem Gás 500ml',
         description: '500ml',
@@ -608,7 +618,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'sud-7',
+        id: 'sud-8',
         category: 'BEBIDAS',
         name: 'Água Com Gás 500ml',
         description: '500ml',
@@ -616,7 +626,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'sud-8',
+        id: 'sud-9',
         category: 'BEBIDAS',
         name: 'H2O Limoneto 500ml',
         description: '500ml',
@@ -624,13 +634,16 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'sud-9',
+        id: 'sud-10',
         category: 'BEBIDAS',
         name: 'Energético Lata 473ml',
         description: 'Lata 473ml (Monster/Crystal Energy)',
         price: 13.00,
         imageUrl: 'https://i.imgur.com/655H1vS.png' 
     },
+
+    //----------------------------------------PORÇÕES---------------------------------------------//
+
     {
         id: 'por-1',
         category: 'PORÇÕES',
