@@ -169,7 +169,7 @@ const products = [
     },
 
     {
-        id: 'esp-15',
+        id: 'esp-16',
         category: 'ESPETOS',
         name: 'Romeu e Julieta',
         description: 'Goiabada com Queijo e Bacon',
@@ -177,12 +177,12 @@ const products = [
         imageUrl: 'https://i.imgur.com/rHzvptL.png'
     },
      {
-        id: 'esp-16',
+        id: 'esp-17',
         category: 'ESPETOS',
         name: 'Pão de Alho',
         description: 'Pão de alho',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/rHzvptL.png'
+        imageUrl: 'imagens/breve.png'
     },
     
     
