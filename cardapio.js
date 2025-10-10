@@ -7,7 +7,7 @@ const products = [
         id: 'pp-1',
         category: 'PRATOS',
         name: 'Jantinha Completa',
-        description: 'Arroz, feijão tropeiro ou de caldo, mandioca, vinagrete e 1 espeto a escolha',
+        description: 'Arroz, feijão tropeiro ou de caldo, mandioca e 1 espeto a escolha <br> Opções de salada: Vinagrete, alface tomate ou salada de macarrão',
         price: 22.00,
         imageUrl: 'https://i.imgur.com/7dMcMKA.png'
     },
@@ -15,7 +15,7 @@ const products = [
         id: 'pp-2',
         category: 'PRATOS',
         name: 'Jantinha Nota 1000',
-        description: 'Arroz, feijão tropeiro ou de caldo, mandioca, estrogonofe, batata palha, vinagrete e 1 espeto a escolha',
+        description: 'Arroz, feijão tropeiro ou de caldo, mandioca, estrogonofe, batata palha e 1 espeto a escolha <br> Opções de salada: Vinagrete, alface tomate ou salada de macarrão',
         price: 27.00,
         imageUrl: 'https://i.imgur.com/dkCQj5R.png'
     },
@@ -23,7 +23,7 @@ const products = [
         id: 'pp-3',
         category: 'PRATOS',
         name: 'Jantinha sem Espeto',
-        description: 'Arroz branco, feijão tropeiro ou de caldo, mandioca, vinagrete sem espeto',
+        description: 'Arroz branco, feijão tropeiro ou de caldo e mandioca sem espeto <br> Opções de salada: Vinagrete, alface tomate ou salada de macarrão',
         price: 19.00,
         imageUrl: 'https://i.imgur.com/7fGgNoP.png'
     },
@@ -153,6 +153,15 @@ const products = [
     {
         id: 'esp-14',
         category: 'ESPETOS',
+        name: 'Provolone com bacon',
+        description: 'Queijo provolone bola com bacon , (Acompanhamentos não inclusos)',
+        price: 15.00,
+        imageUrl: 'imagens/breve.png'
+    
+    },
+    {
+        id: 'esp-15',
+        category: 'ESPETOS',
         name: 'Coalho',
         description: 'Queijo Coalho no espeto (Acompanhamentos não inclusos)',
         price: 12.00,
@@ -165,6 +174,14 @@ const products = [
         name: 'Romeu e Julieta',
         description: 'Goiabada com Queijo e Bacon',
         price: 13.00,
+        imageUrl: 'https://i.imgur.com/rHzvptL.png'
+    },
+     {
+        id: 'esp-16',
+        category: 'ESPETOS',
+        name: 'Pão de Alho',
+        description: 'Pão de alho',
+        price: 11.00,
         imageUrl: 'https://i.imgur.com/rHzvptL.png'
     },
     
@@ -294,25 +311,26 @@ const products = [
         name: 'Creme de Tamarindo',
         description: 'Copo de 500ml',
         price: 15.00,
-        imageUrl: ''
+        imageUrl: 'imagens/breve.png'
     },
 
     //--------------------------------------CERVEJAS-------------------------------------//
+     // LATA //
     {
         id: 'cev-1',
         category: 'CERVEJAS',
         name: 'Amstel Lata',
         description: '350ml',
         price: 6.00,
-        imageUrl: 'https://i.imgur.com/ExemploSkol.jpg'
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'cev-2',
         category: 'CERVEJAS',
-        name: 'Brahma Duplo Malte Lata',
+        name: 'Brahma Lata',
         description: '350ml',
         price: 6.00,
-        imageUrl: 'https://i.imgur.com/ExemploBrahma.jpg'
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'cev-3',
@@ -320,7 +338,7 @@ const products = [
         name: 'Antartica Lata',
         description: '350ml',
         price: 6.00,
-        imageUrl: 'https://i.imgur.com/ExemploBrahma.jpg'
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'cev-4',
@@ -328,42 +346,86 @@ const products = [
         name: 'Império lata',
         description: '350ml',
         price: 6.00,
+        imageUrl: 'imagens/breve.png'
     },
 
+        // LONG NECK //
+
+{
+        id: 'cev-5',
+        category: 'CERVEJAS',
+        name: 'SOL Mexicana',
+        description: 'Long Neck 330ml',
+        price: 9.50,
+        imageUrl: 'imagens/breve.png'
+    },
     {
         id: 'cev-6',
         category: 'CERVEJAS',
-        name: 'Budweiser Long Neck',
-        description: 'Long Neck 330ml',
-        price: 9.50,
-    },
-    {
-        id: 'cev-7',
-        category: 'CERVEJAS',
-        name: 'Heineken Long Neck',
+        name: 'Stella Artois',
         description: 'Long Neck 330ml',
         price: 10.00,
+        imageUrl: 'imagens/breve.png'
     },
+        {
+        id: 'cev-7',
+        category: 'CERVEJAS',
+        name: 'Budweiser',
+        description: 'Long Neck 330ml',
+        price: 9.50,
+        imageUrl: 'imagens/breve.png'
+    },
+
+        
     {
         id: 'cev-8',
         category: 'CERVEJAS',
-        name: 'Heineken 600ml',
-        description: 'Garrafa 600ml',
-        price: 14.00,
+        name: 'Heineken',
+        description: 'Long Neck 330ml',
+        price: 10.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'cev-9',
         category: 'CERVEJAS',
-        name: 'Antartica 600ml',
-        description: 'Garrafa 600ml',
-        price: 11.00,
+        name: 'Heineken ZERO ÁLCOOL ',
+        description: 'Long Neck ZERO 330ml',
+        price: 10.00,
+        imageUrl: 'imagens/breve.png'
     },
+
+        // GARAFA 600ML //
     {
         id: 'cev-10',
         category: 'CERVEJAS',
+        name: 'Heineken 600ml',
+        description: 'Garrafa 600ml',
+        price: 15.00,
+        imageUrl: 'imagens/breve.png'
+    },
+    {
+        id: 'cev-11',
+        category: 'CERVEJAS',
+        name: 'Antartica 600ml',
+        description: 'Garrafa 600ml',
+        price: 12.00,
+        imageUrl: 'imagens/breve.png'
+    },
+    {
+        id: 'cev-12',
+        category: 'CERVEJAS',
         name: 'Amstel 600ml',
         description: 'Garrafa 600ml',
-        price: 11.00,
+        price: 12.00,
+        imageUrl: 'imagens/breve.png'
+    },
+    {
+        id: 'cev-13',
+        category: 'CERVEJAS',
+        name: 'Original 600ml',
+        description: 'Garrafa 600ml',
+        price: 13.00,
+        imageUrl: 'imagens/breve.png'
     },
 
     // -------------------------------------------REFRIGERANTES ------------------------------------------//
@@ -373,13 +435,15 @@ const products = [
         name: 'Coca Cola Lata',
         description: 'Lata 350ml',
         price: 6.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-2',
         category: 'BEBIDAS',
         name: 'Coca Cola Lata Zero',
         description: 'Lata 350ml',
-        price: 6.50,
+        price: 7.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-3',
@@ -387,6 +451,7 @@ const products = [
         name: 'Fanta Lata',
         description: 'Lata 350ml',
         price: 6.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-4',
@@ -394,6 +459,7 @@ const products = [
         name: 'Guaraná Antártica Lata',
         description: 'Lata 350ml',
         price: 6.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-5',
@@ -401,6 +467,7 @@ const products = [
         name: 'Sprite ou Soda Lata',
         description: 'Lata 350ml',
         price: 6.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-6',
@@ -408,6 +475,7 @@ const products = [
         name: 'Coca Cola 600ml',
         description: 'Garrafa 600ml',
         price: 7.50,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-7',
@@ -415,6 +483,7 @@ const products = [
         name: 'Fanta 600ml',
         description: 'Garrafa 600ml',
         price: 7.50,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-8',
@@ -422,6 +491,7 @@ const products = [
         name: 'Guaraná Antártica 600ml',
         description: 'Garrafa 600ml',
         price: 7.50,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-9',
@@ -429,6 +499,7 @@ const products = [
         name: 'Coca Cola 1L',
         description: 'Garrafa 1 Litro',
         price: 11.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-10',
@@ -436,6 +507,7 @@ const products = [
         name: 'Fanta 1L',
         description: 'Garrafa 1 Litro',
         price: 11.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-11',
@@ -443,6 +515,7 @@ const products = [
         name: 'Guaraná Antártica 1L',
         description: 'Garrafa 1 Litro',
         price: 11.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-12',
@@ -450,20 +523,23 @@ const products = [
         name: 'Coca Cola 2L',
         description: 'Garrafa 2 Litros',
         price: 14.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-13',
         category: 'BEBIDAS',
         name: 'Coca Cola 2L Zero',
         description: 'Garrafa 2 Litros',
-        price: 14.50,
+        price: 15.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-14',
         category: 'BEBIDAS',
         name: 'Fanta 2L',
         description: 'Garrafa 2 Litros',
-        price: 12.00,
+        price: 13.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-15',
@@ -471,13 +547,15 @@ const products = [
         name: 'Guaraná Antártica 2L',
         description: 'Garrafa 2 Litros',
         price: 13.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'ref-16',
         category: 'BEBIDAS',
         name: 'Mineiro 2L',
         description: 'Garrafa 2 Litros',
-        price: 11.00,
+        price: 12.00,
+        imageUrl: 'imagens/breve.png'
     },
 
     // -------------------------------SUCOS E DIVERSOS----------------------------------------------//
@@ -487,7 +565,7 @@ const products = [
         name: 'Láfruit 1L Sabores',
         description: '1 Litro',
         price: 11.00,
-        imageUrl: 'imagens/sucocaixa1l.png'
+        imageUrl: 'imagens/suco1l.png'
     },
     {
         id: 'sud-2',
@@ -495,7 +573,7 @@ const products = [
         name: 'Suco 200ml Sabores',
         description: '200ml',
         price: 4.00,
-        imageUrl: 'imagens/sucocaixinha200.png'
+        imageUrl: 'imagens/suco200ml.png'
     },
     {
         id: 'sud-3',
@@ -511,7 +589,7 @@ const products = [
         name: 'Suco de Laranja 1L',
         description: '1 Litro',
         price: 22.00,
-        imageUrl: 'URL_DA_IMAGEM_SUCO_LARANJA_1L' 
+        imageUrl: 'https://i.imgur.com/Jasi4nw.png' 
     },
     {
         id: 'sud-5',
@@ -519,7 +597,7 @@ const products = [
         name: 'Suco Polpa Sabores 1L',
         description: '1 Litro',
         price: 20.00,
-        imageUrl: 'URL_DA_IMAGEM_SUCO_POLPA_1L' 
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'sud-6',
@@ -527,7 +605,7 @@ const products = [
         name: 'Água Sem Gás 500ml',
         description: '500ml',
         price: 3.00,
-        imageUrl: 'URL_DA_IMAGEM_AGUA_SEM_GAS' 
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'sud-7',
@@ -535,15 +613,15 @@ const products = [
         name: 'Água Com Gás 500ml',
         description: '500ml',
         price: 4.00,
-        imageUrl: 'URL_DA_IMAGEM_AGUA_COM_GAS' 
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'sud-8',
         category: 'BEBIDAS',
         name: 'H2O Limoneto 500ml',
         description: '500ml',
-        price: 7.00,
-        imageUrl: 'URL_DA_IMAGEM_H2O_LIMONETO' 
+        price: 8.00,
+        imageUrl: 'imagens/breve.png'
     },
     {
         id: 'sud-9',
@@ -598,8 +676,24 @@ const products = [
         category: 'PORÇÕES',
         name: 'Medalhão 1000',
         description: 'Medalhão de frango e bacon recheado com queijo',
-        price: 22.00,
+        price: 25.00,
         imageUrl: 'https://i.imgur.com/on6ZaeR.png',
+    },
+     {
+        id: 'por-7',
+        category: 'PORÇÕES',
+        name: 'Batata Simples 250G',
+        description: 'Batata Frita 250g',
+        price: 16.99,
+        imageUrl: 'imagens/breve.png'
+    },
+      {
+        id: 'por-8',
+        category: 'PORÇÕES',
+        name: 'Batata 1000 250G',
+        description: 'Batata frita com cheddar e bacon, 250g',
+        price: 25.99,
+        imageUrl: 'imagens/breve.png'
     },
 ];
     
