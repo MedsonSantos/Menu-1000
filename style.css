@@ -1862,7 +1862,6 @@
 
 .photo {
   width: 100%;
-  /* Remove a altura fixa */
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 15px var(--shadow-color);
@@ -1877,7 +1876,7 @@
 .photo img {
   width: 100%;
   height: 100%; /* Ocupa todo o contêiner */
-  object-fit: contain; /* 👈 MANTÉM A IMAGEM INTEIRA, SEM CORTAR */
+  object-fit: cover; /* 👈 MANTÉM A IMAGEM INTEIRA, SEM CORTAR */
   object-position: center; /* Centraliza a imagem */
   transition: transform 0.5s ease;
 }
