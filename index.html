@@ -32,7 +32,7 @@
     <main>
         
         <section id="menu-sections">
-            </section>
+        </section>
     </main>
 
     <div class="cart-icon-container" id="cart-icon-container">
@@ -47,7 +47,7 @@
             
             <div id="cart-items-scroll-container" class="cart-items-list-wrapper" style="max-height: 200px; overflow-y: auto;">
                 <div id="cart-items-modal">
-                    </div>
+                </div>
             </div>
             <div class="cart-scroll-buttons">
                 <button id="scroll-up-btn">⬆️</button>
@@ -93,7 +93,22 @@
             </div>
         </div>
     </div>
-
+    
+    <div id="summary-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-modal="summary">×</span> 
+            
+            <h2>📝 Resumo do seu Pedido</h2>
+            
+            <div id="summary-content" class="summary-details">
+                <p>Carregando resumo...</p>
+            </div>
+            
+            <button id="send-order-btn" class="send-order-btn-final">
+                <i class="fab fa-whatsapp"></i> Confirmar e Enviar Pedido
+            </button>
+        </div>
+    </div>
     <div id="info-modal" class="modal">
         <div class="modal-content">
             <span class="close-button" data-modal="info">×</span>
@@ -105,8 +120,8 @@
                 <p>🫰Taxa de entrega pode variar de dependendo da sua localização sendo a mínima de 4,00 R$.</p>
                 <p>💵 Pagamentos via PIX, Cartão (débito/crédito) e Dinheiro.</p>
                 <p>🕧 Horários das entregas:<br>
-                                            📅Terça a Sexta das 19:40 até 23:30<br>
-                                            📅Sábado e Domingo das 19:00 até 23:45 .</p>
+                                             📅Terça a Sexta das 19:40 até 23:30<br>
+                                             📅Sábado e Domingo das 19:00 até 23:45 .</p>
             </div>
             <div class="info-section">
                 <h3><i class="fas fa-clock"></i>Horário de Funcionamento Local</h3>
@@ -136,14 +151,14 @@
     
     <div id="photos-modal" class="modal">
         <div class="modal-content">
-            <span class="close-button" data-modal="photos">&times;</span> 
-                <h2>Nossas Fotos</h2>
+            <span class="close-button" data-modal="photos">×</span> 
+            <h2>Nossas Fotos</h2>
             
             <div class="carousel-container">
-                <button class="carousel-button prev-button" id="prev-photo-btn">&lt;</button>
+                <button class="carousel-button prev-button" id="prev-photo-btn"><</button>
                 <div class="carousel-track" id="carousel-track-photos">
-                    </div>
-                <button class="carousel-button next-button" id="next-photo-btn">&gt;</button>
+                </div>
+                <button class="carousel-button next-button" id="next-photo-btn">></button>
             </div>
 
             </div>

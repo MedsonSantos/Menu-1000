@@ -340,7 +340,38 @@
                 background-color: var(--accent-color);
             }
         }
+        /* Seu CSS (styles.css) */
+#cart-items-scroll-container {
+    /* Altura ajustada para exibir mais itens */
+    max-height: 40vh; /* Era 25vh ou 30vh, aumentamos para 40% da altura da tela */
+    overflow-y: auto;
+    padding-right: 15px; /* Evita que a barra de rolagem corte o texto */
+}
 
+        /* Adicione estilos para o novo modal de resumo */
+        #summary-modal .summary-details {
+            padding: 15px;
+            background-color: var(--card-bg-color);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            max-height: 50vh;
+            overflow-y: auto;
+            text-align: left;
+        }
+        .summary-details h3 {
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 15px;
+        }
+        .summary-details pre {
+            white-space: pre-wrap; /* Mantém a formatação da mensagem do WhatsApp */
+            font-size: 0.9em;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 10px;
+            border-radius: 5px;
+        }
         /* Estilos para a barra de navegação de categorias */
         .category-navigation {
             display: flex;
@@ -1912,4 +1943,149 @@
   .category-title {
     font-size: 1.3em;
   }
+}
+/* =========================================================
+   NOVO CSS: MODAL DE RESUMO DO PEDIDO (#summary-modal)
+   ========================================================= */
+
+/* Estilo para a área de conteúdo do resumo, injetada pelo JS */
+.summary-details {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--bg-primary); /* Fundo um pouco mais escuro para destaque */
+    color: var(--text-primary);
+    max-height: 60vh; /* Limita a altura para scroll em telas pequenas */
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para cada seção dentro do resumo (Detalhes, Itens) */
+.summary-section {
+    padding: 15px 0;
+    border-bottom: 1px dashed var(--border-color);
+    margin-bottom: 15px;
+}
+
+.summary-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.summary-section h3 {
+    color: var(--accent-color); /* Título em cor de destaque */
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Estilo para a lista de itens no resumo */
+.summary-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+    font-size: 1em;
+}
+
+.summary-items-list li {
+    padding: 10px 0;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+}
+
+.summary-items-list li:last-child {
+    border-bottom: none;
+}
+
+/* Estilo para as opções (espeto, feijão, salada) */
+.item-options-list {
+    list-style: disc; /* Use um disco para as sub-opções */
+    padding-left: 20px;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.item-options-list li {
+    border-bottom: none;
+    padding: 2px 0;
+}
+
+/* Estilo para o campo de total final */
+.final-total {
+    background-color: var(--bg-secondary); /* Fundo mais escuro para o total */
+    padding: 18px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--accent-color); /* Borda de destaque */
+    text-align: center;
+}
+
+.final-total h3 {
+    color: var(--text-primary);
+    font-size: 1.8em;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Estilo para a mensagem da taxa de entrega */
+.delivery-fee-info {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-top: 15px;
+    padding: 5px 0;
+    font-style: italic;
+}
+
+/* Estilo para o botão de envio final do WhatsApp */
+.send-order-btn-final {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    font-size: 1.3em;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--button-bg-warning); /* Verde WhatsApp */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+    text-transform: uppercase;
+}
+
+.send-order-btn-final:hover {
+    background-color: var(--button-bg-warning-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(37, 211, 102, 0.6);
+}
+
+.send-order-btn-final i {
+    margin-right: 12px;
+    font-size: 1.6em;
+}
+
+/* --- AJUSTES PARA TEMA CLARO --- */
+body.light-theme .summary-details {
+    background-color: #f7f7f7; /* Fundo mais claro */
+    border: 1px solid #ddd;
+}
+
+body.light-theme .summary-section {
+    border-bottom: 1px dashed #ccc;
+}
+
+body.light-theme .summary-items-list li {
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .final-total {
+    background-color: #eee;
+    border: 2px solid var(--accent-color);
 }
