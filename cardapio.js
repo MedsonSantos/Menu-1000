@@ -243,7 +243,7 @@ const products = [
         category: 'GUARNIÇÕES',
         name: 'Feijão Tropeiro (P)',
         description: 'Porção de feijão tropeiro pequena, mas grande no sabor!',
-        price: 10.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/uCru0sw.png'
     },
     {
@@ -251,7 +251,7 @@ const products = [
         category: 'GUARNIÇÕES',
         name: 'Feijão Tropeiro (G)',
         description: 'Porção de feijão tropeiro grande, para quem quer dividir!',
-        price: 15.00,
+        price: 18.00,
         imageUrl: 'https://i.imgur.com/RB50utr.png'
     },
 
