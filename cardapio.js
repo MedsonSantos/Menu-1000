@@ -139,7 +139,7 @@ const products = [
         name: 'Cafta 1000',
         description: 'Carne bovina envolta em bacon, recheada com queijo (Acompanhamentos não inclusos)',
         price: 14.00,
-        imageUrl: 'https://i.imgur.com/j8KuBRF.png'
+        imageUrl: 'imagens/breve.png'
 
     },
     {
