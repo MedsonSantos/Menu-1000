@@ -181,7 +181,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Pão de Alho',
         description: 'Pão de alho',
-        price: 11.00,
+        price: 7.00,
         imageUrl: 'imagens/breve.png'
     },
     
