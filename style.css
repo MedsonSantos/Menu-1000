@@ -1876,7 +1876,7 @@
 .photo img {
   width: 100%;
   height: 100%; /* Ocupa todo o contêiner */
-  object-fit: cover; /* 👈 MANTÉM A IMAGEM INTEIRA, SEM CORTAR */
+  object-fit: cover; 
   object-position: center; /* Centraliza a imagem */
   transition: transform 0.5s ease;
 }

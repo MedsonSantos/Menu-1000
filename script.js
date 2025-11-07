@@ -666,6 +666,7 @@ document.body;
             htmlSummary: htmlSummary,
             whatsappNumber: '5562992020331' 
         };
+        
     }
 
     /**
@@ -696,6 +697,9 @@ document.body;
     /**
      * Envia a mensagem final do pedido para o WhatsApp.
      */
+    /**
+ * Envia a mensagem final do pedido para o WhatsApp.
+ */
     function sendFinalOrderToWhatsapp(event) {
         const whatsappMessage = event.currentTarget.dataset.whatsappMessage;
         const whatsappNumber = event.currentTarget.dataset.whatsappNumber;
@@ -706,9 +710,13 @@ document.body;
         }
         
         const encodedMessage = encodeURIComponent(whatsappMessage);
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+        
+        // MUDANÇA AQUI: Usando o formato wa.me, que é o padrão recomendado.
+        // Ele carrega mais rápido, mas não impede a edição nem envia automaticamente.
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
         
         console.log('Mensagem final do WhatsApp:', decodeURIComponent(encodedMessage));
+        // Abre a URL, levando o usuário para o WhatsApp com a mensagem pronta.
         window.open(whatsappUrl, '_blank');
         
         closeModal(summaryModal);
