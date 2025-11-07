@@ -9,7 +9,7 @@ const products = [
         name: 'Jantinha Completa',
         description: 'Arroz, feijão tropeiro ou de caldo, mandioca e 1 espeto a escolha <br> Opções de salada: Vinagrete, alface tomate ou salada de macarrão',
         price: 22.00,
-        imageUrl: 'https://i.imgur.com/7dMcMKA.png'
+        imageUrl: 'https://i.imgur.com/kMZvrEx.png'
     },
     {
         id: 'pp-2',
