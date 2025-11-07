@@ -417,41 +417,39 @@
 
         /* Botão Voltar ao Topo */
         #scrollToTopBtn {
-            display: none;  /* Esconde o botão por padrão */
+            display: none; /* Esconde o botão por padrão */
             position: fixed; /* Fixa o botão na tela */
             bottom: 20px; /* Posição abaixo do botão do chat */
             right: 20px;
-            z-index: 998;
-            /* Mesmo z-index do botão do chat */
-            background-color: var(--accent-color);
-            /* Cor de destaque definida nas variáveis */
+            z-index: 998; /* Mesmo z-index do botão do chat */
+            background-color: var(--accent-color); /* Cor de destaque definida nas variáveis */
             color: white;
             border: none;
-            border-radius: 50%;
-            /* Torna o botão redondo */
+            border-radius: 50%; /* Torna o botão redondo */
             width: 50px;
             height: 50px;
             font-size: 1.1em;
             cursor: pointer;
-            box-shadow: 0 2px 5px var(--shadow-color);
-            /* Sombra para destaque */
-            transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
-            display: flex;
-            /* Para centralizar o ícone */
-            justify-content: center;
-            align-items: center;
+            box-shadow: 0 2px 5px var(--shadow-color); /* Sombra para destaque */
+            transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease; /* Transições */
+    /* Removido: display: flex; aqui inicialmente */
         }
+        #scrollToTopBtn.show { /* Adicionamos uma classe 'show' para controle via JS */
+            display: flex !important; /* Força o display flex quando a classe show é adicionada */
+            opacity: 1; /* Garante opacidade total quando visível */
+        }
+        
 
         #scrollToTopBtn:hover {
-            background-color: var(--button-bg-success-hover);
-            /* Altera a cor no hover */
+            background-color: var(--accent-color);
             transform: translateY(-3px);
-            /* Pequeno efeito de elevação */
         }
 
         /* Para o ícone do Font Awesome */
         #scrollToTopBtn .fas {
+            font-size: 1.5em;
             line-height: 1;
+            
             /* Garante que o ícone fique centralizado verticalmente */
         }
 
@@ -1260,7 +1258,11 @@
                 bottom: 30px;
                 right: 35px;
             }
+            #scrollToTopBtn .fas {
+                font-size: 2.5em;
+                line-height: 1;
             
+            }
 
             .category h2 {
                 text-indent: 1em;
@@ -1565,6 +1567,12 @@
                 left: 15px;
             }
 
+        #scrollToTopBtn .fas {
+                font-size: 1.5em;
+                line-height: 1;
+            
+            }
+
         /* Estilos específicos para o Modal do Chatbot */
         .chat-modal-content {
             max-width: 300px;
@@ -1650,6 +1658,11 @@
                 display: none;
                 bottom: 20px;
                 left: 15px;
+            }
+            #scrollToTopBtn .fas {
+                font-size: 1.6em;
+                line-height: 1;
+            
             }
             .category-navigation {
                 display: flex;

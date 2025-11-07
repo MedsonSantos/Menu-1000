@@ -1316,6 +1316,31 @@ if (reservationModal) {
         }
     });
 }
+// Event listener para o botão "Voltar ao Topo" - USO DA VARIÁVEL
+if (scrollToTopBtn) { // <-- Este IF pode estar falhando
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+        if (scrollPosition > 200) {
+            scrollToTopBtn.style.display = "flex";
+            scrollToTopBtn.style.opacity = "1";
+        } else {
+            scrollToTopBtn.style.opacity = "0";
+            setTimeout(() => {
+                if (scrollToTopBtn.style.opacity === "0") {
+                    scrollToTopBtn.style.display = "none";
+                }
+            }, 300);
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
     // Event listener para enviar mensagem no chat com Enter
     if (chatInput) {
