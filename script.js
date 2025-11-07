@@ -970,6 +970,14 @@ document.body;
             menuSections.appendChild(categoryDiv);
         }
 
+        setupProductEventListeners();
+    }
+
+    function setupProductEventListeners() {
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.removeEventListener('click', handleAddButtonClick);
+            button.addEventListener('click', handleAddButtonClick);
+        });
     }
 
     // --- Event Listeners Globais ---
