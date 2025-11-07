@@ -487,7 +487,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renderMenu() {
         if (!menuSections || !categoryNavigation || typeof products === 'undefined' || typeof categoriesData === 'undefined') return;
-
         menuSections.innerHTML = '';
         categoryNavigation.innerHTML = '';
 
@@ -498,48 +497,128 @@ document.addEventListener('DOMContentLoaded', function() {
             acc[product.category].push(product);
             return acc;
         }, {});
-
-        // Renderiza categorias e botões de navegação
-        Object.keys(categories).forEach(categoryName => {
-            const categoryProducts = categories[categoryName];
-            const categorySection = renderProductCards(categoryName, categoryProducts);
-            menuSections.appendChild(categorySection);
-
-            const navButton = document.createElement('button');
-            navButton.className = 'category-button';
-            navButton.textContent = categoryName;
-            navButton.onclick = () => {
-                const element = document.getElementById(normalizeCategoryName(categoryName));
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            };
-            categoryNavigation.appendChild(navButton);
-        });
-
-        // Adiciona botões de link e outros itens da categoriesData
+        
         categoriesData.forEach(item => {
-            if (item.type === 'link') {
-                const navButton = document.createElement('button');
-                navButton.className = 'category-button';
-                navButton.textContent = item.name;
-                if (item.url) {
-                    navButton.onclick = () => {
-                        if (item.targetModalId) {
-                            openModal(document.getElementById(item.targetModalId));
-                        } else {
-                            window.open(item.url, '_blank');
-                        }
-                    };
-                }
-                categoryNavigation.appendChild(navButton);
+            const normalizedId = normalizeCategoryName(item.name);
+            const categoryButton = document.createElement('button');
+            categoryButton.classList.add('category-button');
+            if (item.type === 'category') {
+                categoryButton.dataset.targetId = `category-${normalizedId}`;
+                categoryButton.dataset.type = 'category';
+    
+            } else if (item.type === 'link') {
+                categoryButton.dataset.url = item.url;
+                categoryButton.dataset.type = 'link';
+            } else if (item.type === 'modal') {
+                categoryButton.dataset.targetModalId = item.targetModalId;
+              
+                categoryButton.dataset.type = 'modal';
             }
+
+            const lottieContainer = document.createElement('div');
+            lottieContainer.classList.add('lottie-icon-container');
+            categoryButton.appendChild(lottieContainer);
+
+            const lottieJsonUrlToUse = item.lottieJsonUrl ||
+            (typeof DEFAULT_LOTTIE_JSON !== 'undefined' ? DEFAULT_LOTTIE_JSON : '');
+            const imageUrlToUseForFallback = item.imageUrl ||
+            (typeof DEFAULT_CATEGORY_IMAGE !== 'undefined' ? DEFAULT_CATEGORY_IMAGE : '');
+
+            if (lottieJsonUrlToUse && typeof lottie !== 'undefined') {
+                lottie.loadAnimation({
+                    container: lottieContainer,
+                    renderer: 'svg',
+                    loop: true,
+      
+                    autoplay: true,
+                    path: lottieJsonUrlToUse,
+                    rendererSettings: {
+                        className: 'lottie-svg'
+                  
+                    }
+                });
+            } else if (imageUrlToUseForFallback) {
+                const fallbackImage = document.createElement('img');
+                fallbackImage.src = imageUrlToUseForFallback;
+                fallbackImage.alt = `Ícone da categoria ${item.name}`;
+                lottieContainer.appendChild(fallbackImage);
+            }
+
+            const buttonText = document.createElement('span');
+            buttonText.classList.add('button-text');
+            buttonText.textContent = item.name;
+            categoryButton.appendChild(buttonText);
+
+            categoryButton.addEventListener('click', (event) => {
+                const targetType = event.currentTarget.dataset.type;
+                if (targetType === 'category') {
+                    const targetId = event.currentTarget.dataset.targetId;
+                    const targetElement = document.getElementById(targetId);
+           
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                } else if (targetType === 'link') {
+                  
+                    const url = event.currentTarget.dataset.url;
+                    window.open(url, '_blank');
+                } else if (targetType === 'modal') {
+                    const targetModalId = event.currentTarget.dataset.targetModalId;
+                    const targetModal = document.getElementById(targetModalId);
+      
+                    if (targetModal) {
+                        openModal(targetModal);
+                        if (targetModalId === 'photos-modal') {
+                            renderPhotosInModal();
+                        }
+                    }
+                }
+            });
+            categoryNavigation.appendChild(categoryButton);
         });
 
-        // Adiciona event listeners para os botões de adicionar ao carrinho
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', handleAddButtonClick);
-        });
+        for (const categoryName in categories) {
+            const categoryDataEntry = categoriesData.find(cat => cat.name === categoryName && cat.type === 'category');
+            if (!categoryDataEntry) continue;
+
+            const normalizedId = normalizeCategoryName(categoryName);
+            const categoryDiv = document.createElement('div');
+            categoryDiv.classList.add('category');
+            categoryDiv.id = `category-${normalizedId}`;
+
+            const categoryTitle = document.createElement('h2');
+            categoryTitle.textContent = categoryName;
+            categoryDiv.appendChild(categoryTitle);
+
+            const productsGrid = document.createElement('div');
+            productsGrid.classList.add('products-grid');
+
+            categories[categoryName].forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+                productCard.dataset.id = product.id;
+
+                const imageUrlToUse = (product.imageUrl && !product.imageUrl.includes('link_da_sua_imagem_')) ? product.imageUrl : (typeof DEFAULT_PLACEHOLDER_IMAGE !== 'undefined' ? DEFAULT_PLACEHOLDER_IMAGE : '');
+
+    
+                productCard.innerHTML = `
+                    <div class="product-image-container">
+                        <img src="${imageUrlToUse}" class="product-image-small" alt="${product.name}">
+                    </div>
+                  
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <span class="price">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
+                    <button class="add-to-cart" data-id="${product.id}">Adicionar</button>
+                `;
+
+                productsGrid.appendChild(productCard);
+            });
+
+            categoryDiv.appendChild(productsGrid);
+            menuSections.appendChild(categoryDiv);
+        }
+
     }
 
     // - Função para renderizar os cards de produtos com botão "Ler Mais" (NOVO) -
