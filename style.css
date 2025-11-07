@@ -2093,13 +2093,13 @@ body.light-theme .final-total {
     position: fixed;
     top: 72px; /* Mesma altura do carrinho */
     left: 20px; /* Posição à esquerda */
-    font-size: 2.0em;
+    font-size: 1.5em;
     cursor: pointer;
     color: var(--category-color); /* Usando category-color para o ícone, que é escuro no tema claro */
     background-color: var(--text-secondary); /* Cor de fundo para o container */
     border-radius: 50%;
-    width: 50px; /* Aumentado para 50px para ficar proporcional ao carrinho */
-    height: 50px;
+    width: 35px; /* Aumentado para 35px para ficar proporcional ao carrinho */
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2190,4 +2190,127 @@ body.light-theme .final-total {
     padding: 0.5em;
     text-align: center;
     font-style: italic;
+}
+/* Estilos para o ícone de Reserva (copiados do carrinho) */
+#reservation-icon {
+    position: fixed;
+    top: 72px; /* Mesma altura do carrinho */
+    left: 20px; /* Posição à esquerda */
+    font-size: 2.0em;
+    cursor: pointer;
+    color: var(--category-color); /* Usando category-color para o ícone, que é escuro no tema claro */
+    background-color: var(--text-secondary); /* Cor de fundo para o container */
+    border-radius: 50%;
+    width: 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    z-index: 999;
+    transition: transform 0.1s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+/* --- ESTILOS PARA A DESCRIÇÃO DOS PRODUTOS E BOTÃO "LER MAIS" --- */
+
+/* Container da descrição */
+.description-container {
+    position: relative;
+    margin-top: 0.5em;
+}
+
+/* Estilo da descrição do produto */
+.product-description {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita a descrição a 3 linhas em telas pequenas */
+    -webkit-box-orient: vertical;
+    transition: all 0.3s ease;
+}
+
+/* Estado expandido da descrição */
+.product-description.expanded {
+    -webkit-line-clamp: none; /* Remove o limite de linhas */
+    max-height: none; /* Permite que a descrição ocupe todo o espaço necessário */
+    overflow: visible;
+}
+
+/* Botão "Ler Mais" */
+.read-more-button {
+    background-color: transparent;
+    border: none;
+    color: var(--accent-color); /* Cor de destaque */
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: bold;
+    padding: 0.2em 0.5em;
+    text-decoration: underline;
+    margin-top: 0.3em;
+    transition: color 0.2s ease;
+}
+
+.read-more-button:hover {
+    color: var(--button-bg-success-hover); /* Cor mais escura ao passar o mouse */
+}
+
+/* --- RESPONSIVIDADE: Ajustes para telas pequenas --- */
+
+@media (max-width: 768px) {
+    .product-description {
+        font-size: 0.85em;
+        -webkit-line-clamp: 2; /* Limita a 2 linhas em telas menores */
+    }
+
+    .read-more-button {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-description {
+        font-size: 0.8em;
+        -webkit-line-clamp: 1; /* Limita a 1 linha em telas muito pequenas */
+    }
+
+    .read-more-button {
+        font-size: 0.75em;
+    }
+}
+/* --- RESPONSIVIDADE: Botão de Reserva (ícone) em telas pequenas --- */
+
+/* Ajusta a posição e o tamanho do ícone da reserva em telas menores */
+@media (max-width: 768px) {
+    #reservation-icon {
+        top: 60px; /* Ajuste fino da posição vertical */
+        left: 15px; /* Ajuste fino da posição horizontal */
+        font-size: 1.8em; /* Ligeiramente menor */
+        width: 40px; /* Ajusta a largura */
+        height: 40px; /* Ajusta a altura */
+    }
+}
+
+/* Ajusta a posição e o tamanho do ícone da reserva em telas muito pequenas */
+@media (max-width: 480px) {
+    #reservation-icon {
+        top: 55px; /* Ajuste fino da posição vertical */
+        left: 12px; /* Ajuste fino da posição horizontal */
+        font-size: 1.6em; /* Mais um pouco menor */
+        width: 35px; /* Ajusta a largura */
+        height: 35px; /* Ajusta a altura */
+    }
+}
+
+/* Ajusta a posição e o tamanho do ícone da reserva em telas extremamente pequenas */
+@media (max-width: 378px) {
+    #reservation-icon {
+        top: 50px; /* Ajuste fino da posição vertical */
+        left: 10px; /* Ajuste fino da posição horizontal */
+        font-size: 1.5em; /* Menor ainda */
+        width: 30px; /* Ajusta a largura */
+        height: 30px; /* Ajusta a altura */
+    }
 }
