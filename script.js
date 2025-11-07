@@ -67,8 +67,13 @@ document.body;
     
     // Script para o botão "Voltar ao Topo"
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    
-    //alerta de funcionamento
+
+    // --- Elementos do DOM para o Modal de Reserva ---
+    const reservationModal = document.getElementById('reservation-modal');
+    const reservationIcon = document.getElementById('reservation-icon');
+    const sendReservationWhatsappBtn = document.getElementById('send-reservation-whatsapp');
+
+    // Alerta de funcionamento
     const statusFuncionamentoMainElement = document.getElementById('status-funcionamento-main');
     const operatingHours = {
         // Horários no formato HH:MM
@@ -304,13 +309,18 @@ document.body;
 
     function updateCartDisplay() {
         if (!cartItemsModalContainer || !cartTotalModalSpan || !cartCountSpan) return;
+
         cartItemsModalContainer.innerHTML = '';
         let total = 0;
         let itemCount = 0;
+
         if (cart.length === 0) {
             cartItemsModalContainer.innerHTML = '<p> ❌Nenhum item no carrinho.</p>';
             if (orderDetailsContainer) {
                 orderDetailsContainer.style.display = 'none';
+            }
+            if (checkoutWhatsappModalBtn) {
+                checkoutWhatsappModalBtn.style.display = 'none';
             }
         } else {
             if (orderDetailsContainer) {
@@ -329,7 +339,7 @@ document.body;
 
                 const cartItemDiv = document.createElement('div');
        
-                 cartItemDiv.classList.add('cart-item');
+                cartItemDiv.classList.add('cart-item');
 
                 let optionsHtml = '';
 
@@ -837,184 +847,126 @@ document.body;
     // =========================================================
 
     function renderMenu() {
-        if (!menuSections || !categoryNavigation || typeof products === 'undefined' || typeof categoriesData === 'undefined') return;
-        menuSections.innerHTML = '';
-        categoryNavigation.innerHTML = '';
+    if (!menuSections || !categoryNavigation || typeof products === 'undefined' || typeof categoriesData === 'undefined') return;
 
-        const categories = products.reduce((acc, product) => {
-            if (!acc[product.category]) {
-                acc[product.category] = [];
-            }
-            acc[product.category].push(product);
-            return acc;
-        }, {});
-        
-        categoriesData.forEach(item => {
-            const normalizedId = normalizeCategoryName(item.name);
-            const categoryButton = document.createElement('button');
-            categoryButton.classList.add('category-button');
-            if (item.type === 'category') {
-                categoryButton.dataset.targetId = `category-${normalizedId}`;
-                categoryButton.dataset.type = 'category';
-    
-            } else if (item.type === 'link') {
-                categoryButton.dataset.url = item.url;
-                categoryButton.dataset.type = 'link';
-            } else if (item.type === 'modal') {
-                categoryButton.dataset.targetModalId = item.targetModalId;
-              
-                categoryButton.dataset.type = 'modal';
-            }
+    menuSections.innerHTML = '';
+    categoryNavigation.innerHTML = '';
 
+    // Agrupa os produtos por categoria
+    const categories = products.reduce((acc, product) => {
+        if (!acc[product.category]) {
+            acc[product.category] = [];
+        }
+        acc[product.category].push(product);
+        return acc;
+    }, {});
+
+    // Itera sobre as categorias de produtos
+    Object.keys(categories).forEach(categoryName => {
+        const categoryProducts = categories[categoryName];
+
+        // 1. Renderiza os cards dos produtos para esta categoria
+        const categorySection = renderProductCards(categoryName, categoryProducts); // Assumindo que você tem esta função
+        menuSections.appendChild(categorySection);
+
+        // 2. Procura por dados específicos desta categoria em categoriesData para o botão de navegação
+        const categoryDataEntry = categoriesData.find(
+            item => item.name === categoryName && item.type === 'category'
+        );
+
+        let navButton;
+        if (categoryDataEntry) {
+            // Se encontrar dados na categoriesData, cria o botão com ícone
+            navButton = document.createElement('button');
+            navButton.className = 'category-button';
+
+            // Container para o ícone (Lottie ou imagem)
             const lottieContainer = document.createElement('div');
             lottieContainer.classList.add('lottie-icon-container');
-            categoryButton.appendChild(lottieContainer);
 
-            const lottieJsonUrlToUse = item.lottieJsonUrl ||
-            (typeof DEFAULT_LOTTIE_JSON !== 'undefined' ? DEFAULT_LOTTIE_JSON : '');
-            const imageUrlToUseForFallback = item.imageUrl ||
-            (typeof DEFAULT_CATEGORY_IMAGE !== 'undefined' ? DEFAULT_CATEGORY_IMAGE : '');
+            const lottieJsonUrlToUse = categoryDataEntry.lottieJsonUrl || DEFAULT_LOTTIE_JSON || '';
+            const imageUrlToUseForFallback = categoryDataEntry.imageUrl || DEFAULT_CATEGORY_IMAGE || '';
 
             if (lottieJsonUrlToUse && typeof lottie !== 'undefined') {
+                // Carrega a animação Lottie
                 lottie.loadAnimation({
                     container: lottieContainer,
                     renderer: 'svg',
                     loop: true,
-      
                     autoplay: true,
                     path: lottieJsonUrlToUse,
                     rendererSettings: {
                         className: 'lottie-svg'
-                  
                     }
                 });
             } else if (imageUrlToUseForFallback) {
+                // Usa imagem como fallback
                 const fallbackImage = document.createElement('img');
                 fallbackImage.src = imageUrlToUseForFallback;
-                fallbackImage.alt = `Ícone da categoria ${item.name}`;
+                fallbackImage.alt = `Ícone da categoria ${categoryName}`;
+                fallbackImage.loading = 'lazy'; // Otimização
                 lottieContainer.appendChild(fallbackImage);
             }
 
+            navButton.appendChild(lottieContainer);
+
+            // Texto do botão
             const buttonText = document.createElement('span');
             buttonText.classList.add('button-text');
-            buttonText.textContent = item.name;
-            categoryButton.appendChild(buttonText);
+            buttonText.textContent = categoryName;
+            navButton.appendChild(buttonText);
 
-            categoryButton.addEventListener('click', (event) => {
-                const targetType = event.currentTarget.dataset.type;
-                if (targetType === 'category') {
-                    const targetId = event.currentTarget.dataset.targetId;
-                    const targetElement = document.getElementById(targetId);
-           
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                } else if (targetType === 'link') {
-                  
-                    const url = event.currentTarget.dataset.url;
-                    window.open(url, '_blank');
-                } else if (targetType === 'modal') {
-                    const targetModalId = event.currentTarget.dataset.targetModalId;
-                    const targetModal = document.getElementById(targetModalId);
-      
-                    if (targetModal) {
-                        openModal(targetModal);
-                        if (targetModalId === 'photos-modal') {
-                            renderPhotosInModal();
-                        }
-                    }
+            // Evento para rolar até a seção da categoria
+            navButton.onclick = () => {
+                const element = document.getElementById(normalizeCategoryName(categoryName));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
                 }
-            });
-            categoryNavigation.appendChild(categoryButton);
-        });
+            };
 
-        for (const categoryName in categories) {
-            const categoryDataEntry = categoriesData.find(cat => cat.name === categoryName && cat.type === 'category');
-            if (!categoryDataEntry) continue;
-
-            const normalizedId = normalizeCategoryName(categoryName);
-            const categoryDiv = document.createElement('div');
-            categoryDiv.classList.add('category');
-            categoryDiv.id = `category-${normalizedId}`;
-
-            const categoryTitle = document.createElement('h2');
-            categoryTitle.textContent = categoryName;
-            categoryDiv.appendChild(categoryTitle);
-
-            const productsGrid = document.createElement('div');
-            productsGrid.classList.add('products-grid');
-
-            categories[categoryName].forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.classList.add('product-card');
-                productCard.dataset.id = product.id;
-
-                const imageUrlToUse = (product.imageUrl && !product.imageUrl.includes('link_da_sua_imagem_')) ? product.imageUrl : (typeof DEFAULT_PLACEHOLDER_IMAGE !== 'undefined' ? DEFAULT_PLACEHOLDER_IMAGE : '');
-
-    
-                productCard.innerHTML = `
-                    <div class="product-image-container">
-                        <img src="${imageUrlToUse}" class="product-image-small" alt="${product.name}">
-                    </div>
-                  
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                    <span class="price">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
-                    <button class="add-to-cart" data-id="${product.id}">Adicionar</button>
-                `;
-
-                productsGrid.appendChild(productCard);
-            });
-
-            categoryDiv.appendChild(productsGrid);
-            menuSections.appendChild(categoryDiv);
+        } else {
+            // Se NÃO encontrar dados na categoriesData, cria um botão simples com texto
+            navButton = document.createElement('button');
+            navButton.className = 'category-button';
+            navButton.textContent = categoryName;
+            navButton.onclick = () => {
+                const element = document.getElementById(normalizeCategoryName(categoryName));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            };
         }
 
-        setupProductEventListeners();
-    }
+        // Adiciona o botão (com ou sem ícone) à navegação
+        categoryNavigation.appendChild(navButton);
+    });
 
-    function setupProductEventListeners() {
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.removeEventListener('click', handleAddButtonClick);
-            button.addEventListener('click', handleAddButtonClick);
-        });
-    }
+    // Itera sobre os itens de categoriesData que são links/modais (não categorias de produtos)
+    categoriesData.forEach(item => {
+        if (item.type === 'link') {
+            const navButton = document.createElement('button');
+            navButton.className = 'category-button';
+            navButton.textContent = item.name;
 
-    // --- Event Listeners Globais ---
-
-    // Event Listeners para botões de rolagem do carrinho
-    if (scrollUpBtn) {
-        scrollUpBtn.addEventListener('click', scrollCartUp);
-    }
-    if (scrollDownBtn) {
-        scrollDownBtn.addEventListener('click', scrollCartDown);
-    }
-
-    // Event listener para o botão "Voltar ao Topo"
-    if (scrollToTopBtn) {
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-            if (scrollPosition > 200) {
-                scrollToTopBtn.style.display = "flex";
-                scrollToTopBtn.style.opacity = "1";
-   
-         } else {
-                scrollToTopBtn.style.opacity = "0";
-                setTimeout(() => {
-                    if (scrollToTopBtn.style.opacity === "0") {
-                        scrollToTopBtn.style.display = "none";
-   
-                 }
-                }, 300);
+            if (item.url) {
+                navButton.onclick = () => {
+                    if (item.targetModalId) {
+                        openModal(document.getElementById(item.targetModalId));
+                    } else {
+                        window.open(item.url, '_blank');
+                    }
+                };
             }
-        });
-        scrollToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
+            categoryNavigation.appendChild(navButton);
+        }
+    });
+
+    // Adiciona event listeners para os botões de adicionar ao carrinho
+    // (Esta parte pode ser chamada após renderizar o menu ou em outro lugar adequado)
+    // document.querySelectorAll('.add-to-cart').forEach(button => {
+    //     button.addEventListener('click', handleAddButtonClick);
+    // });
+}
 
     // Event listener para o botão do carrinho no header
     if (cartIconContainer) {
@@ -1125,6 +1077,217 @@ document.body;
 }, 500);
         });
     }
+    function openReservationModal() {
+    if (reservationModal) {
+            reservationModal.style.display = 'flex';
+            // Limpa o formulário ao abrir
+            document.getElementById('reservation-name').value = '';
+            document.getElementById('reservation-people').value = '';
+            document.getElementById('reservation-date').value = '';
+            document.getElementById('reservation-time').value = '';
+            document.getElementById('reservation-notes').value = '';
+
+            // Define a data mínima como hoje
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('reservation-date').min = today;
+        }
+    }
+    function closeReservationModal() {
+        if (reservationModal) {
+            reservationModal.style.display = 'none';
+        }
+    }
+    
+    function validateReservationData() {
+        const name = document.getElementById('reservation-name').value.trim();
+        const people = document.getElementById('reservation-people').value.trim();
+        const dateInput = document.getElementById('reservation-date').value;
+        const time = document.getElementById('reservation-time').value.trim();
+
+        if (!name || !people || !dateInput || !time) {
+            alert('Por favor, preencha todos os campos obrigatórios: Nome, Quantidade de Pessoas, Data e Horário.');
+            return false;
+        }
+        const reservationDate = new Date(dateInput);
+        const [hours, minutes] = time.split(':').map(Number);
+        reservationDate.setHours(hours, minutes, 0, 0); // Define a hora da reserva
+        const reservationDayOfWeek = reservationDate.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado 
+         // Verifica se a data selecionada é anterior à data atual
+
+        const now = new Date();
+
+        if (reservationDate < now) {
+            alert('Desculpe, não é possível fazer reservas para datas e horários passados. Por favor, escolha uma data e horário futuros.');
+            return false;
+        }
+        if (reservationDayOfWeek === 1) { // 1 representa Segunda-feira
+            alert('Desculpe, não fazemos reservas às segundas-feiras, pois estamos fechados. Por favor, escolha outro dia.');
+            return false;
+        }
+        return true;
+    }
+
+    function generateReservationMessage() {
+        if (!validateReservationData()) {
+            return null;
+        }
+        const name = document.getElementById('reservation-name').value.trim();
+        const people = document.getElementById('reservation-people').value.trim();
+        const dateInput = document.getElementById('reservation-date').value;
+        const time = document.getElementById('reservation-time').value.trim();
+        const notes = document.getElementById('reservation-notes').value.trim();
+        const reservationDate = new Date(dateInput);
+        const formattedDate = reservationDate.toLocaleDateString('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+
+        let message = `*NOVA RESERVA*\n\n`;
+        message += `*Nome:* ${name}\n`;
+        message += `*Pessoas:* ${people}\n`;
+        message += `*Data:* ${formattedDate}\n`;
+        message += `*Horário:* ${time}\n`;
+        if (notes) {
+            message += `*Observações:* ${notes}\n`;
+        }
+        message += `\nImportante:* Esta reserva será analisada para confirmar a disponibilidade.`;
+        return encodeURIComponent(message);
+    }
+
+
+    function sendReservationToWhatsApp() {
+        const message = generateReservationMessage();
+        if (!message === null) {
+            return;
+        }
+        const whatsappNumber = '5562992020331'; // Substitua pelo número de telefone desejado
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+        window.open(whatsappUrl, '_blank');
+        closeReservationModal(); // Fecha o modal após enviar
+    }
+
+// --- Event Listeners para o Modal de Reserva ---
+
+/**
+ * Função para renderizar os cards de produtos de uma categoria específica.
+ * @param {string} categoryName - O nome da categoria a ser renderizada.
+ * @param {Array} products - O array de produtos pertencentes à categoria.
+ * @returns {HTMLElement} - O elemento HTML da seção da categoria com os produtos.
+ */
+function renderProductCards(categoryName, products) {
+    const section = document.createElement('section');
+    section.className = 'category';
+    section.id = normalizeCategoryName(categoryName);
+
+    const categoryTitle = document.createElement('h2');
+    categoryTitle.textContent = categoryName;
+    section.appendChild(categoryTitle);
+
+    const productsGrid = document.createElement('div');
+    productsGrid.className = 'products-grid';
+
+    products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+
+            // --- Imagem do Produto ---
+            const img = document.createElement('img');
+            img.src = product.imageUrl || DEFAULT_PLACEHOLDER_IMAGE; // Usa uma imagem padrão se não houver
+            img.alt = product.name;
+            img.loading = 'lazy'; // Carrega a imagem quando entra na viewport (melhora performance)
+            productCard.appendChild(img);
+
+            // --- Nome do Produto ---
+            const title = document.createElement('h3');
+            title.textContent = product.name;
+            productCard.appendChild(title);
+
+            // --- Descrição do Produto com Botão "Ler Mais" ---
+            const descriptionContainer = document.createElement('div');
+            descriptionContainer.className = 'description-container';
+
+            const descriptionText = document.createElement('p');
+            descriptionText.className = 'product-description';
+            descriptionText.innerHTML = product.description;
+            // Importante: O descriptionText é adicionado AO descriptionContainer AQUI
+            descriptionContainer.appendChild(descriptionText);
+
+            // Cria o botão "Ler Mais"
+            const readMoreButton = document.createElement('button');
+            readMoreButton.className = 'read-more-button';
+            readMoreButton.textContent = 'Ler Mais';
+
+            readMoreButton.addEventListener('click', function() {
+                // Alterna a classe 'expanded' no texto da descrição
+                if (descriptionText.classList.contains('expanded')) {
+                    descriptionText.classList.remove('expanded');
+                    readMoreButton.textContent = 'Ler Mais'; // Atualiza o texto do botão
+                } else {
+                    descriptionText.classList.add('expanded');
+                    readMoreButton.textContent = 'Ler Menos'; // Atualiza o texto do botão
+                }
+            });
+
+            // Adiciona o botão ao container
+            descriptionContainer.appendChild(readMoreButton);
+
+            // Adiciona o container (com descrição e botão) ao card do produto
+            // Esta é a ÚNICA linha que adiciona a descrição e o botão ao productCard
+            productCard.appendChild(descriptionContainer);
+
+            // --- Preço do Produto ---
+            const price = document.createElement('div');
+            price.className = 'price';
+            price.textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
+            productCard.appendChild(price);
+
+            // --- Botão "Adicionar ao Carrinho" ---
+            const addToCartBtn = document.createElement('button');
+            addToCartBtn.className = 'add-to-cart';
+            addToCartBtn.textContent = 'Adicionar ➕';
+            // Armazena o ID do produto no botão para uso posterior
+            addToCartBtn.dataset.id = product.id;
+
+            // Adiciona o evento de clique para adicionar ao carrinho
+            addToCartBtn.addEventListener('click', handleAddButtonClick);
+
+            productCard.appendChild(addToCartBtn);
+
+            // Adiciona o card do produto à grade
+            productsGrid.appendChild(productCard);
+        });
+
+    // Adiciona a grade de produtos à seção
+    section.appendChild(productsGrid);
+
+    // Retorna a seção completa
+    return section;
+}
+
+
+// Event listener para abrir o modal de reserva
+if (reservationIcon) {
+    reservationIcon.addEventListener('click', openReservationModal);
+}
+if (sendReservationWhatsappBtn) {
+    sendReservationWhatsappBtn.addEventListener('click', sendReservationToWhatsApp);
+}
+
+// Event listener para o botão de fechar do modal de reserva
+document.querySelectorAll('.close-button[data-modal="reservation"]').forEach(button => {
+    button.addEventListener('click', closeReservationModal);
+});
+
+// Event listener para fechar o modal de reserva
+if (reservationModal) {
+    reservationModal.addEventListener('click', function(event) {
+        if (event.target === reservationModal) {
+            closeReservationModal();
+        }
+    });
+}
 
     // Event listener para enviar mensagem no chat com Enter
     if (chatInput) {
