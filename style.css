@@ -557,7 +557,8 @@
             transition: transform 0.2s ease-in-out, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             width: 100%;
-            overflow: hidden;
+            margin: 10px auto;
+            padding-bottom: 10px;
         }
 
         .product-card:hover {
@@ -589,6 +590,7 @@
             object-position: center;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
+            
         }
 
      
@@ -624,6 +626,7 @@
             white-space: nowrap;
             text-align: center;
             text-overflow: ellipsis;
+            
         }
 
         .product-card p {
