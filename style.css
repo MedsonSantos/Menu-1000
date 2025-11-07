@@ -1171,6 +1171,7 @@
             .products-grid {
                 grid-template-columns: repeat(5, 1fr);
                 /* 5 colunas para desktop */
+                gap: 25px;
             }
              #image-modal .close-button {
                 top: 20px;
