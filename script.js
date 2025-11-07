@@ -970,6 +970,7 @@ document.body;
             menuSections.appendChild(categoryDiv);
         }
 
+<<<<<<< HEAD
         setupProductEventListeners();
     }
 
@@ -978,6 +979,8 @@ document.body;
             button.removeEventListener('click', handleAddButtonClick);
             button.addEventListener('click', handleAddButtonClick);
         });
+=======
+>>>>>>> faea30b3f37300c50f2f3991d913c48ff8ea0e89
     }
 
     // --- Event Listeners Globais ---
