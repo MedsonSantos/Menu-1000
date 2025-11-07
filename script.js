@@ -528,10 +528,6 @@ function sendOrderToWhatsApp() {
     updateCartDisplay();
 }
 
-// =========================================================
-// LÓGICA DO RESUMO DO PEDIDO E WHATSAPP (Refatorada) - FIM
-// =========================================================
-
 // --- Funções para Renderização do Menu ---
 
 function normalizeCategoryName(name) {
