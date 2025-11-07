@@ -186,14 +186,7 @@
             
 
         }
-        .carousel-container {
-            width: 100%; /* Ocupa a largura total do modal-content */
-            flex-grow: 1; /* Permite que ocupe o espaço disponível */
-            display: flex; /* Para centralizar o track interno */
-            justify-content: center; /* Centraliza o track horizontalmente */
-            align-items: center; /* Centraliza o track verticalmente */
-            overflow: hidden; /* Garante que nada transborde */
-        }
+        
 
         /* Estilos para o ícone de alternar tema */
         .theme-toggle-container {
@@ -538,10 +531,12 @@
 
         .products-grid {
             display: grid;
-            gap: 20px;
-            /* Padrão para mobile (1 coluna) ou telas maiores que 480px e menores que 768px (2 colunas) */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            /* Será sobrescrito pelas media queries */
+            gap: 20px; /* Espaçamento entre os itens */
+            grid-template-columns: repeat(2, 1fr);
+            font-size: 15px;
+            text-indent: 0.5em;
+            font-family: pacifico, sans-serif; /* Mantém a fonte consistente */
+            font-weight: 800; /* Mantém o peso da fonte consistente */
         }
 
         .product-card {
@@ -1351,7 +1346,7 @@
 
             .products-grid { /* Ajusta a grade de produtos para telas pequenas NOS ITENS PRUDUTOS */
                 display: grid;
-                gap: 3px;/* Espaçamento entre os itens */
+                gap: 20px;/* Espaçamento entre os itens */
                 grid-template-columns: repeat(2, 1fr);
                 font-size: 15px;
                 text-indent: 0.5em;
