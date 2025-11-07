@@ -370,6 +370,22 @@
     // Fotos
     "fotos": "📸 Confira nossas fotos deliciosas! Temos uma variedade de pratos e drinks que vão te deixar com água na boca!",
     "foto": "📸 Confira nossas fotos deliciosas! Temos uma variedade de pratos e drinks que vão te deixar com água na boca!",
+
+    // --------------------------------------------------Reservas--------------------------------------------------//
+
+        // --- Informações sobre Reserva ---
+    "agendamento": "Para agendar uma reserva, clique no ícone do calendário 📅 localizado no canto superior esquerdo da tela. Preencha o formulário com seu nome, a quantidade de pessoas, a data e o horário desejados, e envie via WhatsApp. A reserva será analisada e confirmada mediante disponibilidade.",
+    "agendar": "Para agendar uma reserva, clique no ícone do calendário 📅 localizado no canto superior esquerdo da tela. Preencha o formulário com seu nome, a quantidade de pessoas, a data e o horário desejados, e envie via WhatsApp. A reserva será analisada e confirmada mediante disponibilidade.",
+    "reserva": "Para fazer uma reserva, clique no ícone do calendário 📅 localizado no canto superior esquerdo da tela. Preencha o formulário com seu nome, a quantidade de pessoas, a data e o horário desejados, e envie via WhatsApp. A reserva será analisada e confirmada mediante disponibilidade.",
+    "reservar": "Para fazer uma reserva, clique no ícone do calendário 📅 localizado no canto superior esquerdo da tela. Preencha o formulário com seu nome, a quantidade de pessoas, a data e o horário desejados, e envie via WhatsApp. A reserva será analisada e confirmada mediante disponibilidade.",
+    "reservas": "Para fazer uma reserva, clique no ícone do calendário 📅 localizado no canto superior esquerdo da tela. Preencha o formulário com seu nome, a quantidade de pessoas, a data e o horário desejados, e envie via WhatsApp. A reserva será analisada e confirmada mediante disponibilidade.",
+    "marcar mesa": "Para marcar uma mesa, clique no ícone do calendário 📅 localizado no canto superior esquerdo da tela. Preencha o formulário com seu nome, a quantidade de pessoas, a data e o horário desejados, e envie via WhatsApp. A reserva será analisada e confirmada mediante disponibilidade.",
+    "marcar": "Para marcar uma mesa (reserva), clique no ícone do calendário 📅 localizado no canto superior esquerdo da tela. Preencha o formulário com seu nome, a quantidade de pessoas, a data e o horário desejados, e envie via WhatsApp. A reserva será analisada e confirmada mediante disponibilidade.",
+    "como faço reserva": "Para fazer uma reserva, clique no ícone do calendário 📅 localizado no canto superior esquerdo da tela. Preencha o formulário com seu nome, a quantidade de pessoas, a data e o horário desejados, e envie via WhatsApp. A reserva será analisada e confirmada mediante disponibilidade.",
+    "como agendar": "Para agendar uma reserva, clique no ícone do calendário 📅 localizado no canto superior esquerdo da tela. Preencha o formulário com seu nome, a quantidade de pessoas, a data e o horário desejados, e envie via WhatsApp. A reserva será analisada e confirmada mediante disponibilidade.",
+    "disponibilidade": "A disponibilidade de mesas para reserva depende do dia e horário solicitados. Após enviar sua solicitação via formulário, nossa equipe verificará a disponibilidade e entrará em contato para confirmar.",
+    "confirmação": "A confirmação da reserva é feita após análise da disponibilidade de mesas para o dia e horário solicitados. Você receberá uma confirmação via WhatsApp.",
+    "cancelar reserva": "Para cancelar uma reserva, entre em contato conosco via WhatsApp (o número é o mesmo usado para fazer a reserva) o quanto antes, informando os detalhes da reserva (nome, data e horário)."
 };  
   // --- Lógica Principal do Chatbot ---
 

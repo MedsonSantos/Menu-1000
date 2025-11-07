@@ -326,6 +326,10 @@ document.body;
             if (orderDetailsContainer) {
                 orderDetailsContainer.style.display = 'block';
             }
+
+            if (checkoutWhatsappModalBtn) {
+                checkoutWhatsappModalBtn.style.display = 'block';
+            }
             cart.forEach((cartItem, index) => {
                 const product = products.find(p => p.id === cartItem.id);
                 if (!product) {
@@ -846,7 +850,7 @@ document.body;
     // NOVO CÓDIGO DO CARROSSEL DE FOTOS - FIM
     // =========================================================
 
-    function renderMenu() {
+function renderMenu() {
     if (!menuSections || !categoryNavigation || typeof products === 'undefined' || typeof categoriesData === 'undefined') return;
 
     menuSections.innerHTML = '';
@@ -861,27 +865,25 @@ document.body;
         return acc;
     }, {});
 
-    // Itera sobre as categorias de produtos
+    // 1. Renderiza as categorias de produtos
     Object.keys(categories).forEach(categoryName => {
         const categoryProducts = categories[categoryName];
-
-        // 1. Renderiza os cards dos produtos para esta categoria
-        const categorySection = renderProductCards(categoryName, categoryProducts); // Assumindo que você tem esta função
+        const categorySection = renderProductCards(categoryName, categoryProducts);
         menuSections.appendChild(categorySection);
 
-        // 2. Procura por dados específicos desta categoria em categoriesData para o botão de navegação
+        // Cria o botão de navegação para esta categoria
+        const navButton = document.createElement('button');
+        navButton.className = 'category-button';
+
+        // Procura dados específicos desta categoria em categoriesData
         const categoryDataEntry = categoriesData.find(
             item => item.name === categoryName && item.type === 'category'
         );
 
-        let navButton;
+        let lottieContainer;
         if (categoryDataEntry) {
-            // Se encontrar dados na categoriesData, cria o botão com ícone
-            navButton = document.createElement('button');
-            navButton.className = 'category-button';
-
-            // Container para o ícone (Lottie ou imagem)
-            const lottieContainer = document.createElement('div');
+            // Se encontrar dados na categoriesData, cria o container para o ícone
+            lottieContainer = document.createElement('div');
             lottieContainer.classList.add('lottie-icon-container');
 
             const lottieJsonUrlToUse = categoryDataEntry.lottieJsonUrl || DEFAULT_LOTTIE_JSON || '';
@@ -904,7 +906,62 @@ document.body;
                 const fallbackImage = document.createElement('img');
                 fallbackImage.src = imageUrlToUseForFallback;
                 fallbackImage.alt = `Ícone da categoria ${categoryName}`;
-                fallbackImage.loading = 'lazy'; // Otimização
+                fallbackImage.loading = 'lazy';
+                lottieContainer.appendChild(fallbackImage);
+            }
+
+            navButton.appendChild(lottieContainer);
+        }
+
+        // Texto do botão
+        const buttonText = document.createElement('span');
+        buttonText.classList.add('button-text');
+        buttonText.textContent = categoryName;
+        navButton.appendChild(buttonText);
+
+        // Evento para rolar até a seção da categoria
+        navButton.onclick = () => {
+            const element = document.getElementById(normalizeCategoryName(categoryName));
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+
+        // Adiciona o botão (com ou sem ícone) à navegação
+        categoryNavigation.appendChild(navButton);
+    });
+
+    // 2. Renderiza os botões de link/modais (WHATSAPP, INSTAGRAM, MAPA, FOTOS, etc.)
+    categoriesData.forEach(item => {
+        if (item.type === 'link') {
+            const navButton = document.createElement('button');
+            navButton.className = 'category-button';
+
+            // Container para o ícone (Lottie ou imagem)
+            const lottieContainer = document.createElement('div');
+            lottieContainer.classList.add('lottie-icon-container');
+
+            const lottieJsonUrlToUse = item.lottieJsonUrl || DEFAULT_LOTTIE_JSON || '';
+            const imageUrlToUseForFallback = item.imageUrl || DEFAULT_CATEGORY_IMAGE || '';
+
+            if (lottieJsonUrlToUse && typeof lottie !== 'undefined') {
+                // Carrega a animação Lottie
+                lottie.loadAnimation({
+                    container: lottieContainer,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: lottieJsonUrlToUse,
+                    rendererSettings: {
+                        className: 'lottie-svg'
+                    }
+                });
+            } else if (imageUrlToUseForFallback) {
+                // Usa imagem como fallback
+                const fallbackImage = document.createElement('img');
+                fallbackImage.src = imageUrlToUseForFallback;
+                fallbackImage.alt = `Ícone do link ${item.name}`;
+                fallbackImage.loading = 'lazy';
                 lottieContainer.appendChild(fallbackImage);
             }
 
@@ -913,59 +970,30 @@ document.body;
             // Texto do botão
             const buttonText = document.createElement('span');
             buttonText.classList.add('button-text');
-            buttonText.textContent = categoryName;
+            buttonText.textContent = item.name;
             navButton.appendChild(buttonText);
 
-            // Evento para rolar até a seção da categoria
+            // Evento para abrir o link ou modal
             navButton.onclick = () => {
-                const element = document.getElementById(normalizeCategoryName(categoryName));
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            };
-
-        } else {
-            // Se NÃO encontrar dados na categoriesData, cria um botão simples com texto
-            navButton = document.createElement('button');
-            navButton.className = 'category-button';
-            navButton.textContent = categoryName;
-            navButton.onclick = () => {
-                const element = document.getElementById(normalizeCategoryName(categoryName));
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            };
-        }
-
-        // Adiciona o botão (com ou sem ícone) à navegação
-        categoryNavigation.appendChild(navButton);
-    });
-
-    // Itera sobre os itens de categoriesData que são links/modais (não categorias de produtos)
-    categoriesData.forEach(item => {
-        if (item.type === 'link') {
-            const navButton = document.createElement('button');
-            navButton.className = 'category-button';
-            navButton.textContent = item.name;
-
-            if (item.url) {
-                navButton.onclick = () => {
-                    if (item.targetModalId) {
-                        openModal(document.getElementById(item.targetModalId));
-                    } else {
-                        window.open(item.url, '_blank');
+                if (item.targetModalId) {
+                    openModal(document.getElementById(item.targetModalId));
+                    if (item.targetModalId === 'photos-modal') {
+                        renderPhotosInModal();
                     }
-                };
-            }
+                } else if (item.url) {
+                    window.open(item.url, '_blank');
+                }
+            };
+
+            // Adiciona o botão à navegação
             categoryNavigation.appendChild(navButton);
         }
     });
 
     // Adiciona event listeners para os botões de adicionar ao carrinho
-    // (Esta parte pode ser chamada após renderizar o menu ou em outro lugar adequado)
-    // document.querySelectorAll('.add-to-cart').forEach(button => {
-    //     button.addEventListener('click', handleAddButtonClick);
-    // });
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', handleAddButtonClick);
+    });
 }
 
     // Event listener para o botão do carrinho no header
