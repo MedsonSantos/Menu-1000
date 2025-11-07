@@ -556,6 +556,8 @@
             padding: 0.2em;
             transition: transform 0.2s ease-in-out, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             position: relative;
+            width: 100%;
+            overflow: hidden;
         }
 
         .product-card:hover {
@@ -610,11 +612,16 @@
         }
 
         .product-card h3 {
-            font-size: 1.3em;
+            font-size: 1em;
             margin: 0.4em 0.3em 0.1em;
             color: var(--text-primary);
             font-weight: 600;
             transition: color 0.3s ease;
+            overflow: hidden;
+            width: 100%;
+            white-space: nowrap;
+            text-align: center;
+            text-overflow: ellipsis;
         }
 
         .product-card p {
