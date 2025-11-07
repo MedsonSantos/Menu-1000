@@ -590,7 +590,6 @@
      
         .product-card:not(:has(.product-image-container img))::before {
             /* Ajustado o seletor para verificar o contêiner */
-            content: 'SEM IMAGEM';
             position: absolute;
             top: 0;
             left: 0;
