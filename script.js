@@ -76,6 +76,10 @@ document.body;
         closeTime: '23:59', // 23:59h
         closedDay: 1 // 1 para Segunda-feira (0=Dom, 1=Seg, ..., 6=Sab)
     };
+    // --- Elementos do DOM para o Modal de Reserva ---
+    const reservationModal = document.getElementById('reservation-modal');
+    const reservationIconContainer = document.getElementById('reservation-icon-container');
+    const sendReservationWhatsappBtn = document.getElementById('send-reservation-whatsapp');
     
     // --- Variáveis de Dados (assumindo que vêm de cardapio.js e knowledgeBase.js) ---
     // Certifique-se de que 'products', 'categoriesData', 'chatbotKnowledgeBase',
@@ -1125,6 +1129,180 @@ document.body;
 }, 500);
         });
     }
+    // --- Elementos do DOM para o Modal de Reserva ---
+
+// --- Funções para o Modal de Reserva ---
+
+/**
+ * Abre o modal de reserva.
+ */
+function openReservationModal() {
+    if (reservationModal) {
+        reservationModal.style.display = 'flex';
+        // Limpa o formulário ao abrir
+        document.getElementById('reservation-name').value = '';
+        document.getElementById('reservation-people').value = '';
+        document.getElementById('reservation-date').value = '';
+        document.getElementById('reservation-time').value = '';
+        document.getElementById('reservation-notes').value = '';
+
+        // Define a data mínima como hoje
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('reservation-date').min = today;
+    }
+}
+
+/**
+ * Fecha o modal de reserva.
+ */
+function closeReservationModal() {
+    if (reservationModal) {
+        reservationModal.style.display = 'none';
+    }
+}
+
+function validateReservationData() {
+    const name = document.getElementById('reservation-name').value.trim();
+    const people = document.getElementById('reservation-people').value.trim();
+    const dateInput = document.getElementById('reservation-date').value;
+    const time = document.getElementById('reservation-time').value.trim();
+
+    if (!name || !people || !dateInput || !time) {
+        alert('Por favor, preencha todos os campos obrigatórios: Nome, Quantidade de Pessoas, Data e Horário.');
+        return false;
+    }
+
+    const reservationDate = new Date(dateInput);
+    const today = new Date();
+    const reservationDayOfWeek = reservationDate.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
+    
+    if (reservationDate < today) {
+        alert('Desculpe, não é possível fazer reservas para datas passadas. Por favor, escolha uma data futura.');
+        return false;
+    }
+
+    // Verifica se a data selecionada é uma Segunda-feira
+    if (reservationDayOfWeek === 1) { // 1 representa Segunda-feira
+        alert('Desculpe, não fazemos reservas às segundas-feiras, pois estamos fechados. Por favor, escolha outro dia.');
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * Gera a mensagem de reserva formatada para o WhatsApp.
+ * @returns {string} A mensagem pronta para ser enviada.
+ */
+
+
+/**
+ * Envia a mensagem de reserva para o WhatsApp.
+ */
+// --- Funções para o Modal de Reserva (Atualizadas) ---
+
+function generateReservationMessage() {
+    if (!validateReservationData()) {
+        return null; // Retorna null se a validação falhar
+    }
+
+    const name = document.getElementById('reservation-name').value.trim();
+    const people = document.getElementById('reservation-people').value.trim();
+    const dateInput = document.getElementById('reservation-date').value;
+    const time = document.getElementById('reservation-time').value.trim();
+    const notes = document.getElementById('reservation-notes').value.trim();
+
+    // Formata a data para DD/MM/YYYY
+    const reservationDate = new Date(dateInput);
+    const formattedDate = reservationDate.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+    let message = `*NOVA RESERVA*\n\n`;
+    message += `*Nome:* ${name}\n`;
+    message += `*Pessoas:* ${people}\n`;
+    message += `*Data:* ${formattedDate}\n`;
+    message += `*Horário:* ${time}\n`;
+    if (notes) {
+        message += `*Observações:* ${notes}\n`;
+    }
+    message += `\n*Importante:* Esta reserva será analisada para confirmar a disponibilidade.`;
+
+    return encodeURIComponent(message);
+}
+
+
+
+/**
+ * Envia a mensagem de reserva para o WhatsApp.
+ */
+function sendReservationToWhatsApp() {
+    const message = generateReservationMessage();
+
+    if (message === null) { // Verifica se a validação falhou
+        return; // Sai da função se a validação falhar
+    }
+
+    const whatsappNumber = '5562992020331'; // Seu número de WhatsApp
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    window.open(whatsappUrl, '_blank');
+    closeReservationModal(); // Fecha o modal após enviar
+}
+
+// --- Event Listeners para o Modal de Reserva (Mantidos ou Atualizados) ---
+
+// Event listener para abrir o modal de reserva
+if (reservationIconContainer) {
+    reservationIconContainer.addEventListener('click', openReservationModal);
+}
+
+// Event listener para fechar o modal de reserva
+if (reservationModal) {
+    reservationModal.addEventListener('click', function(event) {
+        if (event.target === reservationModal) {
+            closeReservationModal();
+        }
+    });
+}
+
+// Event listener para o botão de envio da reserva
+if (sendReservationWhatsappBtn) {
+    sendReservationWhatsappBtn.addEventListener('click', sendReservationToWhatsApp);
+}
+
+// Event listener para o botão de fechar do modal de reserva
+document.querySelectorAll('.close-button[data-modal="reservation"]').forEach(button => {
+    button.addEventListener('click', closeReservationModal);
+});
+
+// --- Funções auxiliares (Adicionadas se não existirem ainda) ---
+// (mantenha as funções openReservationModal, closeReservationModal, e as variáveis dos elementos, se já estiverem definidas anteriormente)
+
+
+// --- Event Listeners para o Modal de Reserva ---
+
+// Event listener para abrir o modal de reserva
+if (reservationIconContainer) {
+    reservationIconContainer.addEventListener('click', openReservationModal);
+}
+
+// Event listener para fechar o modal de reserva
+if (reservationModal) {
+    reservationModal.addEventListener('click', function(event) {
+        if (event.target === reservationModal) {
+            closeReservationModal();
+        }
+    });
+}
+
+// Event listener para o botão de envio da reserva
+if (sendReservationWhatsappBtn) {
+    sendReservationWhatsappBtn.addEventListener('click', sendReservationToWhatsApp);
+}
+
+// Event listener para o botão de fechar do modal de reserva
+document.querySelectorAll('.close-button[data-modal="reservation"]').forEach(button => {
+    button.addEventListener('click', closeReservationModal);
+});
 
     // Event listener para enviar mensagem no chat com Enter
     if (chatInput) {

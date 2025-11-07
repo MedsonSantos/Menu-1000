@@ -11,6 +11,56 @@
     
 </head>
 <body>
+    <!-- Botão de Reserva (novidade) -->
+<div class="reservation-icon-container" id="reservation-icon-container">
+    <i class="fas fa-calendar-check reservation-icon"></i>
+</div>
+<!-- Modal de Reserva (novidade) -->
+<div id="reservation-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" data-modal="reservation">×</span>
+        <h2>📅 Fazer Reserva</h2>
+        <div class="input-group">
+            <label for="reservation-name">Nome:</label>
+            <input type="text" id="reservation-name" class="order-input" placeholder="Seu nome completo" required>
+        </div>
+        <div class="input-group">
+            <label for="reservation-people">Quantidade de Pessoas:</label>
+            <input type="number" id="reservation-people" class="order-input" min="1" max="20" placeholder="Ex: 4" required>
+        </div>
+         <div class="input-group">
+            <label for="reservation-date">Data Desejada:</label>
+            <input type="date" id="reservation-date" class="order-input" required>
+        </div>
+        <div class="input-group">
+            <label for="reservation-time">Horário Desejado:</label>
+            <select id="reservation-time" class="order-input" required>
+                <option value="" disabled selected>Selecione um horário</option>
+                <!-- Horários de funcionamento (ajuste conforme necessário) -->
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option>
+                <option value="22:30">22:30</option>
+                <option value="23:00">23:00</option>
+                <option value="23:30">23:30</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="reservation-notes">Observações (Opcional):</label>
+            <textarea id="reservation-notes" class="order-input" rows="3" placeholder="Ex: Aniversário, Confraternização etc."></textarea>
+        </div>
+        <p class="reservation-warning" id="reservation-warning">
+            <strong>Importante:</strong> A reserva será analisada via WhatsApp para confirmar a disponibilidade.
+        </p>
+        <button id="send-reservation-whatsapp"><i class="fab fa-whatsapp"></i> Enviar Reserva via WhatsApp</button>
+    </div>
+</div>
+
     <header>
         <div class="theme-toggle-container" id="theme-toggle-container">
             <i class="fas fa-sun" id="theme-toggle-icon"></i>
