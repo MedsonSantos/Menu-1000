@@ -316,6 +316,44 @@
         .cart-icon-container.flash {
             animation: cartFlash 0.8s ease-out;
         }
+        /* --- INDICADOR VISUAL DE ROLAGEM NO CARRINHO --- */
+
+/* Sombra suave na parte inferior da lista de itens */
+        #cart-items-scroll-container {
+            position: relative;
+        }
+
+/* Pseudo-elemento para criar a sombra */
+        #cart-items-scroll-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px; /* Altura da sombra */
+            background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3)); /* Gradiente que desaparece para cima */
+            pointer-events: none; /* Permite que cliques passem através da sombra */
+            z-index: 10; /* Fica acima dos itens, mas abaixo do cabeçalho do modal */
+            transition: opacity 0.3s ease;
+        }
+
+/* Oculta a sombra se a lista de itens estiver totalmente visível (não há rolagem) */
+        #cart-items-scroll-container:not(:hover):not(:focus-within) {
+            /* Não aplica a sombra se o container não estiver em foco ou hover */
+        }
+
+/* Ajusta a sombra quando o usuário está rolando ou passando o mouse */
+        #cart-items-scroll-container:hover::after,
+        #cart-items-scroll-container:focus-within::after {
+            opacity: 1;
+        }
+
+/* Para telas pequenas, ajuste a altura da sombra */
+        @media (max-width: 768px) {
+            #cart-items-scroll-container::after {
+                height: 40px;
+            }
+        }
 
         @keyframes cartFlash {
             0% {
@@ -333,13 +371,15 @@
                 background-color: var(--accent-color);
             }
         }
-        /* Seu CSS (styles.css) */
-#cart-items-scroll-container {
-    /* Altura ajustada para exibir mais itens */
-    max-height: 40vh; /* Era 25vh ou 30vh, aumentamos para 40% da altura da tela */
-    overflow-y: auto;
-    padding-right: 15px; /* Evita que a barra de rolagem corte o texto */
-}
+        /* Rolagem dos itens dentro do carrinho */
+        #cart-items-scroll-container {
+            max-height: 40vh;
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
 
         /* Adicione estilos para o novo modal de resumo */
         #summary-modal .summary-details {
@@ -563,7 +603,7 @@
         /* Contêiner da imagem/item- Garante uma proporção fixa para evitar o corte indesejado */
         .product-card .product-image-container {
             width: 100%;
-            height: 90%;
+            height: 180px;
             padding-top: 75%;
             position: relative;
             overflow: hidden;
@@ -578,26 +618,31 @@
         /* A Imagem em si - Preenche o contêiner e se ajusta/centraliza */
         .product-card .product-image-container img {
             position: absolute;
+            top: 0;
+            left: 0;
             top:30%;
             left: 30%;
             width: 100%;
-            height: 90%;
+            height: 100%;
             object-fit: cover;
             object-position: center;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
+            transition: transform 0.3s ease;
             
         }
-
+        /* Efeito de zoom ao passar o mouse sobre a imagem*/
+        .product-card .product-image-container img:hover {
+            transform: scale(1.05);
+        }
      
         .product-card:not(:has(.product-image-container img))::before {
             /* Ajustado o seletor para verificar o contêiner */
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 50%;
+            left: 50%;
             width: 100%;
             height: 180px;
-            /* Pode precisar de ajuste com o novo contêiner */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;

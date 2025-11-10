@@ -32,9 +32,7 @@ document.body;
     const summaryContentDiv = document.getElementById('summary-content');
     const sendOrderBtn = document.getElementById('send-order-btn'); 
 
-    // Botões de rolagem do carrinho
-    const scrollUpBtn = document.getElementById('scroll-up-btn');
-    const scrollDownBtn = document.getElementById('scroll-down-btn');
+   
     
     // Elementos do Modal de Informações
     const infoModal = document.getElementById('info-modal');
