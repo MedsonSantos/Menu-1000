@@ -38,11 +38,7 @@ document.body;
     const infoModal = document.getElementById('info-modal');
     const infoToggleContainer = document.getElementById('info-toggle-container');
     
-    // Elementos do Modal de Fotos (AJUSTADOS PARA O CARROSSEL)
-    const photosModal = document.getElementById('photos-modal');
-    const carouselTrackPhotos = document.getElementById('carousel-track-photos');
-    const prevPhotoButton = document.getElementById('prev-photo-btn');
-    const nextPhotoButton = document.getElementById('next-photo-btn');
+ 
     
     // Elementos do Ícone do Carrinho no Header
     const cartIconContainer = document.getElementById('cart-icon-container');
@@ -758,95 +754,6 @@ document.body;
             addToCart(productId);
         }
     }
-
-    // =========================================================
-    // NOVO CÓDIGO DO CARROSSEL DE FOTOS - INÍCIO
-    // =========================================================
-    let currentSlideIndex = 0;
-    let photoSlides = [];
-
-    /**
-     * Renderiza as fotos dentro do modal de fotos como um carrossel.
-    */
-    function renderPhotosInModal() {
-        if (!carouselTrackPhotos || typeof photos === 'undefined' || !Array.isArray(photos)) {
-            console.warn("'photos' não está definida ou não é um array.");
-            carouselTrackPhotos.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
-            if (prevPhotoButton) prevPhotoButton.style.display = 'none';
-            if (nextPhotoButton) nextPhotoButton.style.display = 'none';
-            return;
-        }
-
-        carouselTrackPhotos.innerHTML = '';
-        photoSlides = [];
-        if (photos.length === 0) {
-            carouselTrackPhotos.innerHTML = '<p>Nenhuma foto disponível no momento.</p>';
-            if (prevPhotoButton) prevPhotoButton.style.display = 'none';
-            if (nextPhotoButton) nextPhotoButton.style.display = 'none';
-            return;
-        }
-
-        photos.forEach((photoUrl, index) => {
-            const imgContainer = document.createElement('div');
-            imgContainer.classList.add('carousel-slide');
-            const img = document.createElement('img');
-            img.src = photoUrl;
-            img.alt = `Foto da Jantinha Nota 1000 - ${index + 1}`;
-           
-            imgContainer.appendChild(img);
-            carouselTrackPhotos.appendChild(imgContainer);
-            photoSlides.push(imgContainer);
-        });
-        currentSlideIndex = 0;
-        updateCarouselButtons();
-    }
-
-    function showPhotoSlide(index) {
-        if (photoSlides.length === 0) return;
-        currentSlideIndex = Math.max(0, Math.min(index, photoSlides.length - 1));
-        const scrollPosition = currentSlideIndex * carouselTrackPhotos.offsetWidth;
-        carouselTrackPhotos.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth'
-        });
-        updateCarouselButtons();
-    }
-
-    function updateCarouselButtons() {
-        if (photoSlides.length <= 1) {
-            if (prevPhotoButton) prevPhotoButton.style.display = 'none';
-            if (nextPhotoButton) nextPhotoButton.style.display = 'none';
-        } else {
-            if (prevPhotoButton) prevPhotoButton.style.display = (currentSlideIndex === 0) ?
-            'none' : 'block';
-            if (nextPhotoButton) nextPhotoButton.style.display = (currentSlideIndex === photoSlides.length - 1) ? 'none' : 'block';
-        }
-    }
-
-    // Event Listeners para os botões do carrossel
-    if (prevPhotoButton) {
-        prevPhotoButton.addEventListener('click', () => {
-            showPhotoSlide(currentSlideIndex - 1);
-        });
-    }
-    if (nextPhotoButton) {
-        nextPhotoButton.addEventListener('click', () => {
-            showPhotoSlide(currentSlideIndex + 1);
-        });
-    }
-    if (carouselTrackPhotos) {
-        carouselTrackPhotos.addEventListener('scroll', () => {
-            const newIndex = Math.round(carouselTrackPhotos.scrollLeft / carouselTrackPhotos.offsetWidth);
-            if (newIndex !== currentSlideIndex) {
-                currentSlideIndex = newIndex;
-                updateCarouselButtons();
-            }
-    
-        });
-    }
-    // =========================================================
-    // NOVO CÓDIGO DO CARROSSEL DE FOTOS - FIM
-    // =========================================================
 
 function renderMenu() {
     if (!menuSections || !categoryNavigation || typeof products === 'undefined' || typeof categoriesData === 'undefined') return;

@@ -787,16 +787,61 @@
         }
         /* Container que irá rolar os itens do carrinho */
         #cart-items-scroll-container {
-            max-height: 200px; /* Ajuste esta altura conforme o necessário para o seu modal */
-            overflow-y: auto;  /* Habilita a rolagem vertical quando o conteúdo exceder a altura */
-            border: 1px solid var(--border-color); /* Apenas para visualização - pode remover depois */
+            position: relative;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
             padding: 10px;
             margin-bottom: 10px;
             border-radius: 8px;
-            /* Adicione um scrollbar estilizado se desejar, para melhor UX */
-            scrollbar-width: thin; /* Para Firefox */
-            scrollbar-color: var(--primary-color) var(--background-light); /* Para Firefox */
+            scrollbar-width: thin; 
+            scrollbar-color: var(--primary-color) var(--background-light);
         }
+        #cart-items-scroll-container::after {
+            content: '';
+            position: sticky; /* Fica fixo na parte inferior do container rolável */
+            bottom: 0; /* Ancora na parte inferior */
+            left: 0;
+            width: 100%;
+            height: 30px; /* Altura da área do indicador */
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3)); /* Gradiente escuro na parte inferior */
+            pointer-events: none; /* Permite que cliques passem através do indicador */
+            z-index: 10; /* Fica acima dos itens, mas abaixo do cabeçalho do modal */
+            opacity: 0; /* Inicialmente invisível */
+            transition: opacity 0.3s ease; /* Transição suave para aparecer/desaparecer */
+        }
+        /* Opcional: Se quiser um indicador na parte superior também (quando perto do topo, mas pode rolar para baixo) */
+        #cart-items-scroll-container::before {
+            content: '';
+            position: sticky; /* Fica fixo na parte superior do container rolável */
+            top: 0; /* Ancora na parte superior */
+            left: 0;
+            width: 100%;
+            height: 30px; /* Altura da área do indicador */
+            background: linear-gradient(to top, transparent, rgba(0,0,0,0.3)); /* Gradiente escuro na parte superior */
+            pointer-events: none; /* Permite que cliques passem através do indicador */
+            z-index: 10; /* Fica acima dos itens, mas abaixo do cabeçalho do modal */
+            opacity: 0; /* Inicialmente invisível */
+            transition: opacity 0.3s ease; /* Transição suave para aparecer/desaparecer */
+        }
+        /* Mostra o indicador superior quando o scroll não está no final */
+        #cart-items-scroll-container:not(:last-child)::before {
+            opacity: 1; /* Torna o indicador visível */
+        }
+        /* Opcional: Adicione uma animação pulsante sutil para o indicador superior também */
+        #cart-items-scroll-container::before {
+            /* ... (regras anteriores) ... */
+            /* Adiciona uma animação contínua e sutil */
+            animation: pulseScrollIndicator 2s infinite alternate-reverse ease-in-out; /* Usa reverse para alternância */
+        }
+        #cart-items-scroll-container:not(:first-child):not(:last-child)::after {
+            opacity: 1; /* Torna o indicador visível */
+
+        }
+        #cart-items-scroll-container::after {
+            animation: pulseScrollIndicator 2s infinite alternate ease-in-out;
+        }
+
         #cart-items-scroll-container::-webkit-scrollbar {
             width: 8px;
         }
@@ -809,6 +854,14 @@
         #cart-items-scroll-container::-webkit-scrollbar-thumb {
             background: var(--primary-color);
             border-radius: 10px;
+        }
+        @keyframes pulseScrollIndicator {
+            from {
+                opacity: 0.3; /* Menos opacidade no início */
+            }
+            to {
+                opacity: 0.8; /* Mais opacidade no final */
+            }
         }
 
         /* Estilo para os botões de rolagem */
@@ -1248,8 +1301,13 @@
                 color: var(--text-secondary);
                 
             }
+            #cart-items-scroll-container::after,
+            #cart-items-scroll-container::before {
+                height: 20px; /* Menor altura */
+                animation-duration: 1.5s; /* Animação um pouco mais rápida */
 
             }
+        }
 
             #chatModal .modal-content {
                 max-width: 100%;
@@ -1397,6 +1455,7 @@
                 height: 40px;
             }
 
+
             .products-grid { /* Ajusta a grade de produtos para telas pequenas NOS ITENS PRUDUTOS */
                 display: grid;
                 gap: 20px;/* Espaçamento entre os itens */
@@ -1469,6 +1528,12 @@
                 margin-bottom: 0.5em;
                 font-size: 1.2em;
                 line-height: 0.5; /* Ajusta o espaçamento entre linhas */
+
+            }
+            #cart-items-scroll-container::after,
+            #cart-items-scroll-container::before {
+                height: 20px; /* Menor altura */
+                animation-duration: 1.5s; /* Animação um pouco mais rápida */
 
             }
 
@@ -1769,6 +1834,12 @@
             }
 
         }
+        #cart-items-scroll-container::after,
+        #cart-items-scroll-container::before {
+                height: 20px; /* Menor altura */
+                animation-duration: 1.5s; /* Animação um pouco mais rápida */
+
+            }
 
         @media (max-width: 390px) { /*--------------------------------telas 390px-------------------------------------------------*/
 
@@ -1820,6 +1891,12 @@
                 /* Ajusta o padding para telas pequenas */
                 font-size: 0.7em;
                 /* Reduz o tamanho da fonte */
+            }
+            #cart-items-scroll-container::after,
+            #cart-items-scroll-container::before {
+                height: 20px; /* Menor altura */
+                animation-duration: 1.5s; /* Animação um pouco mais rápida */
+
             }
 
         }
