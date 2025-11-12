@@ -1216,6 +1216,36 @@
         }
 
         /* Responsividade para telas maiores (desktop)---------------------------------------------------------------------------- */
+        @media (min-width: 1366px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                /* 3 colunas para tablets */
+                gap: 30px;
+            }
+            .category-navigation {
+                display: relative;
+                width: 70%;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 30px;
+                margin: 0 auto;
+                background-color: transparent;
+        
+                
+               
+            }
+            .header,
+            footer,
+            nav.category-navigation {
+                max-width: 100%;
+                /* Mesma largura do main para alinhamento */
+                margin: 0 auto;
+                /* Centraliza */
+                padding-left: 0;
+                padding-right: 0;
+                background-color: transparent;
+            }
+            
+        }
         @media (min-width: 768px) {
             .products-grid {
                 grid-template-columns: repeat(5, 1fr);
