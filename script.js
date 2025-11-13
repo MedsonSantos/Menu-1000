@@ -492,18 +492,23 @@ document.body;
                 removeItemFromCart(cartIndex);
             });
         });
-        cartItemsModalContainer.querySelectorAll('.jantinha-options-individual select').forEach(select => {
-            select.addEventListener('change', (event) => {
-                const cartIndex = parseInt(event.target.dataset.cartIndex);
-                const optionType = event.target.dataset.optionType;
-                const value = event.target.value;
-                if (cart[cartIndex]) {
-       
-                     cart[cartIndex][optionType] = value;
-                }
-            });
-        });
+        
     }
+    // ✅ Adicione isso (por exemplo, após `updateCartDisplay();` no final do DOMContentLoaded):
+    cartItemsModalContainer.addEventListener('change', function(event) {
+        // Verifica se o alvo é um <select> com atributos específicos
+        if (event.target.tagName === 'SELECT' && event.target.hasAttribute('data-cart-index')) {
+            const cartIndex = parseInt(event.target.dataset.cartIndex);
+            const optionType = event.target.dataset.optionType;
+            const value = event.target.value;
+
+            if (cartIndex >= 0 && cartIndex < cart.length && optionType) {
+                cart[cartIndex][optionType] = value;
+                // ⚠️ Opcional: para debug — remova depois
+                // console.log(`Atualizado: item[${cartIndex}].${optionType} = "${value}"`);
+            }
+        }
+    });
 
     function handleOrderTypeChange() {
         if (!orderTypeSelect || !deliveryOptionsDiv || !pickupOptionsDiv || !deliveryFeeInfo || !deliveryAddressInput || !pickupNameInput) return;
@@ -627,6 +632,7 @@ document.body;
                     return;
                 }
                 const acompanhamento = cartItem.acompanhamento; // agora é garantidamente uma string válida
+                
                 itemDetails += `    - Mistura: ${acompanhamento}\n`;
                 htmlItem += `<li>Mistura: ${acompanhamento}</li>`;
 
