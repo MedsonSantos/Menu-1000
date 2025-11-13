@@ -632,7 +632,6 @@ document.body;
                     return;
                 }
                 const acompanhamento = cartItem.acompanhamento; // agora é garantidamente uma string válida
-                
                 itemDetails += `    - Mistura: ${acompanhamento}\n`;
                 htmlItem += `<li>Mistura: ${acompanhamento}</li>`;
 
