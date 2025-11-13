@@ -33,7 +33,7 @@ const products = [
         name: 'Jantinha de Estrogonofe',
         description: 'Estrogonofe de frango, batata palha e Arroz branco',
         price: 22.00,
-        imageUrl: 'https://i.imgur.com/dPmhBpk.png'
+        imageUrl: 'https://i.imgur.com/JLCpGZ9.png'
     },
     {
         id: 'pp-5',
