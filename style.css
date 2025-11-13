@@ -614,9 +614,11 @@
             transition: color 0.3s ease;
             overflow: hidden;
             width: 100%;
-            white-space: nowrap;
+            white-space: normal;
+            word-wrap: break-word;
             text-align: center;
             text-overflow: ellipsis;
+            height: auto;
             
         }
 
