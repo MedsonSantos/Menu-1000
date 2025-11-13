@@ -417,7 +417,7 @@ document.body;
                     switch (product.id) {
                         case 'cald-1':
                             acompanhamentoOptions = `
-                                <option value="" ${cartItem.acompanhamento === ''
+                                <option value="" ${cartItem.acompanhamento === '' ?
                                     'selected' : ''}></option>
                             
                                 <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' 
@@ -430,7 +430,7 @@ document.body;
                         break;
                         case 'cald-2':
                             acompanhamentoOptions = `
-                            <option value="" ${cartItem.acompanhamento === ''
+                            <option value="" ${cartItem.acompanhamento === '' ?
                                     'selected' : ''}></option>
                             
                                 <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ?
@@ -443,7 +443,7 @@ document.body;
                         break;
                         case 'cald-3':
                             acompanhamentoOptions = `
-                            <option value="" ${cartItem.acompanhamento === ''
+                            <option value="" ${cartItem.acompanhamento === '' ?
                                     'selected' : ''}></option>
                             
                                 <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ?
