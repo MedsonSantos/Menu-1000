@@ -1216,7 +1216,7 @@
         }
 
         /* Responsividade para telas maiores (desktop)---------------------------------------------------------------------------- */
-        @media (min-width: 1366px) {
+        @media (min-width: 1366px) and (max-width: 1919px) {
             .products-grid {
                 grid-template-columns: repeat(3, 1fr);
                 /* 3 colunas para tablets */
@@ -1247,6 +1247,7 @@
             }
             
         }
+        
         @media (min-width: 768px) {
             .products-grid {
                 grid-template-columns: repeat(5, 1fr);
