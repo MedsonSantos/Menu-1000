@@ -617,13 +617,14 @@ document.body;
                 total += itemPrice;
                 let itemDetails = `1x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n`;
                 let htmlItem = `<li><strong>1x ${product.name}</strong> (R$ ${itemPrice.toFixed(2).replace('.', ',')})<br><ul class="item-options-list">`;
-
-                const acompanhamento = cartItem.acompanhamento || 'Não selecionado';
-                if (acompanhamento === 'Não selecionado') {
+            
+             if (acompanhamento === '') {
                     alert(`Por favor, selecione a mistura para o "${product.name}" (Item #${index + 1} no carrinho).`);
                     validationFailed = true;
-                    return;
+                    return; 
                 }
+                const acompanhamento = cartItem.acompanhamento;
+
                 itemDetails += `    - Mistura: ${acompanhamento}\n`;
                 htmlItem += `<li>Mistura: ${acompanhamento}</li>`;
 
