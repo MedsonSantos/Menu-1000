@@ -17,7 +17,7 @@ const products = [
         name: 'Jantinha Nota 1000',
         description: 'Arroz, feijão tropeiro ou de caldo, mandioca, estrogonofe, batata palha e 1 espeto a escolha <br> Opções de salada: Vinagrete, alface tomate ou salada de macarrão',
         price: 27.00,
-        imageUrl: 'https://i.imgur.com/dkCQj5R.png'
+        imageUrl: 'https://i.imgur.com/qvyNsJV.png'
     },
     {
         id: 'pp-3',
@@ -25,7 +25,7 @@ const products = [
         name: 'Jantinha sem Espeto',
         description: 'Arroz branco, feijão tropeiro ou de caldo e mandioca sem espeto <br> Opções de salada: Vinagrete, alface tomate ou salada de macarrão',
         price: 19.00,
-        imageUrl: 'https://i.imgur.com/7fGgNoP.png'
+        imageUrl: 'https://i.imgur.com/4VIjHHc.png'
     },
     {
         id: 'pp-4',

@@ -1220,7 +1220,7 @@
             .products-grid {
                 grid-template-columns: repeat(3, 1fr);
                 /* 3 colunas para tablets */
-                gap: 30px;
+                gap: 20px;
             }
             .category-navigation {
                 display: relative;
