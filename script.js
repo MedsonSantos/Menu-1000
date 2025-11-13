@@ -417,8 +417,7 @@ document.body;
                     switch (product.id) {
                         case 'cald-1':
                             acompanhamentoOptions = `
-                                <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' 
-                                ? 'selected' : ''}>Sem mistura</option>
+                                <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ? 'selected' : ''}>Sem mistura</option>
                                 <option value="Feijão com Costela" ${cartItem.acompanhamento === 'Feijão com Costela' ?
                                 'selected' : ''}>Feijão com Costela</option>
                                 <option value="Feijão com Frango" ${cartItem.acompanhamento === 'Feijão com Frango' ?
@@ -452,8 +451,7 @@ document.body;
                             <label for="acompanhamento-${index}">${selectLabel}</label>
                        
                             <select id="acompanhamento-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="acompanhamento">
-                                <option value="" disabled ${cartItem.acompanhamento === '' ?
-                                'selected' : ''}>Selecione</option>
+                                <option value="" disabled ${cartItem.acompanhamento === '' ? 'selected' : ''}>Selecione</option>
                                 ${acompanhamentoOptions}
                             </select>
                         </div>
@@ -618,12 +616,12 @@ document.body;
                 let itemDetails = `1x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n`;
                 let htmlItem = `<li><strong>1x ${product.name}</strong> (R$ ${itemPrice.toFixed(2).replace('.', ',')})<br><ul class="item-options-list">`;
 
-                const acompanhamento = cartItem.acompanhamento || 'Não selecionado';
-                if (acompanhamento === 'Não selecionado') {
+                if (cartItem.acompanhamento === '' || cartItem.acompanhamento == null) {
                     alert(`Por favor, selecione a mistura para o "${product.name}" (Item #${index + 1} no carrinho).`);
                     validationFailed = true;
                     return;
                 }
+                const acompanhamento = cartItem.acompanhamento; // agora é garantidamente uma string válida
                 itemDetails += `    - Mistura: ${acompanhamento}\n`;
                 htmlItem += `<li>Mistura: ${acompanhamento}</li>`;
 
