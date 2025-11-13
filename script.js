@@ -618,7 +618,7 @@ document.body;
                 let itemDetails = `1x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n`;
                 let htmlItem = `<li><strong>1x ${product.name}</strong> (R$ ${itemPrice.toFixed(2).replace('.', ',')})<br><ul class="item-options-list">`;
             
-             if (acompanhamento === '') {
+             if (acompanhamento === '' || cartItem.acompanhamento == null) {
                     alert(`Por favor, selecione a mistura para o "${product.name}" (Item #${index + 1} no carrinho).`);
                     validationFailed = true;
                     return; 
