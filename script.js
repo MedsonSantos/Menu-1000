@@ -417,7 +417,12 @@ document.body;
                     switch (product.id) {
                         case 'cald-1':
                             acompanhamentoOptions = `
+<<<<<<< HEAD
                                 <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ? 'selected' : ''}>Sem mistura</option>
+=======
+                                <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ?
+                                'selected' : ''}>Sem mistura</option>
+>>>>>>> a4a2898d4fa2973a8d8b8afcadb51a58bd3ad13d
                                 <option value="Feijão com Costela" ${cartItem.acompanhamento === 'Feijão com Costela' ?
                                 'selected' : ''}>Feijão com Costela</option>
                                 <option value="Feijão com Frango" ${cartItem.acompanhamento === 'Feijão com Frango' ?
