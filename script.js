@@ -417,6 +417,9 @@ document.body;
                     switch (product.id) {
                         case 'cald-1':
                             acompanhamentoOptions = `
+                                <option value="" ${cartItem.acompanhamento === ''
+                                    'selected' : ''}></option>
+                            
                                 <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' 
                                 ? 'selected' : ''}>Sem mistura</option>
                                 <option value="Feijão com Costela" ${cartItem.acompanhamento === 'Feijão com Costela' ?
@@ -427,6 +430,9 @@ document.body;
                         break;
                         case 'cald-2':
                             acompanhamentoOptions = `
+                            <option value="" ${cartItem.acompanhamento === ''
+                                    'selected' : ''}></option>
+                            
                                 <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ?
                                 'selected' : ''}>Sem mistura</option>
                                 <option value="Frango com Feijão" ${cartItem.acompanhamento === 'Frango com Feijão' ?
@@ -437,6 +443,9 @@ document.body;
                         break;
                         case 'cald-3':
                             acompanhamentoOptions = `
+                            <option value="" ${cartItem.acompanhamento === ''
+                                    'selected' : ''}></option>
+                            
                                 <option value="Sem mistura" ${cartItem.acompanhamento === 'Sem mistura' ?
                                 'selected' : ''}>Sem mistura</option>
                                 <option value="Costela com Feijão" ${cartItem.acompanhamento === 'Costela com Feijão' ?
