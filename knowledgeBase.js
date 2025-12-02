@@ -228,19 +228,19 @@
                   "- Alface",
     // Dentro do objeto chatbotKnowledgeBase, na seção de espetos
 
-"linguica caipira": "🍢 A Linguiça Caipira custa R$ 11,00. É feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!", // Resposta existente, exemplo de onde adicionar
+     "linguica caipira": "🍢 A Linguiça Caipira custa R$ 11,00. É feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!", // Resposta existente, exemplo de onde adicionar
 // ... outras entradas ...
 
-        "espeto de linguiça é de que?": "🍖 O espeto de Linguiça Caipira é feito de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
-        "espeto de linguiça é de que": "🍖 O espeto de Linguiça Caipira é feito de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
-        "linguiça é de que": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
-        "de que é a linguiça": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
-        "de que é o espeto de linguiça": "🍖 O espeto de Linguiça Caipira é feito de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
-        "qual é a linguiça": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
-        "linguiça caipira é de que": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
-        "linguiça caipira é de que tipo": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
-        "linguiça caipira é feita de que": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
-    // --- Produtos e Preços do Cardápio ---
+                "espeto de linguiça é de que?": "🍖 O espeto de Linguiça Caipira é feito de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+                "espeto de linguiça é de que": "🍖 O espeto de Linguiça Caipira é feito de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+                "linguiça é de que": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+                "de que é a linguiça": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+                "de que é o espeto de linguiça": "🍖 O espeto de Linguiça Caipira é feito de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+                "qual é a linguiça": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+                "linguiça caipira é de que": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+                "linguiça caipira é de que tipo": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+                "linguiça caipira é feita de que": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+            // --- Produtos e Preços do Cardápio ---
 
     // --- Porções ---
             "batata frita": "Batata Frita está disponível em 4 opções:\n\n" +
