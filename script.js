@@ -789,14 +789,25 @@ document.addEventListener('DOMContentLoaded', function() {
         orderTypeSelect.addEventListener('change', handleOrderTypeChange);
     }
 
-    // --- Chatbot Event Listeners (AJUSTADO) ---
+       // --- Chatbot Event Listeners (AJUSTADO) ---
+        // --- Chatbot Event Listeners (CORRIGIDO) ---
     if (openChatBtn) {
         openChatBtn.addEventListener('click', () => {
             openModal(chatModal);
             if (chatbox && !chatbox.dataset.initialMessageShown) {
-                // Chama a função getBotResponse do knowledgeBase.js com uma mensagem genérica "ola" para obter a resposta inicial
-                const initialMessage = "ola"; // Usando a chave "ola" para acionar a resposta inicial
-                const initialBotResponse = getBotResponse(initialMessage);
+                // Obter o nome do dia da semana
+                const today = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'][new Date().getDay()];
+
+                // Atualizar dinamicamente a resposta da chave 'ola' e 'oi' na base de conhecimento
+                // Isso replica o comportamento antigo do knowledgeBase.js
+                chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${today}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas** (Cervejas, Refrigerantes, Sucos)\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
+                chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"]; // 'oi' usa a mesma mensagem que 'ola'
+                chatbotKnowledgeBase["e ai"] = chatbotKnowledgeBase["ola"]; // 'e ai' usa a mesma mensagem que 'ola'
+                
+
+
+                // Agora, chama getBotResponse com 'ola', que já terá o valor atualizado
+                const initialBotResponse = getBotResponse("ola");
                 chatbox.innerHTML = `<div class="message bot-message">${initialBotResponse.replace(/\n/g, '<br>')}</div>`;
                 chatbox.dataset.initialMessageShown = 'true';
             }

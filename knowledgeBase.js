@@ -2,6 +2,21 @@
     const chatbotKnowledgeBase = {
     "ola": "", 
     "oi": "",
+    "ei": "",
+    "olá": "",
+    "eai": "",
+    "eiii": "",
+    "e aí": "",
+    "bom dia": "",
+    "boa tarde": "",
+    "boa noite": "",
+    "salve": "",
+    "fala": "",
+    "falae": "",
+    "hey": "",
+    "hi": "",
+    "hello": "",
+    "saudações": "",
 
 // Sobre o chat-------------------------------------------------------------------------------------------
     "quem é você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
