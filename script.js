@@ -789,13 +789,15 @@ document.addEventListener('DOMContentLoaded', function() {
         orderTypeSelect.addEventListener('change', handleOrderTypeChange);
     }
 
+    // --- Chatbot Event Listeners (AJUSTADO) ---
     if (openChatBtn) {
         openChatBtn.addEventListener('click', () => {
             openModal(chatModal);
             if (chatbox && !chatbox.dataset.initialMessageShown) {
-                const today = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'][new Date().getDay()];
-                const msg = `👋 Olá! Feliz ${today}! Como posso ajudar?\nVocê pode perguntar sobre:\n- 🍢 Espetos\n- 🍛 Jantinhas\n- 🥤 Bebidas\n- 🛵 Entrega\n- ⏰ Horários\n- 📞 Contato`;
-                chatbox.innerHTML = `<div class="message bot-message">${msg.replace(/\n/g, '<br>')}</div>`;
+                // Chama a função getBotResponse do knowledgeBase.js com uma mensagem genérica "ola" para obter a resposta inicial
+                const initialMessage = "ola"; // Usando a chave "ola" para acionar a resposta inicial
+                const initialBotResponse = getBotResponse(initialMessage);
+                chatbox.innerHTML = `<div class="message bot-message">${initialBotResponse.replace(/\n/g, '<br>')}</div>`;
                 chatbox.dataset.initialMessageShown = 'true';
             }
         });
@@ -818,7 +820,9 @@ document.addEventListener('DOMContentLoaded', function() {
             chatbox.innerHTML += `<div class="message user-message">${msg}</div>`;
             chatInput.value = '';
             setTimeout(() => {
-                chatbox.innerHTML += `<div class="message bot-message">Desculpe, não entendi. Pergunte sobre menu, entrega, horários, etc.</div>`;
+                // ✅ CHAMA A FUNÇÃO getBotResponse DO KNOWLEDGEBASE.JS
+                const botResponse = getBotResponse(msg);
+                chatbox.innerHTML += `<div class="message bot-message">${botResponse.replace(/\n/g, '<br>')}</div>`;
                 chatbox.scrollTop = chatbox.scrollHeight;
             }, 500);
         });
