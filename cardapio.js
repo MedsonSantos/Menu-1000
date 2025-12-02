@@ -8,7 +8,7 @@ const products = [
         category: 'PRATOS',
         name: 'Jantinha Completa',
         description: 'Arroz, feijão tropeiro ou de caldo, mandioca e 1 espeto a escolha <br> Opções de salada: Vinagrete, alface tomate ou salada de macarrão',
-        price: 22.00,
+        price: 24.00,
         imageUrl: 'https://i.imgur.com/7dMcMKA.png'
     },
     {
@@ -16,7 +16,7 @@ const products = [
         category: 'PRATOS',
         name: 'Jantinha Nota 1000',
         description: 'Arroz, feijão tropeiro ou de caldo, mandioca, estrogonofe, batata palha e 1 espeto a escolha <br> Opções de salada: Vinagrete, alface tomate ou salada de macarrão',
-        price: 27.00,
+        price: 28.00,
         imageUrl: 'https://i.imgur.com/qvyNsJV.png'
     },
     {
@@ -32,7 +32,7 @@ const products = [
         category: 'PRATOS',
         name: 'Jantinha de Estrogonofe',
         description: 'Estrogonofe de frango, batata palha e Arroz branco',
-        price: 22.00,
+        price: 24.00,
         imageUrl: 'https://i.imgur.com/JLCpGZ9.png'
     },
     {
@@ -40,7 +40,7 @@ const products = [
         category: 'PRATOS',
         name: 'Jantinha Kids',
         description: '(somente consumo no local) um pouco de arroz, um pouco de estrogonofe e batata palha',
-        price: 22.00,
+        price: 18.00,
         imageUrl: 'https://i.imgur.com/KA04d4m.png'
     },
 
