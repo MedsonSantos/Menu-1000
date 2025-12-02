@@ -4,7 +4,6 @@
     "oi": "",
 
 // Sobre o chat-------------------------------------------------------------------------------------------
-
     "quem é você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "seu nome?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
     "quem e você": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
@@ -227,8 +226,86 @@
                   "- Salada de Macarrão \n" +
                   "- Tomate em rodelas \n" +
                   "- Alface",
+    // Dentro do objeto chatbotKnowledgeBase, na seção de espetos
 
+"linguica caipira": "🍢 A Linguiça Caipira custa R$ 11,00. É feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!", // Resposta existente, exemplo de onde adicionar
+// ... outras entradas ...
+
+        "espeto de linguiça é de que?": "🍖 O espeto de Linguiça Caipira é feito de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+        "espeto de linguiça é de que": "🍖 O espeto de Linguiça Caipira é feito de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+        "linguiça é de que": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+        "de que é a linguiça": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+        "de que é o espeto de linguiça": "🍖 O espeto de Linguiça Caipira é feito de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+        "qual é a linguiça": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+        "linguiça caipira é de que": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+        "linguiça caipira é de que tipo": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
+        "linguiça caipira é feita de que": "🍖 A Linguiça Caipira (no espeto) é feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!",
     // --- Produtos e Preços do Cardápio ---
+
+    // --- Porções ---
+            "batata frita": "Batata Frita está disponível em 4 opções:\n\n" +
+                            "🍟 **Batata Simples 250g** - R$ 16,99\n" +
+                            "🍟 **Batata Simples 500g** - R$ 26,99\n" +
+                            "🧀🥓 **Batata 1000 250g** (com Queijo Cheddar e Bacon) - R$ 25,99\n" +
+                            "🧀🥓 **Batata 1000 500g** (com Queijo Cheddar e Bacon) - R$ 33,99\n\n" +
+                            "Qual delas você gostaria de pedir? 😉",
+            "batata": "Batata Frita está disponível em 4 opções:\n\n" +
+                    "🍟 **Batata Simples 250g** - R$ 16,99\n" +
+                    "🍟 **Batata Simples 500g** - R$ 26,99\n" +
+                    "🧀🥓 **Batata 1000 250g** (com Queijo Cheddar e Bacon) - R$ 25,99\n" +
+                    "🧀🥓 **Batata 1000 500g** (com Queijo Cheddar e Bacon) - R$ 33,99\n\n" +
+                    "Qual delas você gostaria de pedir? 😉",
+            "batata simples": "Temos a **Batata Simples**:\n\n" +
+                            "🍟 250g - R$ 16,99\n" +
+                            "🍟 500g - R$ 26,99",
+            "batata 1000": "Temos a **Batata 1000** (com Queijo Cheddar e Bacon):\n\n" +
+                        "🧀🥓 250g - R$ 25,99\n" +
+                        "🧀🥓 500g - R$ 33,99",
+            "batata frita simples": "Temos a **Batata Frita Simples**:\n\n" +
+                                    "🍟 250g - R$ 16,99\n" +
+                                    "🍟 500g - R$ 26,99",
+            "batata frita 1000": "Temos a **Batata Frita 1000** (com Queijo Cheddar e Bacon):\n\n" +
+                                "🧀🥓 250g - R$ 25,99\n" +
+                                "🧀🥓 500g - R$ 33,99",
+            "quanto custa a batata frita simples?": "A **Batata Frita Simples** custa:\n\n" +
+                                                "🍟 250g - R$ 16,99\n" +
+                                                "🍟 500g - R$ 26,99",
+            "quanto custa a batata frita 1000?": "A **Batata Frita 1000** (com Queijo Cheddar e Bacon) custa:\n\n" +
+                                                "🧀🥓 250g - R$ 25,99\n" +
+                                                "🧀🥓 500g - R$ 33,99",
+            "preço da batata simples": "A **Batata Simples** custa:\n\n" +
+                                    "🍟 250g - R$ 16,99\n" +
+                                    "🍟 500g - R$ 26,99",
+            "preço da batata 1000": "A **Batata 1000** (com Queijo Cheddar e Bacon) custa:\n\n" +
+                                    "🧀🥓 250g - R$ 25,99\n" +
+                                    "🧀🥓 500g - R$ 33,99",
+            "tem batata frita?": "Sim! Temos Batata Frita Simples e Batata 1000 (com Queijo Cheddar e Bacon) nas opções 250g e 500g. Deseja ver os preços?",
+            "tem batata?": "Sim! Temos Batata Frita Simples e Batata 1000 (com Queijo Cheddar e Bacon) nas opções 250g e 500g. Deseja ver os preços?",
+            "batata frita 250g": "Temos 2 opções de Batata Frita 250g:\n\n" +
+                                "🍟 **Batata Simples 250g** - R$ 16,99\n" +
+                                "🧀🥓 **Batata 1000 250g** (com Queijo Cheddar e Bacon) - R$ 25,99",
+            "batata frita 500g": "Temos 2 opções de Batata Frita 500g:\n\n" +
+                                "🍟 **Batata Simples 500g** - R$ 26,99\n" +
+                                "🧀🥓 **Batata 1000 500g** (com Queijo Cheddar e Bacon) - R$ 33,99",
+            "batata simples 250g": "A **Batata Simples 250g** custa R$ 16,99. 🍟",
+            "batata simples 500g": "A **Batata Simples 500g** custa R$ 26,99. 🍟",
+            "batata 1000 250g": "A **Batata 1000 250g** (com Queijo Cheddar e Bacon) custa R$ 25,99. 🧀🥓",
+            "batata 1000 500g": "A **Batata 1000 500g** (com Queijo Cheddar e Bacon) custa R$ 33,99. 🧀🥓",
+            "qual o preço da batata frita simples 250g?": "A **Batata Frita Simples 250g** custa R$ 16,99.",
+            "qual o preço da batata frita simples 500g?": "A **Batata Frita Simples 500g** custa R$ 26,99.",
+            "qual o preço da batata frita 1000 250g?": "A **Batata Frita 1000 250g** (com Queijo Cheddar e Bacon) custa R$ 25,99.",
+            "qual o preço da batata frita 1000 500g?": "A **Batata Frita 1000 500g** (com Queijo Cheddar e Bacon) custa R$ 33,99.",
+            "quero uma batata simples": "Claro! Temos a Batata Simples em 250g (R$ 16,99) e 500g (R$ 26,99). Qual tamanho você prefere?",
+            "quero uma batata 1000": "Claro! A Batata 1000 (com Queijo Cheddar e Bacon) está disponível em 250g (R$ 25,99) e 500g (R$ 33,99). Qual tamanho você prefere?",
+            "escolher batata": "Temos Batata Frita Simples e Batata 1000 (com Queijo Cheddar e Bacon) nas opções 250g e 500g. Qual você gostaria de pedir?",
+            "ver batata": "Batata Frita está disponível em 4 opções:\n\n" +
+                        "🍟 **Batata Simples 250g** - R$ 16,99\n" +
+                        "🍟 **Batata Simples 500g** - R$ 26,99\n" +
+                        "🧀🥓 **Batata 1000 250g** (com Queijo Cheddar e Bacon) - R$ 25,99\n" +
+                        "🧀🥓 **Batata 1000 500g** (com Queijo Cheddar e Bacon) - R$ 33,99\n\n" +
+                        "Qual delas você gostaria de pedir? 😉",
+            // Adicione mais variações conforme necessário...
+
     // ESPETOS  
     "asinha": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
     "tulipa": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
