@@ -41,7 +41,8 @@ const products = [
         name: 'Jantinha Kids',
         description: '(somente consumo no local) um pouco de arroz, um pouco de estrogonofe e batata palha',
         price: 18.00,
-        imageUrl: 'https://i.imgur.com/KA04d4m.png'
+        imageUrl: 'https://i.imgur.com/KA04d4m.png',
+        
     },
 
     //--------------------------------------ESPETOS-------------------------------------//

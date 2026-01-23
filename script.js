@@ -270,6 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             ];
                             break;
                     }
+                    
 
                     let optionsHtmlSelect = options.map(opt => 
                         `<option value="${opt.value}" ${cartItem.acompanhamento === opt.value ? 'selected' : ''}>${opt.label}</option>`
@@ -371,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="summary-section">
                 <h3>Detalhes do Pedido</h3>
                 <p><strong>Tipo:</strong> ${orderType === 'delivery' ? 'Entrega 🏍️' : 'Retirada no Local 📦'}</p>
-                ${orderType === 'delivery' ? `<p><strong>Endereço:</strong> ${deliveryAddress}</p>` : `<p><strong>Nome Retirada:</strong> ${pickupName}</p>`}
+                ${orderType === 'delivery' ? `<p><strong>Endereço:📍</strong> ${deliveryAddress}</p>` : `<p><strong>Nome Retirada:</strong> ${pickupName}</p>`}
                 ${notes ? `<p><strong>Observações:</strong> ${notes}</p>` : ''}
             </div>
             <div class="summary-section">

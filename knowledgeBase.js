@@ -233,12 +233,11 @@
                   "Para mais opções, como porções e outros, confira nosso cardápio completo! 😊",
      "salada": "🥬 Agora temos opções de saladas para acompanhar sua jantinha \n\n" +
                   "- Vinagrete \n" +
-                  "- Salada de Macarrão \n" +
+                  
                   "- Tomate em rodelas \n" +
                   "- Alface",
      "saladas": "🥬 Agora temos opções de saladas para acompanhar sua jantinha \n\n" +
                   "- Vinagrete \n" +
-                  "- Salada de Macarrão \n" +
                   "- Tomate em rodelas \n" +
                   "- Alface",
     // Dentro do objeto chatbotKnowledgeBase, na seção de espetos
