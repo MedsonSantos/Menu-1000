@@ -237,7 +237,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             <label for="salada-${index}">Salada:</label>
                             <select id="salada-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="salada">
                                 <option value="" disabled ${cartItem.salada === '' ? 'selected' : ''}>Selecione</option>
-                                <option value="Salada de macarrão" ${cartItem.salada === 'Salada de macarrão' ? 'selected' : ''}>Salada de macarrão</option>
                                 <option value="Vinagrete" ${cartItem.salada === 'Vinagrete' ? 'selected' : ''}>Vinagrete</option>
                                 <option value="Alface com tomate" ${cartItem.salada === 'Alface com tomate' ? 'selected' : ''}>Alface com tomate</option>
                             </select>
