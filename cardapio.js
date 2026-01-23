@@ -219,7 +219,7 @@ const products = [
         category: 'GUARNIÇÕES',
         name: 'Arroz Branco',
         description: 'Arroz soltinho e fresquinho.',
-        price: 8.00,
+        price: 10.00,
         imageUrl: 'https://i.imgur.com/dvC86uT.png'
     },
     {
