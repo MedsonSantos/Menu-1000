@@ -713,7 +713,7 @@ const products = [
         id: 'por-9',
         category: 'PORÇÕES',
         name: 'Panceta 500g',
-        description: 'Uma poção generosa de Panceta Suina com mandioca',
+        description: 'Uma porção generosa de Panceta Suína com mandioca',
         price: 30.00,
         imageUrl: 'https://i.imgur.com/jwCN3tw.png'
     },
