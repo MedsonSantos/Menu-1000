@@ -116,7 +116,7 @@ const products = [
         name: 'Linguiça Caipira',
         description: 'Linguiça Suína da fazenda sem pimenta (Acompanhamentos não inclusos)',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/hbCbgOw.png'
+        imageUrl: 'https://i.imgur.com/CR0Cg9u.png'
     },
     {
         id: 'esp-10',
@@ -124,7 +124,7 @@ const products = [
         name: 'Linguiça Caipira Apimentada',
         description: 'Linguiça Suína com um toque de pimenta (Acompanhamentos não inclusos)',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/hbCbgOw.png'
+        imageUrl: 'https://i.imgur.com/YhY4hDr.png'
     },
     {
         id: 'esp-11',
@@ -140,7 +140,7 @@ const products = [
         name: 'Cafta 1000',
         description: 'Carne bovina envolta em bacon, recheada com queijo (Acompanhamentos não inclusos)',
         price: 14.00,
-        imageUrl: 'https://i.imgur.com/5v3UMUV.png'
+        imageUrl: 'https://i.imgur.com/yU3Tidv.png'
 
     },
     {
@@ -149,7 +149,7 @@ const products = [
         name: 'Provolone',
         description: 'Queijo provolone bola defumado no espeto, (Acompanhamentos não inclusos)',
         price: 13.00,
-        imageUrl: 'https://i.imgur.com/8oS73mV.png'
+        imageUrl: 'https://i.imgur.com/tCHtkjo.png'
     },
     {
         id: 'esp-14',
@@ -157,7 +157,7 @@ const products = [
         name: 'Provolone com bacon',
         description: 'Queijo provolone bola com bacon , (Acompanhamentos não inclusos)',
         price: 14.00,
-        imageUrl: 'https://i.imgur.com/rsYyVqL.png'
+        imageUrl: 'https://i.imgur.com/Xl0Bklp.png'
     
     },
     {
@@ -166,7 +166,7 @@ const products = [
         name: 'Coalho',
         description: 'Queijo Coalho no espeto (Acompanhamentos não inclusos)',
         price: 13.00,
-        imageUrl: 'https://i.imgur.com/l3mmOMm.png'
+        imageUrl: 'https://i.imgur.com/EF8WX8L.png'
     },
 
     {
@@ -699,7 +699,7 @@ const products = [
         name: 'Batata Simples 250G',
         description: 'Batata Frita 250g',
         price: 16.99,
-        imageUrl: 'https://i.imgur.com/oE0Rypl.png'
+        imageUrl: 'https://i.imgur.com/QJ0znOy.png'
     },
       {
         id: 'por-8',
@@ -707,7 +707,7 @@ const products = [
         name: 'Batata 1000 250G',
         description: 'Batata frita com cheddar e bacon, 250g',
         price: 25.99,
-        imageUrl: 'https://i.imgur.com/wFHRyAw.png'
+        imageUrl: 'https://i.imgur.com/x70Ex6Y.png'
     },
      {
         id: 'por-9',
@@ -715,7 +715,7 @@ const products = [
         name: 'Panceta 500g',
         description: 'Uma poção generosa de Panceta Suina com mandioca',
         price: 30.00,
-        imageUrl: 'https://i.imgur.com/V6XAZQG.png'
+        imageUrl: 'https://i.imgur.com/jwCN3tw.png'
     },
 
 ];
