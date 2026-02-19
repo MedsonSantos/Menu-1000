@@ -288,7 +288,7 @@ const products = [
         name: 'Creme de Cupuaçu',
         description: 'Copo de 500ml',
         price: 15.00,
-        imageUrl: 'https://i.imgur.com/kFgB7bd.png'
+        imageUrl: 'https://i.imgur.com/eS8SBdx.png'
     },
     {
         id: 'lan-5',
@@ -296,7 +296,7 @@ const products = [
         name: 'Creme de Maracujá',
         description: 'Copo de 500ml',
         price: 15.00,
-        imageUrl: 'https://i.imgur.com/wrEZygt.png'
+        imageUrl: 'https://i.imgur.com/jPcaMF6.png'
     },
     {
         id: 'lan-6',
@@ -312,7 +312,7 @@ const products = [
         name: 'Creme de Tamarindo',
         description: 'Copo de 500ml',
         price: 15.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/LpnVdjc.png'
     },
 
     //--------------------------------------CERVEJAS-------------------------------------//
@@ -582,7 +582,7 @@ const products = [
         name: 'Suco de Laranja 500ml',
         description: '500ml',
         price: 12.00,
-        imageUrl: 'https://i.imgur.com/yDVmqcB.png' 
+        imageUrl: 'https://i.imgur.com/CQBB8k9.png' 
     },
     {
         id: 'sud-4',
