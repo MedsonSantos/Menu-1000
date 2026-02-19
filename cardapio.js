@@ -131,7 +131,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Cafta',
         description: 'Carne bovina recheada com queijo (Acompanhamentos não inclusos)',
-        price: 12.00,
+        price: 13.00,
         imageUrl: 'https://i.imgur.com/j8KuBRF.png'
     },
     {
@@ -140,7 +140,7 @@ const products = [
         name: 'Cafta 1000',
         description: 'Carne bovina envolta em bacon, recheada com queijo (Acompanhamentos não inclusos)',
         price: 14.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/5v3UMUV.png'
 
     },
     {
@@ -148,7 +148,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Provolone',
         description: 'Queijo provolone bola defumado no espeto, (Acompanhamentos não inclusos)',
-        price: 12.00,
+        price: 13.00,
         imageUrl: 'https://i.imgur.com/8oS73mV.png'
     },
     {
@@ -156,8 +156,8 @@ const products = [
         category: 'ESPETOS',
         name: 'Provolone com bacon',
         description: 'Queijo provolone bola com bacon , (Acompanhamentos não inclusos)',
-        price: 15.00,
-        imageUrl: 'imagens/breve.png'
+        price: 14.00,
+        imageUrl: 'https://i.imgur.com/rsYyVqL.png'
     
     },
     {
@@ -165,8 +165,8 @@ const products = [
         category: 'ESPETOS',
         name: 'Coalho',
         description: 'Queijo Coalho no espeto (Acompanhamentos não inclusos)',
-        price: 12.00,
-        imageUrl: 'https://i.imgur.com/fc8t1gl.png'
+        price: 13.00,
+        imageUrl: 'https://i.imgur.com/l3mmOMm.png'
     },
 
     {
@@ -263,7 +263,7 @@ const products = [
         category: 'LANCHES',
         name: 'Pastel Frango com Queijo',
         description: '',
-        price: 13.00,
+        price: 14.00,
         imageUrl: 'https://i.imgur.com/Wf2aW4t.png'
     },
     {
@@ -271,7 +271,7 @@ const products = [
         category: 'LANCHES',
         name: 'Pastel Presunto e Queijo',
         description: '',
-        price: 13.00,
+        price: 14.00,
         imageUrl: 'https://i.imgur.com/Wf2aW4t.png'
     },
     {
@@ -279,7 +279,7 @@ const products = [
         category: 'LANCHES',
         name: 'Pastel Carne com Queijo',
         description: '',
-        price: 13.00,
+        price: 14.00,
         imageUrl: 'https://i.imgur.com/Wf2aW4t.png'
     },
     {
@@ -401,7 +401,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Heineken 600ml',
         description: 'Garrafa 600ml',
-        price: 15.00,
+        price: 16.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -650,7 +650,7 @@ const products = [
         category: 'PORÇÕES',
         name: 'Filé de Tilápia Empanado 500g',
         description: 'Filé de peixe empanado, porção de 500g',
-        price: 49.99,
+        price: 59.99,
         imageUrl: 'https://i.imgur.com/VNoKQMD.png',
     },
     {
@@ -658,7 +658,7 @@ const products = [
         category: 'PORÇÕES',
         name: 'Frango a Passarinho 1Kg',
         description: 'Porção de frango a passarinho 1kg, serve até 2 pessoas',
-        price: 34.99,
+        price: 39.99,
         imageUrl: 'https://i.imgur.com/4bKC7b3.png',
     },
     {
@@ -699,7 +699,7 @@ const products = [
         name: 'Batata Simples 250G',
         description: 'Batata Frita 250g',
         price: 16.99,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/oE0Rypl.png'
     },
       {
         id: 'por-8',
@@ -707,8 +707,17 @@ const products = [
         name: 'Batata 1000 250G',
         description: 'Batata frita com cheddar e bacon, 250g',
         price: 25.99,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/wFHRyAw.png'
     },
+     {
+        id: 'por-9',
+        category: 'PORÇÕES',
+        name: 'Panceta 500g',
+        description: 'Uma poção generosa de Panceta Suina com mandioca',
+        price: 30.00,
+        imageUrl: 'https://i.imgur.com/V6XAZQG.png'
+    },
+
 ];
     
 
