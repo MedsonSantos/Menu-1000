@@ -4,27 +4,254 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fotos 1000</title>
-  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome e Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* --- ESTILOS GERAIS (Mantendo sua identidade) --- */
+    :root {
+      --primary-color: #ff6b6b; /* Cor principal (laranja/vermelho suave) */
+      --bg-color: #1a1a1a;
+      --card-bg: #2d2d2d;
+      --text-color: #ffffff;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding-bottom: 80px; /* Espaço para rodapé */
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 20px 10px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(26,26,26,1) 100%);
+    }
+
+    .header-logo {
+      max-width: 150px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 5px;
+    }
+
+    /* Botão Voltar */
+    .menu-back-container {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    .back-to-menu-button {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      transition: transform 0.2s;
+    }
+
+    .back-to-menu-button:active {
+      transform: scale(0.95);
+    }
+
+    /* Ícones de Navegação */
+    .icons-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      width: 70px;
+    }
+
+    .icon {
+      background-color: var(--primary-color);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .icon-label {
+      font-size: 0.75rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* --- SEÇÃO DE FOTOS (A MELHORIA PRINCIPAL) --- */
+    .photo-category-section {
+      padding: 0 15px 30px 15px;
+      scroll-margin-top: 100px; /* Para o link âncora não ficar escondido pelo header */
+    }
+
+    .category-title {
+      font-size: 1.2rem;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Grid Responsivo Inteligente */
+    .photos-grid {
+      display: grid;
+      /* Cria colunas automáticas. No mobile faz 2 colunas, em telas maiores aumenta */
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+      gap: 15px;
+    }
+
+    .photo {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1; /* Força o container a ser sempre um quadrado perfeito */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    /* A MÁGICA PARA NÃO ESTICAR */
+    .photo img.img-responsive {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Corta as bordas excedentes mantendo a proporção original */
+      object-position: center; /* Centraliza a imagem no recorte */
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .photo:active img.img-responsive {
+      transform: scale(1.1); /* Efeito zoom ao tocar */
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8rem;
+      color: #888;
+      border-top: 1px solid #333;
+      margin-top: 20px;
+    }
+
+    /* Scroll to Top & Chatbot (Estilos básicos para funcionar) */
+    #scrollToTopBtn, .chat-toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .chat-toggle-btn {
+      right: 80px; /* Desloca um pouco para não sobrepor */
+    }
+
+    /* Modal Simples */
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 2000; 
+      left: 0; top: 0; width: 100%; height: 100%; 
+      background-color: rgba(0,0,0,0.8); 
+    }
+    .modal-content {
+      background-color: var(--card-bg);
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 15px;
+      position: relative;
+    }
+    .close-button {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .chatbox {
+      height: 200px;
+      background: #222;
+      margin: 10px 0;
+      border-radius: 8px;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    .order-input {
+      width: 70%;
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+    }
+    .button-chat {
+      width: 25%;
+      padding: 10px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+  </style>
 </head>
 <body>
 
-  <!-- Cabeçalho (igual ao index.html) -->
+  <!-- Cabeçalho -->
   <header>
-    <div class="theme-toggle-container" id="theme-toggle-container">
-      <i class="fas fa-moon" id="theme-toggle-icon"></i>
-    </div>
-    <div class="info-toggle-container" id="info-toggle-container">
-      <i class="fas fa-info-circle" id="info-toggle-icon"></i>
-    </div>
     <div class="logo-container">
-      <img src="logonova.png" alt="Logo Jantinha Nota 1000" class="header-logo">
+      <!-- Substitua pelo caminho real da sua logo -->
+      <img src="logonova.png" alt="Logo Jantinha Nota 1000" class="header-logo" onerror="this.style.display='none'"> 
     </div>
     <p>😋 Experimente a melhor jantinha da cidade!<br>⭐⭐⭐⭐⭐</p>
   </header>
 
-  <!-- Botão Voltar para o Menu (centralizado abaixo do header) -->
+  <!-- Botão Voltar -->
   <div class="menu-back-container">
     <a href="index.html" class="back-to-menu-button">
       <i class="fas fa-arrow-left"></i> Cardápio
@@ -32,7 +259,7 @@
   </div>
 
   <div class="container">
-    <!-- Seção de ícones temáticos (agora clicáveis) -->
+    <!-- Seção de ícones temáticos -->
     <div class="icons-container">
       <a href="#comidas" class="icon-item">
         <div class="icon"><i class="fas fa-utensils"></i></div>
@@ -64,219 +291,146 @@
       </a>
     </div>
 
-    <!-- Seção de Fotos por Categoria -->
-    
     <!-- COMIDAS -->
     <section id="comidas" class="photo-category-section">
-      <h2 class="category-title"><i></i> 🍽️ Fotos de Comidas</h2>
+      <h2 class="category-title">🍽️ Fotos de Comidas</h2>
       <div class="photos-grid">
         <div class="photo">
-          <img src="https://i.imgur.com/sWDIdVQ.jpg" alt="Jantinha" />
+          <!-- ADICIONADA CLASSE img-responsive AQUI -->
+          <img src="https://i.imgur.com/sWDIdVQ.jpg" alt="Jantinha" class="img-responsive" />
         </div>
         <div class="photo">
-          <img src="https://i.imgur.com/OgRn1Cv.jpg" alt="Jantinha Kids" />
+          <img src="https://i.imgur.com/OgRn1Cv.jpg" alt="Jantinha Kids" class="img-responsive" />
         </div>
         <div class="photo">
-          <img src="https://i.imgur.com/5B5rNEU.jpg" alt="Espeto de Frango com Bacon" />
+          <img src="https://i.imgur.com/5B5rNEU.jpg" alt="Espeto de Frango com Bacon" class="img-responsive" />
         </div>
         <div class="photo">
-          <img src="https://i.imgur.com/ukIDZXm.jpg" alt="Caldo de Frango" />
+          <img src="https://i.imgur.com/ukIDZXm.jpg" alt="Caldo de Frango" class="img-responsive" />
         </div>
         <div class="photo">
-          <img src="https://i.imgur.com/9L5EQUf.jpg" alt="Contra Filé" />
+          <img src="https://i.imgur.com/9L5EQUf.jpg" alt="Contra Filé" class="img-responsive" />
         </div>
         <div class="photo">
-          <img src="https://i.imgur.com/abqP82z.jpg" alt="Linguiça Suina Caseira" />
+          <img src="https://i.imgur.com/abqP82z.jpg" alt="Linguiça Suina Caseira" class="img-responsive" />
         </div>
         <div class="photo">
-          <img src="https://i.imgur.com/K0VEhoX.jpg" alt="Picanha Montada" />
+          <img src="https://i.imgur.com/K0VEhoX.jpg" alt="Picanha Montada" class="img-responsive" />
         </div>
-        
       </div>
     </section>
 
     <!-- BEBIDAS -->
     <section id="bebidas" class="photo-category-section">
-      <h2 class="category-title"><i></i> 🍻 Fotos de Bebidas</h2>
+      <h2 class="category-title">🍻 Fotos de Bebidas</h2>
       <div class="photos-grid">
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Cerveja+Gelada" alt="Cerveja Gelada" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Refrigerante" alt="Refrigerante" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Suco+de+Laranja" alt="Suco de Laranja" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Caipirinha" alt="Caipirinha" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Energético" alt="Energético" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Água+com+Gás" alt="Água com Gás" />
-        </div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Cerveja+Gelada" alt="Cerveja Gelada" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Refrigerante" alt="Refrigerante" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Suco+de+Laranja" alt="Suco de Laranja" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Caipirinha" alt="Caipirinha" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Energetico" alt="Energético" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Agua+com+Gas" alt="Água com Gás" class="img-responsive" /></div>
       </div>
     </section>
 
     <!-- ESPAÇO -->
     <section id="espaco" class="photo-category-section">
-      <h2 class="category-title"><i></i> 🪑 Fotos do Espaço</h2>
+      <h2 class="category-title">🪑 Fotos do Espaço</h2>
       <div class="photos-grid">
-        <div class="photo">
-          <img src="https://i.imgur.com/tKJBwT2.jpg" alt="Ambiente" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Mesas+e+Cadeiras" alt="Mesas e Cadeiras" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Decoração" alt="Decoração" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Iluminação" alt="Iluminação" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Banheiros" alt="Banheiros" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Estacionamento" alt="Estacionamento" />
-        </div>
+        <div class="photo"><img src="https://i.imgur.com/tKJBwT2.jpg" alt="Ambiente" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Mesas+e+Cadeiras" alt="Mesas e Cadeiras" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Decoracao" alt="Decoração" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Iluminacao" alt="Iluminação" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Banheiros" alt="Banheiros" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Estacionamento" alt="Estacionamento" class="img-responsive" /></div>
       </div>
     </section>
 
     <!-- PORÇÕES -->
     <section id="porcoes" class="photo-category-section">
-      <h2 class="category-title"><i></i> 🍟 Fotos de Porções</h2>
+      <h2 class="category-title">🍟 Fotos de Porções</h2>
       <div class="photos-grid">
-        <div class="photo">
-          <img src="https://i.imgur.com/WAlZRr0.jpg" alt="Frango á Passarinho 1kg" />
-        </div>
-        <div class="photo">
-          <img src="https://i.imgur.com/9RV6TRA.jpg" alt="Filé de Tilápia" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Medalhão+1000" alt="Medalhão 1000" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Torresmo" alt="Torresmo" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Queijo+Coalho" alt="Queijo Coalho" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Romeu+e+Julieta" alt="Romeu e Julieta" />
-        </div>
+        <div class="photo"><img src="https://i.imgur.com/WAlZRr0.jpg" alt="Frango á Passarinho 1kg" class="img-responsive" /></div>
+        <div class="photo"><img src="https://i.imgur.com/9RV6TRA.jpg" alt="Filé de Tilápia" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Medalhao+1000" alt="Medalhão 1000" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Torresmo" alt="Torresmo" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Queijo+Coalho" alt="Queijo Coalho" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Romeu+e+Julieta" alt="Romeu e Julieta" class="img-responsive" /></div>
       </div>
     </section>
 
     <!-- GUARNIÇÕES -->
     <section id="guarnicoes" class="photo-category-section">
-      <h2 class="category-title"><i></i> 🍚 Fotos de Guarnições</h2>
+      <h2 class="category-title">🍚 Fotos de Guarnições</h2>
       <div class="photos-grid">
-        <div class="photo">
-          <img src="https://i.imgur.com/n8xC1v2.jpg" alt="Arroz Branco" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Feijão+Tropeiro" alt="Feijão Tropeiro" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Vinagrete" alt="Vinagrete" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Mandioca+Frita" alt="Mandioca Frita" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Farofa" alt="Farofa" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Salada+Verde" alt="Salada Verde" />
-        </div>
+        <div class="photo"><img src="https://i.imgur.com/n8xC1v2.jpg" alt="Arroz Branco" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Feijao+Tropeiro" alt="Feijão Tropeiro" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Vinagrete" alt="Vinagrete" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Mandioca+Frita" alt="Mandioca Frita" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Farofa" alt="Farofa" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Salada+Verde" alt="Salada Verde" class="img-responsive" /></div>
       </div>
     </section>
 
     <!-- CREMES -->
     <section id="cremes" class="photo-category-section">
-      <h2 class="category-title"><i></i> 🥤 Fotos de Cremes</h2>
+      <h2 class="category-title">🥤 Fotos de Cremes</h2>
       <div class="photos-grid">
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Creme+de+Milho" alt="Creme de Milho" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Creme+de+Abóbora" alt="Creme de Abóbora" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Creme+de+Espinafre" alt="Creme de Espinafre" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Sobremesa+de+Creme" alt="Sobremesa de Creme" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Creme+de+Chocolate" alt="Creme de Chocolate" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Creme+de+Morango" alt="Creme de Morango" />
-        </div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Creme+de+Milho" alt="Creme de Milho" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Creme+de+Abobora" alt="Creme de Abóbora" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Creme+de+Espinafre" alt="Creme de Espinafre" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Sobremesa+de+Creme" alt="Sobremesa de Creme" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Creme+de+Chocolate" alt="Creme de Chocolate" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Creme+de+Morango" alt="Creme de Morango" class="img-responsive" /></div>
       </div>
     </section>
 
     <!-- ESPECIAIS -->
     <section id="especiais" class="photo-category-section">
-      <h2 class="category-title"><i></i> 👑 Fotos de Especiais</h2>
+      <h2 class="category-title">👑 Fotos de Especiais</h2>
       <div class="photos-grid">
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Combo+Imperdível" alt="Combo Imperdível" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Promoção+da+Semana" alt="Promoção da Semana" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Prato+do+Chef" alt="Prato do Chef" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Evento+Especial" alt="Evento Especial" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Novidade+do+Cardápio" alt="Novidade do Cardápio" />
-        </div>
-        <div class="photo">
-          <img src="https://via.placeholder.com/300x300?text=Edição+Limitada" alt="Edição Limitada" />
-        </div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Combo+Imperdivel" alt="Combo Imperdível" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Promocao+da+Semana" alt="Promoção da Semana" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Prato+do+Chef" alt="Prato do Chef" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Evento+Especial" alt="Evento Especial" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Novidade+do+Cardapio" alt="Novidade do Cardápio" class="img-responsive" /></div>
+        <div class="photo"><img src="https://via.placeholder.com/300x300?text=Edicao+Limitada" alt="Edição Limitada" class="img-responsive" /></div>
       </div>
     </section>
 
-    <!-- Rodapé (igual ao index.html) -->
+    <!-- Rodapé -->
     <footer>
       <p>© 2025 Jantinha Nota 1000. Todos os direitos reservados.</p>
-      <p>AVENIDA DA PAZ, S/N, SETOR GARAVELO, APARECIDA DE GOIANIA-GO, QUADRA 159-LOTE 0017-SALA 05, Setor Garavelo, Aparecida de Goiânia, Goiás 74930570, Brasil</p>
+      <p>AVENIDA DA PAZ, S/N, SETOR GARAVELO, APARECIDA DE GOIANIA-GO</p>
       <p>powered by <i>MEDSON SANTOS</i></p>
     </footer>
   </div>
 
   <!-- Botão Voltar ao Topo -->
-  <button id="scrollToTopBtn" title="Voltar ao Topo">
+  <button id="scrollToTopBtn" title="Voltar ao Topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
     <i class="fas fa-arrow-up"></i>
   </button>
 
   <!-- Botão do Chatbot -->
-  <div id="openChatBtn" class="chat-toggle-btn" title="Abrir Chatbot">
+  <div id="openChatBtn" class="chat-toggle-btn" title="Abrir Chatbot" onclick="document.getElementById('chatModal').style.display='block'">
     <i class="fas fa-comments"></i>
   </div>
 
-  <!-- Modal do Chatbot (reutilizado do index.html) -->
+  <!-- Modal do Chatbot -->
   <div id="chatModal" class="modal">
     <div class="modal-content chat-modal-content">
-      <span class="close-button" id="closeChatModalBtn">×</span>
+      <span class="close-button" id="closeChatModalBtn" onclick="document.getElementById('chatModal').style.display='none'">×</span>
       <h2>🤖 Chat 1000</h2>
       <div id="chatbox" class="chatbox">
-        <!-- As mensagens serão inseridas aqui dinamicamente -->
+        <!-- Mensagens aqui -->
+        <p style="color:#aaa; font-size:0.8rem;">Olá! Como posso ajudar?</p>
       </div>
-      <input type="text" id="chatInput" placeholder="Digite sua mensagem..." class="order-input">
+      <input type="text" id="chatInput" placeholder="Digite..." class="order-input">
       <button id="sendChatBtn" class="button-chat">Enviar</button>
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Scripts Externos -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
   <script src="knowledgeBase.js"></script>
   <script src="script.js"></script>
