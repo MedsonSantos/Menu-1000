@@ -514,11 +514,11 @@
             if (!chatbox.dataset.initialMessageShown) {
                 // Preenche as mensagens "ola" e "oi" na base de conhecimento
                 // Apenas quando a função getWeekdayName está disponível
-                const currentDayName = getWeekdayName(new Date().getDay());
-                chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${currentDayName}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas** (Cervejas, Refrigerantes, Sucos)\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
-                chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"]; // "oi" usa a mesma mensagem que "ola"
+                //const currentDayName = getWeekdayName(new Date().getDay());
+                //chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${currentDayName}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas** (Cervejas, Refrigerantes, Sucos)\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
+                //chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"]; // "oi" usa a mesma mensagem que "ola"
 
-                const initialBotMessage = chatbotKnowledgeBase["ola"]; // Usa a resposta "ola" como mensagem inicial
+                const initialBotMessage = "👋 Olá! Como posso ajudar você hoje? 😊\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas**\n- ⏰ **Horários**\n- 🛵 **Entrega**\nOu qualquer outra dúvida! 😉";
                 addMessage(initialBotMessage, 'bot');
                 chatbox.dataset.initialMessageShown = 'true'; // Marca que a mensagem já foi mostrada
             }
