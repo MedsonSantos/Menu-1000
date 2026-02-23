@@ -59,6 +59,30 @@ document.addEventListener('DOMContentLoaded', function() {
         closedDay: 1 // Segunda-feira
     };
 
+
+    // Função auxiliar para obter o nome do dia da semana em Português
+    function getWeekdayName(dateString) {
+        if (!dateString) return '';
+        
+        // Tenta criar um objeto Date. Se for string no formato DD/MM/AAAA, converte primeiro
+        let date;
+        if (typeof dateString === 'string' && dateString.includes('/')) {
+            const parts = dateString.split('/');
+            // Cria data no formato YYYY-MM-DD para evitar problemas de fuso horário
+            date = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+        } else {
+            date = new Date(dateString);
+        }
+
+        if (isNaN(date.getTime())) return '';
+
+        const weekdays = [
+            'Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 
+            'Quinta-feira', 'Sexta-feira', 'Sábado'
+        ];
+        
+        return weekdays[date.getDay()];
+    }
     // --- Funções auxiliares ---
     function getStoreStatus() {
         const now = new Date();
