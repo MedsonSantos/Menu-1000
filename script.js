@@ -108,26 +108,40 @@ document.addEventListener('DOMContentLoaded', function() {
         statusFuncionamentoMainElement.style.display = 'block';
     }
 
+    // --- Funções de Tema (CORRIGIDAS PARA EVITAR ERRO EM PÁGINAS SEM O ÍCONE) ---
+
     function setTheme(theme) {
+        // Verifica se o body existe
+        if (!body) return;
+
         if (theme === 'light') {
             body.classList.add('light-theme');
-            themeToggleIcon.classList.remove('fa-sun');
-            themeToggleIcon.classList.add('fa-moon');
+            // Só altera o ícone se ele existir na página atual
+            if (themeToggleIcon) {
+                themeToggleIcon.classList.remove('fa-sun');
+                themeToggleIcon.classList.add('fa-moon');
+            }
             localStorage.setItem('theme', 'light');
         } else {
             body.classList.remove('light-theme');
-            themeToggleIcon.classList.remove('fa-moon');
-            themeToggleIcon.classList.add('fa-sun');
+            // Só altera o ícone se ele existir na página atual
+            if (themeToggleIcon) {
+                themeToggleIcon.classList.remove('fa-moon');
+                themeToggleIcon.classList.add('fa-sun');
+            }
             localStorage.setItem('theme', 'dark');
         }
     }
 
     function toggleTheme() {
-        setTheme(body.classList.contains('light-theme') ? 'dark' : 'light');
+        if (!body) return;
+        const isLight = body.classList.contains('light-theme');
+        setTheme(isLight ? 'dark' : 'light');
     }
 
     function initializeTheme() {
-        setTheme(localStorage.getItem('theme') || 'dark');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme);
     }
 
     function openModal(modalElement) {
