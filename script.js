@@ -97,14 +97,34 @@ document.addEventListener('DOMContentLoaded', function() {
         return 'CLOSED';
     }
 
+    /**
+ * Atualiza o elemento HTML que mostra o status de funcionamento na tela principal.
+ */
     function updateMainScreenOperatingStatus() {
-        if (!statusFuncionamentoMainElement) return;
-        const status = getStoreStatus();
-        statusFuncionamentoMainElement.textContent = status === 'OPEN'
-            ? "🥳 Estamos abertos! Faça seu pedido!"
-            : "❌ Olá! Estamos fechados hoje. Nosso horário de funcionamento é de TERÇA a DOMINGO, das 18:00h às 00:00h.";
-        statusFuncionamentoMainElement.classList.toggle('aberto-main', status === 'OPEN');
-        statusFuncionamentoMainElement.classList.toggle('fechado-main', status === 'CLOSED');
+        if (!statusFuncionamentoMainElement) return; // Sai se o elemento não existir
+
+        const status = getStoreStatus(); // Obtém o status atual
+
+        // Define a mensagem e as classes CSS com base no status
+        if (status === 'OPEN') {
+            statusFuncionamentoMainElement.textContent = "🥳 Estamos abertos! Faça seu pedido!";
+            statusFuncionamentoMainElement.classList.add('aberto-main');
+            statusFuncionamentoMainElement.classList.remove('fechado-main');
+        } else if (status === 'CLOSED_DAY') { // ✅ CORREÇÃO: Verifica explicitamente por 'CLOSED_DAY'
+            statusFuncionamentoMainElement.textContent = "❌ Olá! Estamos fechados às **segundas-feiras**. Nosso horário de funcionamento é de TERÇA a DOMINGO, das 18:00h às 00:00h.";
+            statusFuncionamentoMainElement.classList.add('fechado-main');
+            statusFuncionamentoMainElement.classList.remove('aberto-main');
+        } else if (status === 'AWAITING_OPENING') { // Opcional: mensagem para antes do horário de abertura
+            statusFuncionamentoMainElement.textContent = "⏰ Olá! Ainda não abrimos. Volte a partir das 18:00h.";
+            statusFuncionamentoMainElement.classList.add('fechado-main'); // Pode usar uma classe diferente se desejar
+            statusFuncionamentoMainElement.classList.remove('aberto-main');
+        } else { // status === 'CLOSED' (já passou do horário de fechamento)
+            statusFuncionamentoMainElement.textContent = "❌ Olá! Já passamos do horário de funcionamento. Volte amanhã (se não for segunda-feira)! Horário: Terça a Domingo, das 18:00h às 00:00h.";
+            statusFuncionamentoMainElement.classList.add('fechado-main');
+            statusFuncionamentoMainElement.classList.remove('aberto-main');
+        }
+
+        // Garante que o elemento esteja visível
         statusFuncionamentoMainElement.style.display = 'block';
     }
 
