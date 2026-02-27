@@ -660,7 +660,7 @@
             transition: background-color 0.2s ease;
             width: 100%;
             flex-shrink: 0;
-            min-height: 44px;
+            min-height: 30px; /* Garante que o botão tenha uma altura mínima para melhor usabilidade */
         }
 
         .product-card button.add-to-cart:hover {
