@@ -617,17 +617,17 @@
             font-weight: 600; /* Mantém o peso da fonte */
             margin: 0.4em 0.3em 0.1em; /* Ajuste fino das margens */
             text-align: center;
-            /* Removido: overflow: hidden; */
-            /* Removido: text-overflow: ellipsis; */
-            /* Removido: white-space: nowrap; */
-            width: 100%; /* Garante que o título ocupe a largura total */
+            width: 100%; 
             transition: color 0.3s ease;
-            /* Adicionado: Permite quebra de linha */
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Limita a 2 linhas */
+            -webkit-box-orient: vertical;
             word-wrap: break-word; /* Quebra palavras longas se necessário */
-            overflow-wrap: break-word; /* Quebra palavras longas se necessário (sinônimo de word-wrap) */
-            hyphens: auto; /* Opcional: adiciona hífens automaticamente ao quebrar palavras (suporte limitado) */
-            min-height: 1.2em; /* Garante uma altura mínima para evitar que títulos curtos fiquem muito colados */
-            line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+            
+            overflow: hidden; /* Esconde o excesso de texto */
+            hyphens: auto; /* Hifeniza palavras longas para melhor quebra */
+            min-height: 1.2em; 
+            line-height: 1.2; 
         }
 
         .product-card p {
