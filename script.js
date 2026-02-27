@@ -645,7 +645,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const addBtn = document.createElement('button');
             addBtn.className = 'add-to-cart';
-            addBtn.textContent = 'Adicionar ➕';
+            addBtn.textContent = '🛒 Adicionar ➕';
             addBtn.dataset.id = product.id;
             addBtn.addEventListener('click', handleAddButtonClick);
             card.appendChild(addBtn);
