@@ -590,6 +590,11 @@ document.addEventListener('DOMContentLoaded', function() {
             img.loading = 'lazy';
             card.appendChild(img);
 
+            img.onerror = function() {
+                this.classList.add('sem-imagem-carregada'); // Adiciona classe se a imagem falhar
+                // A regra CSS .product-card img.sem-imagem-carregada::before já mostrará a marca d'água
+            };
+
             const name = document.createElement('h3');
             name.textContent = product.name;
             card.appendChild(name);
