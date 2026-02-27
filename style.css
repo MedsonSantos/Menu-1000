@@ -32,6 +32,7 @@
             /* Fundo do cabeçalho */
             --footer-bg: #1a1a1a;
             --titulo-carrinho: #197be3;
+            --separador-categoria: #d4a814;
         }
 
         /* Variáveis para o Tema Claro */
@@ -506,7 +507,7 @@
 
         .category h2 {
             color: var(--accent-color);
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--separador-categoria);
             padding-bottom: 0.5em;
             margin-bottom: 1.5em;
             font-size: 1.8em;

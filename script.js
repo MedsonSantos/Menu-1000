@@ -834,6 +834,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
        // --- Chatbot Event Listeners (AJUSTADO) ---
         // --- Chatbot Event Listeners (CORRIGIDO) ---
+   // Event listener para abrir o modal do chat
     if (openChatBtn) {
         openChatBtn.addEventListener('click', () => {
             openModal(chatModal);
@@ -843,15 +844,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Atualizar dinamicamente a resposta da chave 'ola' e 'oi' na base de conhecimento
                 // Isso replica o comportamento antigo do knowledgeBase.js
-                chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${today}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas** (Cervejas, Refrigerantes, Sucos)\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
-                chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"]; // 'oi' usa a mesma mensagem que 'ola'
-                chatbotKnowledgeBase["e ai"] = chatbotKnowledgeBase["ola"]; // 'e ai' usa a mesma mensagem que 'ola'
-                
-
+                if (typeof chatbotKnowledgeBase !== 'undefined') {
+                    chatbotKnowledgeBase["ola"] = `👋 Olá! Feliz ${today}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre:\n- 🍢 Nossos **Espetos**\n- 🍛 As **Jantinhas**\n- 🥤 **Bebidas** (Cervejas, Refrigerantes, Sucos)\n- 🍟 **Porções** e **Pastéis**\n- 🍰 **Doces** e **Drinks**\n- ⏰ Nossos **Horários** de funcionamento\n- 🛵 **Entrega**\n- 📞 **Contato**\n\nOu qualquer outra dúvida sobre o cardápio! 😉`;
+                    chatbotKnowledgeBase["oi"] = chatbotKnowledgeBase["ola"]; // 'oi' usa a mesma mensagem que 'ola'
+                    chatbotKnowledgeBase["e ai"] = chatbotKnowledgeBase["ola"]; // 'e ai' usa a mesma mensagem que 'ola'
+                    chatbotKnowledgeBase["eai"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["e aí"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["bom dia"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["boa tarde"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["boa noite"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["salve"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["fala"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["falae"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["hey"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["hello"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["saudacoes"] = chatbotKnowledgeBase["ola"];
+                    chatbotKnowledgeBase["saudação"] = chatbotKnowledgeBase["ola"];
+                } else {
+                    // Caso a base de conhecimento não esteja carregada, define uma mensagem padrão
+                    console.warn("Base de conhecimento do chatbot não encontrada (chatbotKnowledgeBase). Usando mensagem padrão.");
+                    const defaultMessage = `👋 Olá! Feliz ${today}! Como posso ajudar você hoje? 😊\n\nVocê pode perguntar sobre o cardápio, horários, entrega, etc.! 😉`;
+                    chatbox.innerHTML = `<div class="message bot-message">${defaultMessage.replace(/\n/g, '<br>')}</div>`;
+                }
 
                 // Agora, chama getBotResponse com 'ola', que já terá o valor atualizado
-                const initialBotResponse = getBotResponse("ola");
-                chatbox.innerHTML = `<div class="message bot-message">${initialBotResponse.replace(/\n/g, '<br>')}</div>`;
+                const initialBotResponse = getBotResponse("ola"); // Supondo que getBotResponse utilize chatbotKnowledgeBase
+                if (initialBotResponse) {
+                    chatbox.innerHTML = `<div class="message bot-message">${initialBotResponse.replace(/\n/g, '<br>')}</div>`;
+                } else {
+                    // Se getBotResponse não retornar nada, tenta usar a mensagem padrão definida acima ou uma mensagem genérica
+                    chatbox.innerHTML = `<div class="message bot-message">Olá! Como posso ajudar você hoje?</div>`;
+                }
                 chatbox.dataset.initialMessageShown = 'true';
             }
         });

@@ -17,6 +17,26 @@
     "hi": "",
     "hello": "",
     "saudações": "",
+    
+// --- INFORMAÇÕES SOBRE O ESTABELECIMENTO ---
+    "nome": "Nosso estabelecimento se chama **Jantinha Nota 1000**.",
+    "estabelecimento": "Somos a **Jantinha Nota 1000**, especializada em jantinhas deliciosas e espetos suculentos!",
+    "endereco": "Estamos localizados na **Av. da Paz, Qd 159, Lt 17, Setor Garavelo, Aparecida de Goiânia - GO, 74930-580**. Fica perto do Tático do Garavelo! 📍",
+    "localizacao": "Ficamos na **Av. da Paz, Qd 159, Lt 17, Setor Garavelo, Aparecida de Goiânia - GO, 74930-580**, perto do Tático do Garavelo. Clique no link abaixo para ver no mapa! 🗺️",
+    "localização": "Ficamos na **Av. da Paz, Qd 159, Lt 17, Setor Garavelo, Aparecida de Goiânia - GO, 74930-580**, perto do Tático do Garavelo. Clique no link abaixo para ver no mapa! 🗺️",
+    "onde fica": "Nos encontramos na **Av. da Paz, Qd 159, Lt 17, Setor Garavelo, Aparecida de Goiânia - GO, 74930-580**. Próximo ao Tático do Garavelo! 📍",
+    "mapa": "Aqui está o link para o nosso local no Google Maps: [https://maps.app.goo.gl/zoV6bZ6LjkFXQHsu8](https://maps.app.goo.gl/zoV6bZ6LjkFXQHsu8) 🗺️",
+    "contato": "Você pode nos contatar pelo WhatsApp: **(62) 99202-0331** 📞 ou pelo Instagram: **jantinhanota1000** 📷.",
+    "whatsapp": "Nosso WhatsApp é: **(62) 99202-0331**. Envie sua mensagem ou pedido! 📲",
+    "instagram": "Siga-nos no Instagram: **@jantinhanota1000** para ficar por dentro das novidades e promoções! 📷✨",
+    "facebook": "Curta nossa página no Facebook: **Jantinha Nota 1000** para mais informações! 📘",
+    "avaliar": "Gostou do nosso atendimento? Deixe uma avaliação no Google: [https://g.page/r/Cd8DSySQnot7EBM/review](https://g.page/r/Cd8DSySQnot7EBM/review) 🌟",
+    "avaliação": "Ajude-nos a melhorar deixando uma avaliação no Google: [https://g.page/r/Cd8DSySQnot7EBM/review](https://g.page/r/Cd8DSySQnot7EBM/review) 🌟",
+    "google": "Acesse nosso perfil no Google: [https://g.page/r/Cd8DSySQnot7EBM](https://g.page/r/Cd8DSySQnot7EBM) 🌐",
+    "site": "Visite nosso site/cardápio online: [https://jantinhanota1000.com.br](https://jantinhanota1000.com.br) 🌐 (Exemplo)",
+    "cardapio": "Todo o nosso cardápio está disponível em nosso site: [https://jantinhanota1000.com.br](https://jantinhanota1000.com.br) 📋 (Exemplo)",
+    "cardápio": "Todo o nosso cardápio está disponível em nosso site: [https://jantinhanota1000.com.br](https://jantinhanota1000.com.br) 📋 (Exemplo)",
+    "menu": "Todo o nosso cardápio está disponível em nosso site: [https://jantinhanota1000.com.br](https://jantinhanota1000.com.br) 📋 (Exemplo)",
 
 // Sobre o chat-------------------------------------------------------------------------------------------
     "quem é você?": "Sou um assistente 🤖, criado para ajudar com seus pedidos 📝 e dúvidas referente ao cardápio e horários de funcionamento 🕰️",
@@ -108,7 +128,7 @@
             " 4️⃣ - Preencha as informações solicitadas 📝 \n"+
             " 5️⃣ - Clique no botão PEDIR VIA WHATSAPP ✅\n"+
             "Prontinho! viu como é facil 😁 Seu pedido será enviado para o WhatsApp, e um de nossos atendentes irá anotar 😉 seu pedido!",
-
+    
 // Início comum----------------------------------------------------------------------------------------------
 
     "menu": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
@@ -242,6 +262,7 @@
                   "- Alface",
     // Dentro do objeto chatbotKnowledgeBase, na seção de espetos
 
+
      "linguica caipira": "🍢 A Linguiça Caipira custa R$ 11,00. É feita de carne suína caipira, com tempero caseiro. Um sabor tradicional!", // Resposta existente, exemplo de onde adicionar
 // ... outras entradas ...
 
@@ -319,7 +340,13 @@
                         "🧀🥓 **Batata 1000 500g** (com Queijo Cheddar e Bacon) - R$ 33,99\n\n" +
                         "Qual delas você gostaria de pedir? 😉",
             // Adicione mais variações conforme necessário...
-
+            
+    // --- PROMOÇÕES (SE HOUVER) ---
+    "promocao": "Consulte nosso Instagram **@jantinhanota1000** ou pergunte diretamente via WhatsApp para saber sobre as **promoções atuais**! 🎁",
+    "promocao": "Consulte nosso Instagram **@jantinhanota1000** ou pergunte diretamente via WhatsApp para saber sobre as **promoções atuais**! 🎁",
+    "promoção": "Consulte nosso Instagram **@jantinhanota1000** ou pergunte diretamente via WhatsApp para saber sobre as **promoções atuais**! 🎁",
+    "desconto": "Para saber sobre **descontos ou promoções**, entre em contato conosco via WhatsApp ou visite nosso Instagram. 🎁",
+    "descontos": "Para saber sobre **descontos ou promoções**, entre em contato conosco via WhatsApp ou visite nosso Instagram. 🎁",
     // ESPETOS  
     "asinha": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
     "tulipa": "🍗 O espeto de Asinha (Tulipa) custa R$ 11,00. Uma delícia!",
