@@ -513,6 +513,9 @@
             font-weight: 600;
             transition: color 0.3s ease, border-color 0.3s ease;
             font-family: 'Poppins', sans-serif;
+            display: inline-block;
+            width: 100%; /* Garante que o título ocupe a largura total */
+            text-align: center; /* Centraliza o título da categoria */
             /* Mantém a fonte consistente */
 
         }
