@@ -425,7 +425,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Original 600ml',
         description: 'Garrafa 600ml',
-        price: 13.00,
+        price: 14.00,
         imageUrl: 'imagens/breve.png'
     },
 
