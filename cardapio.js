@@ -177,14 +177,14 @@ const products = [
         price: 13.00,
         imageUrl: 'https://i.imgur.com/rHzvptL.png'
     },
-     {
-        id: 'esp-17',
-        category: 'ESPETOS',
-        name: 'Pão de Alho',
-        description: 'Pão de alho',
-        price: 7.00,
-        imageUrl: 'imagens/breve.png'
-    },
+     //{
+        //id: 'esp-17',
+        //category: 'ESPETOS',
+        //name: 'Pão de Alho',
+        //description: 'Pão de alho',
+        //price: 7.00,
+        //imageUrl: 'imagens/breve.png'
+    //},
     
     
     //--------------------------------------CALDOS-------------------------------------//
@@ -322,7 +322,7 @@ const products = [
         name: 'Amstel Lata',
         description: '350ml',
         price: 6.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/Y41o2XV.png'
     },
     {
         id: 'cev-2',
@@ -330,7 +330,7 @@ const products = [
         name: 'Brahma Lata',
         description: '350ml',
         price: 6.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/HpS7TQ6.png'
     },
     {
         id: 'cev-3',
@@ -338,16 +338,16 @@ const products = [
         name: 'Antartica Lata',
         description: '350ml',
         price: 6.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/Qf2KGSg.png'
     },
-    {
-        id: 'cev-4',
-        category: 'CERVEJAS',
-        name: 'Império lata',
-        description: '350ml',
-        price: 6.00,
-        imageUrl: 'imagens/breve.png'
-    },
+    //{
+        //id: 'cev-4',
+        //category: 'CERVEJAS',
+        //name: 'Império lata',
+        //description: '350ml',
+        //price: 6.00,
+        //imageUrl: 'imagens/breve.png'
+    //},
 
     {
         id: 'cev-5',
@@ -366,7 +366,7 @@ const products = [
         name: 'SOL Mexicana',
         description: 'Long Neck 330ml',
         price: 9.50,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/QzlQYRq.png'
     },
     {
         id: 'cev-7',
@@ -374,7 +374,7 @@ const products = [
         name: 'Stella Artois',
         description: 'Long Neck 330ml',
         price: 10.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/PeHP5ct.png'
     },
         {
         id: 'cev-8',
@@ -382,7 +382,7 @@ const products = [
         name: 'Budweiser',
         description: 'Long Neck 330ml',
         price: 9.50,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/J8Xs9tS.png'
     },
 
         
@@ -392,7 +392,7 @@ const products = [
         name: 'Heineken',
         description: 'Long Neck 330ml',
         price: 10.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/3VKaxol.png'
     },
     {
         id: 'cev-10',
@@ -400,20 +400,28 @@ const products = [
         name: 'Heineken ZERO ÁLCOOL ',
         description: 'Long Neck ZERO 330ml',
         price: 10.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/Q2AQc0t.png'
     },
     {
         id: 'cev-11',
         category: 'CERVEJAS',
         name: 'Corona',
         description: 'Long Neck 330ml',
-        price: 11.00,
-        imageUrl: 'imagens/breve.png'
+        price: 10.00,
+        imageUrl: 'https://i.imgur.com/oTxz0yT.png'
+    },
+    {
+        id: 'cev-12',
+        category: 'CERVEJAS',
+        name: 'Michelob Ultra',
+        description: 'Long Neck 330ml',
+        price: 10.00,
+        imageUrl: 'https://i.imgur.com/tjiMIum.png'
     },
 
         //--------------------------------------------- GARAFA 600ML ---------------------------------------------//
     {
-        id: 'cev-12',
+        id: 'cev-13',
         category: 'CERVEJAS',
         name: 'Heineken 600ml',
         description: 'Garrafa 600ml',
@@ -421,7 +429,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-13',
+        id: 'cev-14',
         category: 'CERVEJAS',
         name: 'Antartica 600ml',
         description: 'Garrafa 600ml',
@@ -429,7 +437,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-14',
+        id: 'cev-15',
         category: 'CERVEJAS',
         name: 'Amstel 600ml',
         description: 'Garrafa 600ml',
@@ -437,7 +445,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-15',
+        id: 'cev-16',
         category: 'CERVEJAS',
         name: 'Original 600ml',
         description: 'Garrafa 600ml',
@@ -445,7 +453,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-16',
+        id: 'cev-17',
         category: 'CERVEJAS',
         name: 'Brahma 600ml',
         description: 'Garrafa 600ml',
