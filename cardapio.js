@@ -315,8 +315,7 @@ const products = [
         imageUrl: 'https://i.imgur.com/LpnVdjc.png'
     },
 
-    //--------------------------------------CERVEJAS-------------------------------------//
-     // LATA //
+    //--------------------------------------CERVEJAS LATA-------------------------------------//
     {
         id: 'cev-1',
         category: 'CERVEJAS',
@@ -350,7 +349,16 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
 
-        // LONG NECK //
+    {
+        id: 'cev-5',
+        category: 'CERVEJAS',
+        name: 'Brahma Zero Lata',
+        description: '350ml',
+        price: 7.00,
+        imageUrl: 'https://i.imgur.com/ftuuk6L.png'
+    },
+
+        //-------------------------------------------------// LONG NECK //----------------------------------------------//
 
 {
         id: 'cev-5',
