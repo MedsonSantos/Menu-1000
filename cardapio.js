@@ -361,7 +361,7 @@ const products = [
         //-------------------------------------------------// LONG NECK //----------------------------------------------//
 
 {
-        id: 'cev-5',
+        id: 'cev-6',
         category: 'CERVEJAS',
         name: 'SOL Mexicana',
         description: 'Long Neck 330ml',
@@ -369,7 +369,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-6',
+        id: 'cev-7',
         category: 'CERVEJAS',
         name: 'Stella Artois',
         description: 'Long Neck 330ml',
@@ -377,7 +377,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
         {
-        id: 'cev-7',
+        id: 'cev-8',
         category: 'CERVEJAS',
         name: 'Budweiser',
         description: 'Long Neck 330ml',
@@ -387,7 +387,7 @@ const products = [
 
         
     {
-        id: 'cev-8',
+        id: 'cev-9',
         category: 'CERVEJAS',
         name: 'Heineken',
         description: 'Long Neck 330ml',
@@ -395,7 +395,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-9',
+        id: 'cev-10',
         category: 'CERVEJAS',
         name: 'Heineken ZERO ÁLCOOL ',
         description: 'Long Neck ZERO 330ml',
@@ -405,7 +405,7 @@ const products = [
 
         // GARAFA 600ML //
     {
-        id: 'cev-10',
+        id: 'cev-11',
         category: 'CERVEJAS',
         name: 'Heineken 600ml',
         description: 'Garrafa 600ml',
@@ -413,7 +413,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-11',
+        id: 'cev-12',
         category: 'CERVEJAS',
         name: 'Antartica 600ml',
         description: 'Garrafa 600ml',
@@ -421,7 +421,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-12',
+        id: 'cev-13',
         category: 'CERVEJAS',
         name: 'Amstel 600ml',
         description: 'Garrafa 600ml',
@@ -429,7 +429,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-13',
+        id: 'cev-14',
         category: 'CERVEJAS',
         name: 'Original 600ml',
         description: 'Garrafa 600ml',
