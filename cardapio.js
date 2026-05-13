@@ -450,7 +450,7 @@ const products = [
         name: 'Brahma 600ml',
         description: 'Garrafa 600ml',
         price: 12.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/BWmpagh.png'
     }, 
 
     // -------------------------------------------REFRIGERANTES ------------------------------------------//
