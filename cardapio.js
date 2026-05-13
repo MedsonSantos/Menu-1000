@@ -402,10 +402,18 @@ const products = [
         price: 10.00,
         imageUrl: 'imagens/breve.png'
     },
-
-        // GARAFA 600ML //
     {
         id: 'cev-11',
+        category: 'CERVEJAS',
+        name: 'Corona',
+        description: 'Long Neck 330ml',
+        price: 11.00,
+        imageUrl: 'imagens/breve.png'
+    },
+
+        //--------------------------------------------- GARAFA 600ML ---------------------------------------------//
+    {
+        id: 'cev-12',
         category: 'CERVEJAS',
         name: 'Heineken 600ml',
         description: 'Garrafa 600ml',
@@ -413,7 +421,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-12',
+        id: 'cev-13',
         category: 'CERVEJAS',
         name: 'Antartica 600ml',
         description: 'Garrafa 600ml',
@@ -421,7 +429,7 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-13',
+        id: 'cev-14',
         category: 'CERVEJAS',
         name: 'Amstel 600ml',
         description: 'Garrafa 600ml',
@@ -429,13 +437,21 @@ const products = [
         imageUrl: 'imagens/breve.png'
     },
     {
-        id: 'cev-14',
+        id: 'cev-15',
         category: 'CERVEJAS',
         name: 'Original 600ml',
         description: 'Garrafa 600ml',
         price: 14.00,
         imageUrl: 'imagens/breve.png'
     },
+    {
+        id: 'cev-16',
+        category: 'CERVEJAS',
+        name: 'Brahma 600ml',
+        description: 'Garrafa 600ml',
+        price: 12.00,
+        imageUrl: 'imagens/breve.png'
+    }, 
 
     // -------------------------------------------REFRIGERANTES ------------------------------------------//
     {
