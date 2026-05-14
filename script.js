@@ -215,6 +215,9 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (['cald-1', 'cald-2', 'cald-3'].includes(productId)) {
             item.acompanhamento = ''; // ✅ Mesmo padrão: string vazia
         }
+        else if(['sud-6', 'sud-7'].includes(productId)) {
+            item.sabor = ''; // ✅ Mesmo padrão: string vazia
+        }
         cart.push(item);
         updateCartDisplay();
         flashCartIcon();
@@ -339,6 +342,29 @@ document.addEventListener('DOMContentLoaded', function() {
                             <label for="acompanhamento-${index}">Acompanha:</label>
                             <select id="acompanhamento-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="acompanhamento">
                                 <option value="" disabled ${cartItem.acompanhamento === '' ? 'selected' : ''}>Selecione</option>
+                                ${optionsHtmlSelect}
+                            </select>
+                        </div>
+                    `;
+                }
+                // ✅ LÓGICA DOS SUCOS DE POLPA - ADICIONE APÓS O BLOCO DOS CALDOS
+                if (['sud-5', 'sud-6'].includes(product.id)) {
+                    const sabores = [
+                        { value: "Maracujá", label: "Maracujá" },
+                        { value: "Morango", label: "Morango" },
+                        { value: "Tamarindo", label: "Tamarindo" },
+                        { value: "Cupuaçu", label: "Cupuaçu" }
+                    ];
+                    
+                    let optionsHtmlSelect = sabores.map(opt => 
+                        `<option value="${opt.value}" ${cartItem.sabor === opt.value ? 'selected' : ''}>${opt.label}</option>`
+                    ).join('');
+
+                    optionsHtml += `
+                        <div class="input-group-inline">
+                            <label for="sabor-${index}">Sabor:</label>
+                            <select id="sabor-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="sabor">
+                                <option value="" disabled ${cartItem.sabor === '' ? 'selected' : ''}>Selecione o sabor</option>
                                 ${optionsHtmlSelect}
                             </select>
                         </div>
@@ -500,12 +526,39 @@ document.addEventListener('DOMContentLoaded', function() {
                     </li>
                 `;
 
-            } else {
+            }
+            // ✅ VALIDAÇÃO E MENSAGEM DOS SUCOS DE POLPA - ADICIONE APÓS O BLOCO DOS CALDOS
+              else if (['sud-5', 'sud-6'].includes(product.id)) {
+                    // Validação: exige que o sabor seja selecionado
+                    if (cartItem.sabor === '') {
+                        alert(`⚠️ Selecione o sabor para "${product.name}" (Item #${index + 1}).`);
+                        validationFailed = true;
+                        return;
+                    }
+
+                    const itemPrice = product.price * cartItem.quantity;
+                    total += itemPrice;
+                    
+                    // Mensagem para WhatsApp
+                    whatsappMessage += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n    - Sabor: ${cartItem.sabor}\n`;
+                    
+                    // Resumo HTML para o modal
+                    htmlSummary += `
+                        <li><strong>${cartItem.quantity}x ${product.name}</strong> (R$ ${itemPrice.toFixed(2).replace('.', ',')})<br>
+                            <ul class="item-options-list">
+                                <li>Sabor: ${cartItem.sabor}</li>
+                            </ul>
+                        </li>
+                    `;
+                } 
+            
+             else {
                 const itemPrice = product.price * cartItem.quantity;
                 total += itemPrice;
                 whatsappMessage += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n`;
                 htmlSummary += `<li><strong>${cartItem.quantity}x ${product.name}</strong> - R$ ${itemPrice.toFixed(2).replace('.', ',')}</li>`;
             }
+            
         });
 
         if (validationFailed) return null;
