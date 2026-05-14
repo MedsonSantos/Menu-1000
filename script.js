@@ -215,9 +215,16 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (['cald-1', 'cald-2', 'cald-3'].includes(productId)) {
             item.acompanhamento = ''; // ✅ Mesmo padrão: string vazia
         }
-        else if(['sud-6', 'sud-7'].includes(productId)) {
+        else if(['sud-1', 'sud-2'].includes(productId)) {
             item.sabor = ''; // ✅ Mesmo padrão: string vazia
         }
+        else if (['sud-3', 'sud-4'].includes(productId)) {
+            item.preparo = ''; // ✅ Mesmo padrão: string vazia
+        }
+        else if (['sud-5', 'sud-6'].includes(productId)) {
+            item.sabor = ''; // ✅ Mesmo padrão: string vazia
+        }
+
         cart.push(item);
         updateCartDisplay();
         flashCartIcon();
@@ -370,6 +377,69 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     `;
                 }
+               
+                if (['sud-3', 'sud-4'].includes(product.id)) {
+                    const preparos = [
+                        { value: "Natural", label: "Natural" },
+                        { value: "Gelo e açúcar", label: "Gelo e açúcar" },
+                        { value: "Gelo", label: "Gelo" },
+                        { value: "Açúcar", label: "Açúcar" }
+                    ];
+                    
+                    let optionsHtmlSelect = preparos.map(opt => 
+                        `<option value="${opt.value}" ${cartItem.preparo === opt.value ? 'selected' : ''}>${opt.label}</option>`
+                    ).join('');
+
+                    optionsHtml += `
+                        <div class="input-group-inline">
+                            <label for="preparo-${index}">Preparo:</label>
+                            <select id="preparo-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="preparo">
+                                <option value="" disabled ${cartItem.preparo === '' ? 'selected' : ''}>Selecione o preparo</option>
+                                ${optionsHtmlSelect}
+                            </select>
+                        </div>
+                    `;
+                }
+                if (['sud-1'].includes(product.id)) {
+                    const sabores = [
+                        { value: "Maracujá", label: "Maracujá" },
+                        { value: "Uva", label: "Uva" }
+                    ];
+                    let optionsHtmlSelect = sabores.map(opt =>
+                        `<option value="${opt.value}" ${cartItem.sabor === opt.value ? 'selected' : ''}>${opt.label}</option>`
+                    ).join('');
+                    optionsHtml += `
+                        <div class="input-group-inline">
+                            <label for="sabor-${index}">Sabor:</label>
+                            <select id="sabor-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="sabor">
+                                <option value="" disabled ${cartItem.sabor === '' ? 'selected' : ''}>Selecione o sabor</option>
+                                ${optionsHtmlSelect}
+                            </select>
+                        </div>
+                    `;
+                }
+                if (['sud-2'].includes(product.id)) {
+                    const sabores = [
+                        { value: "Maracujá", label: "Maracujá" },
+                        { value: "Uva", label: "Uva" },
+                        { value: "Caju", label: "Caju" },
+                        { value: "Pêssego", label: "Pêssego" },
+                        { value: "Goiaba", label: "Goiaba" }
+                    ];
+                    let optionsHtmlSelect = sabores.map(opt =>
+                        `<option value="${opt.value}" ${cartItem.sabor === opt.value ? 'selected' : ''}>${opt.label}</option>`
+                    ).join('');
+                    optionsHtml += `
+                        <div class="input-group-inline">
+                            <label for="sabor-${index}">Sabor:</label>
+                            <select id="sabor-${index}" class="order-input small-select" data-cart-index="${index}" data-option-type="sabor">
+                                <option value="" disabled ${cartItem.sabor === '' ? 'selected' : ''}>Selecione o sabor</option>
+                                ${optionsHtmlSelect}
+                            </select>
+                        </div>
+                    `;
+                }
+
 
                 const div = document.createElement('div');
                 div.className = 'cart-item';
@@ -550,8 +620,55 @@ document.addEventListener('DOMContentLoaded', function() {
                             </ul>
                         </li>
                     `;
-                } 
-            
+                }
+
+              else if (['sud-3', 'sud-4'].includes(product.id)) {
+                    // Validação: exige que o preparo seja selecionado
+                    if (cartItem.preparo === '') {
+                        alert(`⚠️ Selecione o preparo para "${product.name}" (Item #${index + 1}).`);
+                        validationFailed = true;
+                        return;
+                    }
+
+                    const itemPrice = product.price * cartItem.quantity;
+                    total += itemPrice;
+                    
+                    // Mensagem para WhatsApp
+                    whatsappMessage += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n    - Preparo: ${cartItem.preparo}\n`;
+                    
+                    // Resumo HTML para o modal
+                    htmlSummary += `
+                        <li><strong>${cartItem.quantity}x ${product.name}</strong> (R$ ${itemPrice.toFixed(2).replace('.', ',')})<br>
+                            <ul class="item-options-list">
+                                <li>Preparo: ${cartItem.preparo}</li>
+                            </ul>
+                        </li>
+                    `;
+                }
+              else if (['sud-1', 'sud-2'].includes(product.id)) {
+                    // Validação: exige que o sabor seja selecionado
+                    if (cartItem.sabor === '') {
+                        alert(`⚠️ Selecione o sabor para "${product.name}" (Item #${index + 1}).`);
+                        validationFailed = true;
+                        return;
+                    }
+
+                    const itemPrice = product.price * cartItem.quantity;
+                    total += itemPrice;
+                    
+                    // Mensagem para WhatsApp
+                    whatsappMessage += `${cartItem.quantity}x ${product.name} - R$ ${itemPrice.toFixed(2).replace('.', ',')}\n    - Sabor: ${cartItem.sabor}\n`;
+                    
+                    // Resumo HTML para o modal
+                    htmlSummary += `
+                        <li><strong>${cartItem.quantity}x ${product.name}</strong> (R$ ${itemPrice.toFixed(2).replace('.', ',')})<br>
+                            <ul class="item-options-list">
+                                <li>Sabor: ${cartItem.sabor}</li>
+                            </ul>
+                        </li>
+                    `;
+                }
+                            
              else {
                 const itemPrice = product.price * cartItem.quantity;
                 total += itemPrice;
@@ -634,7 +751,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleAddButtonClick(event) {
         const id = event.target.dataset.id;
-        if (['pp-1', 'pp-2', 'pp-3', 'cald-1', 'cald-2', 'cald-3'].includes(id)) {
+        if (['pp-1', 'pp-2', 'pp-3', 'cald-1', 'cald-2', 'cald-3', 'sud-1', 'sud-2', 'sud-3', 'sud-4', 'sud-5', 'sud-6'].includes(id)) {
             addCustomizableJantinhaToCart(id);
         } else {
             addToCart(id);

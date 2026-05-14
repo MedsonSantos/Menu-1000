@@ -596,7 +596,7 @@ const products = [
         id: 'sud-1',
         category: 'BEBIDAS',
         name: 'Láfruit 1L Sabores',
-        description: '1 Litro',
+        description: 'Selecione o sabor no carrinho',
         price: 11.00,
         imageUrl: 'imagens/suco1l.png'
     },
@@ -604,7 +604,7 @@ const products = [
         id: 'sud-2',
         category: 'BEBIDAS',
         name: 'Suco 200ml Sabores',
-        description: '200ml',
+        description: 'Selecione o sabor no carrinho',
         price: 4.00,
         imageUrl: 'imagens/suco200ml.png'
     },
@@ -612,7 +612,7 @@ const products = [
         id: 'sud-3',
         category: 'BEBIDAS',
         name: 'Suco de Laranja 500ml',
-        description: '500ml',
+        description: 'Selecione o preparo no carrinho',
         price: 12.00,
         imageUrl: 'https://i.imgur.com/CQBB8k9.png' 
     },
@@ -620,7 +620,7 @@ const products = [
         id: 'sud-4',
         category: 'BEBIDAS',
         name: 'Suco de Laranja 1L',
-        description: '1 Litro',
+        description: 'Selecione o preparo no carrinho',
         price: 22.00,
         imageUrl: 'https://i.imgur.com/Jasi4nw.png' 
     },
@@ -629,7 +629,7 @@ const products = [
         id: 'sud-5',
         category: 'BEBIDAS',
         name: 'Suco Polpa Sabores 1L',
-        description: '1 Litro',
+        description: 'Selecione o sabor no carrinho',
         price: 20.00,
         imageUrl: 'imagens/breve.png'
     },
@@ -638,7 +638,7 @@ const products = [
         id: 'sud-6',
         category: 'BEBIDAS',
         name: 'Suco Polpa Sabores 500mL',
-        description: '500ml',
+        description: 'Selecione o sabor no carrinho',
         price: 10.00,
         imageUrl: 'imagens/breve.png'
     },
