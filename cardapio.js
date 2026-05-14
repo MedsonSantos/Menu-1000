@@ -426,7 +426,7 @@ const products = [
         name: 'Heineken 600ml',
         description: 'Garrafa 600ml',
         price: 16.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/ar0z6Wn.png'
     },
     {
         id: 'cev-14',
@@ -434,7 +434,7 @@ const products = [
         name: 'Antartica 600ml',
         description: 'Garrafa 600ml',
         price: 12.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/bcztYUb.png'
     },
     {
         id: 'cev-15',
@@ -442,7 +442,7 @@ const products = [
         name: 'Amstel 600ml',
         description: 'Garrafa 600ml',
         price: 12.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/kr8Z9LA.png'
     },
     {
         id: 'cev-16',
@@ -450,7 +450,7 @@ const products = [
         name: 'Original 600ml',
         description: 'Garrafa 600ml',
         price: 14.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/OWjuhuq.png'
     },
     {
         id: 'cev-17',
@@ -631,7 +631,7 @@ const products = [
         name: 'Suco Polpa Sabores 1L',
         description: 'Selecione o sabor no carrinho',
         price: 20.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/qSufhq4.png'
     },
 
      {
@@ -640,7 +640,7 @@ const products = [
         name: 'Suco Polpa Sabores 500mL',
         description: 'Selecione o sabor no carrinho',
         price: 10.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/nCwNCuy.png'
     },
     {
         id: 'sud-7',
@@ -648,7 +648,7 @@ const products = [
         name: 'Água Sem Gás 500ml',
         description: '500ml',
         price: 3.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/H7tEz4A.png'
     },
     {
         id: 'sud-8',
@@ -656,7 +656,7 @@ const products = [
         name: 'Água Com Gás 500ml',
         description: '500ml',
         price: 4.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/jNxmSjI.png'
     },
     {
         id: 'sud-9',
@@ -664,7 +664,7 @@ const products = [
         name: 'H2O Limoneto 500ml',
         description: '500ml',
         price: 8.00,
-        imageUrl: 'imagens/breve.png'
+        imageUrl: 'https://i.imgur.com/a2QYjV1.png'
     },
     {
         id: 'sud-10',
