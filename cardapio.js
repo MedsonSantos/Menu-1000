@@ -825,11 +825,11 @@ const categoriesData = [
         url: 'https://maps.app.goo.gl/zoV6bZ6LjkFXQHsu8'
     },
     {
-        name: 'FOTOS',
+        name: 'PROMOÇÃO',
         imageUrl: 'https://i.imgur.com/ExemploFotos.png',
-        lottieJsonUrl: 'iconsJSON/fotos.json',
+        lottieJsonUrl: 'iconsJSON/preo.json',
         type: 'link',
-        url: 'photos.html'
+        url: 'https://www.instagram.com/stories/jantinhanota1000/'
     }
 ];
 
