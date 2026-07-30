@@ -134,9 +134,17 @@
     "menu": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
     "cardapio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, 'Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
     "cardápio": "😋 Nosso menu completo está disponível na página principal, logo abaixo do cabeçalho. Temos categorias como 'Pratos' 🥘, 'Espetos' 🍢, 'Bebidas' 🥤 e muito mais! Prontinho para te dar água na boca! 🤤",
-    "entrega": "🚀 Fazemos entregas em toda a região! 💵 A taxa de entrega varia conforme a quilometragem sendo a mínima de R$ 4,00 e a distância máxima de 8km. Você pode verificar o valor e exato no carrinho 🛒 ao finalizar seu pedido. Chegaremos rapidinho! 💨",
-    "delivery": "🚀 Fazemos entregas em toda a região! 💵 A taxa de entrega varia conforme a quilometragem sendo a mínima de R$ 4,00 e a distância máxima de 8km. Você pode verificar o valor exato no carrinho 🛒 ao finalizar seu pedido. Chegaremos rapidinho! 💨",
-    "horário": "⏰ Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 23:30h. Te esperamos! 😉",
+    "entrega": "🚀 Fazemos entregas em toda a região! 💵 A taxa de entrega varia conforme a quilometragem (mínima de R$ 4,00 e distância máxima de 8km). Você pode verificar o valor exato no carrinho 🛒 ao finalizar. **Também estamos no 99 Food!** Chegaremos rapidinho! 💨",
+    "delivery": "🚀 Fazemos entregas em toda a região! 💵 A taxa de entrega varia conforme a quilometragem (mínima de R$ 4,00 e distância máxima de 8km). Você pode verificar o valor exato no carrinho 🛒 ao finalizar. **Também estamos no 99 Food!** Chegaremos rapidinho! 💨",
+    
+    // --- NOVAS ENTRADAS PARA 99 FOOD ---
+    "99 food": "🛵 Sim! Também fazemos entregas pelo 99 Food. Peça com segurança e rapidez pelo nosso link oficial: https://oia.99app.com/dlp9/DbGq1T?share_media=WHATSAPP 🚀",
+    "99food": "🛵 Sim! Também fazemos entregas pelo 99 Food. Peça com segurança e rapidez pelo nosso link oficial: https://oia.99app.com/dlp9/DbGq1T?share_media=WHATSAPP 🚀",
+    "entrega 99": "🛵 Claro! Você pode fazer seu pedido diretamente pelo nosso link oficial do 99 Food: https://oia.99app.com/dlp9/DbGq1T?share_media=WHATSAPP 🚀",
+    "delivery 99": "🛵 Claro! Você pode fazer seu pedido diretamente pelo nosso link oficial do 99 Food: https://oia.99app.com/dlp9/DbGq1T?share_media=WHATSAPP 🚀",
+    "pedir no 99": "🛵 Para pedir pelo 99 Food, basta acessar o nosso link oficial: https://oia.99app.com/dlp9/DbGq1T?share_media=WHATSAPP 🚀",
+    "link 99": "🛵 Aqui está o nosso link oficial para pedidos no 99 Food: https://oia.99app.com/dlp9/DbGq1T?share_media=WHATSAPP 🚀",
+
     "horario": "⏰ Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 23:30h. Te esperamos! 😉",
     "horários": "⏰ Nosso horário de funcionamento é de Terça a Domingo, das 18:00h às 23:30h. Te esperamos! 😉",
     "segunda": "❌ Estamos fechados às segundas-feiras. Mas não se preocupe, voltamos com tudo na Terça! 😉",
