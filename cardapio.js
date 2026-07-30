@@ -52,7 +52,7 @@ const products = [
         name: 'Frango com Bacon',
         description: 'Acompanhamentos não inclusos',
         price: 11.00,
-        imageUrl: 'https://i.imgur.com/9UY8Ua2.png'
+        imageUrl: 'https://i.imgur.com/LFRKjj0.png'
     },
     {
         id: 'esp-2',
