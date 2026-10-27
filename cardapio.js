@@ -8,7 +8,7 @@ const products = [
         category: 'PRATOS',
         name: 'Jantinha Completa',
         description: 'Arroz, feijão tropeiro ou de caldo, mandioca e 1 espeto a escolha <br> Opções de salada: Vinagrete, alface tomate ou salada de macarrão',
-        price: 24.00,
+        price: 26.00,
         imageUrl: 'https://i.imgur.com/7dMcMKA.png'
     },
     {
@@ -16,7 +16,7 @@ const products = [
         category: 'PRATOS',
         name: 'Jantinha Nota 1000',
         description: 'Arroz, feijão tropeiro ou de caldo, mandioca, estrogonofe, batata palha e 1 espeto a escolha <br> Opções de salada: Vinagrete, alface tomate ou salada de macarrão',
-        price: 28.00,
+        price: 30.00,
         imageUrl: 'https://i.imgur.com/qvyNsJV.png'
     },
     {
@@ -32,7 +32,7 @@ const products = [
         category: 'PRATOS',
         name: 'Jantinha de Estrogonofe',
         description: 'Estrogonofe de frango, batata palha e Arroz branco',
-        price: 24.00,
+        price: 26.00,
         imageUrl: 'https://i.imgur.com/JLCpGZ9.png'
     },
     {
@@ -40,7 +40,7 @@ const products = [
         category: 'PRATOS',
         name: 'Jantinha Kids',
         description: '(somente consumo no local) um pouco de arroz, um pouco de estrogonofe e batata palha',
-        price: 18.00,
+        price: 20.00,
         imageUrl: 'https://i.imgur.com/KA04d4m.png',
         
     },
@@ -51,7 +51,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Frango com Bacon',
         description: 'Acompanhamentos não inclusos',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/LFRKjj0.png'
     },
     {
@@ -59,7 +59,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Frango sem Bacon',
         description: 'Acompanhamentos não inclusos',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/pt0WHsW.png'
     },
     {
@@ -67,7 +67,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Contra Filé',
         description: 'Acompanhamentos não inclusos',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/YFvNxNd.png'
     },
     {
@@ -75,7 +75,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Picanha Montada',
         description: 'Acompanhamentos não inclusos',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/qnGt8F2.png'
     },
     {
@@ -83,7 +83,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Asinha',
         description: 'Acompanhamentos não inclusos',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/yKRuyzc.png'
     },
     {
@@ -99,7 +99,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Coração',
         description: 'Acompanhamentos não inclusos',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/RaVZjrn.png'
     },
     {
@@ -107,7 +107,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Coxinha da Asa',
         description: 'Acompanhamentos não inclusos',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/Cb17Q5F.png'
     },
     {
@@ -115,7 +115,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Linguiça Caipira',
         description: 'Linguiça Suína da fazenda sem pimenta (Acompanhamentos não inclusos)',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/CR0Cg9u.png'
     },
     {
@@ -123,7 +123,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Linguiça Caipira Apimentada',
         description: 'Linguiça Suína com um toque de pimenta (Acompanhamentos não inclusos)',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/YhY4hDr.png'
     },
     {
@@ -131,7 +131,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Cafta',
         description: 'Carne bovina recheada com queijo (Acompanhamentos não inclusos)',
-        price: 13.00,
+        price: 14.00,
         imageUrl: 'https://i.imgur.com/j8KuBRF.png'
     },
     {
@@ -139,7 +139,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Cafta 1000',
         description: 'Carne bovina envolta em bacon, recheada com queijo (Acompanhamentos não inclusos)',
-        price: 14.00,
+        price: 15.00,
         imageUrl: 'https://i.imgur.com/yU3Tidv.png'
 
     },
@@ -148,7 +148,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Provolone',
         description: 'Queijo provolone bola defumado no espeto, (Acompanhamentos não inclusos)',
-        price: 13.00,
+        price: 14.00,
         imageUrl: 'https://i.imgur.com/tCHtkjo.png'
     },
     {
@@ -156,7 +156,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Provolone com bacon',
         description: 'Queijo provolone bola com bacon , (Acompanhamentos não inclusos)',
-        price: 14.00,
+        price: 15.00,
         imageUrl: 'https://i.imgur.com/Xl0Bklp.png'
     
     },
@@ -165,7 +165,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Coalho',
         description: 'Queijo Coalho no espeto (Acompanhamentos não inclusos)',
-        price: 13.00,
+        price: 14.00,
         imageUrl: 'https://i.imgur.com/EF8WX8L.png'
     },
 
@@ -174,7 +174,7 @@ const products = [
         category: 'ESPETOS',
         name: 'Romeu e Julieta',
         description: 'Goiabada com Queijo e Bacon',
-        price: 13.00,
+        price: 14.00,
         imageUrl: 'https://i.imgur.com/rHzvptL.png'
     },
      //{
@@ -220,7 +220,7 @@ const products = [
         category: 'GUARNIÇÕES',
         name: 'Arroz Branco',
         description: 'Arroz soltinho e fresquinho.',
-        price: 10.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/dvC86uT.png'
     },
     {
@@ -244,7 +244,7 @@ const products = [
         category: 'GUARNIÇÕES',
         name: 'Feijão Tropeiro (P)',
         description: 'Porção de feijão tropeiro pequena, mas grande no sabor!',
-        price: 12.00,
+        price: 14.00,
         imageUrl: 'https://i.imgur.com/uCru0sw.png'
     },
     {
@@ -252,7 +252,7 @@ const products = [
         category: 'GUARNIÇÕES',
         name: 'Feijão Tropeiro (G)',
         description: 'Porção de feijão tropeiro grande, para quem quer dividir!',
-        price: 18.00,
+        price: 20.00,
         imageUrl: 'https://i.imgur.com/RB50utr.png'
     },
 
@@ -263,7 +263,7 @@ const products = [
         category: 'LANCHES',
         name: 'Pastel Frango com Queijo',
         description: '',
-        price: 14.00,
+        price: 15.00,
         imageUrl: 'https://i.imgur.com/Wf2aW4t.png'
     },
     {
@@ -271,7 +271,7 @@ const products = [
         category: 'LANCHES',
         name: 'Pastel Presunto e Queijo',
         description: '',
-        price: 14.00,
+        price: 15.00,
         imageUrl: 'https://i.imgur.com/Wf2aW4t.png'
     },
     {
@@ -279,7 +279,7 @@ const products = [
         category: 'LANCHES',
         name: 'Pastel Carne com Queijo',
         description: '',
-        price: 14.00,
+        price: 15.00,
         imageUrl: 'https://i.imgur.com/Wf2aW4t.png'
     },
     {
@@ -321,7 +321,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Amstel Lata',
         description: '350ml',
-        price: 6.00,
+        price: 7.00,
         imageUrl: 'https://i.imgur.com/Y41o2XV.png'
     },
     {
@@ -329,7 +329,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Brahma Lata',
         description: '350ml',
-        price: 6.00,
+        price: 7.00,
         imageUrl: 'https://i.imgur.com/HpS7TQ6.png'
     },
     {
@@ -337,7 +337,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Antartica Lata',
         description: '350ml',
-        price: 6.00,
+        price: 7.00,
         imageUrl: 'https://i.imgur.com/Qf2KGSg.png'
     },
     //{
@@ -365,7 +365,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'SOL Mexicana',
         description: 'Long Neck 330ml',
-        price: 9.50,
+        price: 10.50,
         imageUrl: 'https://i.imgur.com/QzlQYRq.png'
     },
     {
@@ -373,7 +373,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Stella Artois',
         description: 'Long Neck 330ml',
-        price: 10.00,
+        price: 11.00,
         imageUrl: 'https://i.imgur.com/PeHP5ct.png'
     },
         {
@@ -381,7 +381,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Budweiser',
         description: 'Long Neck 330ml',
-        price: 9.50,
+        price: 10.50,
         imageUrl: 'https://i.imgur.com/J8Xs9tS.png'
     },
 
@@ -391,7 +391,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Heineken',
         description: 'Long Neck 330ml',
-        price: 10.00,
+        price: 11.00,
         imageUrl: 'https://i.imgur.com/3VKaxol.png'
     },
     {
@@ -399,7 +399,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Heineken ZERO ÁLCOOL ',
         description: 'Long Neck ZERO 330ml',
-        price: 10.00,
+        price: 11.00,
         imageUrl: 'https://i.imgur.com/Q2AQc0t.png'
     },
     {
@@ -407,7 +407,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Corona',
         description: 'Long Neck 330ml',
-        price: 10.00,
+        price: 11.00,
         imageUrl: 'https://i.imgur.com/oTxz0yT.png'
     },
     {
@@ -415,7 +415,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Michelob Ultra',
         description: 'Long Neck 330ml',
-        price: 10.00,
+        price: 11.00,
         imageUrl: 'https://i.imgur.com/tjiMIum.png'
     },
 
@@ -433,7 +433,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Antartica 600ml',
         description: 'Garrafa 600ml',
-        price: 12.00,
+        price: 13.00,
         imageUrl: 'https://i.imgur.com/bcztYUb.png'
     },
     {
@@ -441,7 +441,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Amstel 600ml',
         description: 'Garrafa 600ml',
-        price: 12.00,
+        price: 13.00,
         imageUrl: 'https://i.imgur.com/kr8Z9LA.png'
     },
     {
@@ -449,7 +449,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Original 600ml',
         description: 'Garrafa 600ml',
-        price: 14.00,
+        price: 15.00,
         imageUrl: 'https://i.imgur.com/OWjuhuq.png'
     },
     {
@@ -457,7 +457,7 @@ const products = [
         category: 'CERVEJAS',
         name: 'Brahma 600ml',
         description: 'Garrafa 600ml',
-        price: 12.00,
+        price: 13.00,
         imageUrl: 'https://i.imgur.com/BWmpagh.png'
     }, 
 
@@ -467,7 +467,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Coca Cola Lata',
         description: 'Lata 350ml',
-        price: 6.00,
+        price: 7.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -483,7 +483,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Fanta Lata',
         description: 'Lata 350ml',
-        price: 6.00,
+        price: 7.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -491,7 +491,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Guaraná Antártica Lata',
         description: 'Lata 350ml',
-        price: 6.00,
+        price: 7.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -499,7 +499,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Sprite ou Soda Lata',
         description: 'Lata 350ml',
-        price: 6.00,
+        price: 7.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -507,7 +507,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Coca Cola 600ml',
         description: 'Garrafa 600ml',
-        price: 8.00,
+        price: 9.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -515,7 +515,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Fanta 600ml',
         description: 'Garrafa 600ml',
-        price: 8.00,
+        price: 9.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -523,7 +523,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Guaraná Antártica 600ml',
         description: 'Garrafa 600ml',
-        price: 8.00,
+        price: 9.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -531,7 +531,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Coca Cola 1L',
         description: 'Garrafa 1 Litro',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -539,7 +539,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Fanta 1L',
         description: 'Garrafa 1 Litro',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -547,7 +547,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Guaraná Antártica 1L',
         description: 'Garrafa 1 Litro',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -555,7 +555,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Coca Cola 2L',
         description: 'Garrafa 2 Litros',
-        price: 14.00,
+        price: 15.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -579,7 +579,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Guaraná Antártica 2L',
         description: 'Garrafa 2 Litros',
-        price: 13.00,
+        price: 14.00,
         imageUrl: 'imagens/breve.png'
     },
     {
@@ -587,7 +587,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Mineiro 2L',
         description: 'Garrafa 2 Litros',
-        price: 12.00,
+        price: 13.00,
         imageUrl: 'imagens/breve.png'
     },
 
@@ -597,7 +597,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Láfruit 1L Sabores',
         description: 'Selecione o sabor no carrinho',
-        price: 11.00,
+        price: 12.00,
         imageUrl: 'imagens/suco1l.png'
     },
     {
@@ -605,7 +605,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Suco 200ml Sabores',
         description: 'Selecione o sabor no carrinho',
-        price: 4.00,
+        price: 5.00,
         imageUrl: 'imagens/suco200ml.png'
     },
     {
@@ -613,7 +613,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Suco de Laranja 500ml',
         description: 'Selecione o preparo no carrinho',
-        price: 12.00,
+        price: 14.00,
         imageUrl: 'https://i.imgur.com/CQBB8k9.png' 
     },
     {
@@ -621,7 +621,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Suco de Laranja 1L',
         description: 'Selecione o preparo no carrinho',
-        price: 22.00,
+        price: 24.00,
         imageUrl: 'https://i.imgur.com/Jasi4nw.png' 
     },
     
@@ -630,7 +630,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Suco Polpa Sabores 1L',
         description: 'Selecione o sabor no carrinho',
-        price: 20.00,
+        price: 22.00,
         imageUrl: 'https://i.imgur.com/qSufhq4.png'
     },
 
@@ -639,7 +639,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Suco Polpa Sabores 500mL',
         description: 'Selecione o sabor no carrinho',
-        price: 10.00,
+        price: 12.00,
         imageUrl: 'https://i.imgur.com/nCwNCuy.png'
     },
     {
@@ -647,7 +647,7 @@ const products = [
         category: 'BEBIDAS', 
         name: 'Água Sem Gás 500ml',
         description: '500ml',
-        price: 3.00,
+        price: 4.00,
         imageUrl: 'https://i.imgur.com/H7tEz4A.png'
     },
     {
@@ -655,7 +655,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Água Com Gás 500ml',
         description: '500ml',
-        price: 4.00,
+        price: 5.00,
         imageUrl: 'https://i.imgur.com/jNxmSjI.png'
     },
     {
@@ -671,7 +671,7 @@ const products = [
         category: 'BEBIDAS',
         name: 'Energético Lata 473ml',
         description: 'Lata 473ml (Monster/Crystal Energy)',
-        price: 13.00,
+        price: 14.00,
         imageUrl: 'https://i.imgur.com/655H1vS.png' 
     },
 
@@ -682,7 +682,7 @@ const products = [
         category: 'PORÇÕES',
         name: 'Filé de Tilápia Empanado 500g',
         description: 'Filé de peixe empanado, porção de 500g',
-        price: 59.99,
+        price: 61.99,
         imageUrl: 'https://i.imgur.com/VNoKQMD.png',
     },
     {
@@ -690,7 +690,7 @@ const products = [
         category: 'PORÇÕES',
         name: 'Frango a Passarinho 1Kg',
         description: 'Porção de frango a passarinho 1kg, serve até 2 pessoas',
-        price: 39.99,
+        price: 41.99,
         imageUrl: 'https://i.imgur.com/4bKC7b3.png',
     },
     {
@@ -698,7 +698,7 @@ const products = [
         category: 'PORÇÕES',
         name: 'Batata Simples 500g',
         description: 'Porção de batata frita simples, 500g',
-        price: 26.99,
+        price: 28.99,
         imageUrl: 'https://i.imgur.com/zJpJ2gq.png/zJpJ2gq.png',
     },
     {
@@ -706,7 +706,7 @@ const products = [
         category: 'PORÇÕES',
         name: 'Batata 1000 500g',
         description: 'Porção de batata frita com cheddar e bacon, 500g',
-        price: 33.99,
+        price: 35.99,
         imageUrl: 'https://i.imgur.com/GfH9sCb.png',
     },
     {
@@ -714,7 +714,7 @@ const products = [
         category: 'PORÇÕES',
         name: 'Costelinha 1000',
         description: 'Porção de Costelinha Suína grande, acompanha mandioca',
-        price: 22.00,
+        price: 24.00,
         imageUrl: 'https://i.imgur.com/GvqqqWD.png',
     },
     {
@@ -730,7 +730,7 @@ const products = [
         category: 'PORÇÕES',
         name: 'Batata Simples 250G',
         description: 'Batata Frita 250g',
-        price: 16.99,
+        price: 18.99,
         imageUrl: 'https://i.imgur.com/QJ0znOy.png'
     },
       {
@@ -738,7 +738,7 @@ const products = [
         category: 'PORÇÕES',
         name: 'Batata 1000 250G',
         description: 'Batata frita com cheddar e bacon, 250g',
-        price: 25.99,
+        price: 27.99,
         imageUrl: 'https://i.imgur.com/x70Ex6Y.png'
     },
      {
@@ -746,7 +746,7 @@ const products = [
         category: 'PORÇÕES',
         name: 'Panceta 500g',
         description: 'Uma porção generosa de Panceta Suína com mandioca',
-        price: 30.00,
+        price: 32.00,
         imageUrl: 'https://i.imgur.com/jwCN3tw.png'
     },
 
